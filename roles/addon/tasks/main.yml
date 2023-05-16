@@ -1,0 +1,19 @@
+---
+- import_role:
+    name: webgate-files
+  when: inventory_hostname in groups['hives']
+- import_role:
+    name: ddclient
+  when:
+    - inventory_hostname in (groups['hives'] | list)
+    - credentials.ddclient[ddclient_fqdn] is defined
+- name: put build guide
+  local_action:
+    module: template
+    src: "BUILD-j2.md"
+    dest: "{{ hive_root_dir }}/docs/BUILD-{{ hive_stage }}.md"
+  tags:
+  - never
+  - build-guide
+  become: False
+  run_once: True

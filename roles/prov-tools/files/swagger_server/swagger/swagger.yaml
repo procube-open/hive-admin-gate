@@ -1,0 +1,179 @@
+openapi: 3.0.0
+info:
+  title: Staff Importer
+  description: 職員情報を取り込み ID Manager にインポートする
+  contact:
+    email: mitsuru@procube.jp
+  version: 1.0.0
+servers:
+- url: https://idm-uk.ad.kiif.local/staff-importer/v1/
+tags:
+- name: Import
+  description: インポートする
+paths:
+  /spool:
+    get:
+      tags:
+      - Import
+      summary: ファイルの一覧を取得する
+      description: ファイルの一覧を取得する
+      operationId: list_spool
+      parameters:
+      - name: HTTP_REMOTEUSER
+        in: header
+        description: IDManager にアクセスする際のユーザID。ただし、前段の WebGate で設定されるため、REST APIとして呼び出す側はこのヘッダーを設定してはならない。
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: HTTP_REMOTEGROUP
+        in: header
+        description: IDManager にアクセスする際のグループID。ただし、前段の WebGate で設定されるため、REST APIとして呼び出す側はこのヘッダーを設定してはならない。
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 正常終了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpoolList'
+      x-openapi-router-controller: swagger_server.controllers.import_controller
+  /spool/{name}:
+    post:
+      tags:
+      - Import
+      summary: ファイルをインポートする
+      description: 人給の Excel ファイルを読み込んで ID Manager にインポートする
+      operationId: import_file
+      parameters:
+      - name: name
+        in: path
+        description: ファイル名
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: action
+        in: query
+        description: ファイルに対するアクションを指定する。import を指定すると、対象となるファイルをID Manager にインポートする。summery
+          を指定するとインポートした場合に発生する変更件数をカウントして返す。
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum:
+          - import
+          - summery
+      - name: HTTP_REMOTEUSER
+        in: header
+        description: IDManager にアクセスする際のユーザID。ただし、前段の WebGate で設定されるため、REST APIとして呼び出す側はこのヘッダーを設定してはならない。
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: HTTP_REMOTEGROUP
+        in: header
+        description: IDManager にアクセスする際のグループID。ただし、前段の WebGate で設定されるため、REST APIとして呼び出す側はこのヘッダーを設定してはならない。
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 正常終了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      x-openapi-router-controller: swagger_server.controllers.import_controller
+components:
+  schemas:
+    SpoolList:
+      title: ファイルの一覧
+      type: object
+      properties:
+        result:
+          type: string
+          description: 成功時は completed 、失敗時は failed が設定される
+          enum:
+          - completed
+          - failed
+        failedData:
+          type: string
+          description: result が failed の場合のみ、エラーメッセージが設定される
+        data:
+          type: array
+          description: result が completed の場合のみファイルの一覧が設定される
+          items:
+            $ref: '#/components/schemas/FileStatus'
+      example:
+        result: completed
+        data:
+        - name: 人給データ_200310.xlsx
+          size: 24356
+          mtiem: {}
+        - name: 人給データ_200309.xlsx
+          size: 24228
+          mtiem: {}
+    FileStatus:
+      title: ファイルの属性
+      type: object
+      properties:
+        name:
+          type: string
+          description: ファイル名
+        size:
+          type: integer
+          description: ファイルサイズ(バイト数)
+        mtime:
+          type: string
+          description: 最終更新日時
+          format: date-time
+      example:
+        name: 教職員_20210310.xlsx
+        size: 24356
+        mtiem: {}
+    Result:
+      title: 実行結果
+      type: object
+      properties:
+        result:
+          type: string
+          description: 成功時は completed 、失敗時は failed が設定される
+          enum:
+          - completed
+          - failed
+        failedData:
+          type: string
+          description: result が failed の場合のみ、エラーメッセージが設定される
+        count:
+          type: integer
+          description: Excel ファイルの行数（成功時のみ）
+        targetCount:
+          type: integer
+          description: transfer テーブルの件数（成功時のみ）
+        createCount:
+          type: integer
+          description: transfer テーブルに新規追加した件数（成功時のみ）
+        firstTimeCount:
+          type: integer
+          description: transfer テーブルを初回読み込みとして更新した件数（成功時のみ）
+        updateCount:
+          type: integer
+          description: transfer テーブルを更新した件数（成功時のみ）
+        deleteCount:
+          type: integer
+          description: transfer テーブルの人給の属性を削除した件数（成功時のみ）
+      example:
+        result: failed
+        failedData: 共有フォルダ \\fs0.ad.kiif.local\spool にアクセスしようとしましたが、サーバへの接続に失敗しました
+

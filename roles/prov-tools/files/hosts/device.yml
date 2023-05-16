@@ -1,0 +1,7 @@
+---
+plugin: idm_inventory
+interface: devices
+host_name_property: deviceid
+class_name: device
+groups:
+- name: devices

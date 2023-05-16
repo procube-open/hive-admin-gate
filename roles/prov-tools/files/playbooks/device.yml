@@ -1,0 +1,50 @@
+---
+- name: Provisioning client certification to device
+  hosts: devices
+  gather_facts: False
+  serial: 1
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /root/prov/bin/python
+
+  tasks:
+  - name: Create device directory
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: root
+      group: root
+      mode: 775
+    loop:
+      - "/etc/ssl/{{ deviceid }}"
+      - "/etc/ssl/{{ deviceid }}/private"
+      - "/etc/ssl/{{ deviceid }}/csr"
+      - "/etc/ssl/{{ deviceid }}/certs"
+      - "/etc/ssl/{{ deviceid }}/packs12"
+  - name: Generate an OpenSSL private key
+    community.crypto.openssl_privatekey:
+      path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
+  - name: Generate an OpenSSL public key
+    community.crypto.openssl_csr:
+      path: "/etc/ssl/{{ deviceid }}/csr/citsidaas.csr"
+      privatekey_path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
+      common_name: dummy
+  - name: Generate an OpenSSL certificate key
+    community.crypto.x509_certificate:
+      path: "/etc/ssl/{{ deviceid }}/certs/citsidaas.cert"
+      privatekey_path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
+      csr_path: "/etc/ssl/{{ deviceid }}/csr/citsidaas.csr"
+      provider: selfsigned
+  - name: Generate PAKCS12 file
+    community.crypto.openssl_pkcs12:
+      action: export
+      path: "/etc/ssl/{{ deviceid }}/packs12/citsidaas.p12"
+      friendly_name: 'raclette'
+      privatekey_path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
+      certificate_path: "/etc/ssl/{{ deviceid }}/certs/citsidaas.cert"
+      state: present 
+  post_tasks:
+  - pause:
+      seconds: 0
+      prompt: "=== END OF TEXT OUTPUT ==="
+    

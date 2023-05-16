@@ -1,0 +1,5 @@
+---
+IdpSp:
+  tenant: tenant.yml
+clientCrt:
+  device: device.yml

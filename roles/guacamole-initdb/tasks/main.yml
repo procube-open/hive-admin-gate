@@ -1,0 +1,5 @@
+---
+- name: put initdb.sql
+  copy:
+    src: initdb.sql
+    dest: /docker-entrypoint-initdb.d/

@@ -1,0 +1,90 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+  vars_files:
+  - /var/acme/acme-vars.yml
+  vars:
+    # ansible_python_interpreter: /root/consul/bin/python
+    ansible_python_interpreter: /bin/python3
+    FQDN: "{{ inventory_hostname }}"
+  tasks:
+  - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
+    openssl_privatekey:
+      path: "/var/acme/data/{{ acme_email }}_account.key"
+    run_once: true
+  - name: make sure letsencrypt account
+    acme_account:
+      account_key_src: "/var/acme/data/{{ acme_email }}_account.key"
+      state: present
+      terms_agreed: yes
+      contact:
+      - "mailto:{{ acme_email }}"
+      acme_version: 2
+      acme_directory: "{{ acme_directory }}"
+    run_once: true
+  - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
+    openssl_privatekey:
+      path: "/var/acme/data/{{ inventory_hostname }}_server.key"
+  - name: Generate an OpenSSL Certificate Signing Request
+    community.crypto.openssl_csr:
+      path: "/var/acme/data/{{ inventory_hostname }}.csr"
+      privatekey_path: "/var/acme/data/{{ inventory_hostname }}_server.key"
+      country_name: "{{ acme_country_name | default(omit)}}"
+      organization_name: "{{ acme_organization_name | default(omit)}}"
+      organizational_unit_name: "{{ acme_organizational_unit_name | default(omit)}}"
+      subject_alt_name: "DNS:{{ inventory_hostname }}"
+      common_name: "{{ inventory_hostname }}"
+  - name: Create a challenge for inventory_hostname using a account key file.
+    acme_certificate:
+      account_key_src: "/var/acme/data/{{ acme_email }}_account.key"
+      account_email: "{{ acme_email }}"
+      src: "/var/acme/data/{{ inventory_hostname }}.csr"
+      cert: "/var/acme/data/{{ inventory_hostname }}.crt"
+      challenge: dns-01
+      # Renew if the certificate is at least 31 days old
+      remaining_days: 31
+      acme_version: 2
+      acme_directory: "{{ acme_directory }}"
+    register: letsencrypt_challenge
+  - debug: var=letsencrypt_challenge
+  - name: Register challenge data to powerdns
+    powerdns_record:
+      zone: "{{ inventory_hostname   | regex_replace('^[^.]*\\.(.*)$', '\\1') }}"
+      type: TXT
+      name: "{{ letsencrypt_challenge.challenge_data[FQDN]['dns-01'].record }}"
+      ttl: 60
+      pdns_host: powerdns
+      pdns_api_key: "{{ pdns_api_key }}"
+      content: "{{ letsencrypt_challenge.challenge_data[FQDN]['dns-01'].resource_value | regex_replace('^(.*)$', '\"\\1\"') }}"
+    when: letsencrypt_challenge is changed
+    register: register_challenge_result
+    until: not register_challenge_result.failed
+    retries: 3
+  - name: Let the challenge be validated and retrieve the cert and intermediate certificate
+    acme_certificate:
+      account_key_src: "/var/acme/data/{{ acme_email }}_account.key"
+      account_email: "{{ acme_email }}"
+      src: "/var/acme/data/{{ inventory_hostname }}.csr"
+      cert: "/var/acme/data/{{ inventory_hostname }}.crt"
+      fullchain: "/var/acme/data/{{ inventory_hostname }}-fullchain.crt"
+      chain: "/var/acme/data/{{ inventory_hostname }}-intermediate.crt"
+      challenge: dns-01
+      data: "{{ letsencrypt_challenge }}"
+      # Renew if the certificate is at least 31 days old
+      remaining_days: 31
+      acme_version: 2
+      acme_directory: "{{ acme_directory }}"
+    when: letsencrypt_challenge is changed
+  - name: setup certificate json
+    set_fact:
+      certificate_json:
+        fqdn: "{{ inventory_hostname }}"
+        # this is intentional spelling miss to match WG2
+        cerificate: "{{ lookup('file', '/var/acme/data/' + inventory_hostname + '-fullchain.crt') }}"
+        privateKey: "{{ lookup('file', '/var/acme/data/' + inventory_hostname + '_server.key') }}"
+  - name: inject certificate into consul
+    consul_kv:
+      key: "certificates/{{ inventory_hostname }}"
+      value: "{{ certificate_json | to_json }}"
+    # when: letsencrypt_challenge is changed

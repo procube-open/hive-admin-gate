@@ -1,0 +1,72 @@
+---
+plugin: hive_services
+services:
+  guacamole:
+    image:
+      from: procube/guacamole
+      roles:
+      - guacamole
+    environment:
+      GUACD_HOSTNAME: guacd
+      POSTGRES_DATABASE: guacamole_db
+      POSTGRES_HOSTNAME: postgres
+      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_USER: guacamole_user
+      GUACAMOLE_HOME: /opt/guacamole/
+    volumes:
+    - source: guacamole-drives
+      target: /var/lib/guacamole/drives
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 300M
+    - source: recordings
+      target: /var/lib/guacamole/recordings
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 300M
+    user: root
+    labels:
+      webgate:
+        authentication: saml
+        proxies:
+        - target_port: 8080
+    endpoint_mode: dnsrr
+  guacd:
+    image: guacamole/guacd
+    volumes:
+    - source: guacamole-drives
+      target: /var/lib/guacamole/drives
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 300M
+    - source: guacamole-recordings
+      target: /var/lib/guacamole/recordings
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 300M
+    endpoint_mode: dnsrr
+  postgres:
+    image:
+      from: postgres:15.2-alpine
+      roles:
+      - python-aptk
+      - guacamole-initdb
+    environment:
+      PGDATA: /var/lib/postgresql/data/guacamole
+      POSTGRES_DB: guacamole_db
+      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_USER: guacamole_user
+    volumes:
+    - source: guacamole-db
+      target: /var/lib/postgresql/data
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 5G
+    endpoint_mode: dnsrr
+  chrome:
+    image: siomiz/chrome:latest
