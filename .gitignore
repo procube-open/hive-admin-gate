@@ -1,0 +1,10 @@
+credentials.yml
+*.retry
+*.log
+.hive
+.python-version
+._*
+.dccache
+__pycache__
+.vscode
+gcp_credential.json
