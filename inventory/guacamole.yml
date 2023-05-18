@@ -28,6 +28,7 @@ services:
         size: 300M
     user: root
     labels:
+      published_name: guacamole
       webgate:
         authentication: saml
         proxies:
