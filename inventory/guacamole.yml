@@ -32,6 +32,8 @@ services:
         authentication: saml
         proxies:
         - target_port: 8080
+          pathPattern: /guacamole
+          useWebSocket: true 
     endpoint_mode: dnsrr
   guacd:
     image: guacamole/guacd
@@ -69,4 +71,34 @@ services:
         size: 5G
     endpoint_mode: dnsrr
   chrome:
-    image: siomiz/chrome:latest
+    image: procube/node-chrome
+    volumes:
+    - source: guacamole-chrome
+      target: /dev/shm
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 300M
+    environment:
+      - USERNAME: guacamole_user
+      - PASSWORD: tNpaYnkuPh6z
+  file-server:
+    image: procube/file-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    labels:
+      published_name: guacamole
+      webgate:
+        authentication: saml
+        proxies:
+        - target_port: 8081
+          pathPattern: /file-server
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: files_db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017

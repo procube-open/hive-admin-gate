@@ -613,6 +613,25 @@ is_tables_data:
             disabled=\"true\">\n    </panel>\n</widgets>"
         widgetsLastmodified: '-'
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n        <div style=\"margin-bottom:
+            8px\">\n                <div id=\"w_1_sandboxGadgetEditor\" class=\"static_column\"></div>\n
+            \       </div>\n</div>"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10002'
+        temp: "\x01"
+        templastmodified: '2023-06-13T09:59:32'
+        widgets: "<widgets tabId=\"10002\" tabName=\"ガジェット編集\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_sandboxGadgetEditor\" column=\"1\" title=\"ガジェット編集\"
+            type=\"g_upload___sandboxGadgetEditor/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>"
+        widgetsLastmodified: '-'
+        workingUid: IDM_ADMIN
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
@@ -630,6 +649,23 @@ is_tables_data:
             disabled=\"true\">\n    </panel>\n</widgets>"
         widgetsLastmodified: '-'
         workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10002'
+        temp: "\x01"
+        templastmodified: '2023-06-13T09:59:32'
+        widgets: "<widgets tabId=\"10002\" tabName=\"ガジェット編集\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_sandboxGadgetEditor\" column=\"1\" title=\"ガジェット編集\"
+            type=\"g_upload___sandboxGadgetEditor/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>"
+        widgetsLastmodified: '-'
+        workingUid: IDM_ADMIN
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n        <div style=\"margin-bottom:
             8px\">\n                <div id=\"w_1_sandboxInterfaceEditor\" class=\"static_column\"></div>\n
@@ -829,6 +865,25 @@ is_tables_data:
             \   </panel>\n</widgets>"
         widgetsLastmodified: '-'
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n        <div style=\"margin-bottom:
+            8px\">\n                <div id=\"w_1_sequenceEditor\" class=\"static_column\"></div>\n
+            \       </div>\n</div>"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10008'
+        temp: "\x01"
+        templastmodified: '2023-06-12T09:57:02'
+        widgets: "<widgets tabId=\"10008\" tabName=\"インポートシーケンス編集\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_sequenceEditor\" column=\"1\" title=\"インポートシーケンス編集\"
+            type=\"g_upload___sequenceEditor/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>"
+        widgetsLastmodified: '-'
+        workingUid: IDM_ADMIN
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
@@ -846,6 +901,23 @@ is_tables_data:
             \   </panel>\n</widgets>"
         widgetsLastmodified: '-'
         workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10008'
+        temp: "\x01"
+        templastmodified: '2023-06-12T09:57:02'
+        widgets: "<widgets tabId=\"10008\" tabName=\"インポートシーケンス編集\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_sequenceEditor\" column=\"1\" title=\"インポートシーケンス編集\"
+            type=\"g_upload___sequenceEditor/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>"
+        widgetsLastmodified: '-'
+        workingUid: IDM_ADMIN
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n        <div style=\"margin-bottom:
             8px\">\n                <div id=\"w_1_sandboxUpdateBatchEditor\" class=\"static_column\"></div>\n
@@ -865,6 +937,25 @@ is_tables_data:
             disabled=\"true\">\n    </panel>\n</widgets>"
         widgetsLastmodified: '-'
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n        <div style=\"margin-bottom:
+            8px\">\n                <div id=\"w_1_sandboxUpdateBatchEditor\" class=\"static_column\"></div>\n
+            \       </div>\n</div>"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10009'
+        temp: "\x01"
+        templastmodified: '2023-06-12T14:43:47'
+        widgets: "<widgets tabId=\"10009\" tabName=\"自動更新バッチ編集\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_sandboxUpdateBatchEditor\" column=\"1\" title=\"自動更新バッチ編集\"
+            type=\"g_upload___sandboxUpdateBatchEditor/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>"
+        widgetsLastmodified: '-'
+        workingUid: IDM_ADMIN
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
@@ -882,6 +973,23 @@ is_tables_data:
             disabled=\"true\">\n    </panel>\n</widgets>"
         widgetsLastmodified: '-'
         workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10009'
+        temp: "\x01"
+        templastmodified: '2023-06-12T14:43:47'
+        widgets: "<widgets tabId=\"10009\" tabName=\"自動更新バッチ編集\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_sandboxUpdateBatchEditor\" column=\"1\" title=\"自動更新バッチ編集\"
+            type=\"g_upload___sandboxUpdateBatchEditor/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>"
+        widgetsLastmodified: '-'
+        workingUid: IDM_ADMIN
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n        <div style=\"margin-bottom:
             8px\">\n                <div id=\"w_1_openLdapDbSettingEditor\" class=\"static_column\"></div>\n
@@ -1258,7 +1366,7 @@ is_tables_data:
         rolename: 全権管理者
         tabId: '10100'
         temp: "\0"
-        templastmodified: '2022-11-15T10:28:57'
+        templastmodified: '2023-06-13T10:00:48'
         widgets: '<widgets tabId="10100" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
@@ -1286,7 +1394,7 @@ is_tables_data:
         rolename: defaultRole
         tabId: '10100'
         temp: "\0"
-        templastmodified: '2022-11-15T10:28:57'
+        templastmodified: '2023-06-13T10:00:48'
         widgets: '<widgets tabId="10100" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
@@ -1322,7 +1430,7 @@ is_tables_data:
         rolename: 全権管理者
         tabId: '10101'
         temp: "\0"
-        templastmodified: '2022-11-15T01:18:35'
+        templastmodified: '2023-06-13T10:01:10'
         widgets: '<widgets tabId="10101" tabName="LDAP汎用オブジェクト編集ガジェット" tabType="static"
             columnsWidth="[&quot;100%&quot;]" numCol="1">
 
@@ -1350,7 +1458,7 @@ is_tables_data:
         rolename: defaultRole
         tabId: '10101'
         temp: "\0"
-        templastmodified: '2022-11-15T01:18:35'
+        templastmodified: '2023-06-13T10:01:10'
         widgets: '<widgets tabId="10101" tabName="LDAP汎用オブジェクト編集ガジェット" tabType="static"
             columnsWidth="[&quot;100%&quot;]" numCol="1">
 
@@ -1370,6 +1478,175 @@ is_tables_data:
             </widgets>'
         widgetsLastmodified: '20221115011835709'
         workingUid: IDM_ADMIN
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10106'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:34:22'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10106'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:34:22'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_user_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10108'
+        temp: "\0"
+        templastmodified: '2023-05-25T13:04:08'
+        widgets: "<widgets tabId=\"10108\" tabName=\"ユーザー管理\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_user_g\"
+            column=\"1\" title=\"ユーザー管理\" type=\"g_upload__user_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10108'
+        temp: "\0"
+        templastmodified: '2023-05-25T13:04:09'
+        widgets: "<widgets tabId=\"10108\" tabName=\"ユーザー管理\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_user_g\"
+            column=\"1\" title=\"ユーザー管理\" type=\"g_upload__user_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_user_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2023-05-25T15:55:23'
+        widgets: "<widgets tabId=\"10109\" tabName=\"利用者ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_user_g\" column=\"1\" title=\"利用者ガジェット\" type=\"g_upload__user_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2023-05-25T15:55:23'
+        widgets: "<widgets tabId=\"10109\" tabName=\"利用者ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_user_g\" column=\"1\" title=\"利用者ガジェット\" type=\"g_upload__user_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_userEditor\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10110'
+        temp: "\0"
+        templastmodified: '2023-05-25T15:55:48'
+        widgets: "<widgets tabId=\"10110\" tabName=\"userEditor\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_userEditor\" column=\"1\" title=\"userEditor\"
+            type=\"g_upload__userEditor/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10110'
+        temp: "\0"
+        templastmodified: '2023-05-25T15:55:48'
+        widgets: "<widgets tabId=\"10110\" tabName=\"userEditor\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_userEditor\" column=\"1\" title=\"userEditor\"
+            type=\"g_upload__userEditor/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
     -   defaultUid: '999'
         layout: '<table width="100%" cellspacing="0" cellpadding="0">
 
@@ -1727,7 +2004,7 @@ is_tables_data:
         rolename: コンタクトセンター
         tabId: header
         temp: "\x01"
-        templastmodified: '2022-11-15T12:02:33'
+        templastmodified: '2023-06-13T09:55:59'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
@@ -1942,30 +2219,6 @@ is_tables_data:
             <span class="showJa">ユーザ管理</span>
 
             <span class="showEn">Users</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10104">
-
-            <span class="showJa">テナント管理</span>
-
-            <span class="showEn">Tenants</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10103">
-
-            <span class="showJa">デバイス管理</span>
-
-            <span class="showEn">Tenants</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10105">
-
-            <span class="showJa">テナント別ユーザ管理</span>
-
-            <span class="showEn">UsersOnTenant</span>
 
             </div>
 
@@ -2212,30 +2465,6 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10104">
-
-            <span class="showJa">テナント管理</span>
-
-            <span class="showEn">Tenants</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10103">
-
-            <span class="showJa">デバイス管理</span>
-
-            <span class="showEn">Tenants</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10105">
-
-            <span class="showJa">テナント別ユーザ管理</span>
-
-            <span class="showEn">UsersOnTenant</span>
-
-            </div>
-
             <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">LDAP汎用オブジェクト編集</span>
@@ -2261,7 +2490,7 @@ is_tables_data:
         rolename: 全権管理者
         tabId: header
         temp: "\x01"
-        templastmodified: '2022-11-15T12:02:33'
+        templastmodified: '2023-06-13T09:55:59'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
@@ -2305,7 +2534,7 @@ is_tables_data:
         rolename: defaultRole
         tabId: header
         temp: "\x01"
-        templastmodified: '2022-11-15T12:02:33'
+        templastmodified: '2023-06-13T09:55:59'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
@@ -2433,6 +2662,85 @@ phases_data:
                 type: number
                 unique: false
                 uniqueIgnoreCase: false
+        -   displayName: 接続先
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: name
+            name: connection
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: 接続先名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 接続機器
+                isArray: false
+                name: machine
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumMachineIF
+            -   allowAnotherValue: false
+                displayName: プロトコル
+                isArray: false
+                name: protocol
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   displayName: SSH
+                    value: PROTOCOL_SSH
+                -   displayName: RDP
+                    value: PROTOCOL_RDP
+                -   displayName: ダウンロード
+                    value: PROTOCOL_DOWNLOAD
+                -   displayName: アップロード
+                    value: PROTOCOL_UPLOAD
+            -   allowAnotherValue: false
+                displayName: ポート
+                isArray: false
+                name: port
+                outputLdapSchema: false
+                required: true
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
+        -   displayName: 接続先グループ
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: name
+            name: connectionGroup
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: 接続先グループ名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 接続先一覧
+                isArray: false
+                name: connections
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumConnectionIF
         -   description: デバイスのクラス
             displayName: デバイス
             isNestedObject: false
@@ -2538,6 +2846,41 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
+        -   displayName: 機器
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: name
+            name: machine
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: 機器名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: ホスト名
+                isArray: false
+                name: hostname
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 接続先一覧
+                isArray: false
+                name: connections
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumConnectionIF
         -   displayName: SAML属性定義
             isNestedObject: true
             isPrimaryAndNestedObject: false
@@ -2693,126 +3036,6 @@ phases_data:
                 type: boolean
                 unique: false
                 uniqueIgnoreCase: false
-        -   description: IDaaS におけるテナント
-            displayName: テナント
-            isNestedObject: false
-            isPrimaryAndNestedObject: false
-            keyProperty: tenantid
-            name: tenant
-            outputLdapSchema: false
-            propertyDefinitionList:
-            -   allowAnotherValue: false
-                description: IDaaSのテナントのID
-                displayName: テナントID
-                isArray: false
-                name: tenantid
-                outputLdapSchema: true
-                required: false
-                stringRestriction: systemid
-                type: string
-                unique: true
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: テナントの表示名
-                displayName: テナント表示名
-                isArray: false
-                name: displayName
-                outputLdapSchema: false
-                required: false
-                type: string
-                unique: true
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: 二要素認証を使用するかパスワードのみの認証とするかを選択する
-                displayName: 認証方式
-                isArray: false
-                name: authMethod
-                outputLdapSchema: false
-                required: true
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
-                values:
-                -   displayName: パスワード
-                    value: Password
-                -   displayName: OTP二要素認証
-                    value: MFA
-            -   allowAnotherValue: false
-                description: セッションの最大時間を時間時間を単位として指定する。例えば 8 を指定すると、8時間を経過すると通信がある状態でも一旦ログアウトする。
-                displayName: セッション最長時間
-                isArray: false
-                name: lifetime
-                outputLdapSchema: false
-                required: true
-                type: number
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: 時間通信がない状態で指定した時間が経過するとログアウトする。たとえば、8を指定すると8時間ログインがない状態が持続するとログアウトする。SPへのアクセスでは
-                    IdP への通信は発生しないことを考慮して設定する必要がある。
-                displayName: 無通信タイムアウト
-                isArray: false
-                name: inactivity
-                outputLdapSchema: false
-                required: true
-                type: number
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: ログイン状態を維持する機能を使用するかどうかを指定する。スマホによるOTP二要素認証を使用する場合など、ログイン手順が利用者の負担となる場合にこれをチェックすることで毎日スマホからOTPを転記する負担を軽減できる。
-                displayName: ログイン状態維持
-                isArray: false
-                name: usePeriodic
-                outputLdapSchema: false
-                required: false
-                type: boolean
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: ログイン状態を維持する日数を指定する。たとえば、7を指定すると、ブラウザを無通信タイムアウトでセッションが切れても一週間ログイン状態が維持される。
-                displayName: ログイン状態維持日数
-                isArray: false
-                name: daysForExpire
-                outputLdapSchema: false
-                propGroupName:
-                - usePeriodic#true
-                required: false
-                type: number
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                className: samlsp
-                description: SAML SP のリスト
-                displayName: SAML SP リスト
-                isArray: false
-                name: saml_sps
-                outputLdapSchema: false
-                required: false
-                type: object
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                className: samlattr
-                description: SAML属性定義のリスト
-                displayName: SAML属性定義リスト
-                isArray: false
-                name: saml_attrs
-                outputLdapSchema: false
-                required: false
-                type: object
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                className: samlnameid
-                description: SAML NameIDのリスト
-                displayName: SAML NameIDリスト
-                isArray: false
-                name: saml_nameids
-                outputLdapSchema: false
-                required: false
-                type: object
-                unique: false
-                uniqueIgnoreCase: false
         -   description: システムの利用者のクラス
             displayName: 利用者
             isNestedObject: false
@@ -2822,17 +3045,6 @@ phases_data:
             name: user
             outputLdapSchema: true
             propertyDefinitionList:
-            -   allowAnotherValue: false
-                description: ' IDaaS のテナントのID'
-                displayName: テナントID
-                isArray: false
-                name: tenantid
-                outputLdapSchema: true
-                required: false
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
-                valuesEx: getResource("/IDManager/enumTenantsIF")
             -   allowAnotherValue: false
                 description: ユーザを識別する一意の ID
                 displayName: ユーザID
@@ -2873,11 +3085,9 @@ phases_data:
                 values:
                 -   displayName: 全権管理者
                     value: IDM_ADMIN
-                -   displayName: コンタクトセンター
-                    value: IDM_CONTACT
-                -   displayName: エンドユーザー管理者
+                -   displayName: 管理者
                     value: IDM_USER_ADMIN
-                -   displayName: 一般利用者
+                -   displayName: 利用者
                     value: IDM_USER
             -   allowAnotherValue: false
                 description: "\tユーザのパスワード"
@@ -2907,36 +3117,6 @@ phases_data:
                 displayName: アカウント無効化
                 isArray: false
                 name: accountLock
-                outputLdapSchema: true
-                required: false
-                type: boolean
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: 最後にパスワード変更サーブレットからパスワードを変更した日時
-                displayName: パスワード変更日時
-                isArray: false
-                name: passwdChangedDatetime
-                outputLdapSchema: true
-                required: false
-                type: datetime
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: この日をこえてログインするとパスワード変更が強要される
-                displayName: パスワード有効期限
-                isArray: false
-                name: expireDate
-                outputLdapSchema: true
-                required: false
-                type: date
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: パスワードが変更されるべき状態であることを示すフラグ
-                displayName: パスワード変更要求フラグ
-                isArray: false
-                name: toBeChanged
                 outputLdapSchema: true
                 required: false
                 type: boolean
@@ -2987,13 +3167,96 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-            validation:
-            -   descriptionEx: (this().idmRole != "IDM_ADMIN" && this().idmRole !=
-                    "IDM_CONTACT") ? ((this().tenantid != "" && this().tenantid !=
-                    null) ? "":"指定した権限ではテナントIDは必須入力です"):""
-                isWarning: false
-                validateEx: (this().idmRole != "IDM_ADMIN" && this().idmRole != "IDM_CONTACT")
-                    ? ((this().tenantid != "" && this().tenantid != null) ? true:false):true
+        -   description: "利用者グループを設定します。\r\n作業に対して特定のメンバーを一括で登録したい際に利用できます。"
+            displayName: 利用者グループ
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: name
+            name: userGroups
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                description: 利用者グループのグループ名を入力してください。
+                displayName: グループ名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 利用者一覧
+                isArray: true
+                name: users
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumUserIF
+        -   displayName: 作業
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: id
+            name: work
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: 業務ID
+                isArray: false
+                name: id
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 業務名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 開始日時
+                isArray: false
+                name: startDatetime
+                outputLdapSchema: false
+                required: true
+                type: datetime
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 終了日時
+                isArray: false
+                name: endDatetime
+                outputLdapSchema: false
+                required: false
+                type: datetime
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 承認者
+                isArray: false
+                name: approvedUser
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumUserIF
+            -   allowAnotherValue: false
+                displayName: 承認日時
+                isArray: false
+                name: approvedDatetime
+                outputLdapSchema: false
+                required: false
+                type: datetime
+                unique: false
+                uniqueIgnoreCase: false
         _sandboxGadgets:
         -   autoCommit: false
             backToDetail: false
@@ -3016,94 +3279,47 @@ phases_data:
             withHeader: true
         -   autoCommit: false
             backToDetail: false
-            className: device
+            className: connection
             clonable: false
-            description: IDaaS管理者向けデバイス管理用ガジェット
             disableAdd: false
             disableDelete: false
             disableMultiDelete: false
             disableSuspension: false
             disableUpdate: false
-            displayName: デバイス管理
+            displayName: 接続先ガジェット
             downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: true
-            interfaceName: devices
+            downloadUpdateFormatCSV: false
+            interfaceName: enumConnectionIF
             isSingleton: false
-            name: devices_g
-            propertiesOnDetail:
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: macaddr
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: uid
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: deviceid
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                dateSeparator: /
-                defaultValueEx: datetime.date.today().strftime('%Y/%m/%d')
-                disableUpdate: true
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: registrationDate
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: date
-            -   className: ''
-                disableUpdate: true
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: small
-                name: status
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: notificationEmailAddr
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
+            name: connection_g
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
+            className: machine
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 機器ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: enumMachineIF
+            isSingleton: false
+            name: machine_g
             propertiesOnList:
             -   displayOnList: 'on'
-                listUIWidth: 120
-                name: deviceid
-            -   displayOnList: defaultOn
-                listUIWidth: 240
-                name: uid
+                name: name
             -   displayOnList: 'on'
-                listUIWidth: 120
-                name: macaddr
+                name: hostname
+            -   displayOnList: 'off'
+                name: connections
             showHistory: false
-            uploadCSV: true
+            uploadCSV: false
             useDisplayNameHeader: false
             withHeader: true
         -   autoCommit: false
@@ -3144,499 +3360,50 @@ phases_data:
             withHeader: false
         -   autoCommit: false
             backToDetail: false
-            className: tenant
+            className: user
             clonable: false
-            description: コンタクトセンター向けテナント管理用ガジェット
             disableAdd: false
             disableDelete: false
             disableMultiDelete: false
             disableSuspension: false
             disableUpdate: false
-            displayName: テナント管理
-            downloadDisplayFormatCSV: true
+            downloadDisplayFormatCSV: false
             downloadUpdateFormatCSV: false
-            interfaceName: tenants
+            interfaceName: userEditorInterface
             isSingleton: false
-            name: tenantEditor
-            propertiesOnDetail:
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: tenantid
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: displayName
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: amid
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: authMethod
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: lifetime
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: number
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: inactivity
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: number
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: usePeriodic
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: boolean
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: daysForExpire
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: number
-            -   className: samlsp
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: saml_sps
-                propertiesOnDetail:
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: published_name
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    inputUIWidth: tall
-                    name: metadata
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: service_url
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: saml_attrs_for_delivery
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: encryptAssertions
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: boolean
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: signResponses
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: boolean
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: signAssertions
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: boolean
-                propertiesOnList:
-                -   displayOnList: 'on'
-                    name: published_name
-                -   displayOnList: 'on'
-                    name: service_url
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: object
-            -   className: samlattr
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: saml_attrs
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: object
-            -   className: samlnameid
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: saml_nameids
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: object
-            propertiesOnList:
-            -   displayOnList: 'on'
-                listUIWidth: 120
-                name: tenantid
-            -   displayOnList: defaultOn
-                listUIWidth: 240
-                name: displayName
-            -   displayOnList: 'on'
-                listUIWidth: 120
-                name: amid
-            -   displayOnList: defaultOn
-                listUIWidth: 200
-                name: authMethod
+            name: userEditor
             showHistory: false
             uploadCSV: false
             useDisplayNameHeader: false
             withHeader: true
         -   autoCommit: false
             backToDetail: false
-            className: tenant
+            className: user
             clonable: false
-            description: IDaaS管理者向けテナント管理用ガジェット
             disableAdd: false
             disableDelete: false
             disableMultiDelete: false
             disableSuspension: false
             disableUpdate: false
-            displayName: テナント管理
+            displayName: 利用者ガジェット
             downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: true
-            interfaceName: tenants
+            downloadUpdateFormatCSV: false
+            interfaceName: enumUserIF
             isSingleton: false
-            name: tenants_g
-            propertiesOnDetail:
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: tenantid
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: displayName
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                inputUIWidth: medium
-                name: amid
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: authMethod
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: lifetime
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: number
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: inactivity
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: number
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: usePeriodic
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: boolean
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: daysForExpire
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: number
-            -   className: samlsp
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: saml_sps
-                propertiesOnDetail:
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: published_name
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    inputUIWidth: tall
-                    name: metadata
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: service_url
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: saml_attrs_for_delivery
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: string
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: encryptAssertions
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: boolean
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: signResponses
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: boolean
-                -   className: ''
-                    disableUpdate: false
-                    hideOnEdit: false
-                    hideOnShow: false
-                    incrementalSearchFlag: false
-                    name: signAssertions
-                    radioButtonFlag: false
-                    twoColumnFlag: false
-                    type: boolean
-                propertiesOnList:
-                -   displayOnList: 'on'
-                    name: published_name
-                -   displayOnList: defaultOn
-                    name: service_url
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: object
-            -   className: samlattr
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: saml_attrs
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: object
-            -   className: samlnameid
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: saml_nameids
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: object
+            name: user_g
             propertiesOnList:
             -   displayOnList: 'on'
-                listUIWidth: 120
-                name: tenantid
-            -   displayOnList: defaultOn
-                listUIWidth: 240
-                name: displayName
-            -   displayOnList: 'on'
-                listUIWidth: 120
-                name: amid
-            -   displayOnList: defaultOn
-                listUIWidth: 200
-                name: authMethod
-            showHistory: false
-            uploadCSV: true
-            useDisplayNameHeader: false
-            withHeader: true
-        -   autoCommit: true
-            backToDetail: false
-            className: user
-            clonable: false
-            description: ユーザ情報を編集するガジェット
-            disableAdd: false
-            disableDelete: false
-            disableMultiDelete: false
-            disableSuspension: false
-            disableUpdate: false
-            displayName: ユーザ情報編集ガジェット
-            downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: true
-            interfaceName: userEditorInterface
-            isSingleton: false
-            name: userEditor
-            propertiesOnList:
-            -   displayOnList: 'on'
-                listUIWidth: 200
                 name: uid
             -   displayOnList: defaultOn
-                listUIWidth: 250
                 name: cn
             -   displayOnList: defaultOn
-                listUIWidth: 200
                 name: idmRole
-            -   displayOnList: defaultOn
-                name: data1
-            -   displayOnList: defaultOn
-                name: data2
-            -   displayOnList: defaultOn
-                name: data3
-            -   displayOnList: defaultOn
-                name: data4
-            -   displayOnList: defaultOn
-                name: data5
+            -   displayOnList: 'off'
+                name: userPassword
+            -   displayOnList: 'off'
+                name: dn
             showHistory: false
-            uploadCSV: true
-            useDisplayNameHeader: false
-            withHeader: true
-        -   argumentEx: getResource("/IDManager/enumTenantsIF")
-            argumentTitle: テナントID
-            autoCommit: false
-            backToDetail: false
-            className: user
-            clonable: false
-            description: テナントごとのユーザ管理用ガジェット
-            disableAdd: true
-            disableDelete: true
-            disableMultiDelete: true
-            disableSuspension: false
-            disableUpdate: true
-            displayName: テナント別ユーザ編集
-            downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: true
-            interfaceName: usersOnTenantIF
-            isSingleton: false
-            name: usersOnTenantEditor
-            propertiesOnList:
-            -   displayOnList: 'on'
-                listUIWidth: 80
-                name: tenantid
-            -   displayOnList: 'on'
-                listUIWidth: 200
-                name: uid
-            -   displayOnList: defaultOn
-                listUIWidth: 240
-                name: cn
-            -   displayOnList: defaultOn
-                listUIWidth: 120
-                name: idmRole
-            -   displayOnList: defaultOn
-                name: data1
-            -   displayOnList: defaultOn
-                name: data2
-            -   displayOnList: defaultOn
-                name: data3
-            -   displayOnList: defaultOn
-                name: data4
-            -   displayOnList: defaultOn
-                name: data5
-            showHistory: false
-            uploadCSV: true
+            uploadCSV: false
             useDisplayNameHeader: false
             withHeader: true
         _sandboxInterfaces:
@@ -3707,58 +3474,36 @@ phases_data:
                 sourceProperty: userPassword
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   ACEs:
-            -   allow: true
-                matching:
-                -   type: GROUP
-                    useArgument: false
-                    values:
-                    - IDM_ADMIN
-                    - IDM_CONTACT
-            accessLevel: full
-            className: device
-            database: Sandbox
+        -   accessLevel: readOnly
+            className: connectionGroup
+            database: Repository
             deleteAsUpdate: false
-            description: デバイス管理用インタフェース
-            displayName: デバイス管理
-            name: devices
+            displayName: 接続先グループ列挙IF
+            name: enumConnectionGroupIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   ACEs:
-            -   allow: true
-                matching:
-                -   type: GROUP
-                    useArgument: false
-                    values:
-                    - IDM_ADMIN
-                    - IDM_CONTACT
-            accessLevel: readOnly
-            className: device
-            database: Sandbox
+        -   accessLevel: readOnly
+            className: connection
+            database: Repository
             deleteAsUpdate: false
-            description: デバイスを列挙するインタフェース
-            displayName: デバイス列挙IF
-            name: enumDeviceIF
+            displayName: 接続先列挙IF
+            name: enumConnectionIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   ACEs:
-            -   allow: true
-                matching:
-                -   type: GROUP
-                    useArgument: false
-                    values:
-                    - IDM_ADMIN
-                    - IDM_CONTACT
-            accessLevel: readOnly
-            className: tenant
-            database: Master
+        -   accessLevel: readOnly
+            className: machine
+            database: Repository
             deleteAsUpdate: false
-            description: テナントを列挙するインタフェース
-            displayName: テナント列挙IF
-            name: enumTenantsIF
-            propertyNameMapping:
-            -   destinationProperty: value
-                sourceProperty: tenantid
+            displayName: 機器列挙IF
+            name: enumMachineIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: userGroups
+            database: Repository
+            deleteAsUpdate: false
+            displayName: 利用者グループ列挙IF
+            name: enumUserGroupIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   ACEs:
@@ -3786,6 +3531,14 @@ phases_data:
                 sourceProperty: cn
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: work
+            database: Repository
+            deleteAsUpdate: false
+            displayName: 作業列挙IF
+            name: enumWorkIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
         -   ACEs:
             -   allow: true
             accessLevel: readOnly
@@ -3811,48 +3564,12 @@ phases_data:
                     - IDM_ADMIN
                     - IDM_CONTACT
             accessLevel: full
-            className: tenant
-            database: Sandbox
-            deleteAsUpdate: false
-            description: テナント管理用インタフェース
-            displayName: テナント管理
-            name: tenants
-            useAESDecryptedResponse: false
-            useCustomBackendDatabase: false
-        -   ACEs:
-            -   allow: true
-                matching:
-                -   type: GROUP
-                    useArgument: false
-                    values:
-                    - IDM_ADMIN
-                    - IDM_CONTACT
-            accessLevel: full
             className: user
             database: Sandbox
             deleteAsUpdate: false
             description: ユーザ情報を編集するインタフェース
             displayName: ユーザ情報編集インタフェース
             name: userEditorInterface
-            useAESDecryptedResponse: false
-            useCustomBackendDatabase: false
-        -   ACEs:
-            -   allow: true
-                matching:
-                -   type: GROUP
-                    useArgument: false
-                    values:
-                    - IDM_ADMIN
-                    - IDM_CONTACT
-            accessLevel: full
-            argumentType: partition
-            className: user
-            database: Sandbox
-            deleteAsUpdate: false
-            description: ログインしているユーザと同じテナントIDのみを管理できるインタフェース
-            displayName: テナント別利用者管理IF
-            name: usersOnTenantIF
-            partitionKeyProperty: tenantid
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         _sandboxProvSettings:
@@ -4096,8 +3813,8 @@ phases_data:
     objects:
         userEditorInterface:
         -   accountLock: false
-            cn: システム管理者
-            dn: uid=administrator@{{ domain }},ou=Users,{{ dn_suffix }}
+            cn: 管理者
+            dn: uid=admin,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: administrator@{{ domain }}
+            uid: admin
             userPassword: '{{ db_password }}'
