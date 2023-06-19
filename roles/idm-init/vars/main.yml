@@ -1548,41 +1548,6 @@ is_tables_data:
         workingUid: null
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connectionGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10108'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:45:06'
-        widgets: "<widgets tabId=\"10108\" tabName=\"接続先グループガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
-            type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 1
-        rolename: defaultRole
-        tabId: '10108'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:45:06'
-        widgets: "<widgets tabId=\"10108\" tabName=\"接続先グループガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
-            type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
@@ -1618,18 +1583,18 @@ is_tables_data:
         workingUid: null
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_work_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+            8px\">\n\t\t<div id=\"w_1_connectionGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10109'
+        tabId: '10108'
         temp: "\0"
         templastmodified: '2023-06-13T16:45:06'
-        widgets: "<widgets tabId=\"10109\" tabName=\"作業\" tabType=\"static\"
+        widgets: "<widgets tabId=\"10108\" tabName=\"接続先グループガジェット\" tabType=\"static\"
             columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_work_g\" column=\"1\" title=\"作業\"
-            type=\"g_upload__work_g/gadget\">\n            <data>\n            </data>\n
+            \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
+            type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
             \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
@@ -1640,48 +1605,13 @@ is_tables_data:
         role: default
         roleOrder: 1
         rolename: defaultRole
-        tabId: '10109'
+        tabId: '10108'
         temp: "\0"
         templastmodified: '2023-06-13T16:45:06'
-        widgets: "<widgets tabId=\"10109\" tabName=\"作業\" tabType=\"static\"
+        widgets: "<widgets tabId=\"10108\" tabName=\"接続先グループガジェット\" tabType=\"static\"
             columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_work_g\" column=\"1\" title=\"作業\"
-            type=\"g_upload__work_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_userEditor\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10110'
-        temp: "\0"
-        templastmodified: '2023-05-25T15:55:48'
-        widgets: "<widgets tabId=\"10110\" tabName=\"userEditor\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_userEditor\" column=\"1\" title=\"userEditor\"
-            type=\"g_upload__userEditor/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 1
-        rolename: defaultRole
-        tabId: '10110'
-        temp: "\0"
-        templastmodified: '2023-05-25T15:55:48'
-        widgets: "<widgets tabId=\"10110\" tabName=\"userEditor\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_userEditor\" column=\"1\" title=\"userEditor\"
-            type=\"g_upload__userEditor/gadget\">\n            <data>\n            </data>\n
+            \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
+            type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
             \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
@@ -2314,6 +2244,27 @@ is_tables_data:
             </span>
 
 
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">作業</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
             </div>
 
 
@@ -2589,6 +2540,27 @@ is_tables_data:
             <span class="showJa">LDAP汎用オブジェクト編集</span>
 
             <span class="showEn">LDAPGeneralObject</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">作業</span>
+
+            <span class="showEn">Connection Groups</span>
 
             </div>
 
@@ -3277,6 +3249,80 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
+                displayName: ステータス
+                isArray: false
+                name: status
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   displayName: 編集中
+                    value: editing
+                -   displayName: 承認待ち
+                    value: pending
+                -   displayName: 取り消し
+                    value: cancel
+                -   displayName: 作業開始待ち
+                    value: waiting
+                -   displayName: 却下
+                    value: rejected
+                -   displayName: 作業中
+                    value: working
+                -   displayName: 作業終了
+                    value: end
+            -   allowAnotherValue: false
+                displayName: ユーザー
+                isArray: true
+                name: users
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumUserIF
+            -   allowAnotherValue: false
+                displayName: ユーザーグループ
+                isArray: true
+                name: userGroups
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumUserGroupIF
+            -   allowAnotherValue: false
+                displayName: 接続先
+                isArray: false
+                name: connections
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumConnectionIF
+            -   allowAnotherValue: false
+                displayName: 接続先グループ
+                isArray: true
+                name: connectionGroups
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumConnectionGroupIF
+            -   allowAnotherValue: false
+                displayName: 申請者
+                isArray: false
+                name: applicationUser
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: enumUserIF
+            -   allowAnotherValue: false
                 displayName: 承認者
                 isArray: false
                 name: approvedUser
@@ -3295,7 +3341,49 @@ phases_data:
                 type: datetime
                 unique: false
                 uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 申請日時
+                isArray: false
+                name: applicationDatetime
+                outputLdapSchema: false
+                required: false
+                type: datetime
+                unique: false
+                uniqueIgnoreCase: false
         _sandboxGadgets:
+        -   autoCommit: false
+            backToDetail: false
+            className: work
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 作業申請ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: ApplicationWorkIF
+            isSingleton: false
+            name: ApplicationWork_g
+            propertiesOnList:
+            -   displayOnList: 'on'
+                name: name
+            -   displayOnList: 'on'
+                name: status
+            -   displayOnList: 'on'
+                name: startDatetime
+            -   displayOnList: 'on'
+                name: endDatetime
+            -   displayOnList: 'on'
+                name: applicationUser
+            -   displayOnList: 'on'
+                name: applicationDatetime
+            showHistory: false
+            titleOfAdd: 申請
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
         -   autoCommit: false
             backToDetail: false
             className: LdapGenericObject
@@ -3313,6 +3401,42 @@ phases_data:
             name: LdapGenericObjectEditor
             showHistory: false
             uploadCSV: true
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
+            className: work
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 作業承認
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: applovalWorkIF
+            isSingleton: false
+            name: applovalWork_g
+            propertiesOnList:
+            -   displayOnList: 'on'
+                name: name
+            -   displayOnList: 'on'
+                name: status
+            -   displayOnList: 'on'
+                name: startDatetime
+            -   displayOnList: 'on'
+                name: endDatetime
+            -   displayOnList: 'on'
+                name: applicationUser
+            -   displayOnList: 'on'
+                name: applicationDatetime
+            -   displayOnList: 'on'
+                name: approvedUser
+            -   displayOnList: 'on'
+                name: approvedDatetime
+            showHistory: false
+            uploadCSV: false
             useDisplayNameHeader: false
             withHeader: true
         -   autoCommit: false
@@ -3486,6 +3610,28 @@ phases_data:
             withHeader: true
         _sandboxInterfaces:
         -   accessLevel: full
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 申請作業IF
+            name: ApplicationWorkIF
+            properties:
+            - id
+            - name
+            - startDatetime
+            - endDatetime
+            - status
+            - users
+            - userGroups
+            - connections
+            - connectionGroups
+            - applicationUser
+            - applicationDatetime
+            readOnlyProperties:
+            - status
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
             className: LdapGenericObject
             database: Sandbox
             deleteAsUpdate: false
@@ -3519,6 +3665,14 @@ phases_data:
             displayName: LDAP汎用オブジェクト編集IF2
             filter: '{level:2}'
             name: LdapGenericObjectEditorIF2
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 承認作業IF
+            name: applovalWorkIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: readWrite
