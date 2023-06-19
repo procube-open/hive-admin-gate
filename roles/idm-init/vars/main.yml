@@ -1548,19 +1548,20 @@ is_tables_data:
         workingUid: null
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_user_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+            8px\">\n\t\t<div id=\"w_1_connectionGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
         tabId: '10108'
         temp: "\0"
-        templastmodified: '2023-05-25T13:04:08'
-        widgets: "<widgets tabId=\"10108\" tabName=\"ユーザー管理\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
-            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_user_g\"
-            column=\"1\" title=\"ユーザー管理\" type=\"g_upload__user_g/gadget\">\n            <data>\n
-            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
-            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10108\" tabName=\"接続先グループガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
+            type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
     -   defaultUid: default
@@ -1571,29 +1572,66 @@ is_tables_data:
         rolename: defaultRole
         tabId: '10108'
         temp: "\0"
-        templastmodified: '2023-05-25T13:04:09'
-        widgets: "<widgets tabId=\"10108\" tabName=\"ユーザー管理\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
-            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_user_g\"
-            column=\"1\" title=\"ユーザー管理\" type=\"g_upload__user_g/gadget\">\n            <data>\n
-            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
-            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10108\" tabName=\"接続先グループガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
+            type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_user_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10107'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10107\" tabName=\"利用者グループガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_userGroup_g\" column=\"1\" title=\"利用者グループガジェット\"
+            type=\"g_upload__userGroup_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10107'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10107\" tabName=\"利用者グループガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_userGroup_g\" column=\"1\" title=\"利用者グループガジェット\"
+            type=\"g_upload__userGroup_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_work_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
         tabId: '10109'
         temp: "\0"
-        templastmodified: '2023-05-25T15:55:23'
-        widgets: "<widgets tabId=\"10109\" tabName=\"利用者ガジェット\" tabType=\"static\"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10109\" tabName=\"作業\" tabType=\"static\"
             columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_user_g\" column=\"1\" title=\"利用者ガジェット\" type=\"g_upload__user_g/gadget\">\n
-            \           <data>\n            </data>\n        </widget>\n    </panel>\n
-            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+            \       <widget id=\"w_1_work_g\" column=\"1\" title=\"作業\"
+            type=\"g_upload__work_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
     -   defaultUid: default
@@ -1604,12 +1642,13 @@ is_tables_data:
         rolename: defaultRole
         tabId: '10109'
         temp: "\0"
-        templastmodified: '2023-05-25T15:55:23'
-        widgets: "<widgets tabId=\"10109\" tabName=\"利用者ガジェット\" tabType=\"static\"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10109\" tabName=\"作業\" tabType=\"static\"
             columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_user_g\" column=\"1\" title=\"利用者ガジェット\" type=\"g_upload__user_g/gadget\">\n
-            \           <data>\n            </data>\n        </widget>\n    </panel>\n
-            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+            \       <widget id=\"w_1_work_g\" column=\"1\" title=\"作業\"
+            type=\"g_upload__work_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
     -   defaultUid: '999'
@@ -2222,6 +2261,46 @@ is_tables_data:
 
             </div>
 
+            <div class="idmSubMenuTab" tabid="10107">
+
+            <span class="showJa">ユーザグループ管理</span>
+
+            <span class="showEn">User Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10105">
+
+            <span class="showJa">機器</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10106">
+
+            <span class="showJa">接続先</span>
+
+            <span class="showEn">Connections</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10108">
+
+            <span class="showJa">接続先グループ</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">作業</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
             <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">LDAP汎用オブジェクト編集</span>
@@ -2462,6 +2541,46 @@ is_tables_data:
             <span class="showJa">ユーザ管理</span>
 
             <span class="showEn">Users</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10107">
+
+            <span class="showJa">ユーザグループ管理</span>
+
+            <span class="showEn">User Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10105">
+
+            <span class="showJa">機器</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10106">
+
+            <span class="showJa">接続先</span>
+
+            <span class="showEn">Connections</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10108">
+
+            <span class="showJa">接続先グループ</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">作業</span>
+
+            <span class="showEn">Connection Groups</span>
 
             </div>
 
@@ -2741,87 +2860,6 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: enumConnectionIF
-        -   description: デバイスのクラス
-            displayName: デバイス
-            isNestedObject: false
-            isPrimaryAndNestedObject: false
-            keyProperty: deviceid
-            name: device
-            outputLdapSchema: false
-            propertyDefinitionList:
-            -   allowAnotherValue: false
-                description: システムの利用者
-                displayName: ユーザ名
-                isArray: false
-                name: uid
-                outputLdapSchema: true
-                required: true
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
-                valuesEx: getResource("/IDManager/enumUserIF")
-            -   allowAnotherValue: false
-                description: デバイスのMACアドレス
-                displayName: MACアドレス
-                isArray: false
-                maxLen: 17
-                minLen: 12
-                name: macaddr
-                outputLdapSchema: false
-                required: true
-                stringRestriction: macaddr
-                type: string
-                unique: false
-                uniqueIgnoreCase: true
-            -   allowAnotherValue: false
-                description: デバイスを管理する番号
-                displayName: 資産管理番号
-                isArray: false
-                name: deviceid
-                outputLdapSchema: false
-                required: true
-                type: string
-                unique: true
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: デバイスを登録した日付
-                displayName: 登録日
-                isArray: false
-                name: registrationDate
-                outputLdapSchema: false
-                required: false
-                type: date
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                description: クライアント証明書発行状態
-                displayName: 状態
-                isArray: false
-                name: status
-                outputLdapSchema: false
-                required: false
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
-                values:
-                -   displayName: 発効待ち
-                    value: notEntry
-                -   displayName: 鍵登録待ち
-                    value: unregistered
-                -   displayName: 鍵登録済み
-                    value: registered
-                -   displayName: 鍵失効済み
-                    value: revoked
-            -   allowAnotherValue: false
-                displayName: 通知先メールアドレス
-                isArray: true
-                name: notificationEmailAddr
-                outputLdapSchema: false
-                required: false
-                stringRestriction: mailaddr
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
         -   displayName: 連携システムオブジェクト
             isNestedObject: false
             keyProperty: systemId
@@ -3279,6 +3317,25 @@ phases_data:
             withHeader: true
         -   autoCommit: false
             backToDetail: false
+            className: connectionGroup
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 接続先グループガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: connectionGroupEditorInterface
+            isSingleton: false
+            name: connectionGroup_g
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
             className: connection
             clonable: false
             disableAdd: false
@@ -3289,7 +3346,7 @@ phases_data:
             displayName: 接続先ガジェット
             downloadDisplayFormatCSV: false
             downloadUpdateFormatCSV: false
-            interfaceName: enumConnectionIF
+            interfaceName: connectionEditorInterface
             isSingleton: false
             name: connection_g
             showHistory: false
@@ -3308,7 +3365,7 @@ phases_data:
             displayName: 機器ガジェット
             downloadDisplayFormatCSV: false
             downloadUpdateFormatCSV: false
-            interfaceName: enumMachineIF
+            interfaceName: machineEditorInterface
             isSingleton: false
             name: machine_g
             propertiesOnList:
@@ -3372,29 +3429,10 @@ phases_data:
             interfaceName: userEditorInterface
             isSingleton: false
             name: userEditor
-            showHistory: false
-            uploadCSV: false
-            useDisplayNameHeader: false
-            withHeader: true
-        -   autoCommit: false
-            backToDetail: false
-            className: user
-            clonable: false
-            disableAdd: false
-            disableDelete: false
-            disableMultiDelete: false
-            disableSuspension: false
-            disableUpdate: false
-            displayName: 利用者ガジェット
-            downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: false
-            interfaceName: enumUserIF
-            isSingleton: false
-            name: user_g
             propertiesOnList:
             -   displayOnList: 'on'
                 name: uid
-            -   displayOnList: defaultOn
+            -   displayOnList: 'on'
                 name: cn
             -   displayOnList: defaultOn
                 name: idmRole
@@ -3402,6 +3440,46 @@ phases_data:
                 name: userPassword
             -   displayOnList: 'off'
                 name: dn
+            -   displayOnList: defaultOn
+                name: accountLock
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
+            className: userGroups
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 利用者グループガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: userGroupEditorInterface
+            isSingleton: false
+            name: userGroup_g
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
+            className: work
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 作業ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: workEditorInterface
+            isSingleton: false
+            name: work_g
             showHistory: false
             uploadCSV: false
             useDisplayNameHeader: false
@@ -3474,6 +3552,22 @@ phases_data:
                 sourceProperty: userPassword
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: connection
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 接続先情報編集インターフェース
+            name: connectionEditorInterface
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: connectionGroup
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 接続先グループ編集インターフェース
+            name: connectionGroupEditorInterface
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
         -   accessLevel: readOnly
             className: connectionGroup
             database: Repository
@@ -3539,6 +3633,14 @@ phases_data:
             name: enumWorkIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: machine
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 機器情報編集IF
+            name: machineEditorInterface
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
         -   ACEs:
             -   allow: true
             accessLevel: readOnly
@@ -3570,6 +3672,22 @@ phases_data:
             description: ユーザ情報を編集するインタフェース
             displayName: ユーザ情報編集インタフェース
             name: userEditorInterface
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: userGroups
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: ユーザグループ編集インターフェース
+            name: userGroupEditorInterface
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 作業編集インターフェース
+            name: workEditorInterface
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         _sandboxProvSettings:
