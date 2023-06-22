@@ -1480,6 +1480,72 @@ is_tables_data:
         workingUid: IDM_ADMIN
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applicationWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10102'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
+            column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10102'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
+            column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10103'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10103\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"作業申請\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10103'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10103\" tabName=\"作業承認\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"作業承認\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
@@ -1612,6 +1678,76 @@ is_tables_data:
             columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
             \       <widget id=\"w_1_connectionGroup_g\" column=\"1\" title=\"接続先グループガジェット\"
             type=\"g_upload__connectionGroup_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_requiredApplovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10112'
+        temp: "\0"
+        templastmodified: '2023-06-21T14:06:23'
+        widgets: "<widgets tabId=\"10112\" tabName=\"要承認作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_requiredApplovalWork_g\" column=\"1\" title=\"要承認作業ガジェット\"
+            type=\"g_upload__requiredApplovalWork_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10112'
+        temp: "\0"
+        templastmodified: '2023-06-21T14:06:23'
+        widgets: "<widgets tabId=\"10112\" tabName=\"要承認作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_requiredApplovalWork_g\" column=\"1\" title=\"要承認作業ガジェット\"
+            type=\"g_upload__requiredApplovalWork_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_hisotryWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10113'
+        temp: "\0"
+        templastmodified: '2023-06-21T18:10:49'
+        widgets: "<widgets tabId=\"10113\" tabName=\"過去作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_hisotryWork_g\" column=\"1\" title=\"過去作業ガジェット\"
+            type=\"g_upload__hisotryWork_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10113'
+        temp: "\0"
+        templastmodified: '2023-06-21T18:10:49'
+        widgets: "<widgets tabId=\"10113\" tabName=\"過去作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_hisotryWork_g\" column=\"1\" title=\"過去作業ガジェット\"
+            type=\"g_upload__hisotryWork_g/gadget\">\n            <data>\n            </data>\n
             \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
@@ -2223,14 +2359,6 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10109">
-
-            <span class="showJa">作業</span>
-
-            <span class="showEn">Connection Groups</span>
-
-            </div>
-
             <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">LDAP汎用オブジェクト編集</span>
@@ -2252,11 +2380,35 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10109">
+            <div class="idmSubMenuTab" tabid="10102">
 
-            <span class="showJa">作業</span>
+            <span class="showJa">作業申請</span>
 
-            <span class="showEn">Connection Groups</span>
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10112">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">承認済み作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10113">
+
+            <span class="showJa">過去作業</span>
+
+            <span class="showEn">Work Applove</span>
 
             </div>
 
@@ -2556,11 +2708,35 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10109">
+            <div class="idmSubMenuTab" tabid="10102">
 
-            <span class="showJa">作業</span>
+            <span class="showJa">作業申請</span>
 
-            <span class="showEn">Connection Groups</span>
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10112">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">作業承認</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10113">
+
+            <span class="showJa">過去作業</span>
+
+            <span class="showEn">Work Applove</span>
 
             </div>
 
@@ -2778,7 +2954,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumMachineIF
+                valuesInterface: selectMachineIF
             -   allowAnotherValue: false
                 displayName: プロトコル
                 isArray: false
@@ -3204,7 +3380,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumUserIF
+                valuesInterface: selectUserIF
         -   displayName: 作業
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -3281,7 +3457,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumUserIF
+                valuesInterface: selectUserIF
             -   allowAnotherValue: false
                 displayName: ユーザーグループ
                 isArray: true
@@ -3291,7 +3467,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumUserGroupIF
+                valuesInterface: selectUserGroupIF
             -   allowAnotherValue: false
                 displayName: 接続先
                 isArray: false
@@ -3301,7 +3477,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumConnectionIF
+                valuesInterface: selectConnectionIF
             -   allowAnotherValue: false
                 displayName: 接続先グループ
                 isArray: true
@@ -3311,7 +3487,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumConnectionGroupIF
+                valuesInterface: selectConnectionGroupIF
             -   allowAnotherValue: false
                 displayName: 申請者
                 isArray: false
@@ -3353,39 +3529,6 @@ phases_data:
         _sandboxGadgets:
         -   autoCommit: false
             backToDetail: false
-            className: work
-            clonable: false
-            disableAdd: false
-            disableDelete: false
-            disableMultiDelete: false
-            disableSuspension: false
-            disableUpdate: false
-            displayName: 作業申請ガジェット
-            downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: false
-            interfaceName: ApplicationWorkIF
-            isSingleton: false
-            name: ApplicationWork_g
-            propertiesOnList:
-            -   displayOnList: 'on'
-                name: name
-            -   displayOnList: 'on'
-                name: status
-            -   displayOnList: 'on'
-                name: startDatetime
-            -   displayOnList: 'on'
-                name: endDatetime
-            -   displayOnList: 'on'
-                name: applicationUser
-            -   displayOnList: 'on'
-                name: applicationDatetime
-            showHistory: false
-            titleOfAdd: 申請
-            uploadCSV: false
-            useDisplayNameHeader: false
-            withHeader: true
-        -   autoCommit: false
-            backToDetail: false
             className: LdapGenericObject
             clonable: false
             description: LDAP汎用オブジェクトを編集するガジェット
@@ -3403,16 +3546,195 @@ phases_data:
             uploadCSV: true
             useDisplayNameHeader: false
             withHeader: true
+        -   autoCommit: true
+            backToDetail: false
+            className: work
+            clonable: true
+            clonableTitle: コピーして新規作成
+            disableAdd: false
+            disableDelete: true
+            disableMultiDelete: true
+            disableSuspension: false
+            disableUpdate: true
+            displayName: 作業申請ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            gadgetCommandlet:
+            -   autoCommit: true
+                backToDetail: true
+                description: 編集中のみ
+                displayCondition: this().status=="editing"
+                displayName: 修正する
+                goToEdit: true
+                multiSelect: false
+                name: edit
+                onDetailView: true
+                onEditView: false
+                onListView: false
+            -   autoCommit: true
+                backToDetail: true
+                commandlet:
+                -   derivation: '"pending"'
+                    targetProperty: status
+                -   derivation: Date()
+                    targetProperty: applicationDatetime
+                description: 申請する
+                displayCondition: this().status=="editing"
+                displayName: 管理者に申請する
+                goToEdit: false
+                multiSelect: false
+                name: apply
+                onDetailView: true
+                onEditView: false
+                onListView: false
+            -   autoCommit: false
+                backToDetail: false
+                commandlet:
+                -   derivation: '"cancel"'
+                    targetProperty: status
+                displayName: 取り消す
+                goToEdit: false
+                multiSelect: false
+                name: cancel
+                onDetailView: true
+                onEditView: false
+                onListView: false
+            interfaceName: ApplicationWorkIF
+            isSingleton: false
+            name: applicationWork_g
+            propertiesOnDetail:
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: id
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                defaultValue: editing
+                disableUpdate: true
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: status
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                dateSeparator: /
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: startDatetime
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            -   className: ''
+                dateSeparator: /
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: endDatetime
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            -   className: user
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: users
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: userGroups
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: userGroups
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: connection
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connections
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: connectionGroup
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connectionGroups
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: user
+                disableUpdate: true
+                hideOnEdit: true
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: applicationUser
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                dateSeparator: /
+                disableUpdate: true
+                hideOnEdit: true
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: applicationDatetime
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            propertiesOnList:
+            -   displayOnList: 'on'
+                name: name
+            -   displayOnList: 'on'
+                filter: all
+                name: status
+            -   displayOnList: 'on'
+                name: startDatetime
+            -   displayOnList: 'on'
+                name: endDatetime
+            -   displayOnList: 'on'
+                name: applicationUser
+            -   displayOnList: 'on'
+                name: applicationDatetime
+            showHistory: false
+            titleOfAdd: 新規作成
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
         -   autoCommit: false
             backToDetail: false
             className: work
             clonable: false
-            disableAdd: false
-            disableDelete: false
-            disableMultiDelete: false
-            disableSuspension: false
-            disableUpdate: false
-            displayName: 作業承認
+            disableAdd: true
+            disableDelete: true
+            disableMultiDelete: true
+            disableSuspension: true
+            disableUpdate: true
+            displayName: 承認済み作業ガジェット
             downloadDisplayFormatCSV: false
             downloadUpdateFormatCSV: false
             interfaceName: applovalWorkIF
@@ -3479,6 +3801,111 @@ phases_data:
             withHeader: true
         -   autoCommit: false
             backToDetail: false
+            className: work
+            clonable: true
+            clonableTitle: コピーして新規作成
+            disableAdd: true
+            disableDelete: true
+            disableMultiDelete: true
+            disableSuspension: false
+            disableUpdate: true
+            displayName: 過去作業ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: historyWorkIF
+            isSingleton: false
+            name: hisotryWork_g
+            propertiesOnDetail:
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: id
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                dateSeparator: /
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: startDatetime
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            -   className: ''
+                dateSeparator: /
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: endDatetime
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            -   className: ''
+                defaultValue: editing
+                disableUpdate: true
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: status
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: user
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: users
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: userGroups
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: userGroups
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: connection
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connections
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: connectionGroup
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connectionGroups
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
             className: machine
             clonable: false
             disableAdd: false
@@ -3521,6 +3948,67 @@ phases_data:
             uploadCSV: false
             useDisplayNameHeader: false
             withHeader: false
+        -   autoCommit: true
+            backToDetail: false
+            className: work
+            clonable: false
+            disableAdd: true
+            disableDelete: true
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: true
+            displayName: 要承認作業ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            gadgetCommandlet:
+            -   autoCommit: true
+                backToDetail: false
+                commandlet:
+                -   derivation: user()
+                    targetProperty: approvedUser
+                -   derivation: Date()
+                    targetProperty: approvedDatetime
+                -   derivation: '"waiting"'
+                    targetProperty: status
+                displayName: 承認
+                goToEdit: false
+                multiSelect: false
+                name: applove
+                onDetailView: true
+                onEditView: false
+                onListView: false
+            -   autoCommit: false
+                backToDetail: false
+                commandlet:
+                -   derivation: rejected
+                    targetProperty: status
+                displayName: 却下
+                goToEdit: false
+                multiSelect: false
+                name: reject
+                onDetailView: true
+                onEditView: false
+                onListView: false
+            interfaceName: requiredApplovalWorkIF
+            isSingleton: false
+            name: requiredApplovalWork_g
+            propertiesOnList:
+            -   displayOnList: 'on'
+                name: name
+            -   displayOnList: 'on'
+                name: status
+            -   displayOnList: 'on'
+                name: startDatetime
+            -   displayOnList: 'on'
+                name: endDatetime
+            -   displayOnList: 'on'
+                name: applicationUser
+            -   displayOnList: 'on'
+                name: applicationDatetime
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
         -   autoCommit: false
             backToDetail: false
             className: linkageSystem
@@ -3614,6 +4102,12 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: 申請作業IF
+            filter: '{status:{$in:["editing","pending"]}}'
+            initializer:
+            -   derivation: user()
+                onDeleteOnly: false
+                onUpdate: false
+                targetProperty: applicationUser
             name: ApplicationWorkIF
             properties:
             - id
@@ -3628,7 +4122,7 @@ phases_data:
             - applicationUser
             - applicationDatetime
             readOnlyProperties:
-            - status
+            - applicationUser
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: full
@@ -3671,8 +4165,11 @@ phases_data:
             className: work
             database: Sandbox
             deleteAsUpdate: false
-            displayName: 承認作業IF
+            displayName: 承認済み作業IF
+            filter: '{status:{$in:["waiting","working"]}}'
             name: applovalWorkIF
+            sortOrder: +
+            sortProperty: startDatetime
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: readWrite
@@ -3720,6 +4217,15 @@ phases_data:
             deleteAsUpdate: false
             displayName: 接続先グループ編集インターフェース
             name: connectionGroupEditorInterface
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readWrite
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 作業終了IF
+            filter: '{status:"working"}'
+            name: endWorkIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: readOnly
@@ -3772,6 +4278,7 @@ phases_data:
             properties:
             - uid
             - org
+            - cn
             propertyNameMapping:
             -   destinationProperty: value
                 sourceProperty: uid
@@ -3785,6 +4292,17 @@ phases_data:
             deleteAsUpdate: false
             displayName: 作業列挙IF
             name: enumWorkIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 過去作業IF
+            filter: '{status:{$in:["end","rejected", "cancel"]}}'
+            name: historyWorkIF
+            sortOrder: '-'
+            sortProperty: startDatetime
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: full
@@ -3803,6 +4321,43 @@ phases_data:
             displayName: 連携システムオブジェクト編集用
             name: masterLinkageSystem
             useCustomBackendDatabase: false
+        -   accessLevel: readWrite
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 要承認作業IF
+            filter: '{status:"pending"}'
+            name: requiredApplovalWorkIF
+            properties:
+            - id
+            - name
+            - startDatetime
+            - endDatetime
+            - status
+            - users
+            - userGroups
+            - connections
+            - connectionGroups
+            - applicationUser
+            - applicationDatetime
+            - approvedUser
+            - approvedDatetime
+            readOnlyProperties:
+            - applicationUser
+            - id
+            - name
+            - startDatetime
+            - endDatetime
+            - users
+            - userGroups
+            - connections
+            - connectionGroups
+            - applicationUser
+            - applicationDatetime
+            sortOrder: '-'
+            sortProperty: applicationDatetime
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
         -   ACEs:
             -   allow: true
             accessLevel: full
@@ -3810,6 +4365,61 @@ phases_data:
             database: Sandbox
             displayName: 連携システムオブジェクトマスタ
             name: sandboxLinkageSystem
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: connectionGroup
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 接続先グループ選択IF
+            name: selectConnectionGroupIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: connection
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 接続先選択IF
+            name: selectConnectionIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: machine
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 機器選択IF
+            name: selectMachineIF
+            properties:
+            - name
+            - hostname
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: userGroups
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: ユーザグループ選択IF
+            name: selectUserGroupIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: user
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: ユーザ選択IF
+            name: selectUserIF
+            properties:
+            - uid
+            - cn
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readWrite
+            className: work
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 作業開始IF
+            filter: '{status:"waiting"}'
+            name: startWokrIF
+            useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   ACEs:
             -   allow: true
@@ -3969,6 +4579,14 @@ phases_data:
         -   adminRoles:
             - IDM_ADMIN
             authType: none
+            clockDaemons:
+            -   clockType: interval
+                displayName: 作業ステータス更新
+                intervalSeconds: 60
+                name: checkOfWorkStatus
+                updateBatch:
+                - waitingToWorking
+                - workingToEnd
             csvApiFileEncoding: UTF-8
             name: SystemSetting
             pwAvailableDays: 30
@@ -3986,7 +4604,7 @@ phases_data:
             pwpolicyNumSymbolCnt: 1
             pwpolicySymbolChars: '!"#$%&''()=~|¥^-@[]:;+*_?><,./'
             systemIdIf: masterLinkageSystem
-            systemName: hiveハンズオンID管理システム
+            systemName: 特権ID管理システム
             traceFormula: false
     ldap_settings:
         _sandboxOpenLdapDbSetting:
@@ -4089,4 +4707,10 @@ phases_data:
             dn: uid=admin,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
             uid: admin
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: テスト1
+            dn: uid=test1,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_USER
+            uid: test1
             userPassword: '{{ db_password }}'
