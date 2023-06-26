@@ -2,11 +2,12 @@ plugin: hive_inventory
 name: admin-gate
 stages:
   private:
-    provider: vagrant
+    provider: prepared
     separate_repository: False
-    cidr: 192.168.0.96/27
-    memory_size: 4096
-    number_of_hosts: 1
+    cidr: 10.0.0.0/25
+    ip_address_list:
+    - 10.0.0.126
+    root_password: test
   staging:
     provider: gcp
     cidr: 192.168.0.0/24
