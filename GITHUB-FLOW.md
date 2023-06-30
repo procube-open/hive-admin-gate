@@ -97,7 +97,7 @@ git push origin Feature/2.2.12/add-twitter-publisher
 その後、Create pull request をクリックしてください。
 
 ## 7. レビューと修正
-レビューによりプルリクエストを修正する必要が生じた場合は、ローカルリポジトリを修正してpushしてください。すなわち、手順 2. から 5. を繰り返し実施してください。push すると自動的に pull request に組み込まれるので、 Web 上の[Pull requests](https://procube.backlog.jp/git/CITSIDAAS/hive-idaas/pullRequests?q.statusId=1)から自分のプルリクエストを開き、コメントを入力することで議論を続行してください。
+レビューによりプルリクエストを修正する必要が生じた場合は、ローカルリポジトリを修正してpushしてください。すなわち、手順 2. から 5. を繰り返し実施してください。push すると自動的に pull request に組み込まれるので、 Web 上の[Pull requests](https://procube.backlog.jp/git/NSAG/hive-admin-gate/pullRequests?q.statusId=1)から自分のプルリクエストを開き、コメントを入力することで議論を続行してください。
 
 #### 補足
 > 修正を複数人で行う場合はブランチをそれぞれのローカルリポジトリに pull するして修正してください。

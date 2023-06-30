@@ -28,6 +28,7 @@ services:
         size: 300M
     user: root
     labels:
+      published_name: guacamole
       webgate:
         authentication: saml
         proxies:
@@ -80,20 +81,38 @@ services:
         fstype: xfs
         size: 300M
     environment:
-      - USERNAME: guacamole_user
-      - PASSWORD: tNpaYnkuPh6z
+      - USERNAME: demo@procube.jp
+      - PASSWORD: EXPp7Od9
   file-server:
     image: procube/file-server
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 4200:4200
     labels:
-      published_name: guacamole
       webgate:
         authentication: saml
         proxies:
-        - target_port: 8081
-          pathPattern: /file-server
+        - target_port: 4200
+          maxBodySize: 500
+  ftp-server:
+    image: procube/ftp-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      PASV_IP: "192.168.0.4"
+      PASV_PORT_MIN: "30000"
+      PASV_PORT_MAX: "30003"
+    ports:
+      - "21:21"
+      - "30000:30000"
+      - "30001:30001"
+      - "30002:30002"
+      - "30003:30003"
+    placement:
+      constraints:
+        - node.hostname == s-hive0
   mongo:
     image: mongo
     environment:
