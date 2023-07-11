@@ -25,7 +25,7 @@ services:
       type: volume
       drbd:
         fstype: xfs
-        size: 300M
+        size: 20G
     user: root
     labels:
       published_name: guacamole
