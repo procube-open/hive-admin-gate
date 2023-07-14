@@ -2,12 +2,33 @@ plugin: hive_inventory
 name: admin-gate
 stages:
   private:
-    provider: prepared
-    separate_repository: False
-    cidr: 10.0.0.0/25
+    provider: kickstart
+    cidr: 192.168.100.0/24
     ip_address_list:
-    - 10.0.0.126
-    root_password: test
+    - 192.168.100.5
+    - 192.168.100.6
+    - 192.168.100.7
+    - 192.168.100.8
+    internal_cidr: 172.21.32.0/22
+    disk_size: 40
+    repository_disk_size: 100
+    mirrored_disk_size: 120
+    kickstart_config:
+      iso_src: /var/lib/isos/AlmaLinux-8.7-x86_64-minimal.iso
+      iso_dest: /var/lib/isos/admingate-hive.iso
+      target: /dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0
+      # media_usb: True
+      networks:
+      - interface: ens192
+        ips:
+        - 192.168.100.5
+        - 192.168.100.6
+        - 192.168.100.7
+        - 192.168.100.8
+        netmask: 255.255.255.0
+        gateway: 192.168.100.10
+        nameservers:
+        - 8.8.8.8
   staging:
     provider: gcp
     cidr: 192.168.0.0/24
