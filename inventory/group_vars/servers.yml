@@ -7,3 +7,4 @@ credentials: "{{ lookup('file', hive_root_dir + '/.hive/credentials.yml') | from
 
 db_password: "{{lookup('password', hive_context_dir + '/registry_password length=15 chars=ascii_letters,digits')}}1A"
 hive_partition_label: gpt
+hive_interface_name: "System ens192"
