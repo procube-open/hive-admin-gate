@@ -10,3 +10,9 @@
     src: guacamole-auth-header-1.5.1.jar
     dest: extensions/
   become: true
+
+- name: copy guacamole property file
+  copy:
+    src: guacamole.properties
+    dest: ./
+  become: true
