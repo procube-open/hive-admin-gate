@@ -4097,7 +4097,7 @@ phases_data:
                 name: dn
             -   displayOnList: defaultOn
                 name: accountLock
-            showHistory: false
+            showHistory: true
             uploadCSV: true
             useDisplayNameHeader: false
             withHeader: true
@@ -4638,7 +4638,7 @@ phases_data:
                 - workingToEnd
             csvApiFileEncoding: UTF-8
             name: SystemSetting
-            pwAvailableDays: 30
+            pwAvailableDays: 0
             pwChangeMessageDay: 0
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
@@ -4753,6 +4753,8 @@ phases_data:
         userEditorInterface:
         -   accountLock: false
             cn: 庄司 剛
+            data1: テストデータ
+            data2: テストデータ2
             dn: uid=A23d9bL@example.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: A23d9bL@example.co.jp
@@ -5224,6 +5226,12 @@ phases_data:
             dn: uid=mO5yK4@test.com,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: mO5yK4@test.com
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 中川路 充
+            dn: uid=mitsuru@procube.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: mitsuru@procube.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 赤堀 翠

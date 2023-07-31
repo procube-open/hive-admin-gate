@@ -5,12 +5,6 @@
     state: directory
   become: true
 
-- name: copy guacamole auth header jar file
-  copy:
-    src: guacamole-auth-header-1.5.1.jar
-    dest: extensions/
-  become: true
-
 - name: copy guacamole properties file
   copy:
     src: guacamole.properties

@@ -9,7 +9,7 @@ domain: "{{ hive_name }}.procube-demo.jp"
 pwpolicyMinLen: 12
 
 # パスワード有効期限(日数） 0 は有効期限切れしないことを意味する
-pwAvailableDays: 30
+pwAvailableDays: 0
 
 # 攻撃防御：同一ユーザによるログイン失敗回数上限
 failedCountLimitByUserid: "5"
@@ -25,7 +25,7 @@ expireSeconds: "900"
 
 # 認証方式
 # "Password" を指定するとパスワードで認証し、"MFA" を指定するとパスワードとOTPの二要素認証を行う
-authMethod: "Password"
+authMethod: "MFA"
 
 # ログイン状態維持機能の利用
 usePeriodic: false
