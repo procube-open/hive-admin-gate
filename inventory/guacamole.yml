@@ -20,18 +20,13 @@ services:
     - source: guacamole-drives
       target: /var/lib/guacamole/drives
       type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
-    - source: recordings
+    - source: guacamole-recordings
       target: /var/lib/guacamole/recordings
       type: volume
-      drbd:
-        fstype: xfs
-        size: 20G
     user: root
     labels:
       published_name: guacamole
+      HIVE_MARK: guacamole
       webgate:
         authentication: saml
         proxies:
@@ -39,40 +34,8 @@ services:
           pathPattern: /guacamole
           useWebSocket: true 
     endpoint_mode: dnsrr
-  guacamole-original:
-    image: guacamole/guacamole
-    environment:
-      GUACD_HOSTNAME: guacd
-      POSTGRES_DATABASE: guacamole_db
-      POSTGRES_HOSTNAME: postgres
-      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
-      POSTGRES_USER: guacamole_user
-      GUACAMOLE_HOME: /opt/guacamole/
-      RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
-    volumes:
-    - source: guacamole-drives
-      target: /var/lib/guacamole/drives
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
-    - source: recordings
-      target: /var/lib/guacamole/recordings
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 20G
-    user: root
-    labels:
-      published_name: guacamole-original
-      webgate:
-        proxies:
-        - target_port: 8080
-          pathPattern: /guacamole
-          useWebSocket: true 
-    endpoint_mode: dnsrr
   guacd:
-    image: guacamole/guacd
+    image: procube/guacd
     volumes:
     - source: guacamole-drives
       target: /var/lib/guacamole/drives
@@ -85,8 +48,12 @@ services:
       type: volume
       drbd:
         fstype: xfs
-        size: 300M
+        size: 20G
     endpoint_mode: dnsrr
+    placement:
+      constraints:
+      - node.labels.guacamole == true
+      - node.labels.repository != true
   postgres:
     image:
       from: postgres:15.2-alpine
