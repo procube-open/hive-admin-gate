@@ -3,3 +3,5 @@ IdpSp:
   tenant: tenant.yml
 clientCrt:
   device: device.yml
+changePassword:
+  machine: machine.yml

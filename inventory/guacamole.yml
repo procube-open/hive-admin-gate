@@ -91,7 +91,6 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
-      FILESERVER_AV: "false"
     ports:
       - 4200:4200
     labels:

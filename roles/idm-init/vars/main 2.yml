@@ -3067,6 +3067,25 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: enumConnectionIF
+            -   allowAnotherValue: false
+                displayName: 認証ユーザー
+                isArray: false
+                name: certificationUser
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 認証パスワード
+                encryption: SSHA
+                isArray: false
+                name: certificationPassword
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
         -   displayName: SAML属性定義
             isNestedObject: true
             isPrimaryAndNestedObject: false
@@ -3957,6 +3976,10 @@ phases_data:
                 name: hostname
             -   displayOnList: 'off'
                 name: connections
+            -   displayOnList: 'on'
+                name: certificationUser
+            -   displayOnList: 'off'
+                name: certificationPassword
             showHistory: false
             uploadCSV: true
             useDisplayNameHeader: false
@@ -4602,6 +4625,25 @@ phases_data:
             withHeader: false
         -   appendOnly: false
             classSetting:
+            -   className: machine
+                noDecryption: false
+                type: CustomTaskExecutor
+            database: Repository
+            description: ADのパスワード変更時のタスク
+            displayName: パスワード変更
+            host: localhost
+            ignore: false
+            ignoreMultiResult: false
+            ignoreZeroResult: false
+            name: changePassword
+            outputAll: false
+            path: /v1/execute_task
+            port: 8089
+            stop: false
+            type: CustomTaskExecutor
+            withHeader: false
+        -   appendOnly: false
+            classSetting:
             -   className: device
                 noDecryption: false
                 properties:
@@ -5144,6 +5186,12 @@ phases_data:
             uid: gjn6D6@test.com
             userPassword: '{{ db_password }}'
         -   accountLock: false
+            cn: guacadmin
+            dn: uid=guacadmin,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: guacadmin
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
             cn: 山森 紀子
             dn: uid=hsiGqm0W@example.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
@@ -5238,6 +5286,12 @@ phases_data:
             dn: uid=nKINkmX@sample.com,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: nKINkmX@sample.com
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 中川路 亨哉
+            dn: uid=naoya@procube.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: naoya@procube.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 今泉 唯衣
