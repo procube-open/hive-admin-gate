@@ -5,6 +5,7 @@ services:
     image:
       from: procube/alma8-standalone-base
       roles:
+        - hive-trust-ca
         - timezone
         - netsoarer-products
         - idm
@@ -63,6 +64,7 @@ services:
     image:
       from: procube/alma8-standalone-base
       roles:
+      - hive-trust-ca
       - netsoarer-products
       - am
       - hive-syslog

@@ -10,3 +10,9 @@
     src: guacamole.properties
     dest: ./
   become: true
+
+- name: copy guacamole property file
+  copy:
+    src: guacamole.properties
+    dest: ./
+  become: true
