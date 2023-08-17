@@ -13,29 +13,29 @@ services:
       POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
       POSTGRES_USER: guacamole_user
       GUACAMOLE_HOME: /opt/guacamole/
+      RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
+      HEADER_ENABLED: 'true'
+      LOGBACK_LEVEL: debug
     volumes:
     - source: guacamole-drives
       target: /var/lib/guacamole/drives
       type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
-    - source: recordings
+    - source: guacamole-recordings
       target: /var/lib/guacamole/recordings
       type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
     user: root
     labels:
       published_name: guacamole
+      HIVE_MARK: guacamole
       webgate:
         authentication: saml
         proxies:
         - target_port: 8080
+          pathPattern: /guacamole
+          useWebSocket: true 
     endpoint_mode: dnsrr
   guacd:
-    image: guacamole/guacd
+    image: procube/guacd
     volumes:
     - source: guacamole-drives
       target: /var/lib/guacamole/drives
@@ -48,8 +48,12 @@ services:
       type: volume
       drbd:
         fstype: xfs
-        size: 300M
+        size: 20G
     endpoint_mode: dnsrr
+    placement:
+      constraints:
+      - node.labels.guacamole == true
+      - node.labels.repository != true
   postgres:
     image:
       from: postgres:15.2-alpine
@@ -70,4 +74,60 @@ services:
         size: 5G
     endpoint_mode: dnsrr
   chrome:
-    image: siomiz/chrome:latest
+    image: procube/node-chrome
+    volumes:
+    - source: guacamole-chrome
+      target: /dev/shm
+      type: volume
+      drbd:
+        fstype: xfs
+        size: 300M
+    environment:
+      - USERNAME: demo@procube.jp
+      - PASSWORD: EXPp7Od9
+  file-server:
+    image: procube/file-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
+    ports:
+      - 4200:4200
+    labels:
+      webgate:
+        authentication: saml
+        proxies:
+        - target_port: 4200
+          maxBodySize: 500
+  ftp-server:
+    image: procube/ftp-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      PASV_IP: "192.168.0.4"
+      PASV_PORT_MIN: "30000"
+      PASV_PORT_MAX: "30003"
+    ports:
+      - "21:21"
+      - "30000:30000"
+      - "30001:30001"
+      - "30002:30002"
+      - "30003:30003"
+    placement:
+      constraints:
+        - node.hostname == s-hive0
+  sftpserver:
+    image: procube/sftp-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports: 
+    - '22:22'
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: files_db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017

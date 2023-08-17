@@ -86,6 +86,7 @@ webgate_kv_proxies: >-
         {%- if p.corsSitesPattern is defined %}{% set _ = value.update({"corsSitesPattern": p.corsSitesPattern}) %}{% endif -%}
         {%- if p.corsAllowHeaders is defined %}{% set _ = value.update({"corsAllowHeaders": p.corsAllowHeaders}) %}{% endif -%}
         {%- if p.corsExporseHeaders is defined %}{% set _ = value.update({"corsExporseHeaders": p.corsExporseHeaders}) %}{% endif -%}
+        {%- if p.useWebSocket is defined %}{% set _ = value.update({"useWebSocket": p.useWebSocket}) %}{% endif -%}
         {%- if p.readTimeout is defined %}{% set _ = value.update({"readTimeout": p.readTimeout}) %}{% endif -%}
         {%- set _ = output_services.append({
           "key": "proxyPasses/" + portname,

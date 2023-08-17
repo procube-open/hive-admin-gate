@@ -38,12 +38,6 @@
   loop:
   - src: httpd-idm2-global.conf
     dest: /etc/httpd/conf.d/httpd-idm2-global.conf
-  - src: favicon.ico
-    dest: /opt/tomcat10/webapps/infoscoop
-  - src: infoscoop_logo.png
-    dest: /opt/tomcat10/webapps/infoscoop/skin/imgs/infoscoop_logo.png
-  - src: infoscoop_logo.png
-    dest: /opt/tomcat10/webapps/infoscoop/admin/skin/imgs/infoscoop_logo.png
   - src: httpd-admin.conf
     dest: /usr/local/NetSoarer/IDManager/var/httpd-admin.conf
 - name: patch logout URL

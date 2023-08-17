@@ -23,25 +23,25 @@
       - "/etc/ssl/{{ deviceid }}/packs12"
   - name: Generate an OpenSSL private key
     community.crypto.openssl_privatekey:
-      path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
+      path: "/etc/ssl/{{ deviceid }}/private/admin-gate.key"
   - name: Generate an OpenSSL public key
     community.crypto.openssl_csr:
-      path: "/etc/ssl/{{ deviceid }}/csr/citsidaas.csr"
-      privatekey_path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
+      path: "/etc/ssl/{{ deviceid }}/csr/admin-gate.csr"
+      privatekey_path: "/etc/ssl/{{ deviceid }}/private/admin-gate.key"
       common_name: dummy
   - name: Generate an OpenSSL certificate key
     community.crypto.x509_certificate:
-      path: "/etc/ssl/{{ deviceid }}/certs/citsidaas.cert"
-      privatekey_path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
-      csr_path: "/etc/ssl/{{ deviceid }}/csr/citsidaas.csr"
+      path: "/etc/ssl/{{ deviceid }}/certs/admin-gate.cert"
+      privatekey_path: "/etc/ssl/{{ deviceid }}/private/admin-gate.key"
+      csr_path: "/etc/ssl/{{ deviceid }}/csr/admin-gate.csr"
       provider: selfsigned
   - name: Generate PAKCS12 file
     community.crypto.openssl_pkcs12:
       action: export
-      path: "/etc/ssl/{{ deviceid }}/packs12/citsidaas.p12"
+      path: "/etc/ssl/{{ deviceid }}/packs12/admin-gate.p12"
       friendly_name: 'raclette'
-      privatekey_path: "/etc/ssl/{{ deviceid }}/private/citsidaas.key"
-      certificate_path: "/etc/ssl/{{ deviceid }}/certs/citsidaas.cert"
+      privatekey_path: "/etc/ssl/{{ deviceid }}/private/admin-gate.key"
+      certificate_path: "/etc/ssl/{{ deviceid }}/certs/admin-gate.cert"
       state: present 
   post_tasks:
   - pause:

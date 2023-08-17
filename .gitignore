@@ -1,6 +1,7 @@
 credentials.yml
 *.retry
 *.log
+*.icloud
 .hive
 .python-version
 ._*
