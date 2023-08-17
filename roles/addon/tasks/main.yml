@@ -19,3 +19,4 @@
   run_once: True
 - import_role:
     name: disable-TX-offload
+  when: hive_provider == 'kickstart'
