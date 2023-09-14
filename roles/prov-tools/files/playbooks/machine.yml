@@ -4,8 +4,8 @@
   gather_facts: false
   serial: 1
   vars:
-    ansible_host: '{{ hostname }}'
-    ansible_user: '{{ certificationUser }}'
+    ansible_host: idm
+    ansible_user: qjStae49xPgh3wT1A
     ansible_ssh_pass: '{{ certificationPassword }}'
     ansible_connection: ansible.netcommon.network_cli
     ansible_network_os: arista.eos.eos
@@ -18,7 +18,10 @@
       msg: "Provisioning to change machines password"
   - name: Change password for certificate user
     arista.eos.eos_user:
-      username: '{{ certificationUser }}'
+      name: '{{ certificationUser }}'
       configured_password: '{{ certificationPassword }}'
       update_password: always
       state: present
+  - name: write memory
+    arista.eos.eos_command:
+      commands: write memory

@@ -3078,7 +3078,6 @@ phases_data:
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
                 displayName: 認証パスワード
-                encryption: SSHA
                 isArray: false
                 name: certificationPassword
                 outputLdapSchema: false
@@ -3643,8 +3642,10 @@ phases_data:
             name: applicationWork_g
             propertiesOnDetail:
             -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
+                defaultValueEx: 'getUnusedId("ApplicationWorkIF", "P", {type: "random",
+                    numberOfDigits: 8}, "")'
+                disableUpdate: true
+                hideOnEdit: true
                 hideOnShow: false
                 incrementalSearchFlag: false
                 name: id
@@ -4628,7 +4629,7 @@ phases_data:
             -   className: machine
                 noDecryption: false
                 type: CustomTaskExecutor
-            database: Repository
+            database: Master
             description: ADのパスワード変更時のタスク
             displayName: パスワード変更
             host: localhost
@@ -4638,7 +4639,7 @@ phases_data:
             name: changePassword
             outputAll: false
             path: /v1/execute_task
-            port: 8089
+            port: 8099
             stop: false
             type: CustomTaskExecutor
             withHeader: false
@@ -5190,6 +5191,12 @@ phases_data:
             dn: uid=guacadmin,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
             uid: guacadmin
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 中川路 玄哉
+            dn: uid=hiroya@procube.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: hiroya@procube.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 山森 紀子
