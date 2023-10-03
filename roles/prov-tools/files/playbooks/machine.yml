@@ -4,24 +4,23 @@
   gather_facts: false
   serial: 1
   vars:
-    ansible_host: idm
-    ansible_user: qjStae49xPgh3wT1A
-    ansible_ssh_pass: '{{ certificationPassword }}'
+    ansible_host: '{{ hostname }}'
+    ansible_user: idm
+    ansible_ssh_pass: qjStae49xPgh3wT1A
     ansible_connection: ansible.netcommon.network_cli
     ansible_network_os: arista.eos.eos
     ansible_become: yes
     ansible_become_method: enable
+    username: guacadmin
+    password: guacadmin
 
   tasks:
-  - name: message
-    debug:
-      msg: "Provisioning to change machines password"
-  - name: Change password for certificate user
-    arista.eos.eos_user:
-      name: '{{ certificationUser }}'
-      configured_password: '{{ certificationPassword }}'
-      update_password: always
-      state: present
-  - name: write memory
-    arista.eos.eos_command:
-      commands: write memory
+#  - name: Change password for certificate User.
+#    include_tasks:
+#      file: machine/change-password.yml
+  - name: Register connection.
+    include_tasks:
+      file: machine/register-connection.yml 
+    loop: "{{ insideConnectionsObject}}"
+    loop_control:
+      loop_var: connection

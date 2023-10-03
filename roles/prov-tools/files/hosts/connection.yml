@@ -1,0 +1,7 @@
+---
+plugin: idm_inventory
+interface: connectionEditorInterface
+host_name_property: name
+class_name: connection
+groups:
+- name: connections

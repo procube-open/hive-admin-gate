@@ -3,7 +3,7 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: procube/guacamole
+      from: procube/guacamole:develop-0c4d
       roles:
       - guacamole
     environment:
@@ -32,7 +32,7 @@ services:
         proxies:
         - target_port: 8080
           pathPattern: /guacamole
-          useWebSocket: true 
+          useWebSocket: true
     endpoint_mode: dnsrr
   guacd:
     image: procube/guacd

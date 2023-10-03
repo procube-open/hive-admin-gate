@@ -1,0 +1,121 @@
+---
+- name: Provisioning to user account.
+  hosts: connections
+  gather_facts: false
+  serial: 1
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /root/prov/bin/python
+    username: guacadmin
+    password: guacadmin
+
+  tasks:
+  - name: message
+    debug:
+      msg: "Provisioning to user account."
+  - name: Get machine information.
+    uri:
+      url: "http://localhost:8090/IDManager/machineEditorInterface/{{ machine }}"
+      headers:
+        Content-Type: "application/json"
+        HTTP_SYSTEMACCOUNT: IDM_AUTO_BUILDER
+      method: GET
+      validate_certs: false
+      return_content: yes
+      status_code: 200
+    register: machineResult
+  - name: Make machine dict object.
+    set_fact:
+      machineObject: "{{ machineResult.json }}"
+  - name: Get token of REST API.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/tokens"
+      headers:
+        Content-Type: "application/x-www-form-urlencoded"
+      method: POST
+      body: 'username={{ username }}&password={{ password }}'
+      validate_certs: false
+      return_content: yes
+      status_code: 200
+    register: token
+  - name: output token
+    debug:
+      msg: "{{ token.json.authToken }}"
+  - name: Get Users.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+      method: GET
+      validate_certs: false
+      return_content: yes
+      status_code: 200
+    register: users
+  - name: Make userid list.
+    set_fact:
+      userid: "{{ users.json.keys() }}"
+  - name: Get Connections.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+      method: GET
+      validate_certs: false
+      return_content: yes
+      status_code: 200
+    register: connections
+  - name: Set fact to target connction id.
+    set_fact:
+      connectionid: "{{ item.key }}"
+    when: item.value.name == name
+    loop: "{{ connections.json | dict2items }}"
+    loop_control:
+        label: "{{ item.key }}"
+  - name: Put connection.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ connectionid }}"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+        Content-Type: "application/json"
+      method: PUT
+      body_format: json
+      body: '{"name":"{{ name }}","parentIdentifier": "ROOT","protocol": "{{ protocol }}","parameters": {"port": "{{ port }}","read-only": "","swap-red-blue": "","cursor": "","color-depth": "","force-lossless": "","clipboard-encoding": "","disable-copy": "","disable-paste": "","dest-port": "","recording-exclude-output": "","recording-exclude-mouse": "","recording-include-keys": "","create-recording-path": "","enable-sftp": "","sftp-port": "","sftp-server-alive-interval": "","sftp-disable-download": "","sftp-disable-upload": "","enable-audio": "","wol-send-packet": "","wol-udp-port": "","wol-wait-time": "","username": "{{ machineObject.certificationUser }}","password": "{{ machineObject.certificationPassword }}","color-scheme": "","font-size": "","scrollback": "","timezone": null,"server-alive-interval": "","backspace": "","terminal-type": "","create-typescript-path": "","hostname": "{{ machineObject.hostname }}"},"attributes": {"max-connections": "","max-connections-per-user": "","weight": "","failover-only": "","guacd-port": "","guacd-encryption": ""}}'
+      validate_certs: false
+      status_code: 204
+    when: prov_operation != 'delete' and connectionid is defined
+  - name: Post connection.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+        Content-Type: "application/json"
+      method: POST
+      body_format: json
+      body: '{"name":"{{ name }}","parentIdentifier": "ROOT","protocol": "{{ protocol }}","parameters": {"port": "{{ port }}","read-only": "","swap-red-blue": "","cursor": "","color-depth": "","force-lossless": "","clipboard-encoding": "","disable-copy": "","disable-paste": "","dest-port": "","recording-exclude-output": "","recording-exclude-mouse": "","recording-include-keys": "","create-recording-path": "","enable-sftp": "","sftp-port": "","sftp-server-alive-interval": "","sftp-disable-download": "","sftp-disable-upload": "","enable-audio": "","wol-send-packet": "","wol-udp-port": "","wol-wait-time": "","username": "{{ machineObject.certificationUser }}","password": "{{ machineObject.certificationPassword }}","color-scheme": "","font-size": "","scrollback": "","timezone": null,"server-alive-interval": "","backspace": "","terminal-type": "","create-typescript-path": "","hostname": "{{ machineObject.hostname }}"},"attributes": {"max-connections": "","max-connections-per-user": "","weight": "","failover-only": "","guacd-port": "","guacd-encryption": ""}}'
+      validate_certs: false
+      return_content: yes
+      status_code: 200
+    when: connectionid is not defined
+    register: new_connection
+  - name: Delete connection.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ connectionid }}"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+      method: DELETE
+      validate_certs: false
+      status_code: 204
+    when: prov_operation == 'delete' and connectionid is defined
+  - name: Register connection permission.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ item | regex_replace('@', '%40') }}/permissions"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+        Content-Type: "application/json"
+      method: PATCH
+      body_format: json
+      body: "{{ [{'op': 'add', 'path': '/connectionPermissions/' ~ new_connection.json.identifier, 'value': 'READ'}] }}"
+      validate_certs: false
+      status_code: 204
+    loop: "{{ userid }}"
+    when: connectionid is not defined and new_connection.json is defined

@@ -1,7 +1,9 @@
 ---
-IdpSp:
-  tenant: tenant.yml
-clientCrt:
-  device: device.yml
-changePassword:
+createMachine:
   machine: machine.yml
+createUser:
+  user: user.yml
+createConnection:
+  connection: connection.yml
+createWork:
+  work: work.yml

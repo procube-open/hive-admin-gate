@@ -2932,10 +2932,19 @@ phases_data:
         -   displayName: 接続先
             isNestedObject: false
             isPrimaryAndNestedObject: false
-            keyProperty: name
+            keyProperty: id
             name: connection
             outputLdapSchema: false
             propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: ID
+                isArray: false
+                name: id
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
             -   allowAnotherValue: false
                 displayName: 接続先名
                 isArray: false
@@ -2950,6 +2959,19 @@ phases_data:
                 isArray: false
                 name: machine
                 outputLdapSchema: false
+                propagations:
+                -   dependency:
+                    - name
+                    - protocol
+                    - port
+                    refClassName: machine
+                    targetProperty: connections
+                -   dependency:
+                    - name
+                    - protocol
+                    - port
+                    refClassName: machine
+                    targetProperty: insideConnectionsObject
                 required: true
                 type: string
                 unique: false
@@ -2966,13 +2988,13 @@ phases_data:
                 uniqueIgnoreCase: false
                 values:
                 -   displayName: SSH
-                    value: PROTOCOL_SSH
+                    value: ssh
                 -   displayName: RDP
-                    value: PROTOCOL_RDP
+                    value: rdp
                 -   displayName: ダウンロード
-                    value: PROTOCOL_DOWNLOAD
+                    value: download
                 -   displayName: アップロード
-                    value: PROTOCOL_UPLOAD
+                    value: upload
             -   allowAnotherValue: false
                 displayName: ポート
                 isArray: false
@@ -3008,6 +3030,42 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: enumConnectionIF
+        -   displayName: 機器内接続先データ
+            isNestedObject: true
+            isPrimaryAndNestedObject: false
+            name: insideConnection
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: 接続先名
+                isArray: false
+                name: connecationName
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: プロトコル
+                isArray: false
+                name: protocol
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   displayName: SSH
+                    value: ssh
+            -   allowAnotherValue: false
+                displayName: ポート
+                isArray: false
+                name: port
+                outputLdapSchema: false
+                required: false
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
         -   displayName: 連携システムオブジェクト
             isNestedObject: false
             keyProperty: systemId
@@ -3035,10 +3093,20 @@ phases_data:
         -   displayName: 機器
             isNestedObject: false
             isPrimaryAndNestedObject: false
-            keyProperty: name
+            keyProperty: id
             name: machine
             outputLdapSchema: false
             propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: ID
+                isArray: false
+                name: id
+                outputLdapSchema: false
+                required: false
+                stringRestriction: id
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
             -   allowAnotherValue: false
                 displayName: 機器名
                 isArray: false
@@ -3058,15 +3126,18 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
+                className: connection
+                derivation: 'select( getResource("/IDManager/connectionEditorInterface",
+                    { machine: this().id }), "name")'
                 displayName: 接続先一覧
-                isArray: false
+                isArray: true
                 name: connections
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumConnectionIF
+                valuesEx: getResource("/IDManager/connectionEditorInterface", id)
             -   allowAnotherValue: false
                 displayName: 認証ユーザー
                 isArray: false
@@ -3083,6 +3154,17 @@ phases_data:
                 outputLdapSchema: false
                 required: false
                 type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                className: insideConnection
+                derivation: getResource("/IDManager/connectionEditorInterface")
+                displayName: 内部接続先オブジェクト
+                isArray: false
+                name: insideConnectionsObject
+                outputLdapSchema: false
+                required: false
+                type: object
                 unique: false
                 uniqueIgnoreCase: false
         -   displayName: SAML属性定義
@@ -3846,6 +3928,53 @@ phases_data:
             interfaceName: connectionEditorInterface
             isSingleton: false
             name: connection_g
+            propertiesOnDetail:
+            -   className: ''
+                defaultValueEx: uuid()
+                disableUpdate: true
+                hideOnEdit: true
+                hideOnShow: true
+                incrementalSearchFlag: false
+                name: id
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: machine
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: machine
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: protocol
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: port
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: number
             showHistory: false
             uploadCSV: true
             useDisplayNameHeader: false
@@ -3970,7 +4099,65 @@ phases_data:
             interfaceName: machineEditorInterface
             isSingleton: false
             name: machine_g
+            propertiesOnDetail:
+            -   className: ''
+                defaultValueEx: uuid()
+                disableUpdate: true
+                hideOnEdit: true
+                hideOnShow: true
+                incrementalSearchFlag: false
+                name: id
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: hostname
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: true
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connections
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: certificationUser
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: certificationPassword
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
             propertiesOnList:
+            -   displayOnList: 'off'
+                name: id
             -   displayOnList: 'on'
                 name: name
             -   displayOnList: 'on'
@@ -4463,6 +4650,7 @@ phases_data:
             properties:
             - name
             - hostname
+            - id
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: full
@@ -4528,46 +4716,6 @@ phases_data:
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         _sandboxProvSettings:
-        -   appendOnly: false
-            classSetting:
-            -   className: tenant
-                noDecryption: false
-                properties:
-                -   modifiedOnly: false
-                    propertyName: tenantid
-                -   modifiedOnly: false
-                    propertyName: displayName
-                -   modifiedOnly: false
-                    propertyName: amid
-                -   modifiedOnly: false
-                    propertyName: authMethod
-                -   modifiedOnly: false
-                    propertyName: lifetime
-                -   modifiedOnly: false
-                    propertyName: inactivity
-                -   modifiedOnly: false
-                    propertyName: usePeriodic
-                -   modifiedOnly: false
-                    propertyName: daysForExpire
-                -   modifiedOnly: false
-                    propertyName: saml_sps
-                -   modifiedOnly: false
-                    propertyName: saml_attrs
-                type: CustomTaskExecutor
-            database: Master
-            description: テナントの IdP とその連携先SPをプロビジョニングする
-            displayName: IDP-SP プロビジョニング
-            host: localhost
-            ignore: false
-            ignoreMultiResult: false
-            ignoreZeroResult: false
-            name: IdpSp
-            outputAll: false
-            path: /v1/execute_task
-            port: 8099
-            stop: false
-            type: CustomTaskExecutor
-            withHeader: false
         -   appendOnly: false
             classSetting:
             -   className: LdapGenericObject
@@ -4645,22 +4793,73 @@ phases_data:
             withHeader: false
         -   appendOnly: false
             classSetting:
-            -   className: device
+            -   className: connection
                 noDecryption: false
                 properties:
                 -   modifiedOnly: false
-                    propertyName: deviceid
+                    propertyName: name
                 -   modifiedOnly: false
-                    propertyName: uid
+                    propertyName: machine
+                -   modifiedOnly: false
+                    propertyName: protocol
+                -   modifiedOnly: false
+                    propertyName: port
                 type: CustomTaskExecutor
             database: Master
-            description: デバイスのクライアント証明書を発行する
-            displayName: クライアント証明書発行
+            displayName: 接続先作成
             host: localhost
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            name: clientCrt
+            name: createConnection
+            outputAll: false
+            path: /v1/execute_task
+            port: 8099
+            stop: false
+            type: CustomTaskExecutor
+            withHeader: false
+        -   appendOnly: false
+            classSetting:
+            -   className: user
+                noDecryption: false
+                properties:
+                -   modifiedOnly: false
+                    propertyName: uid
+                -   modifiedOnly: false
+                    propertyName: cn
+                type: CustomTaskExecutor
+            database: Master
+            displayName: ユーザー作成
+            host: localhost
+            ignore: false
+            ignoreMultiResult: false
+            ignoreZeroResult: false
+            name: createUser
+            outputAll: false
+            path: /v1/execute_task
+            port: 8099
+            stop: false
+            type: CustomTaskExecutor
+            withHeader: false
+        -   appendOnly: false
+            classSetting:
+            -   className: work
+                noDecryption: false
+                properties:
+                -   modifiedOnly: false
+                    propertyName: id
+                -   modifiedOnly: false
+                    propertyName: name
+                -   modifiedOnly: false
+                    propertyName: status
+                type: CustomTaskExecutor
+            database: Master
+            displayName: 作業作成
+            host: local
+            ignore: false
+            ignoreMultiResult: false
+            ignoreZeroResult: false
+            name: createWork
             outputAll: false
             path: /v1/execute_task
             port: 8099
@@ -4795,24 +4994,10 @@ phases_data:
     objects:
         userEditorInterface:
         -   accountLock: false
-            cn: 庄司 剛
-            data1: テストデータ
-            data2: テストデータ2
-            dn: uid=A23d9bL@example.co.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_USER
-            uid: A23d9bL@example.co.jp
-            userPassword: '{{ db_password }}'
-        -   accountLock: false
-            cn: 品川 仁美
+            cn: 品川 仁美（更新後）
             dn: uid=AEXRWx@example.org,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: AEXRWx@example.org
-            userPassword: '{{ db_password }}'
-        -   accountLock: false
-            cn: 大津 光
-            dn: uid=AINVy@example.com,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_USER
-            uid: AINVy@example.com
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 糸井 蒼依
@@ -5079,7 +5264,7 @@ phases_data:
             uid: Yreb7vIBB3@example.com
             userPassword: '{{ db_password }}'
         -   accountLock: false
-            cn: 管理者
+            cn: admin
             dn: uid=admin,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
             uid: admin
@@ -5185,12 +5370,6 @@ phases_data:
             dn: uid=gjn6D6@test.com,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: gjn6D6@test.com
-            userPassword: '{{ db_password }}'
-        -   accountLock: false
-            cn: guacadmin
-            dn: uid=guacadmin,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            uid: guacadmin
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 中川路 玄哉
@@ -5365,6 +5544,24 @@ phases_data:
             dn: uid=szhk71@example.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: szhk71@example.co.jp
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: テストユーザー
+            dn: uid=test1,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_USER
+            uid: test1
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: テストユーザー
+            dn: uid=testuser,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_USER
+            uid: testuser
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: テストユーザー
+            dn: uid=testuser1,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_USER
+            uid: testuser1
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 鳥海 菜穂
