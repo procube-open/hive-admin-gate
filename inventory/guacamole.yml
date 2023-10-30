@@ -131,3 +131,17 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - 27017:27017
+  session-manager:
+    image:
+      from: python:alpine3.18
+      roles:
+      - hive-trust-ca
+      - session-manager
+      - hive-certificate
+    entrypoint:
+    - /docker-entrypoint.sh
+    environment:
+      DOCKER_HOST: "tcp://{{ 'p-' if hive_stage == 'private' else ('s-' if hive_stage == 'staging' else '') }}hive0.admin-gate:2376"
+      DOCKER_TLS_VERIFY: '1'
+    ports:
+    - 8888:80
