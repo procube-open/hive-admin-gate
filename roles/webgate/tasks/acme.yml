@@ -1,9 +1,15 @@
 - name: setup python3
   yum:
     name:
-    - python3
+    - python39
     - python3-setuptools
     - "{{ 'python3-pyOpenSSL' if ansible_distribution == 'AlmaLinux' else 'pyOpenSSL' }}"
+- name: update to use python3 version
+  file:
+    src: /usr/bin/python3.9
+    dest: /etc/alternatives/python3
+    state: link
+    force: true
 - name: make virtual env for provisioning tools
   pip:
     name:
