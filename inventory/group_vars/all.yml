@@ -111,3 +111,12 @@ restore_sequence_mariadb:
 - name: is_portallayouts
   key_columns:
   - name
+
+certificates:
+  - certificate_fqdn: "session-manager"
+    ca_valid_in: "{{ 365 * 10 }}"
+    sub_prefix: "/DC={{ hive_name.split('.') | reverse | join('/DC=') }}"
+    cert_dest: /root/.docker/cert.pem
+    key_dest: /root/.docker/key.pem
+
+hive_safe_ca_dir: "{{ hive_context_dir }}/ca"
