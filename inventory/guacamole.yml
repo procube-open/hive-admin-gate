@@ -141,7 +141,6 @@ services:
     entrypoint:
     - /docker-entrypoint.sh
     environment:
-      DOCKER_HOST: "tcp://{{ 'p-' if hive_stage == 'private' else ('s-' if hive_stage == 'staging' else '') }}hive0.admin-gate:2376"
+      # エラーが発生する場合、DOCKER_HOSTの値が正しくない場合が多い
+      DOCKER_HOST: "tcp://{{ groups['first_hive'] | intersect(groups[hive_stage]) | first }}:2376"
       DOCKER_TLS_VERIFY: '1'
-    ports:
-    - 8888:80

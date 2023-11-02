@@ -3,10 +3,13 @@ import docker
 import json
 
 app = Flask(__name__)
-client = docker.from_env()
+
+swarm_network = ['hive_default_network']
 image_chrome = 'procube/node-chrome'
 # image_chrome = 's-hive0.admin-gate:5000/image_chrome:latest'
-swarm_network = ['hive_default_network']
+
+# コンテナが起動しない場合、以下の行（client = docker.from_env()）をコメントアウトしてデバッグしてみてください
+client = docker.from_env()
 
 @app.route('/create', methods=['POST'])
 def service_create():
