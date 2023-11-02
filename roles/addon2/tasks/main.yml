@@ -1,0 +1,4 @@
+---
+- import_role:
+    name: install-docker-plugin
+  when: inventory_hostname in groups['hives']
