@@ -3,10 +3,9 @@ import docker
 import json
 
 app = Flask(__name__)
-
+# image_chrome = 'procube/node-chrome'
+image_chrome = os.environ.get('IMAGE_CHROME')
 swarm_network = ['hive_default_network']
-image_chrome = 'procube/node-chrome'
-# image_chrome = 's-hive0.admin-gate:5000/image_chrome:latest'
 
 # コンテナが起動しない場合、以下の行（client = docker.from_env()）をコメントアウトしてデバッグしてみてください
 client = docker.from_env()
