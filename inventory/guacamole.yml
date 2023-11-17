@@ -3,7 +3,7 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: procube/guacamole
+      from: nigauri/guacamole
       roles:
       - guacamole
     environment:
@@ -74,17 +74,19 @@ services:
         size: 5G
     endpoint_mode: dnsrr
   chrome:
-    image: procube/node-chrome
+    image:
+      from: procube/node-chrome
+      roles:
+      - node-chrome
     volumes:
-    - source: guacamole-chrome
+    - source: /dev/shm
       target: /dev/shm
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
+      type: bind
     environment:
       - USERNAME: demo@procube.jp
       - PASSWORD: EXPp7Od9
+      - RULES: '["procube.info","backlog.jp","google.com"]'
+      - WHITELIST: '["192.168.100.5","192.168.100.6","192.168.100.7"]'
   file-server:
     image: procube/file-server
     environment:
@@ -141,6 +143,34 @@ services:
     entrypoint:
     - /docker-entrypoint.sh
     environment:
-      # エラーが発生する場合、DOCKER_HOSTの値が正しくない場合が多い
-      DOCKER_HOST: "tcp://{{ groups['first_hive'] | intersect(groups[hive_stage]) | first }}:2376"
-      DOCKER_TLS_VERIFY: '1'
+    # エラーが発生する場合、DOCKER_HOSTの値が正しくない場合が多い
+    - DOCKER_HOST: "tcp://{{ groups['first_hive'] | intersect(groups[hive_stage]) | first }}:2376"
+    - DOCKER_TLS_VERIFY: '1'
+    - IMAGE_CHROME: "{{ groups['repository'] | intersect(groups[hive_stage]) | first }}:5000/image_chrome:latest"
+  dummy-guacamole-for-vnc:
+    image:
+      from: node:18.18-alpine3.18
+      roles:
+      - python-aptk
+      - dummy-guacamole-for-vnc
+    command:
+    - npm
+    - start
+  dummy-guacamole-for-rdp:
+    image:
+      from: node:18.18-alpine3.18
+      roles:
+      - python-aptk
+      - dummy-guacamole-for-rdp
+    command:
+    - npm
+    - start
+  dummy-guacamole-for-ssh:
+    image:
+      from: node:18.18-alpine3.18
+      roles:
+      - python-aptk
+      - dummy-guacamole-for-ssh
+    command:
+    - npm
+    - start
