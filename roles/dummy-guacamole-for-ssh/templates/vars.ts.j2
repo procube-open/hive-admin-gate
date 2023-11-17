@@ -1,0 +1,20 @@
+export interface sshType {
+  id: string;
+  work_id: string;
+  work_ssh: string;
+  connection_id?: string;
+  ssh_url?: string;
+}
+
+export interface RequestBody {
+  id: string;
+  work_id: string;
+  work_ssh: string;
+  username: string;
+  password: string;
+  connection_id?: string;
+}
+
+export const ssh_private_key: string = "{{ credentials.guacamole_ssh_private_key }}";
+export const ssh_username: string = "{{ hive_admin | default({'vagrant':'vagrant','aws':'ec2-user', 'azure': 'hiveadmin'}[hive_provider] | default('admin')) }}";
+export const ssh_hostname: string = "{{ groups['repository'] | intersect(groups[hive_stage]) | first }}";

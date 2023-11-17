@@ -1,0 +1,18 @@
+export interface rdpType {
+  id: string;
+  work_id: string;
+  work_rdp: string;
+  connection_id?: string;
+  rdp_url?: string;
+}
+
+export interface RequestBody {
+  id: string;
+  work_id: string;
+  work_rdp: string;
+  username: string;
+  password: string;
+  connection_id?: string;
+}
+
+export const rdp_password: string = '{{ credentials.guacamole_rdp_password }}';

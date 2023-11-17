@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>create rdp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div style="margin: 5%;">
+            <h3 style="margin: 1% 0%;">起動中</h3>
+            <table border="1">
+                <tr>
+                    <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
+                </tr>
+                <% work_rdps.forEach((rdp) => { %>
+                    <form action="/dummy-g2/delete" method="POST">
+                        <tr>
+                            <td style="padding: 2px;"><input type="hidden" name="work_id" value="<%= rdp.work_id %>"><%= rdp.work_id %></td>
+                            <td style="padding: 2px;"><input type="hidden" name="work_rdp" value="<%= rdp.work_rdp %>"><%= rdp.work_rdp %></td>
+                            <td style="padding: 2px;">
+                                <input type="hidden" name="username" value="guacadmin">
+                                <input type="hidden" name="password" value="guacadmin">
+                                <input type="hidden" name="id" value="<%= rdp.id %>">
+                                <input type="hidden" name="connection_id" value="<%= rdp.connection_id %>">
+                                <a href="<%= rdp.rdp_url %>">接続</a>
+                            </td>
+                            <td>
+                                <input type="submit" id="stop_<%= rdp.work_id %>" value="停止">
+                            </td>
+                        </tr>
+                    </form>
+                <% }); %>
+            </table>
+        </div>
+
+        <div style="margin: 5%;">
+            <h3 style="margin: 1% 0%;">停止中</h3>
+            <table border="1">
+                <tr>
+                    <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
+                </tr>
+                <% wait_rdps.forEach((rdp) => { %>
+                    <tr>
+                        <td style="padding: 2px;"><%= rdp.work_id %></td>
+                        <td style="padding: 2px;"><%= rdp.work_rdp %></td>
+                        <td style="padding: 2px;">
+                            <form action="/dummy-g2/create" method="POST">
+                                <input type="hidden" name="work_id" value="<%= rdp.work_id %>">
+                                <input type="hidden" name="work_rdp" value="<%= rdp.work_rdp %>">
+                                <input type="hidden" name="username" value="guacadmin">
+                                <input type="hidden" name="password" value="guacadmin">
+                                <input type="hidden" name="id" value="<%= rdp.id %>">
+                                <input type="submit" value="起動">
+                            </form>
+                        </td>
+                        <td style="padding: 2px;">
+                            <form action="/dummy-g2/connect" method="POST">
+                                <input type="hidden" name="work_id" value="<%= rdp.work_id %>">
+                                <input type="hidden" name="work_rdp" value="<%= rdp.work_rdp %>">
+                                <input type="hidden" name="username" value="guacadmin">
+                                <input type="hidden" name="password" value="guacadmin">
+                                <input type="hidden" name="id" value="<%= rdp.id %>">
+                                <input type="submit" id="connect_<%= rdp.work_id %>" data-toggle="modal" data-target="#Modal" data-backdrop="static" value="起動 & 接続">
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>コンテナ起動中</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label>しばらくお待ちください</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
