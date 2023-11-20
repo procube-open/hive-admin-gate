@@ -13,7 +13,7 @@
                     <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
                 </tr>
                 <% work_rdps.forEach((rdp) => { %>
-                    <form action="/dummy-g2/delete" method="POST">
+                    <form action="/dummy-guacamole-for-rdp/delete" method="POST">
                         <tr>
                             <td style="padding: 2px;"><input type="hidden" name="work_id" value="<%= rdp.work_id %>"><%= rdp.work_id %></td>
                             <td style="padding: 2px;"><input type="hidden" name="work_rdp" value="<%= rdp.work_rdp %>"><%= rdp.work_rdp %></td>
@@ -44,7 +44,7 @@
                         <td style="padding: 2px;"><%= rdp.work_id %></td>
                         <td style="padding: 2px;"><%= rdp.work_rdp %></td>
                         <td style="padding: 2px;">
-                            <form action="/dummy-g2/create" method="POST">
+                            <form action="/dummy-guacamole-for-rdp/create" method="POST">
                                 <input type="hidden" name="work_id" value="<%= rdp.work_id %>">
                                 <input type="hidden" name="work_rdp" value="<%= rdp.work_rdp %>">
                                 <input type="hidden" name="username" value="guacadmin">
@@ -54,7 +54,7 @@
                             </form>
                         </td>
                         <td style="padding: 2px;">
-                            <form action="/dummy-g2/connect" method="POST">
+                            <form action="/dummy-guacamole-for-rdp/connect" method="POST">
                                 <input type="hidden" name="work_id" value="<%= rdp.work_id %>">
                                 <input type="hidden" name="work_rdp" value="<%= rdp.work_rdp %>">
                                 <input type="hidden" name="username" value="guacadmin">

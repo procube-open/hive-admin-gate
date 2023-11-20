@@ -63,8 +63,7 @@ const delete_vnc_connection = async (result_generate_token: any, request_body: R
 const create_vnc_url = (vnc_identifier: string, guacamole_database: string): string => {
   const vnc_path: string = vnc_identifier + '\0c\0' + guacamole_database;
   const encoded_vnc_path: string = btoa(vnc_path);
-  const vnc_url: string = 'https://guacamole.admin-gate-simulation.procube-demo.jp/guacamole/#/client/' + encoded_vnc_path;
-  // const vnc_url: string = 'https://localhost:19443/#/client/' + encoded_vnc_path;
+  const vnc_url: string = '/guacamole/#/client/' + encoded_vnc_path;
   return vnc_url;
 }
 
@@ -167,8 +166,8 @@ export const executor = async (request_path: string, request: any, fastify: any)
       break;
   }
 
-  return 'https://guacamole.admin-gate-simulation.procube-demo.jp/dummy-g/';
-  // return 'http://localhost:3003/';
+  return '/dummy-guacamole-for-vnc/';
+
 }
 
 

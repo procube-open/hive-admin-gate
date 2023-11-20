@@ -13,7 +13,7 @@
                     <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
                 </tr>
                 <% work_containers.forEach((container) => { %>
-                    <form action="https://guacamole.admin-gate-simulation.procube-demo.jp/dummy-g/delete" method="POST">
+                    <form action="/dummy-guacamole-for-vnc/delete" method="POST">
                         <tr>
                             <td style="padding: 2px;"><input type="hidden" name="work_id" value="<%= container.work_id %>"><%= container.work_id %></td>
                             <td style="padding: 2px;"><input type="hidden" name="work_container" value="<%= container.work_container %>"><%= container.work_container %></td>
@@ -44,7 +44,7 @@
                         <td style="padding: 2px;"><%= container.work_id %></td>
                         <td style="padding: 2px;"><%= container.work_container %></td>
                         <td style="padding: 2px;">
-                            <form action="https://guacamole.admin-gate-simulation.procube-demo.jp/dummy-g/create" method="POST">
+                            <form action="/dummy-guacamole-for-vnc/create" method="POST">
                                 <input type="hidden" name="work_id" value="<%= container.work_id %>">
                                 <input type="hidden" name="work_container" value="<%= container.work_container %>">
                                 <input type="hidden" name="username" value="guacadmin">
@@ -57,7 +57,7 @@
                             </form>
                         </td>
                         <td style="padding: 2px;">
-                            <form action="https://guacamole.admin-gate-simulation.procube-demo.jp/dummy-g/connect" method="POST">
+                            <form action="/dummy-guacamole-for-vnc/connect" method="POST">
                                 <input type="hidden" name="work_id" value="<%= container.work_id %>">
                                 <input type="hidden" name="work_container" value="<%= container.work_container %>">
                                 <input type="hidden" name="username" value="guacadmin">

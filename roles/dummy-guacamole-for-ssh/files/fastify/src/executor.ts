@@ -42,8 +42,7 @@ const delete_ssh_connection = async (result_generate_token: any, request_body: R
 const create_ssh_url = (ssh_identifier: string, guacamole_database: string): string => {
   const ssh_path: string = ssh_identifier + '\0c\0' + guacamole_database;
   const encoded_ssh_path: string = btoa(ssh_path);
-  const ssh_url: string = 'https://guacamole.admin-gate-simulation.procube-demo.jp/guacamole/#/client/' + encoded_ssh_path;
-  // const ssh_url: string = 'https://localhost:19443/#/client/' + encoded_ssh_path;
+  const ssh_url: string = '/guacamole/#/client/' + encoded_ssh_path;
   return ssh_url;
 }
 
@@ -145,8 +144,7 @@ export const executor = async (request_path: string, request: any, fastify: any)
       break;
   }
 
-  return 'https://guacamole.admin-gate-simulation.procube-demo.jp/dummy-g3/';
-  // return 'http://localhost:3004/';
+  return '/dummy-guacamole-for-ssh/';
 
 }
 

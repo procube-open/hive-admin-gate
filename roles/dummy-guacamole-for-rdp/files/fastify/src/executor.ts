@@ -42,8 +42,7 @@ const delete_rdp_connection = async (result_generate_token: any, request_body: R
 const create_rdp_url = (rdp_identifier: string, guacamole_database: string): string => {
   const rdp_path: string = rdp_identifier + '\0c\0' + guacamole_database;
   const encoded_rdp_path: string = btoa(rdp_path);
-  const rdp_url: string = 'https://guacamole.admin-gate-simulation.procube-demo.jp/guacamole/#/client/' + encoded_rdp_path;
-  // const rdp_url: string = 'https://localhost:19443/#/client/' + encoded_rdp_path;
+  const rdp_url: string = '/guacamole/#/client/' + encoded_rdp_path;
   return rdp_url;
 }
 
@@ -147,8 +146,8 @@ export const executor = async (request_path: string, request: any, fastify: any)
       break;
   }
 
-  return 'https://guacamole.admin-gate-simulation.procube-demo.jp/dummy-g2/';
-  // return 'http://localhost:3004/';
+  return '/dummy-guacamole-for-rdp/';
+
 }
 
 

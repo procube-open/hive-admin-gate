@@ -13,7 +13,7 @@
                     <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
                 </tr>
                 <% work_sshs.forEach((ssh) => { %>
-                    <form action="/dummy-g3/delete" method="POST">
+                    <form action="/dummy-guacamole-for-ssh/delete" method="POST">
                         <tr>
                             <td style="padding: 2px;"><input type="hidden" name="work_id" value="<%= ssh.work_id %>"><%= ssh.work_id %></td>
                             <td style="padding: 2px;"><input type="hidden" name="work_ssh" value="<%= ssh.work_ssh %>"><%= ssh.work_ssh %></td>
@@ -44,7 +44,7 @@
                         <td style="padding: 2px;"><%= ssh.work_id %></td>
                         <td style="padding: 2px;"><%= ssh.work_ssh %></td>
                         <td style="padding: 2px;">
-                            <form action="/dummy-g3/create" method="POST">
+                            <form action="/dummy-guacamole-for-ssh/create" method="POST">
                                 <input type="hidden" name="work_id" value="<%= ssh.work_id %>">
                                 <input type="hidden" name="work_ssh" value="<%= ssh.work_ssh %>">
                                 <input type="hidden" name="username" value="guacadmin">
@@ -54,7 +54,7 @@
                             </form>
                         </td>
                         <td style="padding: 2px;">
-                            <form action="/dummy-g3/connect" method="POST">
+                            <form action="/dummy-guacamole-for-ssh/connect" method="POST">
                                 <input type="hidden" name="work_id" value="<%= ssh.work_id %>">
                                 <input type="hidden" name="work_ssh" value="<%= ssh.work_ssh %>">
                                 <input type="hidden" name="username" value="guacadmin">
