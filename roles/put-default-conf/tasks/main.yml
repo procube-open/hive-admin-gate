@@ -1,0 +1,5 @@
+---
+- name: put default.conf to hosts
+  template:
+    src: default.conf.j2
+    dest: "{{ hive_home_dir }}/default.conf"
