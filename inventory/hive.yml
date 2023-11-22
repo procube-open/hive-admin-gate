@@ -6,10 +6,10 @@ stages:
     cidr: 192.168.10.0/24
     instance_type: e2-highcpu-32
     region: asia-northeast2
-    disk_size: 32
+    disk_size: 50
     mirrored_disk_size: 32
     repository_instance_type: e2-medium
-    repository_disk_size: 32
+    repository_disk_size: 70
   staging:
     provider: gcp
     cidr: 192.168.0.0/24
