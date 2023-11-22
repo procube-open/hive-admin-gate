@@ -10,6 +10,28 @@ import timeout_decorator
 import json
 
 
+def register_whitelist(browser):
+    # Access to siteblock setting page
+    browser.get('chrome-extension://pfglnpdpgmecffbejlfgpnebopinlclj/html/options.html')
+
+    # Find the siteblock elements
+    siteblockRulesXpath='//textarea[@id="rules"]'
+    siteblockSubmitXpath='//input[@id="submit"]'
+    siteblockRules = browser.find_element(by=By.XPATH, value=siteblockRulesXpath)
+    siteblockSubmit = browser.find_element(by=By.XPATH, value=siteblockSubmitXpath)
+
+    siteblockRules.clear()
+
+    rulesStr = os.environ.get('RULES')
+    rules = json.loads(rulesStr)
+    sendRulesStr = '*'
+    for rule in rules:
+        sendRulesStr = sendRulesStr + '\n+' + rule
+
+    siteblockRules.send_keys(sendRulesStr)
+    siteblockSubmit.click()
+
+
 def access_backlog(browser):
     # Access to Backlog
     browser.get('https://procube.backlog.jp/')
@@ -35,6 +57,7 @@ def access_backlog(browser):
     time.sleep(2)
     submit.click()
 
+
 @timeout_decorator.timeout(1)
 def isChromeExist():
     options = Options()
@@ -53,34 +76,20 @@ def loginToBacklog():
     options.add_argument('--disable-dev-shm-usage')
     browser = webdriver.Chrome(options=options)
 
+    # register_whitelist(browser)
+    # access_backlog(browser)
 
-    # Access to siteblock setting page
-    browser.get('chrome-extension://pfglnpdpgmecffbejlfgpnebopinlclj/html/options.html')
+    # while True:
+    #     time.sleep(5)
+    #     browser.get('https://procube.info/')
+    #     time.sleep(5)
+    #     access_backlog(browser)
 
-    # Find the siteblock elements
-    siteblockRulesXpath='//textarea[@id="rules"]'
-    siteblockSubmitXpath='//input[@id="submit"]'
-    siteblockRules = browser.find_element(by=By.XPATH, value=siteblockRulesXpath)
-    siteblockSubmit = browser.find_element(by=By.XPATH, value=siteblockSubmitXpath)
-
-    siteblockRules.clear()
-
-    rulesStr = os.environ.get('RULES')
-    rules = json.loads(rulesStr)
-    sendRulesStr = '*'
-    for rule in rules:
-        sendRulesStr = sendRulesStr + '\n+' + rule
-
-    siteblockRules.send_keys(sendRulesStr)
-    siteblockSubmit.click()
-
-    access_backlog(browser)
-
-    for _ in range(5):
+    while True:
+        browser.get('http://nginx/')
         time.sleep(5)
-        browser.get('https://google.com/')
+        browser.get('http://apache/')
         time.sleep(5)
-        access_backlog(browser)
 
 
 try:
