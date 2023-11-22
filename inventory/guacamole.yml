@@ -174,3 +174,7 @@ services:
     command:
     - npm
     - start
+  nginx:
+    image: nginx:1.25.3
+  apache:
+    image: httpd:2.4
