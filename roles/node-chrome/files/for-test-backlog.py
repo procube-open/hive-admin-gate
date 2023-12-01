@@ -85,12 +85,13 @@ def loginToBacklog():
     #     time.sleep(5)
     #     access_backlog(browser)
 
-    while True:
-        browser.get('http://nginx/')
-        time.sleep(5)
-        browser.get('http://apache/')
-        time.sleep(5)
+    # while True:
+    #     browser.get('http://nginx/')
+    #     time.sleep(5)
+    #     browser.get('http://apache/')
+    #     time.sleep(5)
 
+    browser.get('http://apache/')
 
 try:
     isChromeExist()
