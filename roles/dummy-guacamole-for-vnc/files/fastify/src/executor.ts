@@ -148,16 +148,7 @@ export const executor = async (request_path: string, request: any, fastify: any)
       await create_process();
       break;
     case '/connect':
-      // chromeコンテナが起動してからリダイレクトされるように、3.5秒待つようにする
-      const get_vnc_url = async (): Promise<string> => {
-        return new Promise( async (resolve) => {
-          const vnc_url: string = await create_process();
-          setTimeout(() => {
-            resolve(vnc_url);
-          }, 10000);
-        });
-      }
-      const vnc_url: string = await get_vnc_url();
+      const vnc_url: string = await create_process();
       return vnc_url;
     case '/delete':
       await delete_process();

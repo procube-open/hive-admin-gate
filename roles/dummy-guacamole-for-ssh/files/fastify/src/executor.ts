@@ -126,16 +126,7 @@ export const executor = async (request_path: string, request: any, fastify: any)
       await create_process();
       break;
     case '/connect':
-      // sshコンテナが起動してからリダイレクトされるように、3.5秒待つようにする
-      const get_ssh_url = async (): Promise<string> => {
-        return new Promise( async (resolve) => {
-          const ssh_url: string = await create_process();
-          setTimeout(() => {
-            resolve(ssh_url);
-          }, 3500);
-        });
-      }
-      const ssh_url: string = await get_ssh_url();
+      const ssh_url: string = await create_process();
       return ssh_url;
     case '/delete':
       await delete_process();

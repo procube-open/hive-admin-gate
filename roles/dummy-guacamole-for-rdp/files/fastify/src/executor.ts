@@ -128,16 +128,7 @@ export const executor = async (request_path: string, request: any, fastify: any)
       await create_process();
       break;
     case '/connect':
-      // windowsコンテナが起動してからリダイレクトされるように、3.5秒待つようにする
-      const get_rdp_url = async (): Promise<string> => {
-        return new Promise( async (resolve) => {
-          const rdp_url: string = await create_process();
-          setTimeout(() => {
-            resolve(rdp_url);
-          }, 3500);
-        });
-      }
-      const rdp_url: string = await get_rdp_url();
+      const rdp_url: string = await create_process();
       return rdp_url;
     case '/delete':
       await delete_process();
