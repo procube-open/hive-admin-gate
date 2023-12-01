@@ -2,6 +2,9 @@ from flask import Flask, request
 import docker
 import json
 import os
+import socket
+import time
+import logging
 
 app = Flask(__name__)
 # image_chrome = 'procube/node-chrome'
@@ -19,7 +22,20 @@ def service_create():
     backlog_password = 'PASSWORD=' + request.json['backlog_password']
     selenium_env = [selenium_allow_url, backlog_username, backlog_password]
 
-    client.services.create(image_chrome, name=work_container, networks=swarm_network, env=selenium_env)
+    client.services.create(image_chrome, name=work_container, networks=swarm_network, env=selenium_env, endpoint_spec=docker.types.EndpointSpec(mode='dnsrr'))
+    time.sleep(3)
+
+    while True:
+        try:
+            with socket.create_connection((work_container, 5900)) as sock:
+                logger_text = work_container + ' Connect successfully'
+                app.logger.info(logger_text)
+            break
+        except:
+            logger_text = work_container + ' Connection Retry'
+            app.logger.info(logger_text)
+            time.sleep(0.2)
+
     return 'Successfully Created'
 
 @app.route('/delete', methods=['POST'])
