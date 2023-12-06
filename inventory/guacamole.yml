@@ -87,8 +87,8 @@ services:
       - PASSWORD: EXPp7Od9
       - RULES: '["procube.info","backlog.jp","google.com"]'
   file-server:
-    # image: procube/file-server
-    image: procube/file-server@sha256:bc98a70bc3b1b041a76f58713e97a887148a28eb5610b78b27fcf4820d7f9c9b
+    image: procube/file-server
+    # image: procube/file-server@sha256:bc98a70bc3b1b041a76f58713e97a887148a28eb5610b78b27fcf4820d7f9c9b
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
