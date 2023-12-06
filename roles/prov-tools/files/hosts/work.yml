@@ -1,7 +1,7 @@
 ---
 plugin: idm_inventory
-interface: workEditorInterface
+interface: applovalWorkIF
 host_name_property: id
 class_name: work
 groups:
-- name: woks
+- name: works

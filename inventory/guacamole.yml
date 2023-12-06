@@ -3,7 +3,7 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: procube/guacamole:develop-0c4d
+      from: procube/guacamole:develop-a2d6
       roles:
       - guacamole
     environment:
@@ -85,12 +85,18 @@ services:
     environment:
       - USERNAME: demo@procube.jp
       - PASSWORD: EXPp7Od9
+      - RULES: '["procube.info","backlog.jp","google.com"]'
   file-server:
-    image: procube/file-server
+    # image: procube/file-server
+    image: procube/file-server@sha256:bc98a70bc3b1b041a76f58713e97a887148a28eb5610b78b27fcf4820d7f9c9b
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
+      GUAC_URL: https://guacamole.admin-gate.procube-demo.jp/guacamole
+      GUAC_API_URL: http://guacamole:8080/guacamole
+      IDM_URL: https://idm.admin-gate.procube-demo.jp
+      WS_URL: wss://file-server.admin-gate.procube-demo.jp
     ports:
       - 4200:4200
     labels:

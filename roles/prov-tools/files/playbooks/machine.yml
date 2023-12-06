@@ -18,9 +18,10 @@
 #  - name: Change password for certificate User.
 #    include_tasks:
 #      file: machine/change-password.yml
+
   - name: Register connection.
     include_tasks:
-      file: machine/register-connection.yml 
-    loop: "{{ insideConnectionsObject}}"
+      file: machine/register-connection.yml
+    loop: "{{ insideConnectionsObject }}"
     loop_control:
-      loop_var: connection
+      loop_var: idm_connection

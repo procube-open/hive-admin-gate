@@ -1495,11 +1495,62 @@ is_tables_data:
             \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applicationWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10102'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
+            column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applicationWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10102'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
+            column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applicationWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER*(;.*|$)
+        roleOrder: 3
+        rolename: IDM_USER
+        tabId: '10102'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
+            column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 1
+        roleOrder: 4
         rolename: defaultRole
         tabId: '10102'
         temp: "\0"
@@ -1521,9 +1572,60 @@ is_tables_data:
         tabId: '10103'
         temp: "\0"
         templastmodified: '2023-06-13T16:45:06'
-        widgets: "<widgets tabId=\"10103\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
-            column=\"1\" title=\"作業申請\" type=\"g_upload__applovalWork_g/gadget\">\n
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10103'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10103'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER*(;.*|$)
+        roleOrder: 3
+        rolename: IDM_USER
+        tabId: '10103'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
             \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
@@ -1532,14 +1634,14 @@ is_tables_data:
         layout: ''
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 1
+        roleOrder: 4
         rolename: defaultRole
         tabId: '10103'
         temp: "\0"
         templastmodified: '2023-06-13T16:45:06'
-        widgets: "<widgets tabId=\"10103\" tabName=\"作業承認\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
-            column=\"1\" title=\"作業承認\" type=\"g_upload__applovalWork_g/gadget\">\n
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
             \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
@@ -1561,11 +1663,45 @@ is_tables_data:
             \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 1
+        roleOrder: 3
         rolename: defaultRole
         tabId: '10105'
         temp: "\0"
@@ -1595,11 +1731,47 @@ is_tables_data:
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10106'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:34:22'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10106'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:34:22'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 1
+        roleOrder: 3
         rolename: defaultRole
         tabId: '10106'
         temp: "\0"
@@ -1630,11 +1802,29 @@ is_tables_data:
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10107'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10107\" tabName=\"利用者グループガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_userGroup_g\" column=\"1\" title=\"利用者グループガジェット\"
+            type=\"g_upload__userGroup_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 1
+        roleOrder: 2
         rolename: defaultRole
         tabId: '10107'
         temp: "\0"
@@ -1700,11 +1890,65 @@ is_tables_data:
             disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_requiredApplovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10112'
+        temp: "\0"
+        templastmodified: '2023-06-21T14:06:23'
+        widgets: "<widgets tabId=\"10112\" tabName=\"要承認作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_requiredApplovalWork_g\" column=\"1\" title=\"要承認作業ガジェット\"
+            type=\"g_upload__requiredApplovalWork_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_requiredApplovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10112'
+        temp: "\0"
+        templastmodified: '2023-06-21T14:06:23'
+        widgets: "<widgets tabId=\"10112\" tabName=\"要承認作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_requiredApplovalWork_g\" column=\"1\" title=\"要承認作業ガジェット\"
+            type=\"g_upload__requiredApplovalWork_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_requiredApplovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER*(;.*|$)
+        roleOrder: 3
+        rolename: IDM_USER
+        tabId: '10112'
+        temp: "\0"
+        templastmodified: '2023-06-21T14:06:23'
+        widgets: "<widgets tabId=\"10112\" tabName=\"要承認作業ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_requiredApplovalWork_g\" column=\"1\" title=\"要承認作業ガジェット\"
+            type=\"g_upload__requiredApplovalWork_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 1
+        roleOrder: 4
         rolename: defaultRole
         tabId: '10112'
         temp: "\0"
@@ -2778,6 +3022,217 @@ is_tables_data:
         roleOrder: 2
         rolename: defaultRole
         tabId: header
+        temp: "\x01"
+        templastmodified: '2023-06-13T09:55:59'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20221115120233954'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '1514074290805'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ID管理</span>
+
+            <span class="showEn">ID Management</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10100">
+
+            <span class="showJa">ユーザ管理</span>
+
+            <span class="showEn">Users</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10107">
+
+            <span class="showJa">ユーザグループ管理</span>
+
+            <span class="showEn">User Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10105">
+
+            <span class="showJa">機器</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10106">
+
+            <span class="showJa">接続先</span>
+
+            <span class="showEn">Connections</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10108">
+
+            <span class="showJa">接続先グループ</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10102">
+
+            <span class="showJa">作業申請</span>
+
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10112">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">作業承認</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10113">
+
+            <span class="showJa">過去作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 3
+        rolename: リーダー
+        tabId: header
+        temp: "\0"
+        templastmodified: '2023-06-13T09:55:59'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20221115120233951'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '1514074290805'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10102">
+
+            <span class="showJa">作業申請</span>
+
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10112">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">作業承認</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10113">
+
+            <span class="showJa">過去作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER*(;.*|$)
+        roleOrder: 4
+        rolename: ユーザー
+        tabId: header
+        temp: "\0"
+        templastmodified: '2023-06-13T09:55:59'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20221115120233951'
+        workingUid: IDM_ADMIN
+    -   defaultUid: default
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 5
+        rolename: defaultRole
+        tabId: header
         temp: "\0"
         templastmodified: '2022-11-15T12:02:35'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
@@ -2797,7 +3252,7 @@ is_tables_data:
             </div>'
         principalType: OrganizationPrincipal
         role: default
-        roleOrder: 2
+        roleOrder: 5
         rolename: defaultRole
         tabId: header
         temp: "\x01"
@@ -2929,6 +3384,84 @@ phases_data:
                 type: number
                 unique: false
                 uniqueIgnoreCase: false
+        -   displayName: 作業期間
+            isNestedObject: true
+            isPrimaryAndNestedObject: false
+            name: Period
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: 期間開始日
+                isArray: false
+                name: validFrom
+                outputLdapSchema: false
+                required: false
+                type: date
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 期間終了日
+                isArray: false
+                name: validUntil
+                outputLdapSchema: false
+                required: false
+                type: date
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: この項目をチェックすることで、作業可能な時間を指定することができます。
+                displayName: 時間指定
+                isArray: false
+                name: specificTime
+                outputLdapSchema: false
+                required: false
+                type: boolean
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 開始時
+                isArray: false
+                name: startHour
+                outputLdapSchema: false
+                propGroupName:
+                - specificTime
+                required: true
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 開始分
+                isArray: false
+                name: startMinute
+                outputLdapSchema: false
+                propGroupName:
+                - specificTime
+                required: false
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 終了時
+                isArray: false
+                name: endHour
+                outputLdapSchema: false
+                propGroupName:
+                - specificTime
+                required: false
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 終了分
+                isArray: false
+                name: endMinute
+                outputLdapSchema: false
+                propGroupName:
+                - specificTime
+                required: false
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
         -   displayName: 接続先
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -2946,30 +3479,21 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 接続先名
-                isArray: false
-                name: name
-                outputLdapSchema: false
-                required: true
-                type: string
-                unique: true
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
                 displayName: 接続機器
                 isArray: false
                 name: machine
                 outputLdapSchema: false
                 propagations:
                 -   dependency:
-                    - name
                     - protocol
                     - port
+                    - remark
                     refClassName: machine
                     targetProperty: connections
                 -   dependency:
-                    - name
                     - protocol
                     - port
+                    - remark
                     refClassName: machine
                     targetProperty: insideConnectionsObject
                 required: true
@@ -3004,6 +3528,15 @@ phases_data:
                 type: number
                 unique: false
                 uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 補足
+                isArray: false
+                name: remark
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
         -   displayName: 接続先グループ
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -3021,7 +3554,7 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 接続先一覧
+                displayName: 機器一覧
                 isArray: false
                 name: connections
                 outputLdapSchema: false
@@ -3029,7 +3562,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: enumConnectionIF
+                valuesInterface: selectMachineIF
         -   displayName: 機器内接続先データ
             isNestedObject: true
             isPrimaryAndNestedObject: false
@@ -3108,15 +3641,6 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 機器名
-                isArray: false
-                name: name
-                outputLdapSchema: false
-                required: true
-                type: string
-                unique: true
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
                 displayName: ホスト名
                 isArray: false
                 name: hostname
@@ -3128,7 +3652,7 @@ phases_data:
             -   allowAnotherValue: false
                 className: connection
                 derivation: 'select( getResource("/IDManager/connectionEditorInterface",
-                    { machine: this().id }), "name")'
+                    { machine: this().id }), "id")'
                 displayName: 接続先一覧
                 isArray: true
                 name: connections
@@ -3138,6 +3662,16 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
                 valuesEx: getResource("/IDManager/connectionEditorInterface", id)
+            -   allowAnotherValue: false
+                displayName: チーム
+                isArray: false
+                name: team
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserGroupIF
             -   allowAnotherValue: false
                 displayName: 認証ユーザー
                 isArray: false
@@ -3373,6 +3907,8 @@ phases_data:
                     value: IDM_ADMIN
                 -   displayName: 管理者
                     value: IDM_USER_ADMIN
+                -   displayName: チームリーダー
+                    value: IDM_USER_LEADER
                 -   displayName: 利用者
                     value: IDM_USER
             -   allowAnotherValue: false
@@ -3387,6 +3923,16 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: チーム
+                isArray: false
+                name: team
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserGroupIF
             -   allowAnotherValue: false
                 derivation: '"uid=" + this().uid + ",ou=Users,{{ dn_suffix }}"'
                 description: LDAPのディレクトリーツリー内での位置を示す識別子
@@ -3453,17 +3999,26 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-        -   description: "利用者グループを設定します。\r\n作業に対して特定のメンバーを一括で登録したい際に利用できます。"
-            displayName: 利用者グループ
+        -   description: "チームを設定します。\r\nユーザーはチーム単位で管理されている他のユーザーや接続先にのみアクセスすることができます。"
+            displayName: チーム
             isNestedObject: false
             isPrimaryAndNestedObject: false
-            keyProperty: name
+            keyProperty: id
             name: userGroups
             outputLdapSchema: false
             propertyDefinitionList:
             -   allowAnotherValue: false
-                description: 利用者グループのグループ名を入力してください。
-                displayName: グループ名
+                displayName: ID
+                isArray: false
+                name: id
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: チーム名を入力してください。
+                displayName: チーム名
                 isArray: false
                 name: name
                 outputLdapSchema: false
@@ -3472,7 +4027,7 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 利用者一覧
+                displayName: ユーザー一覧
                 isArray: true
                 name: users
                 outputLdapSchema: false
@@ -3481,6 +4036,16 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectUserIF
+            -   allowAnotherValue: false
+                displayName: 接続先一覧
+                isArray: true
+                name: connections
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectConnectionIF
         -   displayName: 作業
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -3507,21 +4072,13 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 開始日時
-                isArray: false
-                name: startDatetime
-                outputLdapSchema: false
-                required: true
-                type: datetime
-                unique: false
-                uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                displayName: 終了日時
-                isArray: false
-                name: endDatetime
+                className: Period
+                displayName: 作業期間
+                isArray: true
+                name: Periods
                 outputLdapSchema: false
                 required: false
-                type: datetime
+                type: object
                 unique: false
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
@@ -3551,28 +4108,8 @@ phases_data:
                 -   displayName: 差し戻し
                     value: sendBack
             -   allowAnotherValue: false
-                displayName: ユーザー
-                isArray: true
-                name: users
-                outputLdapSchema: false
-                required: false
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
-                valuesInterface: selectUserIF
-            -   allowAnotherValue: false
-                displayName: ユーザーグループ
-                isArray: true
-                name: userGroups
-                outputLdapSchema: false
-                required: false
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
-                valuesInterface: selectUserGroupIF
-            -   allowAnotherValue: false
                 displayName: 接続先
-                isArray: false
+                isArray: true
                 name: connections
                 outputLdapSchema: false
                 required: false
@@ -3590,6 +4127,46 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectConnectionGroupIF
+            -   allowAnotherValue: false
+                displayName: 作業者（単体選択）
+                isArray: true
+                name: workUsers
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserIF
+            -   allowAnotherValue: false
+                displayName: 作業者（グループ選択）
+                isArray: true
+                name: workUserGroups
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserGroupIF
+            -   allowAnotherValue: false
+                displayName: 管理者（単体選択）
+                isArray: true
+                name: manageUsers
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserIF
+            -   allowAnotherValue: false
+                displayName: 管理者（グループ選択）
+                isArray: true
+                name: manageUserGroups
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserGroupIF
             -   allowAnotherValue: false
                 displayName: 申請者
                 isArray: false
@@ -3753,44 +4330,81 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
-            -   className: ''
-                dateSeparator: /
+            -   className: Period
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: startDatetime
+                name: Periods
+                propertiesOnDetail:
+                -   className: ''
+                    dateSeparator: /
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: validFrom
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: date
+                -   className: ''
+                    dateSeparator: /
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: validUntil
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: date
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: specificTime
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: boolean
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: startHour
+                    radioButtonFlag: false
+                    twoColumnFlag: true
+                    type: number
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: startMinute
+                    radioButtonFlag: false
+                    twoColumnFlag: true
+                    type: number
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: endHour
+                    radioButtonFlag: false
+                    twoColumnFlag: true
+                    type: number
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: endMinute
+                    radioButtonFlag: false
+                    twoColumnFlag: true
+                    type: number
                 radioButtonFlag: false
                 twoColumnFlag: false
-                type: datetime
-            -   className: ''
-                dateSeparator: /
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: endDatetime
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: datetime
-            -   className: user
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: users
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: userGroups
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: userGroups
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
+                type: object
             -   className: connection
                 disableUpdate: false
                 hideOnEdit: false
@@ -3806,6 +4420,42 @@ phases_data:
                 hideOnShow: false
                 incrementalSearchFlag: false
                 name: connectionGroups
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: user
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: workUsers
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: userGroups
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: workUserGroups
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: user
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: manageUsers
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: userGroups
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: manageUserGroups
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
@@ -3843,10 +4493,6 @@ phases_data:
             -   displayOnList: 'on'
                 filter: all
                 name: status
-            -   displayOnList: 'on'
-                name: startDatetime
-            -   displayOnList: 'on'
-                name: endDatetime
             -   displayOnList: 'on'
                 name: applicationUser
             -   displayOnList: 'on'
@@ -3939,15 +4585,6 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: name
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
             -   className: machine
                 disableUpdate: false
                 hideOnEdit: false
@@ -3975,6 +4612,15 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: number
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: remark
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
             showHistory: false
             uploadCSV: true
             useDisplayNameHeader: false
@@ -4023,7 +4669,7 @@ phases_data:
                 name: startDatetime
                 radioButtonFlag: false
                 twoColumnFlag: false
-                type: datetime
+                type: ''
             -   className: ''
                 dateSeparator: /
                 disableUpdate: false
@@ -4033,7 +4679,7 @@ phases_data:
                 name: endDatetime
                 radioButtonFlag: false
                 twoColumnFlag: false
-                type: datetime
+                type: ''
             -   className: ''
                 defaultValue: editing
                 disableUpdate: true
@@ -4044,7 +4690,7 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
-            -   className: user
+            -   className: ''
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
@@ -4052,8 +4698,8 @@ phases_data:
                 name: users
                 radioButtonFlag: false
                 twoColumnFlag: false
-                type: string
-            -   className: userGroups
+                type: ''
+            -   className: ''
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
@@ -4061,7 +4707,7 @@ phases_data:
                 name: userGroups
                 radioButtonFlag: false
                 twoColumnFlag: false
-                type: string
+                type: ''
             -   className: connection
                 disableUpdate: false
                 hideOnEdit: false
@@ -4115,15 +4761,6 @@ phases_data:
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: name
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
                 name: hostname
                 radioButtonFlag: false
                 twoColumnFlag: false
@@ -4158,8 +4795,6 @@ phases_data:
             propertiesOnList:
             -   displayOnList: 'off'
                 name: id
-            -   displayOnList: 'on'
-                name: name
             -   displayOnList: 'on'
                 name: hostname
             -   displayOnList: 'off'
@@ -4295,6 +4930,115 @@ phases_data:
             interfaceName: userEditorInterface
             isSingleton: false
             name: userEditor
+            propertiesOnDetail:
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: uid
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: cn
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: idmRole
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: true
+                incrementalSearchFlag: false
+                name: userPassword
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: userGroups
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: team
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: dn
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: accountLock
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: boolean
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data1
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data2
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data3
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data4
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data5
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
             propertiesOnList:
             -   displayOnList: 'on'
                 name: uid
@@ -4321,12 +5065,35 @@ phases_data:
             disableMultiDelete: false
             disableSuspension: false
             disableUpdate: false
-            displayName: 利用者グループガジェット
+            displayName: チームガジェット
             downloadDisplayFormatCSV: false
             downloadUpdateFormatCSV: true
             interfaceName: userGroupEditorInterface
             isSingleton: false
             name: userGroup_g
+            propertiesOnDetail:
+            -   className: ''
+                defaultValueEx: uuid()
+                disableUpdate: true
+                hideOnEdit: true
+                hideOnShow: true
+                incrementalSearchFlag: false
+                name: id
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            propertiesOnList:
+            -   displayOnList: 'on'
+                name: name
             showHistory: false
             uploadCSV: true
             useDisplayNameHeader: false
@@ -4366,16 +5133,17 @@ phases_data:
             properties:
             - id
             - name
-            - startDatetime
-            - endDatetime
             - status
-            - users
-            - userGroups
             - connections
             - connectionGroups
             - applicationUser
             - applicationDatetime
             - applicationComment
+            - Periods
+            - workUsers
+            - workUserGroups
+            - manageUsers
+            - manageUserGroups
             readOnlyProperties:
             - applicationUser
             useAESDecryptedResponse: false
@@ -4566,6 +5334,11 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: 機器情報編集IF
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                {team: find(getResource(\"/IDManager/userEditorInterface\"), \"uid\",
+                user()).team}"
             name: machineEditorInterface
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
@@ -4590,8 +5363,6 @@ phases_data:
             - startDatetime
             - endDatetime
             - status
-            - users
-            - userGroups
             - connections
             - connectionGroups
             - applicationUser
@@ -4600,6 +5371,10 @@ phases_data:
             - approvedDatetime
             - applicationComment
             - applovedComment
+            - workUsers
+            - workUserGroups
+            - manageUsers
+            - manageUserGroups
             readOnlyProperties:
             - applicationUser
             - id
@@ -4613,6 +5388,10 @@ phases_data:
             - applicationUser
             - applicationDatetime
             - applicationComment
+            - workUsers
+            - workUserGroups
+            - manageUsers
+            - manageUserGroups
             sortOrder: '-'
             sortProperty: applicationDatetime
             useAESDecryptedResponse: false
@@ -4646,6 +5425,11 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: 機器選択IF
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                {team: find(getResource(\"/IDManager/userEditorInterface\"), \"uid\",
+                user()).team}"
             name: selectMachineIF
             properties:
             - name
@@ -4657,7 +5441,12 @@ phases_data:
             className: userGroups
             database: Sandbox
             deleteAsUpdate: false
-            displayName: ユーザグループ選択IF
+            displayName: チーム選択IF
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                {id: find(getResource(\"/IDManager/userEditorInterface\"), \"uid\",
+                user()).team}"
             name: selectUserGroupIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
@@ -4666,6 +5455,11 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: ユーザ選択IF
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                {team: find(getResource(\"/IDManager/userEditorInterface\"), \"uid\",
+                user()).team}"
             name: selectUserIF
             properties:
             - uid
@@ -4689,7 +5483,7 @@ phases_data:
                     useArgument: false
                     values:
                     - IDM_ADMIN
-                    - IDM_CONTACT
+                    - IDM_USER_ADMIN
             accessLevel: full
             className: user
             database: Sandbox
@@ -4699,11 +5493,19 @@ phases_data:
             name: userEditorInterface
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   accessLevel: full
+        -   ACEs:
+            -   allow: true
+                matching:
+                -   type: GROUP
+                    useArgument: false
+                    values:
+                    - IDM_ADMIN
+                    - IDM_USER_ADMIN
+            accessLevel: full
             className: userGroups
             database: Sandbox
             deleteAsUpdate: false
-            displayName: ユーザグループ編集インターフェース
+            displayName: チーム編集インターフェース
             name: userGroupEditorInterface
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
@@ -4776,42 +5578,25 @@ phases_data:
             classSetting:
             -   className: machine
                 noDecryption: false
-                type: CustomTaskExecutor
-            database: Master
-            description: ADのパスワード変更時のタスク
-            displayName: パスワード変更
-            host: localhost
-            ignore: false
-            ignoreMultiResult: false
-            ignoreZeroResult: false
-            name: changePassword
-            outputAll: false
-            path: /v1/execute_task
-            port: 8099
-            stop: false
-            type: CustomTaskExecutor
-            withHeader: false
-        -   appendOnly: false
-            classSetting:
-            -   className: connection
-                noDecryption: false
                 properties:
                 -   modifiedOnly: false
                     propertyName: name
                 -   modifiedOnly: false
-                    propertyName: machine
+                    propertyName: hostname
                 -   modifiedOnly: false
-                    propertyName: protocol
+                    propertyName: certificationUser
                 -   modifiedOnly: false
-                    propertyName: port
+                    propertyName: certificationPassword
+                -   modifiedOnly: false
+                    propertyName: insideConnectionsObject
                 type: CustomTaskExecutor
             database: Master
-            displayName: 接続先作成
+            displayName: 機器作成
             host: localhost
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            name: createConnection
+            name: createMachine
             outputAll: false
             path: /v1/execute_task
             port: 8099
@@ -4852,10 +5637,18 @@ phases_data:
                     propertyName: name
                 -   modifiedOnly: false
                     propertyName: status
+                -   modifiedOnly: false
+                    propertyName: Periods
+                -   modifiedOnly: false
+                    propertyName: connections
+                -   modifiedOnly: false
+                    propertyName: workUsers
+                -   modifiedOnly: false
+                    propertyName: manageUsers
                 type: CustomTaskExecutor
             database: Master
             displayName: 作業作成
-            host: local
+            host: localhost
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
@@ -4997,6 +5790,7 @@ phases_data:
             cn: 品川 仁美（更新後）
             dn: uid=AEXRWx@example.org,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
+            team: c4442981-1036-f79f-6ef3-14b8be9e9924
             uid: AEXRWx@example.org
             userPassword: '{{ db_password }}'
         -   accountLock: false
@@ -5267,6 +6061,7 @@ phases_data:
             cn: admin
             dn: uid=admin,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
+            team: c4442981-1036-f79f-6ef3-14b8be9e9924
             uid: admin
             userPassword: '{{ db_password }}'
         -   accountLock: false
@@ -5374,7 +6169,7 @@ phases_data:
         -   accountLock: false
             cn: 中川路 玄哉
             dn: uid=hiroya@procube.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
+            idmRole: IDM_USER
             uid: hiroya@procube.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
@@ -5426,6 +6221,18 @@ phases_data:
             uid: kNAMy2K@test.net
             userPassword: '{{ db_password }}'
         -   accountLock: false
+            cn: 岸本 明紀
+            dn: uid=ka-kishimoto@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: ka-kishimoto@netone.co.jp
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 西田 謙一
+            dn: uid=kn-nishida@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: kn-nishida@netone.co.jp
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
             cn: 奥谷 康朗
             dn: uid=knnVda29RN@test.net,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
@@ -5460,6 +6267,12 @@ phases_data:
             dn: uid=mO5yK4@test.com,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: mO5yK4@test.com
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 船間 学
+            dn: uid=ma-funama@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: ma-funama@netone.co.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: 中川路 充
@@ -5540,10 +6353,28 @@ phases_data:
             uid: rtCfHH@test.co.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
+            cn: 畑 慎太郎
+            dn: uid=sh-hata@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: sh-hata@netone.co.jp
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
             cn: 五島 光明
             dn: uid=szhk71@example.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
             uid: szhk71@example.co.jp
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 熊谷 智明
+            dn: uid=t-kumagai@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: t-kumagai@netone.co.jp
+            userPassword: '{{ db_password }}'
+        -   accountLock: false
+            cn: 田中 年男
+            dn: uid=t-tanaka@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            uid: t-tanaka@netone.co.jp
             userPassword: '{{ db_password }}'
         -   accountLock: false
             cn: テストユーザー

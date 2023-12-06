@@ -1,7 +1,7 @@
 ---
 plugin: idm_inventory
 interface: machineEditorInterface
-host_name_property: name
+host_name_property: id
 class_name: machine
 groups:
 - name: machines
