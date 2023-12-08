@@ -5,24 +5,24 @@ services:
     image:
       from: procube/guacamole:develop-a2d6
       roles:
-      - guacamole
+        - guacamole
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_DATABASE: guacamole_db
       POSTGRES_HOSTNAME: postgres
-      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_PASSWORD: "ChooseYourOwnPasswordHere1234"
       POSTGRES_USER: guacamole_user
       GUACAMOLE_HOME: /opt/guacamole/
       RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
-      HEADER_ENABLED: 'true'
+      HEADER_ENABLED: "true"
       LOGBACK_LEVEL: debug
     volumes:
-    - source: guacamole-drives
-      target: /var/lib/guacamole/drives
-      type: volume
-    - source: guacamole-recordings
-      target: /var/lib/guacamole/recordings
-      type: volume
+      - source: guacamole-drives
+        target: /var/lib/guacamole/drives
+        type: volume
+      - source: guacamole-recordings
+        target: /var/lib/guacamole/recordings
+        type: volume
     user: root
     labels:
       published_name: guacamole
@@ -30,65 +30,64 @@ services:
       webgate:
         authentication: saml
         proxies:
-        - target_port: 8080
-          pathPattern: /guacamole
-          useWebSocket: true
+          - target_port: 8080
+            pathPattern: /guacamole
+            useWebSocket: true
     endpoint_mode: dnsrr
   guacd:
     image: procube/guacd
     volumes:
-    - source: guacamole-drives
-      target: /var/lib/guacamole/drives
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
-    - source: guacamole-recordings
-      target: /var/lib/guacamole/recordings
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 20G
+      - source: guacamole-drives
+        target: /var/lib/guacamole/drives
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
+      - source: guacamole-recordings
+        target: /var/lib/guacamole/recordings
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 20G
     endpoint_mode: dnsrr
     placement:
       constraints:
-      - node.labels.guacamole == true
-      - node.labels.repository != true
+        - node.labels.guacamole == true
+        - node.labels.repository != true
   postgres:
     image:
       from: postgres:15.2-alpine
       roles:
-      - python-aptk
-      - guacamole-initdb
+        - python-aptk
+        - guacamole-initdb
     environment:
       PGDATA: /var/lib/postgresql/data/guacamole
       POSTGRES_DB: guacamole_db
-      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_PASSWORD: "ChooseYourOwnPasswordHere1234"
       POSTGRES_USER: guacamole_user
     volumes:
-    - source: guacamole-db
-      target: /var/lib/postgresql/data
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 5G
+      - source: guacamole-db
+        target: /var/lib/postgresql/data
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 5G
     endpoint_mode: dnsrr
   chrome:
     image: procube/node-chrome
     volumes:
-    - source: guacamole-chrome
-      target: /dev/shm
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
+      - source: guacamole-chrome
+        target: /dev/shm
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
     environment:
       - USERNAME: demo@procube.jp
       - PASSWORD: EXPp7Od9
       - RULES: '["procube.info","backlog.jp","google.com"]'
   file-server:
-    # image: procube/file-server
-    image: procube/file-server@sha256:bc98a70bc3b1b041a76f58713e97a887148a28eb5610b78b27fcf4820d7f9c9b
+    image: procube/file-server
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -100,11 +99,14 @@ services:
     ports:
       - 4200:4200
     labels:
+      published_name: file-server
+      HIVE_MARK: file-server
       webgate:
         authentication: saml
         proxies:
-        - target_port: 4200
-          maxBodySize: 500
+          - target_port: 4200
+            maxBodySize: 500
+            useWebSocket: "true"
   ftp-server:
     image: procube/ftp-server
     environment:
@@ -127,8 +129,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports: 
-    - '22:22'
+    ports:
+      - "22:22"
   mongo:
     image: mongo
     environment:
@@ -137,3 +139,16 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - 27017:27017
+    volumes:
+      - source: mongo-db
+        target: /data/db
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 20G
+      - source: mongo-configdb
+        target: /data/configdb
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 2G

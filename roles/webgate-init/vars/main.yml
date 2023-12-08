@@ -1,5 +1,5 @@
 ---
-# ansible_python_interpreter: /root/consul/bin/python
+ansible_python_interpreter: /root/consul/bin/python
 saml_certs_dir: "{{ hive_context_dir }}/saml-certs"
 CN: "saml"
 saml_cert: "{{ lookup('file', saml_certs_dir + '/' + CN + '_cert.pem') }}"
