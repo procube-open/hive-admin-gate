@@ -70,16 +70,17 @@ webgate_kv_proxies: >-
     {%- if labels.webgate is defined -%}
       {%- set published_name = (labels.published_name | default(s)) -%}
       {%- for p in labels.webgate.proxies -%}
-        {%- set portname = s + (p.target_port | string) +
+        {%- set portname = (p.setService if p.setService is defined else s) + 
+            (p.target_port | string) +
             (p.target_protocol | default('http')) +
-            (':' + p.postfix if p.postfix is defined else '') -%}
+            (p.postfix if p.postfix is defined else '') -%}
         {%- set value = {
             "authentication": (p.authentication | default(labels.webgate.authentication | default("none"))),
             "pathPattern": (p.pathPattern | default("/")),
             "protocol": (p.target_protocol | default("http")),
             "scheduler": "ss",
             "service": portname,
-            "upstreams": [s + ':' + (p.target_port | string)],
+            "upstreams": [(p.setService if p.setService is defined else s) + ':' + (p.target_port | string)],
             "virtualHost": published_name,
             "maxBodySize": (p.maxBodySize | default(1))
             } -%}

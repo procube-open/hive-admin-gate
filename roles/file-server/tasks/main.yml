@@ -1,0 +1,14 @@
+---
+- name: copy favicon
+  copy:
+    src: favicon-optage.ico
+    dest: ./frontend/
+  become: true
+  become_method: su
+
+- name: copy logo-appbar
+  copy:
+    src: logo-optage.png
+    dest: ./frontend/
+  become: true
+  become_method: su

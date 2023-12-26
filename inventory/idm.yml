@@ -24,7 +24,7 @@ services:
           pathPattern: /
           authentication: saml
         - target_port: 80
-          postfix: chpw
+          postfix: ":chpw"
           pathPattern: /changePassword
     initialize_roles:
     # - idm-download
