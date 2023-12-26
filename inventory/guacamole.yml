@@ -3,7 +3,7 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: procube/guacamole:develop-a2d6
+      from: procube/guacamole:develop
       roles:
       - guacamole
     environment:
