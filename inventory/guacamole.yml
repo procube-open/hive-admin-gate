@@ -122,6 +122,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
       PASV_IP: "192.168.0.4"
       PASV_PORT_MIN: "30000"
       PASV_PORT_MAX: "30003"
@@ -139,6 +140,46 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
+      SERVER_PRIVATE_KEY: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        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
+        -----END OPENSSH PRIVATE KEY-----
     ports:
       - "22:22"
   mongo:
