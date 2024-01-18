@@ -3353,7 +3353,7 @@ phases_data:
             -   allowAnotherValue: false
                 description: ユーザのパスワード
                 displayName: パスワード
-                encryption: ARGON2
+                encryption: SSHA
                 isArray: false
                 name: userPassword
                 outputLdapSchema: false
@@ -3914,7 +3914,7 @@ phases_data:
             -   allowAnotherValue: false
                 description: "\tユーザのパスワード"
                 displayName: パスワード
-                encryption: ARGON2
+                encryption: SSHA
                 isArray: false
                 name: userPassword
                 outputLdapSchema: false

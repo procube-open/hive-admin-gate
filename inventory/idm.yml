@@ -134,6 +134,8 @@ services:
       cleanup_days_before: 3
   ldap:
     image: procube/openldap:latest
+    initialize_roles:
+      - ldap
     environment:
       LDAP_CONFIG_PASSWORD: "{{ db_password }}"
     endpoint_mode: dnsrr
@@ -183,7 +185,7 @@ services:
         type: volume
         drbd:
           fstype: xfs
-          size: "{{ '20G' if hive_stage == 'production' else '500M' }}"
+          size: 500M
     backup_scripts:
     - name: amdb
       backup_command: "pg_dump -U nsamadmin -c -C --if-exists nsam_idp | gzip > /root/today.sql.gz"

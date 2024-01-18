@@ -1,6 +1,9 @@
 ---
+- import_role:
+    name: python-aptk
 - name: copy favicon
   copy:
+    remote_src: false
     src: favicon-optage.ico
     dest: ./frontend/
   become: true
@@ -8,6 +11,7 @@
 
 - name: copy logo-appbar
   copy:
+    remote_src: false
     src: logo-optage.png
     dest: ./frontend/
   become: true

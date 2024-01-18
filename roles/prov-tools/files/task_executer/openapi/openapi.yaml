@@ -889,6 +889,7 @@ components:
           enum:
           - SSHA
           - AES
+          - ARGON2
           title: 暗号化設定
           type: string
         outputLdapSchema:

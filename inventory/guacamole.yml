@@ -87,10 +87,9 @@ services:
       - PASSWORD: EXPp7Od9
       - RULES: '["procube.info","backlog.jp","google.com"]'
   file-server:
-    image:
-      from: procube/file-server
-      roles:
-        - file-server
+    image: procube/file-server
+    initialize_roles:
+      - file-server
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -140,6 +139,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      SFTP_SERVER_PORT: "8822"
       DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
       SERVER_PRIVATE_KEY: |
         -----BEGIN OPENSSH PRIVATE KEY-----
@@ -181,7 +181,7 @@ services:
         9bxPq608dhU5UAAAAbdmFncmFudEBhZG1pbkdhdGUtbWFpbi1jb3Jl
         -----END OPENSSH PRIVATE KEY-----
     ports:
-      - "22:22"
+      - "8822:8822"
   mongo:
     image: mongo
     environment:
