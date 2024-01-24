@@ -89,5 +89,5 @@
     body: "{{ [{'op': 'add', 'path': '/connectionPermissions/' ~ new_connection.json.identifier, 'value': 'READ'}] }}"
     validate_certs: false
     status_code: 204
-  loop: "{{ guacamole_user.json.keys() }}"
+  loop: "{{ guacamole_users.json.keys() }}"
   when: connectionid is not defined and new_connection.json is defined

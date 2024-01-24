@@ -74,14 +74,36 @@ services:
           size: 5G
     endpoint_mode: dnsrr
   chrome:
-    image: procube/node-chrome
+    # image: procube/node-chrome
+    image: selenium/node-chrome-debug
+    #volumes:
+    #  - source: guacamole-chrome
+    #    target: /dev/shm
+    #    type: volume
+    #    drbd:
+    #      fstype: xfs
+    #      size: 300M
     volumes:
-      - source: guacamole-chrome
+      - source: /dev/shm
         target: /dev/shm
-        type: volume
-        drbd:
-          fstype: xfs
-          size: 300M
+        type: bind
+    environment:
+      - USERNAME: demo@procube.jp
+      - PASSWORD: EXPp7Od9
+      - RULES: '["procube.info","backlog.jp","google.com"]'
+  chrome-test:
+    image: procube/node-chrome
+    #volumes:
+    #  - source: guacamole-chrome
+    #    target: /dev/shm
+    #    type: volume
+    #    drbd:
+    #      fstype: xfs
+    #      size: 300M
+    volumes:
+      - source: /dev/shm
+        target: /dev/shm
+        type: bind
     environment:
       - USERNAME: demo@procube.jp
       - PASSWORD: EXPp7Od9
@@ -98,10 +120,17 @@ services:
       GUAC_API_URL: http://guacamole:8080/guacamole
       IDM_URL: https://idm.admin-gate.procube-demo.jp
       WS_URL: wss://file-server.admin-gate.procube-demo.jp
-      APPBAR_LOGO_PATH: "frontend/logo-optage.png"
-      FAVICON_PATH: "frontend/favicon-optage.ico"
+      APPBAR_LOGO_PATH: "icons/unirita_logomark.png"
+      FAVICON_PATH: "icons/unirita_favicon.ico"
     ports:
       - 4200:4200
+    volumes:
+      - source: fileserver-icons
+        target: /usr/src/app/icons
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
     labels:
       published_name: file-server
       HIVE_MARK: file-server

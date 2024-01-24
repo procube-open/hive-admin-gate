@@ -1,18 +1,22 @@
 ---
 - import_role:
     name: python-aptk
+- name: ensures icons dir exists
+  file: 
+    path: "./icons"
+    state: directory
 - name: copy favicon
   copy:
     remote_src: false
-    src: favicon-optage.ico
-    dest: ./frontend/
+    src: unirita_favicon.ico
+    dest: ./icons/
   become: true
   become_method: su
 
 - name: copy logo-appbar
   copy:
     remote_src: false
-    src: logo-optage.png
-    dest: ./frontend/
+    src: unirita_logomark.png
+    dest: ./icons/
   become: true
   become_method: su

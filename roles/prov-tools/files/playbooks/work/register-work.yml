@@ -93,7 +93,7 @@
     status_code: 200
 - name: Get machine list
   uri:
-    url: "http://localhost:8090/IDManager/machineEditorInterface"
+    url: "http://localhost:8090/IDManager/SystemMachineIF"
     headers:
       HTTP_SYSTEMACCOUNT: "SYSTEM"
     method: GET
