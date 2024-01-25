@@ -137,3 +137,16 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - 27017:27017
+  session-manager:
+    image:
+      from: python:alpine3.18
+      roles:
+      - hive-trust-ca
+      - session-manager
+      - hive-certificate
+    entrypoint:
+    - /docker-entrypoint.sh
+    environment:
+      # エラーが発生する場合、DOCKER_HOSTの値が正しくない場合が多い
+      DOCKER_HOST: "tcp://{{ groups['first_hive'] | intersect(groups[hive_stage]) | first }}:2376"
+      DOCKER_TLS_VERIFY: '1'

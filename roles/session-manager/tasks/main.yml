@@ -1,0 +1,35 @@
+---
+- name: install tini
+  apk:
+    name:
+    - tini
+    update_cache: true
+- name: pip install packages
+  pip:
+    name:
+    - docker
+    - flask
+    state: present
+- name: create directories
+  file:
+    path: "/root/{{ item }}"
+    state: directory
+    mode: 0755
+  loop:
+  - '.docker'
+  - 'session-manager'
+- name: put files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0755
+  loop:
+  - src: main.py
+    dest: /root/session-manager
+  - src: docker-entrypoint.sh
+    dest: /
+- name: create link to cacert
+  file:
+    src: /etc/ssl/certs/cacert.pem
+    dest: /root/.docker/ca.pem
+    state: link

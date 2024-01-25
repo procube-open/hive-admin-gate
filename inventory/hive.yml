@@ -2,7 +2,24 @@ plugin: hive_inventory
 name: admin-gate
 stages:
   private:
+    provider: vagrant
+    separate_repository: False
+    cidr: 192.168.208.0/24
+    memory_size: 6000
+    disk_size: 60
+    mirrored_disk_size: 50
+  staging:
+    provider: gcp
+    cidr: 192.168.0.0/24
+    instance_type: n1-standard-2
+    region: asia-northeast2
+    disk_size: 100
+    mirrored_disk_size: 80
+    repository_instance_type: n1-standard-2
+    repository_disk_size: 150
+  production:
     provider: kickstart
+    # separate_repository: False
     cidr: 192.168.100.0/24
     ip_address_list:
     - 192.168.100.5
@@ -14,7 +31,7 @@ stages:
     repository_disk_size: 100
     mirrored_disk_size: 120
     kickstart_config:
-      iso_src: /var/lib/isos/AlmaLinux-8.7-x86_64-minimal.iso
+      iso_src: /var/lib/isos/AlmaLinux-8.8-x86_64-minimal.iso
       iso_dest: /var/lib/isos/admingate-hive.iso
       target: /dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0
       # media_usb: True
@@ -29,31 +46,3 @@ stages:
         gateway: 192.168.100.10
         nameservers:
         - 8.8.8.8
-  staging:
-    provider: gcp
-    cidr: 192.168.0.0/24
-    instance_type: n1-standard-2
-    region: asia-northeast2
-    disk_size: 100
-    mirrored_disk_size: 80
-    repository_instance_type: n1-standard-2
-    repository_disk_size: 150
-  production:
-    provider: aws
-    cidr: 192.168.0.0/24
-    region: ap-northeast-1
-    disk_size: 100
-    mirrored_disk_size: 80
-    instance_type: t3.large
-    repository_instance_type: t3.large
-    repository_disk_size: 150
-    subnets:
-    - cidr: 192.168.0.0/26
-      name: subnet-a
-      available_zone: ap-northeast-1d
-    - cidr: 192.168.0.64/26
-      name: subnet-b
-      available_zone: ap-northeast-1b
-    - cidr: 192.168.0.128/26
-      name: subnet-c
-      available_zone: ap-northeast-1c
