@@ -5,8 +5,8 @@
   vars_files:
   - /var/acme/acme-vars.yml
   vars:
-    # ansible_python_interpreter: /root/consul/bin/python
-    ansible_python_interpreter: /bin/python3
+    ansible_python_interpreter: /root/consul/bin/python
+    # ansible_python_interpreter: /bin/python3
     FQDN: "{{ inventory_hostname }}"
   tasks:
   - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
