@@ -119,8 +119,8 @@
       idmIdentifier: "{{ id }}"
       password: hoge
       priods: "{{ req_periods }}"
-      whiteList: "{{ machineList.json | dict2items | selectattr('value.id', 'in', select_machine) | map(attribute='value.hostname') | list }}"
+      whiteList: "{{ machineList.json | selectattr('id', 'in', select_machine) | map(attribute='hostname') | list }}"
     validate_certs: false
     status_code: 201
   vars:
-    select_machine: "{{ connectionList.json | dict2items | selectattr('value.id', 'in', connections) | map(attribute='value.machine') | list }}"
+    select_machine: "{{ connectionList.json | selectattr('id', 'in', connections) | map(attribute='machine') | list }}"

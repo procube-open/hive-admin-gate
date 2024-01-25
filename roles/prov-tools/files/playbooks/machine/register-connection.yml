@@ -48,7 +48,42 @@
       Content-Type: "application/json"
     method: PUT
     body_format: json
-    body: '{"name":"{{ hostname }}","parentIdentifier": "ROOT","protocol": "{{ idm_connection.protocol }}","idmIdentifier": "{{ idm_connection.id }}","parameters": {"port": "{{ idm_connection.port }}","read-only": "","swap-red-blue": "","cursor": "","color-depth": "","force-lossless": "","clipboard-encoding": "","disable-copy": "","disable-paste": "","dest-port": "","recording-exclude-output": "","recording-exclude-mouse": "","recording-include-keys": "","create-recording-path": "","enable-sftp": "","sftp-port": "","sftp-server-alive-interval": "","sftp-disable-download": "","sftp-disable-upload": "","enable-audio": "","wol-send-packet": "","wol-udp-port": "","wol-wait-time": "","username": "{{ certificationUser }}","password": "{{ certificationPassword }}","color-scheme": "","font-size": "","scrollback": "","timezone": null,"server-alive-interval": "","backspace": "","terminal-type": "","create-typescript-path": "","hostname": "{{ hostname }}"},"attributes": {"remark": "{{ idm_connection.remark }}", "max-connections": "0","max-connections-per-user": "0","weight": "","failover-only": "","guacd-port": "","guacd-encryption": ""}}'
+    body:
+      name: "{{ hostname }}:{{ idm_connection.id }}"
+      parentIdentifier: ROOT
+      protocol: "{{ idm_connection.protocol }}"
+      idmIdentifier: "{{ idm_connection.id }}"
+      parameters:
+        port: "{{ idm_connection.port | default('') }}"
+        create-recording-path: "true"
+        recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
+        username: "{{ certificationUser }}"
+        password: "{{ certificationPassword }}"
+        create-typescript-path: >-
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'true'
+          {%- else -%} ''
+          {%- endif -%}
+        typescript-path: >-
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} '${HISTORY_PATH}/${HISTORY_UUID}'
+          {%- else -%} ''
+          {%- endif -%}
+        typescript-name: >-
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'typescript'
+          {%- else -%} ''
+          {%- endif -%}
+        hostname: "{{ hostname }}"
+        ignore-cert: >-
+          {%- if idm_connection.protocol == 'rdp' -%} 'true'
+          {%- else -%} ''
+          {%- endif -%}
+      attributes:
+        remark: "{{ idm_connection.remark | default('') }}"
+        max-connections: "0"
+        max-connections-per-user: "0"
+        weight: ""
+        failover-only: ""
+        guacd-port: ""
+        guacd-encryption: ""
     validate_certs: false
     status_code: 204
   when: prov_operation != 'delete' and connectionid is defined
@@ -61,7 +96,42 @@
       Content-Type: "application/json"
     method: POST
     body_format: json
-    body: '{"name":"{{ hostname }}","parentIdentifier": "ROOT","protocol": "{{ idm_connection.protocol }}","idmIdentifier": "{{ idm_connection.id }}","parameters": {"port": "{{ idm_connection.port }}","read-only": "","swap-red-blue": "","cursor": "","color-depth": "","force-lossless": "","clipboard-encoding": "","disable-copy": "","disable-paste": "","dest-port": "","recording-exclude-output": "","recording-exclude-mouse": "","recording-include-keys": "","create-recording-path": "","enable-sftp": "","sftp-port": "","sftp-server-alive-interval": "","sftp-disable-download": "","sftp-disable-upload": "","enable-audio": "","wol-send-packet": "","wol-udp-port": "","wol-wait-time": "","username": "{{ certificationUser }}","password": "{{ certificationPassword }}","color-scheme": "","font-size": "","scrollback": "","timezone": null,"server-alive-interval": "","backspace": "","terminal-type": "","create-typescript-path": "","hostname": "{{ hostname }}"},"attributes": {"remark": "{{ idm_connection.remark }}", "max-connections": "0","max-connections-per-user": "0","weight": "","failover-only": "","guacd-port": "","guacd-encryption": ""}}'
+    body:
+      name: "{{ hostname }}:{{ idm_connection.id }}"
+      parentIdentifier: ROOT
+      protocol: "{{ idm_connection.protocol }}"
+      idmIdentifier: "{{ idm_connection.id }}"
+      parameters:
+        port: "{{ idm_connection.port | default('') }}"
+        create-recording-path: "true"
+        recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
+        username: "{{ certificationUser }}"
+        password: "{{ certificationPassword }}"
+        create-typescript-path: >-
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'true'
+          {%- else -%} ''
+          {%- endif -%}
+        typescript-path: >-
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} '${HISTORY_PATH}/${HISTORY_UUID}'
+          {%- else -%} ''
+          {%- endif -%}
+        typescript-name: >-
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'typescript'
+          {%- else -%} ''
+          {%- endif -%}
+        hostname: "{{ hostname }}"
+        ignore-cert: >-
+          {%- if idm_connection.protocol == 'rdp' -%} 'true'
+          {%- else -%} ''
+          {%- endif -%}
+      attributes:
+        remark: "{{ idm_connection.remark | default('') }}"
+        max-connections: "0"
+        max-connections-per-user: "0"
+        weight: ""
+        failover-only: ""
+        guacd-port: ""
+        guacd-encryption: ""
     validate_certs: false
     return_content: yes
     status_code: 200
@@ -89,5 +159,5 @@
     body: "{{ [{'op': 'add', 'path': '/connectionPermissions/' ~ new_connection.json.identifier, 'value': 'READ'}] }}"
     validate_certs: false
     status_code: 204
-  loop: "{{ guacamole_user.json.keys() }}"
+  loop: "{{ guacamole_users.json.keys() }}"
   when: connectionid is not defined and new_connection.json is defined

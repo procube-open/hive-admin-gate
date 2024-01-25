@@ -77,6 +77,18 @@
       validate_certs: false
       status_code: 200
     when: "uid not in userid"
+  - name: Add system permission.
+    uri:
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}/permissions"
+      headers:
+        Guacamole-Token: "{{ token.json.authToken }}"
+        Content-Type: "application/json"
+      method: PATCH
+      body_format: json
+      body: '[{"op": "add", "path": "/systemPermissions", "value": "ADMINISTER"}]'
+      validate_certs: false
+      status_code: 204
+    when: "prov_operation != 'delete' and uid in userid"
   - name: Delete User.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}"
