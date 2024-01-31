@@ -40,8 +40,8 @@
       {{ req_periods | default([]) + [{
         "validFrom": item.validFrom,
         "validUntil": item.validUntil,
-        "startTime": item.startHour ~ ":" ~ (0 ~ item.startMinute)[-2:] ~ ":00",
-        "endTime": item.endHour ~ ":" ~ (0 ~ item.endMinute)[-2:] ~ ":00"
+        "startTime": {%- if item.specificTime -%}item.startHour ~ ":" ~ (0 ~ item.startMinute)[-2:] ~ ":00"{%- else -%}"00:00:00"{%- endif -%},
+        "endTime": {%- if item.specificTime -% }item.endHour ~ ":" ~ (0 ~ item.endMinute)[-2:] ~ ":00"{%- else -%}"23:59:59"{%- endif -%}
       }] }}
   loop: "{{ Periods }}"
 - name: Format workers.
