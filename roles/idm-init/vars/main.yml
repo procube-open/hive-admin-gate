@@ -3515,10 +3515,10 @@ phases_data:
                     value: ssh
                 -   displayName: RDP
                     value: rdp
-                -   displayName: ダウンロード
-                    value: download
-                -   displayName: アップロード
-                    value: upload
+                -   displayName: Telnet
+                    value: telnet
+                -   displayName: ブラウザ
+                    value: vnc
             -   allowAnotherValue: false
                 displayName: ポート
                 isArray: false
@@ -3692,7 +3692,8 @@ phases_data:
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
                 className: insideConnection
-                derivation: getResource("/IDManager/connectionEditorInterface")
+                derivation: 'getResource("/IDManager/connectionEditorInterface", {
+                    machine: this().id })'
                 displayName: 内部接続先オブジェクト
                 isArray: false
                 name: insideConnectionsObject
@@ -4313,7 +4314,9 @@ phases_data:
             name: applicationWork_g
             propertiesOnDetail:
             -   className: ''
-                defaultValueEx: 'getUnusedId("ApplicationWorkIF", "", {type: "random", alphabets: "346789ABCDEFGHJKLMNPQRTUVWXY",numberOfDigits: 5}, "")'
+                defaultValueEx: 'getUnusedId("ApplicationWorkIF", "", {type: "random",
+                    alphabets: "346789ABCDEFGHJKLMNPQRTUVWXY",numberOfDigits: 5},
+                    "")'
                 disableUpdate: true
                 hideOnEdit: true
                 hideOnShow: false
@@ -5205,6 +5208,14 @@ phases_data:
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: full
+            className: machine
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: SYSTEM用機器インターフェース
+            name: SystemMachineIF
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
             className: work
             database: Sandbox
             deleteAsUpdate: false
@@ -5810,76 +5821,90 @@ phases_data:
             cn: admin
             dn: uid=admin,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: admin
             sn: admin
-            userPassword: '{{ db_password }}'
+            uid: admin
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$wrmp0v+gvke8ZoWgPlxaCQ$S8s60OEnt0DFb51bmAS0I39Uooo5LHfGOt6clbob3jw'
         -   accountLock: false
             cn: 岸本 明紀
             dn: uid=ka-kishimoto@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: ka-kishimoto@netone.co.jp
             sn: 岸本
-            userPassword: '{{ db_password }}'
+            uid: ka-kishimoto@netone.co.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$pyBRfRijVLJlBJ7r5oq46Q$hA99m1plpT5IX0/JFyKDu6tz1nx4luPLvgGy+vywJKg'
         -   accountLock: false
             cn: 西田 謙一
             dn: uid=kn-nishida@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
             sn: 西田
             uid: kn-nishida@netone.co.jp
-            userPassword: '{{ db_password }}'
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$eY4Obyc8aREse0hTmBRXPw$ZvY4GBIhywnzy29RFKNWTNrC/9/YH8I99c1YsBgLMtk'
         -   accountLock: false
             cn: 船間 学
             dn: uid=ma-funama@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: ma-funama@netone.co.jp
             sn: 船間
-            userPassword: '{{ db_password }}'
+            uid: ma-funama@netone.co.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oS4qC/0MiWFcyMYBT1HVVw$Bma/+INKwAzTsft5LCIi3kQDz0ORM9PsuP8VfwUREHQ'
         -   accountLock: false
             cn: 中川路 充
             dn: uid=mitsuru@procube.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: mitsuru@procube.jp
             sn: 中川路
-            userPassword: '{{ db_password }}'
+            uid: mitsuru@procube.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SUJ6i4XswzOIjneumL8MQw$yVl/z7TSQMVyYVnK9Xd65cBeI6ue1n+hHdSiwpGNe1I'
         -   accountLock: false
             cn: 赤堀 翠
             dn: uid=nKINkmX@sample.com,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
-            uid: nKINkmX@sample.com
             sn: 赤堀
-            userPassword: '{{ db_password }}'
+            uid: nKINkmX@sample.com
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$U4lqy0/VjNSP1Xe2k2d9CA$Di4tHoHaR1zfapV2+X3wg7KpxjX9ryRXYfK2sEyiDi8'
         -   accountLock: false
             cn: 中川路 亨哉
             dn: uid=naoya@procube.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: naoya@procube.jp
             sn: 中川路
-            userPassword: '{{ db_password }}'
+            uid: naoya@procube.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$upTAMdzpgc3+vpikRkfQfQ$HF9swubslwk1ifLgRljifqV+jkFXqJteUDS4gTBfyqE'
+        -   accountLock: false
+            cn: 畑 慎太郎
+            dn: uid=sh-hata@netone.co.jp,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            sn: 畑
+            uid: sh-hata@netone.co.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$z7QMPaJtkRy5YMDz44oEbw$nWvmvCFuWGAjFzHTgHT3tWJL/Eue54v3OAK/WZKEgXc'
         -   accountLock: false
             cn: 熊谷 智明
             dn: uid=t-kumagai@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: t-kumagai@netone.co.jp
             sn: 熊谷
-            userPassword: '{{ db_password }}'
+            uid: t-kumagai@netone.co.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oWjGStaWPxBbmnBdb8P2wg$SnxymJ7vrik3iGhNswtf1shRQFwvRCpQoTbtNTXOIeA'
         -   accountLock: false
             cn: 田中 年男
             dn: uid=t-tanaka@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
-            uid: t-tanaka@netone.co.jp
             sn: 田中
-            userPassword: '{{ db_password }}'
+            uid: t-tanaka@netone.co.jp
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SAfm+aNWiQRL8XpgpFPZJQ$xbmJZaWKw4nL4I8S8rSw1Xvnug/+V/Fx3ztK5x/pcpQ'
+        -   accountLock: false
+            cn: test
+            dn: uid=test123,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_USER
+            sn: test
+            uid: test123
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$wKHHqq7orb6Rs6OBPt4WJw$JLgBd94MpoblDW+p5FEyfM+jrOI3OCbiUZzHDIwqS14'
         -   accountLock: false
             cn: テストユーザー
             dn: uid=testuser,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
-            uid: testuser
             sn: test
-            userPassword: '{{ db_password }}'
+            uid: testuser
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$u1A3FSZ6nrphJYdQQxsq8A$91BOJVjV9RzzS3YjpP2wJlzrDmwmAwCy9CnW2WvzEUs'
         -   accountLock: false
             cn: 鳥海 菜穂
             dn: uid=tuki3@test.net,ou=Users,{{ dn_suffix }}
             idmRole: IDM_USER
-            uid: tuki3@test.net
             sn: 鳥海
-            userPassword: '{{ db_password }}'
+            uid: tuki3@test.net
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$9fbwnvfVvBPd0P2wpwAe/A$i3X6zLssyv88CfjfjociEdVyOdUt7kfAq9YxjQdMw2M'
