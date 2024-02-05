@@ -40,8 +40,8 @@
       {{ req_periods | default([]) + [{
         "validFrom": item.validFrom,
         "validUntil": item.validUntil,
-        "startTime": {%- if item.specificTime -%}item.startHour ~ ":" ~ (0 ~ item.startMinute)[-2:] ~ ":00"{%- else -%}"00:00:00"{%- endif -%},
-        "endTime": {%- if item.specificTime -% }item.endHour ~ ":" ~ (0 ~ item.endMinute)[-2:] ~ ":00"{%- else -%}"23:59:59"{%- endif -%}
+        "startTime": item.startHour ~ ":" ~ (0 ~ item.startMinute)[-2:] ~ ":00" if item.specificTime else "00:00:00",
+        "endTime": item.endHour ~ ":" ~ (0 ~ item.endMinute)[-2:] ~ ":00" if item.specificTime else "23:59:59"
       }] }}
   loop: "{{ Periods }}"
 - name: Format workers.
@@ -112,6 +112,8 @@
 - name: to file server
   uri:
     url: "http://file-server:4200/api/works/add"
+    headers:
+      Guacamole-Token: "{{ token.json.authToken }}"
     method: POST
     body_format: json
     body:
