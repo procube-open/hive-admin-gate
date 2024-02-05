@@ -120,8 +120,8 @@ services:
       GUAC_API_URL: http://guacamole:8080/guacamole
       IDM_URL: https://idm.admin-gate.procube-demo.jp
       WS_URL: wss://file-server.admin-gate.procube-demo.jp
-      APPBAR_LOGO_PATH: "icons/unirita_logomark.png"
-      FAVICON_PATH: "icons/unirita_favicon.ico"
+      # APPBAR_LOGO_PATH: "icons/sakura-internet_logomark.png"
+      # FAVICON_PATH: "icons/sakura-internet_favicon.ico"
     ports:
       - 4200:4200
     volumes:

@@ -8,7 +8,7 @@
 - name: copy favicon
   copy:
     remote_src: false
-    src: unirita_favicon.ico
+    src: sakura-internet_favicon.ico
     dest: ./icons/
   become: true
   become_method: su
@@ -16,7 +16,7 @@
 - name: copy logo-appbar
   copy:
     remote_src: false
-    src: unirita_logomark.png
+    src: sakura-internet_logomark.png
     dest: ./icons/
   become: true
   become_method: su
