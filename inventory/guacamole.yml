@@ -120,6 +120,7 @@ services:
       GUAC_API_URL: http://guacamole:8080/guacamole
       IDM_URL: https://idm.admin-gate.procube-demo.jp
       WS_URL: wss://file-server.admin-gate.procube-demo.jp
+      LOGOUT_URL: https://file-server.admin-gate.procube-demo.jp/Shibboleth.sso/Logout
       # APPBAR_LOGO_PATH: "icons/sakura-internet_logomark.png"
       # FAVICON_PATH: "icons/sakura-internet_favicon.ico"
     ports:
