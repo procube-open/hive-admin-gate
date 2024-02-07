@@ -1874,6 +1874,56 @@ is_tables_data:
         workingUid: null
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_privilegedIDSet_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10109\" tabName=\"特権IDセットガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_privilegedIDSet_g\" column=\"1\" title=\"特権IDセットガジェット\" type=\"g_upload__privilegedIDSet_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_privilegedIDSet_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10109\" tabName=\"特権IDセットガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_privilegedIDSet_g\" column=\"1\" title=\"特権IDセットガジェット\" type=\"g_upload__privilegedIDSet_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 3
+        rolename: defaultRole
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:31:49'
+        widgets: "<widgets tabId=\"10109\" tabName=\"特権IDセットガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_privilegedIDSet_g\" column=\"1\" title=\"特権IDセットガジェット\" type=\"g_upload__privilegedIDSet_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_requiredApplovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
@@ -2587,6 +2637,14 @@ is_tables_data:
 
             </div>
 
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">特権IDセット</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
             <div class="idmSubMenuTab" tabid="10106">
 
             <span class="showJa">接続先</span>
@@ -2907,6 +2965,14 @@ is_tables_data:
 
             </div>
 
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">特権IDセット</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
             <div class="idmSubMenuTab" tabid="10106">
 
             <span class="showJa">接続先</span>
@@ -2918,14 +2984,6 @@ is_tables_data:
             <div class="idmSubMenuTab" tabid="10108">
 
             <span class="showJa">接続先グループ</span>
-
-            <span class="showEn">Connection Groups</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10109">
-
-            <span class="showJa">作業</span>
 
             <span class="showEn">Connection Groups</span>
 
