@@ -2047,6 +2047,41 @@ is_tables_data:
         widgetsLastmodified: ''
         workingUid: null
     -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_privilegedIDSetEdit_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10114'
+        temp: "\0"
+        templastmodified: '2024-02-08T11:01:43'
+        widgets: "<widgets tabId=\"10114\" tabName=\"特権IDセットガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_privilegedIDSetEdit_g\" column=\"1\" title=\"特権IDセットガジェット\"
+            type=\"g_upload__privilegedIDSetEdit_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10114'
+        temp: "\0"
+        templastmodified: '2024-02-08T11:01:43'
+        widgets: "<widgets tabId=\"10114\" tabName=\"特権IDセットガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_privilegedIDSetEdit_g\" column=\"1\" title=\"特権IDセットガジェット\"
+            type=\"g_upload__privilegedIDSetEdit_g/gadget\">\n            <data>\n
+            \           </data>\n        </widget>\n    </panel>\n    <panel type=\"DynamicPanel\"
+            disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
         layout: '<table width="100%" cellspacing="0" cellpadding="0">
 
             <tbody><tr>
@@ -3760,6 +3795,83 @@ phases_data:
                 type: object
                 unique: false
                 uniqueIgnoreCase: false
+        -   displayName: パスワードセット
+            isNestedObject: true
+            isPrimaryAndNestedObject: false
+            name: passwordSet
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: ルート権限パスワード
+                isArray: false
+                name: rootPassword
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: アドミン権限パスワード
+                isArray: false
+                name: adminPassword
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 世代番号
+                isArray: false
+                name: generationNumber
+                outputLdapSchema: false
+                required: false
+                type: number
+                unique: false
+                uniqueIgnoreCase: false
+        -   displayName: 特権IDセット
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: id
+            name: privilegedIDSet
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: ID
+                isArray: false
+                name: id
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: ルート権限ユーザ名
+                isArray: false
+                name: rootUsername
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 管理者権限ユーザ名
+                isArray: false
+                name: adminUsername
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                className: passwordSet
+                displayName: パスワードリスト
+                isArray: true
+                name: passwordList
+                outputLdapSchema: false
+                required: false
+                type: object
+                unique: false
+                uniqueIgnoreCase: false
         -   displayName: SAML属性定義
             isNestedObject: true
             isPrimaryAndNestedObject: false
@@ -4897,6 +5009,25 @@ phases_data:
             uploadCSV: false
             useDisplayNameHeader: false
             withHeader: false
+        -   autoCommit: false
+            backToDetail: false
+            className: privilegedIDSet
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 特権IDセットガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: privilegedIDSetEditInterface
+            isSingleton: false
+            name: privilegedIDSetEdit_g
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
         -   autoCommit: true
             backToDetail: false
             className: work
@@ -4997,6 +5128,7 @@ phases_data:
             disableMultiDelete: false
             disableSuspension: false
             disableUpdate: false
+            displayName: ユーザガジェット
             downloadDisplayFormatCSV: false
             downloadUpdateFormatCSV: true
             interfaceName: userEditorInterface
@@ -5438,6 +5570,14 @@ phases_data:
             database: Master
             displayName: 連携システムオブジェクト編集用
             name: masterLinkageSystem
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: privilegedIDSet
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 特権IDセット編集インターフェース
+            name: privilegedIDSetEditInterface
+            useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: readWrite
             className: work
