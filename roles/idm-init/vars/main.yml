@@ -1583,6 +1583,23 @@ is_tables_data:
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10103'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:59'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
@@ -1596,6 +1613,23 @@ is_tables_data:
             \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10103'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:59'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
@@ -1617,9 +1651,59 @@ is_tables_data:
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10103'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:59'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
         role: (^|.*;) *IDM_USER*(;.*|$)
         roleOrder: 3
         rolename: IDM_USER
+        tabId: '10103'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:45:06'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_applovalWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER*(;.*|$)
+        roleOrder: 3
+        rolename: IDM_USER
+        tabId: '10103'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:59'
+        widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+            numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
+            column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 4
+        rolename: defaultRole
         tabId: '10103'
         temp: "\0"
         templastmodified: '2023-06-13T16:45:06'
@@ -1637,15 +1721,15 @@ is_tables_data:
         roleOrder: 4
         rolename: defaultRole
         tabId: '10103'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:45:06'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:59'
         widgets: "<widgets tabId=\"10103\" tabName=\"承認済み作業\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applovalWork_g\"
             column=\"1\" title=\"承認済み作業\" type=\"g_upload__applovalWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
             \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
-        workingUid: null
+        workingUid: admin
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
@@ -1735,9 +1819,63 @@ is_tables_data:
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10106'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:46'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
+        tabId: '10106'
+        temp: "\0"
+        templastmodified: '2023-06-13T16:34:22'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10106'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:46'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
         tabId: '10106'
         temp: "\0"
         templastmodified: '2023-06-13T16:34:22'
@@ -1757,8 +1895,8 @@ is_tables_data:
         roleOrder: 2
         rolename: IDM_USER_LEADER
         tabId: '10106'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:34:22'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:46'
         widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
             columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
             \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
@@ -1766,7 +1904,7 @@ is_tables_data:
             \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
-        workingUid: null
+        workingUid: admin
     -   defaultUid: default
         layout: ''
         principalType: OrganizationPrincipal
@@ -1784,6 +1922,23 @@ is_tables_data:
             \   </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 3
+        rolename: defaultRole
+        tabId: '10106'
+        temp: "\x01"
+        templastmodified: '2024-02-09T13:32:46'
+        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
+            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
+            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
+            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
+            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
+            \   </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: admin
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
@@ -2355,64 +2510,13 @@ is_tables_data:
         rolename: コンタクトセンター
         tabId: header
         temp: "\0"
-        templastmodified: '2022-11-15T12:02:35'
+        templastmodified: '2024-02-09T13:29:01'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20221115120233925'
-        workingUid: IDM_ADMIN
-    -   defaultUid: '999'
-        layout: '<div id="idmMenu" class="is-clearfix">
-
-
-            <span class="idmMenuTab">
-
-            <span class="showJa">ID管理</span>
-
-            <span class="showEn">ID Management</span>
-
-            <span class="submenu">
-
-            <div class="idmSubMenuTab" tabid="10106">
-
-            <span class="showJa">テナント管理</span>
-
-            <span class="showEn">Tenants</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10105">
-
-            <span class="showJa">テナント別ユーザ管理</span>
-
-            <span class="showEn">UsersOnTenant</span>
-
-            </div>
-
-            </span>
-
-            </span>
-
-            </div>
-
-
-            <div id="idmSubMenu" class="is-clearfix">
-
-            </div>'
-        principalType: group
-        role: (^|.*;) *IDM_CONTACT *(;.*|$)
-        roleOrder: 0
-        rolename: コンタクトセンター
-        tabId: header
-        temp: "\x01"
-        templastmodified: '2023-06-13T09:55:59'
-        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
-            numCol="undefined">
-
-            </widgets>'
-        widgetsLastmodified: '20221115120233925'
-        workingUid: IDM_ADMIN
+        widgetsLastmodified: '20240209132854554'
+        workingUid: admin
     -   defaultUid: '1514074290805'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -2626,7 +2730,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10107">
 
-            <span class="showJa">ユーザグループ管理</span>
+            <span class="showJa">チーム管理</span>
 
             <span class="showEn">User Groups</span>
 
@@ -2634,7 +2738,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10105">
 
-            <span class="showJa">機器</span>
+            <span class="showJa">機器管理</span>
 
             <span class="showEn">Machines</span>
 
@@ -2642,7 +2746,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10114">
 
-            <span class="showJa">特権IDセット</span>
+            <span class="showJa">特権IDセット管理</span>
 
             <span class="showEn">Machines</span>
 
@@ -2650,7 +2754,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10106">
 
-            <span class="showJa">接続先</span>
+            <span class="showJa">接続先管理</span>
 
             <span class="showEn">Connections</span>
 
@@ -2658,7 +2762,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10108">
 
-            <span class="showJa">接続先グループ</span>
+            <span class="showJa">接続先グループ管理</span>
 
             <span class="showEn">Connection Groups</span>
 
@@ -2709,14 +2813,6 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10113">
-
-            <span class="showJa">過去作業</span>
-
-            <span class="showEn">Work Applove</span>
-
-            </div>
-
             </span>
 
             </span>
@@ -2734,169 +2830,15 @@ is_tables_data:
         rolename: 全権管理者
         tabId: header
         temp: "\0"
-        templastmodified: '2022-11-15T12:02:35'
+        templastmodified: '2024-02-09T13:29:01'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20221115120233951'
-        workingUid: IDM_ADMIN
-    -   defaultUid: '1514074290805'
+        widgetsLastmodified: '20240209132854555'
+        workingUid: admin
+    -   defaultUid: '1707452853074'
         layout: '<div id="idmMenu" class="is-clearfix">
-
-
-            <span class="idmMenuTab">
-
-            <span class="showJa">データベース設定</span>
-
-            <span class="showEn">Database</span>
-
-            <span class="submenu">
-
-            <div class="idmSubMenuTab" tabid="10001">
-
-            <span class="showJa">クラス編集</span>
-
-            <span class="showEn">Class Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10003">
-
-            <span class="showJa">インタフェース編集</span>
-
-            <span class="showEn">Interface Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10002">
-
-            <span class="showJa">ガジェット編集</span>
-
-            <span class="showEn">Gadget Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10004">
-
-            <span class="showJa">翻訳テーブル編集</span>
-
-            <span class="showEn">Translator Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10015">
-
-            <span class="showJa">PDF出力レイアウト編集</span>
-
-            <span class="showEn">PDF Layout Editor</span>
-
-            </div>
-
-            </span>
-
-            </span>
-
-
-            <span class="idmMenuTab">
-
-            <span class="showJa">システム設定</span>
-
-            <span class="showEn">System</span>
-
-            <span class="submenu">
-
-            <div class="idmSubMenuTab" tabid="10005">
-
-            <span class="showJa">システム設定編集</span>
-
-            <span class="showEn">System Setting</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10006">
-
-            <span class="showJa">プロビジョニング設定編集</span>
-
-            <span class="showEn">Provisioning Setting</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10007">
-
-            <span class="showJa">インポート設定編集</span>
-
-            <span class="showEn">Import Setting</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10008">
-
-            <span class="showJa">インポートシーケンス編集</span>
-
-            <span class="showEn">Import Sequence Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10009">
-
-            <span class="showJa">自動更新バッチ編集</span>
-
-            <span class="showEn">Update Batch Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10010">
-
-            <span class="showJa">OpenLDAP データベース設定編集</span>
-
-            <span class="showEn">OpenLdap Db Setting Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10011">
-
-            <span class="showJa">ログ閲覧</span>
-
-            <span class="showEn">Log Viewer</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10016">
-
-            <span class="showJa">メールアドレス確認設定</span>
-
-            <span class="showEn">Mail Address Confirm Setting</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10017">
-
-            <span class="showJa">計算式トレースログ閲覧</span>
-
-            <span class="showEn">Formula trace log Viewer</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10018">
-
-            <span class="showJa">バックエンドDB設定編集</span>
-
-            <span class="showEn">Backend Database Setting Editor</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10019">
-
-            <span class="showJa">バックエンドDB参照設定編集</span>
-
-            <span class="showEn">Backend Database Collection Setting Editor</span>
-
-            </div>
-
-            </span>
-
-            </span>
 
 
             <span class="idmMenuTab">
@@ -2954,7 +2896,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10107">
 
-            <span class="showJa">ユーザグループ管理</span>
+            <span class="showJa">チーム管理</span>
 
             <span class="showEn">User Groups</span>
 
@@ -2962,7 +2904,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10105">
 
-            <span class="showJa">機器</span>
+            <span class="showJa">機器管理</span>
 
             <span class="showEn">Machines</span>
 
@@ -2970,7 +2912,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10114">
 
-            <span class="showJa">特権IDセット</span>
+            <span class="showJa">特権IDセット管理</span>
 
             <span class="showEn">Machines</span>
 
@@ -2978,7 +2920,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10106">
 
-            <span class="showJa">接続先</span>
+            <span class="showJa">接続先管理</span>
 
             <span class="showEn">Connections</span>
 
@@ -2986,7 +2928,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10108">
 
-            <span class="showJa">接続先グループ</span>
+            <span class="showJa">接続先グループ管理</span>
 
             <span class="showEn">Connection Groups</span>
 
@@ -3031,15 +2973,7 @@ is_tables_data:
 
             <div class="idmSubMenuTab" tabid="10103">
 
-            <span class="showJa">作業承認</span>
-
-            <span class="showEn">Work Applove</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10113">
-
-            <span class="showJa">過去作業</span>
+            <span class="showJa">承認済み作業</span>
 
             <span class="showEn">Work Applove</span>
 
@@ -3057,40 +2991,18 @@ is_tables_data:
 
             </div>'
         principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: 全権管理者
-        tabId: header
-        temp: "\x01"
-        templastmodified: '2023-06-13T09:55:59'
-        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
-            numCol="undefined">
-
-            </widgets>'
-        widgetsLastmodified: '20221115120233951'
-        workingUid: IDM_ADMIN
-    -   defaultUid: default
-        layout: '<div id="idmMenu" class="is-clearfix">
-
-            </div>
-
-
-            <div id="idmSubMenu" class="is-clearfix">
-
-            </div>'
-        principalType: OrganizationPrincipal
-        role: default
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 2
-        rolename: defaultRole
+        rolename: 管理者
         tabId: header
-        temp: "\x01"
-        templastmodified: '2023-06-13T09:55:59'
-        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+        temp: "\0"
+        templastmodified: '2024-02-09T13:29:01'
+        widgets: '<widgets tabId="header" tabName="新しいタブ" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20221115120233954'
-        workingUid: IDM_ADMIN
+        widgetsLastmodified: '20240209132854557'
+        workingUid: admin
     -   defaultUid: '1514074290805'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3205,13 +3117,13 @@ is_tables_data:
         rolename: リーダー
         tabId: header
         temp: "\0"
-        templastmodified: '2023-06-13T09:55:59'
+        templastmodified: '2024-02-09T13:29:01'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20221115120233951'
-        workingUid: IDM_ADMIN
+        widgetsLastmodified: '20240209132854556'
+        workingUid: admin
     -   defaultUid: '1514074290805'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3273,13 +3185,13 @@ is_tables_data:
         rolename: ユーザー
         tabId: header
         temp: "\0"
-        templastmodified: '2023-06-13T09:55:59'
+        templastmodified: '2024-02-09T13:29:01'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20221115120233951'
-        workingUid: IDM_ADMIN
+        widgetsLastmodified: '20240209132854556'
+        workingUid: admin
     -   defaultUid: default
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3295,35 +3207,13 @@ is_tables_data:
         rolename: defaultRole
         tabId: header
         temp: "\0"
-        templastmodified: '2022-11-15T12:02:35'
+        templastmodified: '2024-02-09T13:29:01'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20221115120233954'
-        workingUid: IDM_ADMIN
-    -   defaultUid: default
-        layout: '<div id="idmMenu" class="is-clearfix">
-
-            </div>
-
-
-            <div id="idmSubMenu" class="is-clearfix">
-
-            </div>'
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 5
-        rolename: defaultRole
-        tabId: header
-        temp: "\x01"
-        templastmodified: '2023-06-13T09:55:59'
-        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
-            numCol="undefined">
-
-            </widgets>'
-        widgetsLastmodified: '20221115120233954'
-        workingUid: IDM_ADMIN
+        widgetsLastmodified: '20240209132854551'
+        workingUid: admin
 phases_data:
     definitions:
         _sandboxClasses:
@@ -3549,12 +3439,14 @@ phases_data:
                     - protocol
                     - port
                     - remark
+                    - loginAccount
                     refClassName: machine
                     targetProperty: connections
                 -   dependency:
                     - protocol
                     - port
                     - remark
+                    - loginAccount
                     refClassName: machine
                     targetProperty: insideConnectionsObject
                 required: true
@@ -3598,6 +3490,20 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: ログインアカウント
+                isArray: false
+                name: loginAccount
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   displayName: ルート権限アカウント
+                    value: ROOT
+                -   displayName: 管理者権限アカウント
+                    value: ADMIN
         -   displayName: 接続先グループ
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -3615,15 +3521,25 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 機器一覧
-                isArray: false
+                displayName: 接続先一覧
+                isArray: true
                 name: connections
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectMachineIF
+                valuesInterface: selectConnectionIF
+            -   allowAnotherValue: false
+                displayName: 所属OU
+                isArray: false
+                name: ou
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectOUIF
         -   displayName: 機器内接続先データ
             isNestedObject: true
             isPrimaryAndNestedObject: false
@@ -3687,20 +3603,10 @@ phases_data:
         -   displayName: 機器
             isNestedObject: false
             isPrimaryAndNestedObject: false
-            keyProperty: id
+            keyProperty: hostname
             name: machine
             outputLdapSchema: false
             propertyDefinitionList:
-            -   allowAnotherValue: false
-                displayName: ID
-                isArray: false
-                name: id
-                outputLdapSchema: false
-                required: false
-                stringRestriction: id
-                type: string
-                unique: true
-                uniqueIgnoreCase: false
             -   allowAnotherValue: false
                 displayName: ホスト名
                 isArray: false
@@ -3710,6 +3616,28 @@ phases_data:
                 type: string
                 unique: true
                 uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 特権IDセット
+                isArray: false
+                name: privilegedIDSet
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectPrivilegedIDSetIF
+            -   allowAnotherValue: false
+                derivation: 'select( getResource("/IDManager/privilegedIDSetEditInterface",
+                    { id: this().privilegedIDSet }), "name")'
+                displayName: 特権IDセット名
+                isArray: false
+                name: privilegedIDSetName
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesEx: getResource("/IDManager/privilegedIDSetEditInterface", name)
             -   allowAnotherValue: false
                 className: connection
                 derivation: 'select( getResource("/IDManager/connectionEditorInterface",
@@ -3724,33 +3652,25 @@ phases_data:
                 uniqueIgnoreCase: false
                 valuesEx: getResource("/IDManager/connectionEditorInterface", id)
             -   allowAnotherValue: false
-                displayName: チーム
-                isArray: false
-                name: team
+                displayName: 参照可能OU
+                isArray: true
+                name: viewOU
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectUserGroupIF
+                valuesInterface: selectOUIF
             -   allowAnotherValue: false
-                displayName: 認証ユーザー
-                isArray: false
-                name: certificationUser
+                displayName: 編集可能OU
+                isArray: true
+                name: editOU
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-            -   allowAnotherValue: false
-                displayName: 認証パスワード
-                isArray: false
-                name: certificationPassword
-                outputLdapSchema: false
-                required: false
-                type: string
-                unique: false
-                uniqueIgnoreCase: false
+                valuesInterface: selectOUIF
             -   allowAnotherValue: false
                 className: insideConnection
                 derivation: 'getResource("/IDManager/connectionEditorInterface", {
@@ -3761,6 +3681,72 @@ phases_data:
                 outputLdapSchema: false
                 required: false
                 type: object
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 内部ルートパスワード
+                isArray: false
+                name: insideRootPassword
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 内部管理者パスワード
+                isArray: false
+                name: insideAdminPassword
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: パスワード変更方式
+                isArray: false
+                name: changePassMethod
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   displayName: LinuxOS
+                    value: LINUX
+                -   displayName: Cisco
+                    value: CISCO
+        -   displayName: OU
+            isNestedObject: false
+            isPrimaryAndNestedObject: true
+            keyProperty: id
+            name: ou
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: ID
+                isArray: false
+                name: id
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: OU名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: チーム名
+                isArray: false
+                name: teamName
+                outputLdapSchema: false
+                required: false
+                type: string
                 unique: false
                 uniqueIgnoreCase: false
         -   displayName: パスワードセット
@@ -3788,12 +3774,12 @@ phases_data:
                 unique: false
                 uniqueIgnoreCase: false
             -   allowAnotherValue: false
-                displayName: 世代番号
+                displayName: 追加日時
                 isArray: false
-                name: generationNumber
+                name: createDate
                 outputLdapSchema: false
                 required: false
-                type: number
+                type: datetime
                 unique: false
                 uniqueIgnoreCase: false
         -   displayName: 特権IDセット
@@ -3809,6 +3795,16 @@ phases_data:
                 name: id
                 outputLdapSchema: false
                 required: false
+                stringRestriction: id
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 特権IDセット名
+                isArray: false
+                name: name
+                outputLdapSchema: false
+                required: true
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
@@ -4058,7 +4054,7 @@ phases_data:
                     value: IDM_ADMIN
                 -   displayName: 管理者
                     value: IDM_USER_ADMIN
-                -   displayName: チームリーダー
+                -   displayName: 業務管理者
                     value: IDM_USER_LEADER
                 -   displayName: 利用者
                     value: IDM_USER
@@ -4083,7 +4079,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectUserGroupIF
+                valuesInterface: selectOUIF
             -   allowAnotherValue: false
                 derivation: '"uid=" + this().uid + ",ou=Users,{{ dn_suffix }}"'
                 description: LDAPのディレクトリーツリー内での位置を示す識別子
@@ -4150,7 +4146,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-        -   description: "チームを設定します。\r\nユーザーはチーム単位で管理されている他のユーザーや接続先にのみアクセスすることができます。"
+        -   description: "チームを設定します。\r\nユーザーはチーム単位で管理されている他のユーザーのみアクセスすることができます。"
             displayName: チーム
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -4188,15 +4184,43 @@ phases_data:
                 uniqueIgnoreCase: false
                 valuesInterface: selectUserIF
             -   allowAnotherValue: false
-                displayName: 接続先一覧
+                className: ou
+                displayName: OU
                 isArray: true
-                name: connections
+                name: ou
+                outputLdapSchema: false
+                required: false
+                type: object
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: GID
+                isArray: false
+                name: gidNumber
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectConnectionIF
+            -   allowAnotherValue: false
+                displayName: 多要素認証許可・禁止フラグ
+                isArray: false
+                name: MFAPermissionFlag
+                outputLdapSchema: false
+                required: false
+                type: boolean
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 管理メールアドレス
+                isArray: false
+                name: groupMailAddress
+                outputLdapSchema: false
+                required: false
+                stringRestriction: mailaddr
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
         -   displayName: 作業
             isNestedObject: false
             isPrimaryAndNestedObject: false
@@ -4743,6 +4767,11 @@ phases_data:
                 hideOnShow: false
                 incrementalSearchFlag: false
                 name: machine
+                propertiesOnList:
+                -   displayOnList: 'on'
+                    name: hostname
+                -   displayOnList: 'on'
+                    name: privilegedIDSetName
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
@@ -4764,6 +4793,15 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: number
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: loginAccount
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
             -   className: ''
                 disableUpdate: false
                 hideOnEdit: false
@@ -4899,16 +4937,6 @@ phases_data:
             name: machine_g
             propertiesOnDetail:
             -   className: ''
-                defaultValueEx: uuid()
-                disableUpdate: true
-                hideOnEdit: true
-                hideOnShow: true
-                incrementalSearchFlag: false
-                name: id
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
@@ -4926,35 +4954,40 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
-            -   className: ''
+            -   className: privilegedIDSet
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: certificationUser
+                name: privilegedIDSet
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
-            -   className: ''
+            -   className: ou
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: certificationPassword
+                name: viewOU
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ou
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: editOU
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
             propertiesOnList:
-            -   displayOnList: 'off'
-                name: id
             -   displayOnList: 'on'
                 name: hostname
+            -   displayOnList: 'on'
+                name: privilegedIDSetName
             -   displayOnList: 'off'
                 name: connections
-            -   displayOnList: 'on'
-                name: certificationUser
-            -   displayOnList: 'off'
-                name: certificationPassword
             showHistory: false
             uploadCSV: true
             useDisplayNameHeader: false
@@ -4992,6 +5025,105 @@ phases_data:
             interfaceName: privilegedIDSetEditInterface
             isSingleton: false
             name: privilegedIDSetEdit_g
+            propertiesOnDetail:
+            -   className: ''
+                defaultValueEx: uuid()
+                disableUpdate: true
+                hideOnEdit: true
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: id
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: rootUsername
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: adminUsername
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: passwordSet
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                maxLinesOnList: 0
+                name: passwordList
+                propertiesOnDetail:
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: rootPassword
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: string
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: adminPassword
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: string
+                -   className: ''
+                    dateSeparator: '-'
+                    defaultValueEx: Date()
+                    disableUpdate: true
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: createDate
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: datetime
+                propertiesOnList:
+                -   displayOnList: 'on'
+                    name: rootPassword
+                -   displayOnList: 'on'
+                    name: adminPassword
+                -   displayOnList: 'on'
+                    name: createDate
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: object
+            propertiesOnList:
+            -   displayOnList: 'off'
+                name: id
+            -   displayOnList: 'on'
+                filter: regex
+                name: name
+            -   displayOnList: defaultOn
+                filter: regex
+                name: rootUsername
+            -   displayOnList: 'on'
+                filter: regex
+                name: adminUsername
+            -   displayOnList: 'off'
+                name: passwordList
             showHistory: false
             uploadCSV: false
             useDisplayNameHeader: false
@@ -5148,7 +5280,7 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
-            -   className: userGroups
+            -   className: ou
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
@@ -5269,6 +5401,65 @@ phases_data:
                 hideOnShow: false
                 incrementalSearchFlag: false
                 name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ou
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: ou
+                propertiesOnDetail:
+                -   className: ''
+                    defaultValueEx: uuid()
+                    disableUpdate: true
+                    hideOnEdit: true
+                    hideOnShow: true
+                    incrementalSearchFlag: false
+                    name: id
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: string
+                -   className: ''
+                    disableUpdate: false
+                    hideOnEdit: false
+                    hideOnShow: false
+                    incrementalSearchFlag: false
+                    name: name
+                    radioButtonFlag: false
+                    twoColumnFlag: false
+                    type: string
+                propertiesOnList:
+                -   displayOnList: 'on'
+                    name: name
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: object
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: gidNumber
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: MFAPermissionFlag
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: boolean
+            -   className: ''
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: groupMailAddress
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
@@ -5609,12 +5800,19 @@ phases_data:
             name: selectConnectionGroupIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   accessLevel: full
+        -   accessLevel: readOnly
             className: connection
-            database: Sandbox
+            database: Master
             deleteAsUpdate: false
             displayName: 接続先選択IF
             name: selectConnectionIF
+            properties:
+            - id
+            - machine
+            - protocol
+            - port
+            - remark
+            - loginAccount
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   accessLevel: readOnly
@@ -5629,8 +5827,32 @@ phases_data:
                 user()).team}"
             name: selectMachineIF
             properties:
-            - name
             - hostname
+            - id
+            - privilegedIDSetName
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: ou
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: OU選択IF
+            name: selectOUIF
+            properties:
+            - id
+            - name
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: privilegedIDSet
+            database: Master
+            deleteAsUpdate: false
+            displayName: 特権IDセット選択IF
+            name: selectPrivilegedIDSetIF
+            properties:
+            - name
+            - rootUsername
+            - adminUsername
             - id
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
@@ -5673,15 +5895,7 @@ phases_data:
             name: startWokrIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   ACEs:
-            -   allow: true
-                matching:
-                -   type: GROUP
-                    useArgument: false
-                    values:
-                    - IDM_ADMIN
-                    - IDM_USER_ADMIN
-            accessLevel: full
+        -   accessLevel: full
             className: user
             database: Sandbox
             deleteAsUpdate: false
@@ -6074,3 +6288,10 @@ phases_data:
             sn: 鳥海
             uid: tuki3@test.net
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$9fbwnvfVvBPd0P2wpwAe/A$i3X6zLssyv88CfjfjociEdVyOdUt7kfAq9YxjQdMw2M'
+        -   accountLock: false
+            cn: ユーザーアドミンテスト
+            dn: uid=user_admin_test,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_USER_ADMIN
+            sn: ユーザーアドミンテスト
+            uid: user_admin_test
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$mbsyq7EJKysRm1VGqXRZCQ$nAxENUQw20b5wUBhHDc7FBsn7GNxCaDNv++Dy2GVUao'
