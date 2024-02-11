@@ -57,8 +57,14 @@
         port: "{{ idm_connection.port | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ certificationUser }}"
-        password: "{{ certificationPassword }}"
+        username: >-
+          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootUsername }}'
+          {%- else -%} '{{ insideAdminUsername }}'
+          {%- endif -%}
+        password: >-
+          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootPassword }}'
+          {%- else -%} '{{ insideAdminPassword }}'
+          {%- endif -%}
         create-typescript-path: >-
           {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'true'
           {%- else -%} ''
@@ -105,8 +111,14 @@
         port: "{{ idm_connection.port | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ certificationUser }}"
-        password: "{{ certificationPassword }}"
+        username: >-
+          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootUsername }}'
+          {%- else -%} '{{ insideAdminUsername }}'
+          {%- endif -%}
+        password: >-
+          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootPassword }}'
+          {%- else -%} '{{ insideAdminPassword }}'
+          {%- endif -%}
         create-typescript-path: >-
           {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'true'
           {%- else -%} ''
