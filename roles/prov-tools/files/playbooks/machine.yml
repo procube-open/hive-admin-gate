@@ -21,3 +21,4 @@
     loop: "{{ insideConnectionsObject }}"
     loop_control:
       loop_var: idm_connection
+    when: insideConnectionsObject is defined

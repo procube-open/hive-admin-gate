@@ -39,6 +39,15 @@
   loop: "{{ guacamole_connections.json | dict2items }}"
   loop_control:
     label: "{{ item.key }}"
+- name: get passwords
+  uri:
+    url: "http://localhost:8090/IDManager/privilegedIDSetEditInterface/{{ privilegedIDSet }}"
+    headers:
+      HTTP_SYSTEMACCOUNT: "SYSTEM"
+    method: GET
+    validate_certs: false
+    status_code: 200
+  register: passwords
 
 - name: Put connection.
   uri:
@@ -58,12 +67,12 @@
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         username: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootUsername }}
-          {%- else -%} {{ insideAdminUsername }}
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ passwords.json.rootUsername }}
+          {%- else -%} {{ passwords.json.adminUsername }}
           {%- endif -%}
         password: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootPassword }}
-          {%- else -%} {{ insideAdminPassword }}
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ passwords.json.passwordList[0].rootPassword }}
+          {%- else -%} {{ passwords.json.passwordList[0].adminPassword }}
           {%- endif -%}
         create-typescript-path: >-
           {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} true
@@ -112,12 +121,12 @@
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         username: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootUsername }}
-          {%- else -%} {{ insideAdminUsername }}
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ passwords.json.rootUsername }}
+          {%- else -%} {{ passwords.json.adminUsername }}
           {%- endif -%}
         password: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootPassword }}
-          {%- else -%} {{ insideAdminPassword }}
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ passwords.json.passwordList[0].rootPassword }}
+          {%- else -%} {{ passwords.json.passwordList[0].adminPassword }}
           {%- endif -%}
         create-typescript-path: >-
           {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} true
