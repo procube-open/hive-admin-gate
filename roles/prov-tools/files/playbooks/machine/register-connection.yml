@@ -58,29 +58,29 @@
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         username: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootUsername }}'
-          {%- else -%} '{{ insideAdminUsername }}'
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootUsername }}
+          {%- else -%} {{ insideAdminUsername }}
           {%- endif -%}
         password: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootPassword }}'
-          {%- else -%} '{{ insideAdminPassword }}'
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootPassword }}
+          {%- else -%} {{ insideAdminPassword }}
           {%- endif -%}
         create-typescript-path: >-
-          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'true'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} true
+          {%- else -%} 
           {%- endif -%}
         typescript-path: >-
-          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} '${HISTORY_PATH}/${HISTORY_UUID}'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} ${HISTORY_PATH}/${HISTORY_UUID}
+          {%- else -%} 
           {%- endif -%}
         typescript-name: >-
-          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'typescript'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} typescript
+          {%- else -%} 
           {%- endif -%}
         hostname: "{{ hostname }}"
         ignore-cert: >-
-          {%- if idm_connection.protocol == 'rdp' -%} 'true'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'rdp' -%} true
+          {%- else -%} 
           {%- endif -%}
       attributes:
         remark: "{{ idm_connection.remark | default('') }}"
@@ -112,29 +112,29 @@
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         username: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootUsername }}'
-          {%- else -%} '{{ insideAdminUsername }}'
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootUsername }}
+          {%- else -%} {{ insideAdminUsername }}
           {%- endif -%}
         password: >-
-          {%- if idm_connection.loginAccount == 'ROOT' -%} '{{ insideRootPassword }}'
-          {%- else -%} '{{ insideAdminPassword }}'
+          {%- if idm_connection.loginAccount == 'ROOT' -%} {{ insideRootPassword }}
+          {%- else -%} {{ insideAdminPassword }}
           {%- endif -%}
         create-typescript-path: >-
-          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'true'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} true
+          {%- else -%}
           {%- endif -%}
         typescript-path: >-
-          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} '${HISTORY_PATH}/${HISTORY_UUID}'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} ${HISTORY_PATH}/${HISTORY_UUID}
+          {%- else -%}
           {%- endif -%}
         typescript-name: >-
-          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} 'typescript'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'ssh' or idm_connection.protocol == 'telnet' -%} typescript
+          {%- else -%}
           {%- endif -%}
         hostname: "{{ hostname }}"
         ignore-cert: >-
-          {%- if idm_connection.protocol == 'rdp' -%} 'true'
-          {%- else -%} ''
+          {%- if idm_connection.protocol == 'rdp' -%} true
+          {%- else -%}
           {%- endif -%}
       attributes:
         remark: "{{ idm_connection.remark | default('') }}"
