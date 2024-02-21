@@ -120,8 +120,7 @@
       dirname: "{{ name }}"
       idmIdentifier: "{{ id }}"
       password: hoge
-      priods: "{{ req_periods }}"
-      whiteList: "{{ machineList.json | selectattr('hostname', 'in', select_machine) | map(attribute='hostname') | list }}"
+      whitelist: "{{ machineList.json | selectattr('hostname', 'in', select_machine) | map(attribute='hostname') | list }}"
     validate_certs: false
     status_code: 201
   vars:

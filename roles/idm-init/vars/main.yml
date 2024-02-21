@@ -4065,7 +4065,6 @@ phases_data:
                 unique: true
                 uniqueIgnoreCase: true
             -   allowAnotherValue: false
-                description: テスト
                 displayName: 姓
                 isArray: false
                 maxLen: 256
@@ -6133,7 +6132,7 @@ phases_data:
             withHeader: false
         -   appendOnly: false
             classSetting:
-            -   className: ou
+            -   className: userGroups
                 noDecryption: false
                 type: CustomTaskExecutor
             database: Master
@@ -6347,6 +6346,22 @@ phases_data:
             uid: admin
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$wrmp0v+gvke8ZoWgPlxaCQ$S8s60OEnt0DFb51bmAS0I39Uooo5LHfGOt6clbob3jw'
         -   accountLock: false
+            cn: 業務管理者
+            dn: uid=demo-admin,ou=Users,{{ dn_suffix }}
+            email: hiroya@procube.jp
+            idmRole: IDM_USER_LEADER
+            sn: 管理者
+            uid: demo-admin
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$TweMqsm29vEu9IrtBpn6Dg$ZX6sdlMneKYkkRUHe8pJkcy9P38XNC0tTPHicVWlrBg'
+        -   accountLock: false
+            cn: デモ作業者
+            dn: uid=demo-worker,ou=Users,{{ dn_suffix }}
+            email: hiroya@procube.jp
+            idmRole: IDM_USER
+            sn: デモ作業者
+            uid: demo-worker
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$h21WD3olpKAVoUOwp3GVRQ$5nbKBj0XdNQQJaF3Crw2QoCSCcpkOI7Drs9VFZwUeVM'
+        -   accountLock: false
             cn: 岸本 明紀
             dn: uid=ka-kishimoto@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
@@ -6368,12 +6383,37 @@ phases_data:
             uid: ma-funama@netone.co.jp
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oS4qC/0MiWFcyMYBT1HVVw$Bma/+INKwAzTsft5LCIi3kQDz0ORM9PsuP8VfwUREHQ'
         -   accountLock: false
+            cn: マイク ネコ
+            dn: uid=mikeneko,ou=Users,{{ dn_suffix }}
+            email: ma-funama@netone.co.jp
+            idmRole: IDM_USER
+            sn: マイク
+            team: 60cab884-c03e-eba1-26ae-f48eb99eef67
+            uid: mikeneko
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$aX2hUE5CxqK/1/sPSz5TpQ$leWD3mRBpB7ULvkA59fCQKA3wix8vn1ad1iwI51GsH0'
+        -   accountLock: false
             cn: 中川路 充
             dn: uid=mitsuru@procube.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
             sn: 中川路
             uid: mitsuru@procube.jp
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SUJ6i4XswzOIjneumL8MQw$yVl/z7TSQMVyYVnK9Xd65cBeI6ue1n+hHdSiwpGNe1I'
+        -   accountLock: false
+            cn: 中川路充（業務管理者）
+            dn: uid=mitsuru_admin,ou=Users,{{ dn_suffix }}
+            email: mitsuru@procube.jp
+            idmRole: IDM_USER_LEADER
+            sn: 中川路充
+            uid: mitsuru_admin
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$/Oov7vGxS92mI7KpRbvvow$uP/OXlqZZ3paW58VxBp5cw3omdOFjdHeO/29SPD4xyA'
+        -   accountLock: false
+            cn: 中川路充（作業者）
+            dn: uid=mitsuru_user,ou=Users,{{ dn_suffix }}
+            email: mitsuru@procube.jp
+            idmRole: IDM_USER
+            sn: 中川路充
+            uid: mitsuru_user
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$zfB2k3ZxRC+wJN79lulGzA$ffX/ltWB9L6qY3fo5BXoWyOoXUMrm+4n5QvuR+07pP0'
         -   accountLock: false
             cn: 赤堀 翠
             dn: uid=nKINkmX@sample.com,ou=Users,{{ dn_suffix }}
@@ -6398,8 +6438,10 @@ phases_data:
         -   accountLock: false
             cn: 熊谷 智明
             dn: uid=t-kumagai@netone.co.jp,ou=Users,{{ dn_suffix }}
+            email: t-kumagai@netone.co.jp
             idmRole: IDM_ADMIN
             sn: 熊谷
+            team: 60cab884-c03e-eba1-26ae-f48eb99eef67
             uid: t-kumagai@netone.co.jp
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oWjGStaWPxBbmnBdb8P2wg$SnxymJ7vrik3iGhNswtf1shRQFwvRCpQoTbtNTXOIeA'
         -   accountLock: false
@@ -6409,15 +6451,6 @@ phases_data:
             sn: 田中
             uid: t-tanaka@netone.co.jp
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SAfm+aNWiQRL8XpgpFPZJQ$xbmJZaWKw4nL4I8S8rSw1Xvnug/+V/Fx3ztK5x/pcpQ'
-        -   accountLock: false
-            cn: テスト 太郎
-            dn: uid=test-taro,ou=Users,{{ dn_suffix }}
-            email: ma-funama@netone.co.jp
-            idmRole: IDM_USER
-            sn: テスト
-            team: 60cab884-c03e-eba1-26ae-f48eb99eef67
-            uid: test-taro
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$l/4vhSvI6Gt5XV2EzLdPvA$AuP6qKTLzE0iK6iDjR9KidgiyLj+iJjBIoR0uXRpP3I'
         -   accountLock: false
             cn: test
             dn: uid=test123,ou=Users,{{ dn_suffix }}
