@@ -4577,6 +4577,7 @@ phases_data:
                 twoColumnFlag: false
                 type: string
             -   className: Period
+                datePickerFlag: false
                 disableUpdate: false
                 hideOnEdit: false
                 hideOnShow: false
@@ -4584,7 +4585,9 @@ phases_data:
                 name: Periods
                 propertiesOnDetail:
                 -   className: ''
+                    datePickerFlag: true
                     dateSeparator: /
+                    defaultValueEx: Date()
                     disableUpdate: false
                     hideOnEdit: false
                     hideOnShow: false
@@ -4594,7 +4597,9 @@ phases_data:
                     twoColumnFlag: false
                     type: date
                 -   className: ''
+                    datePickerFlag: true
                     dateSeparator: /
+                    defaultValueEx: Date()
                     disableUpdate: false
                     hideOnEdit: false
                     hideOnShow: false
@@ -4735,11 +4740,13 @@ phases_data:
                 type: string
             propertiesOnList:
             -   displayOnList: 'on'
+                filter: regex
                 name: name
             -   displayOnList: 'on'
                 filter: all
                 name: status
             -   displayOnList: 'on'
+                filter: regex
                 name: applicationUser
             -   displayOnList: 'on'
                 name: applicationDatetime
@@ -4767,18 +4774,17 @@ phases_data:
             name: applovalWork_g
             propertiesOnList:
             -   displayOnList: 'on'
+                filter: regex
                 name: name
             -   displayOnList: 'on'
                 name: status
             -   displayOnList: 'on'
-                name: startDatetime
-            -   displayOnList: 'on'
-                name: endDatetime
-            -   displayOnList: 'on'
+                filter: regex
                 name: applicationUser
             -   displayOnList: 'on'
                 name: applicationDatetime
             -   displayOnList: 'on'
+                filter: regex
                 name: approvedUser
             -   displayOnList: 'on'
                 name: approvedDatetime
@@ -4801,7 +4807,15 @@ phases_data:
             interfaceName: connectionGroupEditorInterface
             isSingleton: false
             name: connectionGroup_g
+            propertiesOnList:
+            -   displayOnList: 'on'
+                filter: regex
+                name: name
+            -   displayOnList: 'on'
+                filter: regex
+                name: ou
             showHistory: false
+            titleOfUpdate: 編集
             uploadCSV: true
             useDisplayNameHeader: false
             withHeader: true
@@ -4881,113 +4895,24 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
+            propertiesOnList:
+            -   displayOnList: 'on'
+                filter: regex
+                name: machine
+            -   displayOnList: 'on'
+                name: protocol
+            -   displayOnList: 'on'
+                filter: regex
+                name: port
+            -   displayOnList: 'on'
+                filter: regex
+                name: loginAccount
+            -   displayOnList: 'on'
+                filter: regex
+                name: remark
             showHistory: false
+            titleOfUpdate: 編集
             uploadCSV: true
-            useDisplayNameHeader: false
-            withHeader: true
-        -   autoCommit: false
-            backToDetail: false
-            className: work
-            clonable: true
-            clonableTitle: コピーして新規作成
-            disableAdd: true
-            disableDelete: true
-            disableMultiDelete: true
-            disableSuspension: false
-            disableUpdate: true
-            displayName: 過去作業ガジェット
-            downloadDisplayFormatCSV: false
-            downloadUpdateFormatCSV: false
-            interfaceName: historyWorkIF
-            isSingleton: false
-            name: hisotryWork_g
-            propertiesOnDetail:
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: id
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: name
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                dateSeparator: /
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: startDatetime
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: ''
-            -   className: ''
-                dateSeparator: /
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: endDatetime
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: ''
-            -   className: ''
-                defaultValue: editing
-                disableUpdate: true
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: status
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: users
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: ''
-            -   className: ''
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: userGroups
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: ''
-            -   className: connection
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: connections
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            -   className: connectionGroup
-                disableUpdate: false
-                hideOnEdit: false
-                hideOnShow: false
-                incrementalSearchFlag: false
-                name: connectionGroups
-                radioButtonFlag: false
-                twoColumnFlag: false
-                type: string
-            showHistory: false
-            uploadCSV: false
             useDisplayNameHeader: false
             withHeader: true
         -   autoCommit: false
@@ -5053,12 +4978,16 @@ phases_data:
                 type: string
             propertiesOnList:
             -   displayOnList: 'on'
+                filter: regex
                 name: hostname
             -   displayOnList: 'on'
+                filter: regex
                 name: privilegedIDSetName
             -   displayOnList: 'off'
+                filter: regex
                 name: connections
             showHistory: false
+            titleOfUpdate: 編集
             uploadCSV: true
             useDisplayNameHeader: false
             withHeader: true
@@ -5195,6 +5124,7 @@ phases_data:
             -   displayOnList: 'off'
                 name: passwordList
             showHistory: false
+            titleOfUpdate: 編集
             uploadCSV: false
             useDisplayNameHeader: false
             withHeader: true
@@ -5256,14 +5186,12 @@ phases_data:
             name: requiredApplovalWork_g
             propertiesOnList:
             -   displayOnList: 'on'
+                filter: regex
                 name: name
             -   displayOnList: 'on'
                 name: status
             -   displayOnList: 'on'
-                name: startDatetime
-            -   displayOnList: 'on'
-                name: endDatetime
-            -   displayOnList: 'on'
+                filter: regex
                 name: applicationUser
             -   displayOnList: 'on'
                 name: applicationDatetime
@@ -5433,20 +5361,24 @@ phases_data:
                 type: string
             propertiesOnList:
             -   displayOnList: 'on'
+                filter: regex
                 name: uid
             -   displayOnList: 'on'
+                filter: regex
                 name: cn
             -   displayOnList: defaultOn
                 name: idmRole
             -   displayOnList: 'off'
                 name: userPassword
             -   displayOnList: 'on'
+                filter: regex
                 name: email
             -   displayOnList: 'off'
                 name: dn
             -   displayOnList: defaultOn
                 name: accountLock
             showHistory: true
+            titleOfUpdate: 編集
             uploadCSV: true
             useDisplayNameHeader: false
             withHeader: true
@@ -5546,8 +5478,10 @@ phases_data:
                 type: string
             propertiesOnList:
             -   displayOnList: 'on'
+                filter: regex
                 name: name
             showHistory: false
+            titleOfUpdate: 編集
             uploadCSV: true
             useDisplayNameHeader: false
             withHeader: true
