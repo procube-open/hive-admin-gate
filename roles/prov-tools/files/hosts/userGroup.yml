@@ -2,6 +2,6 @@
 plugin: idm_inventory
 interface: SystemUserGroupIF
 host_name_property: id
-class_name: userGroup
+class_name: userGroups
 groups:
 - name: userGroups

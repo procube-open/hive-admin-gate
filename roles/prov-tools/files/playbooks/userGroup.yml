@@ -3,6 +3,9 @@
   hosts: userGroups
   gather_facts: false
   serial: 1
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /root/prov/bin/python
 
   tasks:
   - name: Get OUs.
