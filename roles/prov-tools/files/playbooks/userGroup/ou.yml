@@ -1,0 +1,46 @@
+- name: Get OUs.
+  uri:
+    url: "http://localhost:8090/IDManager/SystemOUIF"
+    headers:
+      HTTP_SYSTEMACCOUNT: "SYSTEM"
+    method: GET
+    validate_certs: false
+    status_code: 200
+  register: ouList
+- name: Put OU.
+  uri:
+    url: "http://localhost:8090/IDManager/SystemOUIF/{{ ou.id }}"
+    headers:
+      HTTP_SYSTEMACCOUNT: "SYSTEM"
+    method: PUT
+    body_format: json
+    body:
+      id: "{{ ou.id }}"
+      name: "{{ ou.name }}"
+      teamName: "{{ name }}"
+    validate_certs: false
+    status_code: 200
+  when: ou.id in ouList.json and prov_operation != 'delete'
+- name: Post OU.
+  uri:
+    url: "http://localhost:8090/IDManager/SystemOUIF/"
+    headers:
+      HTTP_SYSTEMACCOUNT: "SYSTEM"
+    method: POST
+    body_format: json
+    body:
+      id: "{{ ou.id }}"
+      name: "{{ ou.name }}"
+      teamName: "{{ name }}"
+    validate_certs: false
+    status_code: 200
+  when: ou.id not in ouList.json and prov_operation != 'delete'
+- name: Delete OU.
+  uri:
+    url: "http://localhost:8090/IDManager/SystemOUIF/{{ ou.id }}"
+    headers:
+      HTTP_SYSTEMACCOUNT: "SYSTEM"
+    method: DELETE
+    validate_certs: false
+    status_code: 200
+  when: ou.id in ouList.json and prov_operation == 'delete'

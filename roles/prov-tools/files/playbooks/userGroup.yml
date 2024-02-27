@@ -1,0 +1,13 @@
+---
+- name: Provisioning for userGroup
+  hosts: userGroups
+  gather_facts: false
+  serial: 1
+
+  tasks:
+  - name: ou
+    include_tasks:
+      file: userGroup/ou.yml
+    loop: "{{ ouObject }}"
+    loop_control:
+      loop_var: ou
