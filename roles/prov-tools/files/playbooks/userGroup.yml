@@ -5,9 +5,36 @@
   serial: 1
 
   tasks:
-  - name: ou
-    include_tasks:
-      file: userGroup/ou.yml
-    loop: "{{ ouObject }}"
-    loop_control:
-      loop_var: ou
+  - name: Get OUs.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemOUIF"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+      method: GET
+      validate_certs: false
+      status_code: 200
+    register: ouList
+  - name: Delete ou in this user group.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemOUIF/{{ item.id }}"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+      method: DELETE
+      validate_certs: false
+      status_code: 200
+    loop: "{{ ouList.json | selectattr('teamID', 'eq', 'id') | list }}"
+  - name: Post OU.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemOUIF/"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+      method: POST
+      body_format: json
+      body:
+        id: "{{ item.id }}"
+        name: "{{ item.name }}"
+        teamName: "{{ name }}"
+        teamID: "{{ id }}"
+      validate_certs: false
+      status_code: 200
+    loop: "{{ ou }}"
