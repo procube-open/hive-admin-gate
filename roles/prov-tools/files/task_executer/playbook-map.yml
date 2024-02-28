@@ -5,3 +5,5 @@ createUser:
   user: user.yml
 createWork:
   work: work.yml
+createOU:
+  userGroups: userGroup.yml
