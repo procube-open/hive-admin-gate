@@ -45,7 +45,5 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   loop:
-  - src: ../../../lib/powerdns_record.py
-    dest: /root/.ansible/plugins/modules
   - src: acme.yml
     dest: /root/

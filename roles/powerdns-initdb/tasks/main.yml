@@ -1,3 +1,0 @@
----
-- name: put initialize script
-  copy: src=powerdns-init.sql dest=/docker-entrypoint-initdb.d/

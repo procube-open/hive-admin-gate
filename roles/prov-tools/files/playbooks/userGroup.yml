@@ -25,7 +25,7 @@
       method: DELETE
       validate_certs: false
       status_code: 200
-    loop: "{{ ouList.json | selectattr('teamID', 'eq', 'id') | list }}"
+    loop: "{{ ouList.json | selectattr('teamID', 'eq', id) | list }}"
   - name: Post OU.
     uri:
       url: "http://localhost:8090/IDManager/SystemOUIF/"
