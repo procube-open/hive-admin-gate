@@ -64,11 +64,11 @@
       protocol: "rdp"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.rdpPort | default('') }}"
+        port: "{{ cs_obj.json.rdpPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.rdpID }}"
-        password: "{{ cs_obj.rdpPassword }}"
+        username: "{{ cs_obj.json.rdpID }}"
+        password: "{{ cs_obj.json.rdpPassword }}"
         hostname: "{{ hostname }}"
         ignore-cert: "true"
       attributes:
@@ -97,11 +97,11 @@
       protocol: "rdp"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.rdpPort | default('') }}"
+        port: "{{ cs_obj.json.rdpPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.rdpID }}"
-        password: "{{ cs_obj.rdpPassword }}"
+        username: "{{ cs_obj.json.rdpID }}"
+        password: "{{ cs_obj.json.rdpPassword }}"
         hostname: "{{ hostname }}"
         ignore-cert: "true"
       attributes:

@@ -64,11 +64,11 @@
       protocol: "ssh"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.sshPort | default('') }}"
+        port: "{{ cs_obj.json.sshPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.sshID }}"
-        password: "{{ cs_obj.sshPassword }}"
+        username: "{{ cs_obj.json.sshID }}"
+        password: "{{ cs_obj.json.sshPassword }}"
         create-typescript-path: "true"
         typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         typescript-name: typescript
@@ -99,11 +99,11 @@
       protocol: "ssh"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.sshPort | default('') }}"
+        port: "{{ cs_obj.json.sshPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.sshID }}"
-        password: "{{ cs_obj.sshPassword }}"
+        username: "{{ cs_obj.json.sshID }}"
+        password: "{{ cs_obj.json.sshPassword }}"
         create-typescript-path: "true"
         typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         typescript-name: typescript

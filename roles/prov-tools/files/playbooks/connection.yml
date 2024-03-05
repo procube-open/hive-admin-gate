@@ -21,11 +21,13 @@
     register: cs_obj
   - name: Change password and register connection.
     include_tasks:
-      file: "{{ item }}.yml"
-    when: cs_obj[item]
+      file: "connection/{{ loop_protocol }}.yml"
+    when: cs_obj.json[loop_protocol]
     loop:
       - ssh
       - rdp
       - telnet
       - vnc
+    loop_control:
+      loop_var: loop_protocol
 

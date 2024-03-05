@@ -64,11 +64,11 @@
       protocol: "telnet"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.telnetPort | default('') }}"
+        port: "{{ cs_obj.json.telnetPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.telnetID }}"
-        password: "{{ cs_obj.telnetPassword }}"
+        username: "{{ cs_obj.json.telnetID }}"
+        password: "{{ cs_obj.json.telnetPassword }}"
         create-typescript-path: "true"
         typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         typescript-name: typescript
@@ -99,11 +99,11 @@
       protocol: "telnet"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.telnetPort | default('') }}"
+        port: "{{ cs_obj.json.telnetPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.telnetID }}"
-        password: "{{ cs_obj.telnetPassword }}"
+        username: "{{ cs_obj.json.telnetID }}"
+        password: "{{ cs_obj.json.telnetPassword }}"
         create-typescript-path: "true"
         typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
         typescript-name: typescript
