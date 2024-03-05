@@ -10,4 +10,22 @@
     password: guacadmin
 
   tasks:
-  - name: Register connection.
+  - name: Get connection specification.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemConnectionSpecificationIF/{{ connectionSpecification }}"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+      method: GET
+      validate_certs: false
+      status_code: 200
+    register: cs_obj
+  - name: Change password and register connection.
+    include_tasks:
+      file: "{{ item }}.yml"
+    when: cs_obj[item]
+    loop:
+      - ssh
+      - rdp
+      - telnet
+      - vnc
+

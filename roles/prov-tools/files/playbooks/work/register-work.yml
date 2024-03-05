@@ -91,18 +91,9 @@
       users: "{{ (workers | default([])) + (managers | default([])) + (workerAndManager | default([])) }}"
     validate_certs: false
     status_code: 200
-- name: Get machine list
-  uri:
-    url: "http://localhost:8090/IDManager/SystemMachineIF"
-    headers:
-      HTTP_SYSTEMACCOUNT: "SYSTEM"
-    method: GET
-    validate_certs: false
-    status_code: 200
-  register: machineList
 - name: Get connection list
   uri:
-    url: "http://localhost:8090/IDManager/connectionEditorInterface"
+    url: "http://localhost:8090/IDManager/SystemConnectionIF"
     headers:
       HTTP_SYSTEMACCOUNT: "SYSTEM"
     method: GET
@@ -120,8 +111,6 @@
       dirname: "{{ name }}"
       idmIdentifier: "{{ id }}"
       password: hoge
-      whitelist: "{{ machineList.json | selectattr('hostname', 'in', select_machine) | map(attribute='hostname') | list }}"
+      whitelist: "{{ connectionList.json | selectattr('id', 'in', connections) | map(attribute='hostname') | list }}"
     validate_certs: false
     status_code: 201
-  vars:
-    select_machine: "{{ connectionList.json | selectattr('id', 'in', connections) | map(attribute='machine') | list }}"

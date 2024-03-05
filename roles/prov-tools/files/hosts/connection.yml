@@ -1,6 +1,6 @@
 ---
 plugin: idm_inventory
-interface: connectionEditorInterface
+interface: SystemConnectionIF
 host_name_property: id
 class_name: connection
 groups:

@@ -1,6 +1,6 @@
 ---
-createMachine:
-  machine: machine.yml
+createConnection:
+  connection: connection.yml
 createUser:
   user: user.yml
 createWork:
