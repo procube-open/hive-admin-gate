@@ -1,0 +1,124 @@
+from flask import Flask, request, jsonify
+import docker
+import json
+import os
+import socket
+import time
+import uuid
+from filelock import FileLock
+
+
+app = Flask(__name__)
+
+# image_chrome = 'procube/node-chrome'
+image_chrome = os.environ.get('IMAGE_CHROME')
+swarm_network = ['hive_default_network']
+
+tls_config = docker.tls.TLSConfig(
+    ca_cert='/root/.docker/ca.pem',
+    verify=True,
+    client_cert=('/root/.docker/cert.pem', '/root/.docker/key.pem')
+)
+
+base_urls = []
+{% for host in groups['hives'] | intersect(groups[hive_stage]) %}
+base_urls.append("tcp://{{ host }}:2376")
+{% endfor %}
+
+for base_url in base_urls:
+    try:
+        client = docker.APIClient(base_url=base_url, tls=tls_config)
+        break
+    except Exception as e:
+        app.logger.warning(e)
+        continue
+
+webdav_server = os.environ.get('WEBDAV_SERVER')
+webdav_port = str(os.environ.get('WEBDAV_PORT'))
+webdav_username = os.environ.get('WEBDAV_USERNAME')
+webdav_password = os.environ.get('WEBDAV_PASSWORD')
+
+@app.route('/create', methods=['POST'])
+def service_create():
+
+    work_id = str(request.json['work_id'])
+    lockfile = '/var/lock/session-manager/' + work_id + '.lock'
+    lock = FileLock(lockfile)
+    lock.acquire()
+
+    work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
+    selenium_allow_url = 'RULES=' + request.json['selenium_allow_url']
+    backlog_username = 'USERNAME=' + request.json['backlog_username']
+    backlog_password = 'PASSWORD=' + request.json['backlog_password']
+    selenium_env = [selenium_allow_url, backlog_username, backlog_password]
+
+    davfs_volume_name = 'davfs-volume-' + work_id
+    url = 'http://' + webdav_server + ':' + webdav_port + '/' + work_id + '/'
+    davfs_driver_opts = {'username': webdav_username, 'password': webdav_password, 'url': url}
+    driver_config = docker.types.services.DriverConfig('fentas/davfs', options=davfs_driver_opts)
+
+    davfs_mount_def = docker.types.Mount('/mnt', davfs_volume_name, type='volume', driver_config=driver_config)
+    shm_mount_def = docker.types.Mount('/dev/shm', '/dev/shm', type='bind')
+
+    container_spec = docker.types.ContainerSpec(
+        image_chrome,
+        hostname=work_container,
+        env=selenium_env,
+        mounts=[
+            davfs_mount_def,
+            shm_mount_def
+        ]
+    )
+    task_tmpl = docker.types.TaskTemplate(container_spec)
+
+    try:
+        client.create_service(
+            task_tmpl,
+            name=work_container,
+            networks=swarm_network,
+            endpoint_spec=docker.types.EndpointSpec(mode='dnsrr')
+        )
+        time.sleep(3)
+    except Exception as e:
+        lock.release()
+        return jsonify({"error_message": e}), 500
+
+    while True:
+        try:
+            with socket.create_connection((work_container, 5900)) as sock:
+                logger_text = work_container + ' Connect successfully'
+                app.logger.info(logger_text)
+            break
+        except:
+            logger_text = work_container + ' Connection Retry'
+            app.logger.warning(logger_text)
+            time.sleep(0.5)
+
+    lock.release()
+    return jsonify({"status": "Successfully Created", "work_container": work_container})
+
+@app.route('/delete', methods=['POST'])
+def service_delete():
+
+    work_container = request.json['work_container']
+    lockfile = '/var/lock/session-manager/' + work_container + '.lock'
+
+    if os.path.exists(lockfile):
+        return jsonify({"status": "Container Already Deleted", "work_container": work_container})
+    else:
+        lock = FileLock(lockfile)
+        lock.acquire()
+
+    try:
+        client.remove_service(work_container)
+        logger_text = work_container + ' Delete successfully'
+        app.logger.info(logger_text)
+    except Exception as e:
+        lock.release()
+        return jsonify({"error_message": e}), 500
+
+    lock.release()
+    return jsonify({"status": "Successfully Deleted", "work_container": work_container})
+
+if __name__=="__main__":
+    app.run(debug=True, host='0.0.0.0', port='80')
