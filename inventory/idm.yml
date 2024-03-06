@@ -15,7 +15,7 @@ services:
     ports:
     - "10443:9443"
     labels:
-      published_name: idm
+      published_name: DK0000-PamIDMng11
       webgate:
         proxies:
         - target_port: 80
@@ -73,7 +73,7 @@ services:
     initialize_roles:
       - am-init
     labels:
-      published_name: auth
+      published_name: DK0000-PamAcMng11
       webgate:
         access_control: "<Rule require='HTTP_REMOTEGROUP'>IDM_ADMIN</Rule>"
         proxies:
