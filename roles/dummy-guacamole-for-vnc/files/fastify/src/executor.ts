@@ -15,7 +15,7 @@ const guacamole = axios.create({
 });
 
 // コンテナを起動・停止するために、session-managerのapiに接続する
-const access_session_manager = async (request_path: string, request_body: RequestBody): Promise<void> => {
+const access_session_manager = async (request_path: string, request_body: RequestBody): Promise<string> => {
   const get_session_manager_path = (request_path: string): string => {
     if (request_path == '/delete') {
       return '/delete';
@@ -24,7 +24,9 @@ const access_session_manager = async (request_path: string, request_body: Reques
     }
   }
   const session_manager_access_path: string = get_session_manager_path(request_path);
-  await session_manager.post(session_manager_access_path, request_body);
+  const response_session_manager: any = await session_manager.post(session_manager_access_path, request_body);
+  const work_container: string = response_session_manager.data.work_container;
+  return work_container;
 }
 
 // guacamoleのapiに接続して、authTokenを取得する
@@ -68,10 +70,9 @@ const create_vnc_url = (vnc_identifier: string, guacamole_database: string): str
 }
 
 // データベース
-const database_process_in_create = async (fastify: any, request_body: RequestBody, vnc_identifier: string, vnc_url: string): Promise<void> => {
+const database_process_in_create = async (fastify: any, request_body: RequestBody, vnc_identifier: string, vnc_url: string, work_container: string): Promise<void> => {
   const wait_container_id: string = request_body.id;
   const work_id: string = request_body.work_id;
-  const work_container: string = 'chrome-' + work_id;
 
   const pg_client: any = await fastify.pg.connect();
   await pg_client.query(
@@ -102,10 +103,10 @@ export const executor = async (request_path: string, request: any, fastify: any)
   const vnc_password: string = 'secret';
   const vnc_port: string = '5900';
   const request_body: RequestBody = request.body;
-  const work_id: string = request_body.work_id;
-  const work_container: string = 'chrome-' + work_id;
+  // const work_id: string = request_body.work_id;
   const username: string = request_body.username;
   const password: string = request_body.password;
+  const work_container: string = await access_session_manager(request_path, request_body);
 
   const create_vnc_connection_object: any = {
     "name": work_container,
@@ -127,14 +128,13 @@ export const executor = async (request_path: string, request: any, fastify: any)
     }
   };
 
-  await access_session_manager(request_path, request_body);
   const result_generate_token: any = await generate_auth_token(username, password);
   const guacamole_database: string = result_generate_token.data.dataSource;
 
   const create_process = async (): Promise<string> => {
     const vnc_identifier: string = await create_vnc_connection(result_generate_token, create_vnc_connection_object);
     const vnc_url: string = create_vnc_url(vnc_identifier, guacamole_database);
-    await database_process_in_create(fastify, request_body, vnc_identifier, vnc_url);
+    await database_process_in_create(fastify, request_body, vnc_identifier, vnc_url, work_container);
     return vnc_url;
   }
 

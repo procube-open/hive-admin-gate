@@ -3,13 +3,12 @@
 su postgres -c 'initdb -D /var/lib/postgresql/data'
 su postgres -c 'pg_ctl start -D /var/lib/postgresql/data'
 su postgres -c 'createdb container'
-psql -d container -U postgres -c 'CREATE TABLE works(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_container VARCHAR (16) NOT NULL, connection_id VARCHAR (8) NOT NULL, vnc_url VARCHAR (255) NOT NULL);'
+psql -d container -U postgres -c 'CREATE TABLE works(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_container VARCHAR (255) NOT NULL, connection_id VARCHAR (8) NOT NULL, vnc_url VARCHAR (255) NOT NULL);'
 psql -d container -U postgres -c 'CREATE TABLE waits(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_container VARCHAR (16) NOT NULL);'
 
-echo "INSERT INTO waits (work_id, work_container) VALUES ('AA0', 'chrome-AA0');" > /var/tmp/container.sql
-for i in `seq 50`
+for i in `seq -w 0 50`
 do
-  echo "INSERT INTO waits (work_id, work_container) VALUES ('AA$i', 'chrome-AA$i');" >> /var/tmp/container.sql
+  echo "INSERT INTO waits (work_id, work_container) VALUES ('AAA$i', 'chrome-AAA$i');" >> /var/tmp/container.sql
 done
 
 psql -d container -U postgres -f /var/tmp/container.sql
