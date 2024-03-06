@@ -2,6 +2,8 @@
 plugin: hive_services
 services:
   webgate:
+    labels:
+      HIVE_VIP: 10.160.194.115
     image:
       from: procube/alma8-standalone-base
       # from: procube/centos-standalone-7.8:latest
