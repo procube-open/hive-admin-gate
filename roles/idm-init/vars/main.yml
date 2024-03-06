@@ -4021,7 +4021,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP/HTTPS利用
                 isArray: false
-                name: http
+                name: vnc
                 outputLdapSchema: false
                 required: false
                 type: boolean
@@ -4030,10 +4030,10 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP/HTTPS用ポート
                 isArray: false
-                name: httpPort
+                name: vncPort
                 outputLdapSchema: false
                 propGroupName:
-                - http
+                - vnc
                 required: false
                 type: number
                 unique: false
@@ -4041,10 +4041,10 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP/HTTPS用ID
                 isArray: false
-                name: httpID
+                name: vncID
                 outputLdapSchema: false
                 propGroupName:
-                - http
+                - vnc
                 required: false
                 type: string
                 unique: false
@@ -4052,10 +4052,10 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP/HTTPS用パスワード
                 isArray: false
-                name: httpPassword
+                name: vncPassword
                 outputLdapSchema: false
                 propGroupName:
-                - http
+                - vnc
                 required: false
                 type: string
                 unique: false
@@ -4780,6 +4780,8 @@ phases_data:
                 isArray: true
                 name: connections
                 outputLdapSchema: false
+                propagations:
+                -   targetProperty: resultConnections
                 required: false
                 type: string
                 unique: false
@@ -4790,31 +4792,63 @@ phases_data:
                 isArray: true
                 name: connectionGroups
                 outputLdapSchema: false
+                propagations:
+                -   targetProperty: resultConnections
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectConnectionGroupIF
             -   allowAnotherValue: false
+                derivation: "flatten(union(\r\nthis().connections,\r\nthis().connectionGroups.length
+                    == 0\r\n? []\r\n: getResource(\"/IDManager/connectionGroupEditorInterface\",
+                    {\"id\": {\"$in\": this().connectionGroups}}).connections\r\n))"
+                displayName: 対象接続先一覧
+                isArray: false
+                name: resultConnections
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectConnectionIF
+            -   allowAnotherValue: false
                 displayName: 作業者（単体選択）
                 isArray: true
                 name: workUsers
                 outputLdapSchema: false
+                propagations:
+                -   targetProperty: resultWorkUsers
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectUserIF
             -   allowAnotherValue: false
-                displayName: 作業者（グループ選択）
+                displayName: 作業者（OU選択）
                 isArray: true
                 name: workUserGroups
                 outputLdapSchema: false
+                propagations:
+                -   targetProperty: resultWorkUsers
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectOUIF
+            -   allowAnotherValue: false
+                derivation: "flatten(union(\r\nthis().workUsers,\r\nthis().workUserGroups.length
+                    == 0\r\n? []\r\n: select(getResource(\"/IDManager/userEditorInterface\",
+                    {\"team\": {\"$in\": this().workUserGroups}}), \"uid\")\r\n))"
+                displayName: 対象作業者一覧
+                isArray: false
+                name: resultWorkUsers
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                valuesInterface: selectUserIF
             -   allowAnotherValue: false
                 displayName: 管理者（単体選択）
                 isArray: true
@@ -5453,7 +5487,7 @@ phases_data:
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: http
+                name: vnc
                 radioButtonFlag: false
                 sectionSeparater: closed
                 sectionSeparaterTitle: HTTP/HTTPS
@@ -5465,7 +5499,7 @@ phases_data:
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: httpPort
+                name: vncPort
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: number
@@ -5475,7 +5509,7 @@ phases_data:
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: httpID
+                name: vncID
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
@@ -5485,7 +5519,7 @@ phases_data:
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: httpPassword
+                name: vncPassword
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
@@ -6021,6 +6055,8 @@ phases_data:
             - workUsers
             - workUserGroups
             - manageUsers
+            - resultConnections
+            - resultWorkUsers
             readOnlyProperties:
             - applicationUser
             useAESDecryptedResponse: false
@@ -6448,8 +6484,11 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: OU選択IF
-            filterDerivation: "getResource(\"/IDManager/selectUserGroupIF\").length
-                == 0\r\n? {uid: null}\r\n: {id: {\r\n\"$in\": select(getResource(\"/IDManager/selectUserGroupIF\").pop().ou,
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                getResource(\"/IDManager/selectUserGroupIF\").length == 0\r\n? {uid:
+                null}\r\n: {id: {\r\n\"$in\": select(getResource(\"/IDManager/selectUserGroupIF\").pop().ou,
                 \"id\")\r\n}}"
             name: selectOUIF
             properties:
@@ -6593,6 +6632,24 @@ phases_data:
             password: '{{ db_password }}'
             stop: false
             type: LDAP
+            withHeader: false
+        -   appendOnly: false
+            classSetting:
+            -   className: connection
+                noDecryption: false
+                type: CustomTaskExecutor
+            database: Master
+            displayName: 接続先作成
+            host: localhost
+            ignore: false
+            ignoreMultiResult: false
+            ignoreZeroResult: false
+            name: createConnection
+            outputAll: false
+            path: /v1/execute_task
+            port: 8099
+            stop: false
+            type: CustomTaskExecutor
             withHeader: false
         -   appendOnly: false
             classSetting:
@@ -6907,7 +6964,7 @@ phases_data:
             email: t-kumagai@netone.co.jp
             idmRole: IDM_ADMIN
             sn: 熊谷
-            team: 60cab884-c03e-eba1-26ae-f48eb99eef67
+            team: 59bcf361-cf3d-b1a4-6d1e-cdab4e3be796
             uid: t-kumagai@netone.co.jp
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oWjGStaWPxBbmnBdb8P2wg$SnxymJ7vrik3iGhNswtf1shRQFwvRCpQoTbtNTXOIeA'
         -   accountLock: false
@@ -6942,7 +6999,7 @@ phases_data:
             sn: Kumagai
             team: 201406f8-c351-a8e1-16f5-53cb4f2ed17b
             uid: tomokuma
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$9R+ZzAR5vtv8AyFlv8eVaA$YOrFxx7YHkVD16CH4TQf1pFyyUlP5XKeAJf8zZFA/3w'
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$L6PF2xQJ2N3L3G/yejS1Kg$yKOqXS1tXjjdDNzP5Z3EXhyMp45mtAgLSFcLveI5JPo'
         -   accountLock: false
             cn: 鳥海 菜穂
             dn: uid=tuki3@test.net,ou=Users,{{ dn_suffix }}

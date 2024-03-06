@@ -295,22 +295,22 @@ UID(uid) はユーザIDです。
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### HTTP/HTTPS利用(http)
+### HTTP/HTTPS利用(vnc)
 | データ型|boolean|
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### HTTP/HTTPS用ポート(httpPort)
+### HTTP/HTTPS用ポート(vncPort)
 | データ型|number|
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### HTTP/HTTPS用ID(httpID)
+### HTTP/HTTPS用ID(vncID)
 | データ型|string|
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### HTTP/HTTPS用パスワード(httpPassword)
+### HTTP/HTTPS用パスワード(vncPassword)
 | データ型|string|
 |----|----------------|
 |必須|:x:|
@@ -674,13 +674,23 @@ DN(dn) はLDAPのディレクトリーツリー内での位置を示す識別子
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
+### 対象接続先一覧(resultConnections)
+| データ型|string|
+|----|----------------|
+|必須|:x:|
+|一意|:x:|
 ### 作業者（単体選択）(workUsers)
 | データ型|stringの配列|
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### 作業者（グループ選択）(workUserGroups)
+### 作業者（OU選択）(workUserGroups)
 | データ型|stringの配列|
+|----|----------------|
+|必須|:x:|
+|一意|:x:|
+### 対象作業者一覧(resultWorkUsers)
+| データ型|string|
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
