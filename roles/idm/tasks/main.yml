@@ -89,3 +89,6 @@
 #     path: /usr/local/NetSoarer/IDManager/BindBroker/config/default.js
 #     regexp: "debug :"
 #     line: "             debug : false,"
+#- name: install paramiko
+#  pip:
+#    name: paramiko

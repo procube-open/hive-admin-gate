@@ -1,7 +1,0 @@
----
-plugin: idm_inventory
-interface: tenants
-host_name_property: tenantid
-class_name: tenant
-groups:
-- name: tenants

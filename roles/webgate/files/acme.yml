@@ -5,8 +5,8 @@
   vars_files:
   - /var/acme/acme-vars.yml
   vars:
-    # ansible_python_interpreter: /root/consul/bin/python
-    ansible_python_interpreter: /bin/python3
+    ansible_python_interpreter: /root/consul/bin/python
+    # ansible_python_interpreter: /bin/python3
     FQDN: "{{ inventory_hostname }}"
   tasks:
   - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
@@ -48,19 +48,6 @@
       acme_directory: "{{ acme_directory }}"
     register: letsencrypt_challenge
   - debug: var=letsencrypt_challenge
-  - name: Register challenge data to powerdns
-    powerdns_record:
-      zone: "{{ inventory_hostname   | regex_replace('^[^.]*\\.(.*)$', '\\1') }}"
-      type: TXT
-      name: "{{ letsencrypt_challenge.challenge_data[FQDN]['dns-01'].record }}"
-      ttl: 60
-      pdns_host: powerdns
-      pdns_api_key: "{{ pdns_api_key }}"
-      content: "{{ letsencrypt_challenge.challenge_data[FQDN]['dns-01'].resource_value | regex_replace('^(.*)$', '\"\\1\"') }}"
-    when: letsencrypt_challenge is changed
-    register: register_challenge_result
-    until: not register_challenge_result.failed
-    retries: 3
   - name: Let the challenge be validated and retrieve the cert and intermediate certificate
     acme_certificate:
       account_key_src: "/var/acme/data/{{ acme_email }}_account.key"

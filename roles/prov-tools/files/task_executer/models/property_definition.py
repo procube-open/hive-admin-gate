@@ -671,7 +671,7 @@ class PropertyDefinition(Model):
         :param encryption: The encryption of this PropertyDefinition.
         :type encryption: str
         """
-        allowed_values = ["SSHA", "AES"]  # noqa: E501
+        allowed_values = ["SSHA", "AES", "ARGON2"]  # noqa: E501
         if encryption not in allowed_values:
             raise ValueError(
                 "Invalid value for `encryption` ({0}), must be one of {1}"

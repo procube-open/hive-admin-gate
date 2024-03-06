@@ -1,0 +1,33 @@
+---
+- name: Provisioning to user account.
+  hosts: connections
+  gather_facts: false
+  serial: 1
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /root/prov/bin/python
+    username: guacadmin
+    password: guacadmin
+
+  tasks:
+  - name: Get connection specification.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemConnectionSpecificationIF/{{ connectionSpecification }}"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+      method: GET
+      validate_certs: false
+      status_code: 200
+    register: cs_obj
+  - name: Change password and register connection.
+    include_tasks:
+      file: "connection/{{ loop_protocol }}.yml"
+    when: cs_obj.json[loop_protocol]
+    loop:
+      - ssh
+      - rdp
+      - telnet
+      - vnc
+    loop_control:
+      loop_var: loop_protocol
+

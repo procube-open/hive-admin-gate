@@ -3,107 +3,155 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: procube/guacamole
+      from: procube/guacamole:develop
       roles:
-      - guacamole
+        - guacamole
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_DATABASE: guacamole_db
       POSTGRES_HOSTNAME: postgres
-      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_PASSWORD: "ChooseYourOwnPasswordHere1234"
       POSTGRES_USER: guacamole_user
       GUACAMOLE_HOME: /opt/guacamole/
       RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
-      HEADER_ENABLED: 'true'
+      HEADER_ENABLED: "true"
       LOGBACK_LEVEL: debug
     volumes:
-    - source: guacamole-drives
-      target: /var/lib/guacamole/drives
-      type: volume
-    - source: guacamole-recordings
-      target: /var/lib/guacamole/recordings
-      type: volume
+      - source: guacamole-drives
+        target: /var/lib/guacamole/drives
+        type: volume
+      - source: guacamole-recordings
+        target: /var/lib/guacamole/recordings
+        type: volume
     user: root
     labels:
       published_name: guacamole
       HIVE_MARK: guacamole
-      webgate:
-        authentication: saml
-        proxies:
-        - target_port: 8080
-          pathPattern: /guacamole
-          useWebSocket: true 
+      # webgate:
+      #   authentication: saml
+      #   proxies:
+      #     - target_port: 8080
+      #       pathPattern: /guacamole
+      #       useWebSocket: true
     endpoint_mode: dnsrr
   guacd:
     image: procube/guacd
     volumes:
-    - source: guacamole-drives
-      target: /var/lib/guacamole/drives
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
-    - source: guacamole-recordings
-      target: /var/lib/guacamole/recordings
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 20G
+      - source: guacamole-drives
+        target: /var/lib/guacamole/drives
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
+      - source: guacamole-recordings
+        target: /var/lib/guacamole/recordings
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 20G
     endpoint_mode: dnsrr
     placement:
       constraints:
-      - node.labels.guacamole == true
-      - node.labels.repository != true
+        - node.labels.guacamole == true
+        - node.labels.repository != true
   postgres:
     image:
       from: postgres:15.2-alpine
       roles:
-      - python-aptk
-      - guacamole-initdb
+        - python-aptk
+        - guacamole-initdb
     environment:
       PGDATA: /var/lib/postgresql/data/guacamole
       POSTGRES_DB: guacamole_db
-      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_PASSWORD: "ChooseYourOwnPasswordHere1234"
       POSTGRES_USER: guacamole_user
     volumes:
-    - source: guacamole-db
-      target: /var/lib/postgresql/data
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 5G
+      - source: guacamole-db
+        target: /var/lib/postgresql/data
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 5G
     endpoint_mode: dnsrr
   chrome:
-    image: procube/node-chrome
+    # image: procube/node-chrome
+    image: selenium/node-chrome-debug
+    #volumes:
+    #  - source: guacamole-chrome
+    #    target: /dev/shm
+    #    type: volume
+    #    drbd:
+    #      fstype: xfs
+    #      size: 300M
     volumes:
-    - source: guacamole-chrome
-      target: /dev/shm
-      type: volume
-      drbd:
-        fstype: xfs
-        size: 300M
+      - source: /dev/shm
+        target: /dev/shm
+        type: bind
     environment:
       - USERNAME: demo@procube.jp
       - PASSWORD: EXPp7Od9
+      - RULES: '["procube.info","backlog.jp","google.com"]'
+  chrome-test:
+    image: procube/node-chrome
+    #volumes:
+    #  - source: guacamole-chrome
+    #    target: /dev/shm
+    #    type: volume
+    #    drbd:
+    #      fstype: xfs
+    #      size: 300M
+    volumes:
+      - source: /dev/shm
+        target: /dev/shm
+        type: bind
+    environment:
+      - USERNAME: demo@procube.jp
+      - PASSWORD: EXPp7Od9
+      - RULES: '["procube.info","backlog.jp","google.com"]'
   file-server:
     image: procube/file-server
+    initialize_roles:
+      - file-server
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
+      GUAC_URL: https://file-server.admin-gate.procube-demo.jp/guacamole
+      GUAC_API_URL: http://guacamole:8080/guacamole
+      IDM_URL: https://idm.admin-gate.procube-demo.jp
+      WS_URL: wss://file-server.admin-gate.procube-demo.jp
+      LOGOUT_URL: https://file-server.admin-gate.procube-demo.jp/Shibboleth.sso/Logout
+      # APPBAR_LOGO_PATH: "icons/sakura-internet_logomark.png"
+      # FAVICON_PATH: "icons/sakura-internet_favicon.ico"
     ports:
       - 4200:4200
+    volumes:
+      - source: fileserver-icons
+        target: /usr/src/app/icons
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
     labels:
+      published_name: file-server
+      HIVE_MARK: file-server
       webgate:
         authentication: saml
         proxies:
-        - target_port: 4200
-          maxBodySize: 500
+          - target_port: 4200
+            maxBodySize: 500
+            pathPattern: /
+            useWebSocket: "true"
+          - target_port: 8080
+            pathPattern: /guacamole
+            setService: guacamole
+            useWebSocket: true
   ftp-server:
     image: procube/ftp-server
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
       PASV_IP: "192.168.0.4"
       PASV_PORT_MIN: "30000"
       PASV_PORT_MAX: "30003"
@@ -121,8 +169,49 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports: 
-    - '22:22'
+      SFTP_SERVER_PORT: "8822"
+      DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
+      SERVER_PRIVATE_KEY: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        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
+        -----END OPENSSH PRIVATE KEY-----
+    ports:
+      - "8822:8822"
   mongo:
     image: mongo
     environment:
@@ -131,6 +220,19 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - 27017:27017
+    volumes:
+      - source: mongo-db
+        target: /data/db
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 20G
+      - source: mongo-configdb
+        target: /data/configdb
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 2G
   session-manager:
     image:
       from: python:alpine3.18
