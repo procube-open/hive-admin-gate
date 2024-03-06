@@ -129,6 +129,8 @@ services:
     placement:
       constraints:
         - node.hostname == s-hive0
+    labels:
+      HIVE_VIP: 10.43.51.18
   sftpserver:
     image: procube/sftp-server
     environment:

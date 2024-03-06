@@ -4,8 +4,8 @@
     src: proxy.sh
     dest: /home/admin/proxy.sh
     mode: 0644
-    owner: root
-    group: root
+    owner: admin
+    group: admin
 - name: Execute shell script for proxy settings.
   shell: sh /home/admin/proxy.sh
 - name: delete GPG key
@@ -37,3 +37,16 @@
 - import_role:
     name: disable-TX-offload
   when: hive_provider == 'kickstart'
+- name: Install SNMP
+  yum:
+    name:
+    - net-snmp
+    - net-snmp-utils
+    state: present
+- name: Put SNMP configuration
+  copy:
+    src: snmpd.conf
+    dest: /etc/snmp/snmpd.conf
+    mode: 0644
+    owner: admin
+    group: admin
