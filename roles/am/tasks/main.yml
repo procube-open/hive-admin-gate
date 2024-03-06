@@ -1,5 +1,13 @@
 ---
 # This role installs Access Manager 3
+- name: delete GPG key
+  rpm_key:
+    state: absent
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
+- name: import GPG key
+  rpm_key:
+    state: present
+    key: https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
 - name: install epel repository
   yum:
     name: epel-release

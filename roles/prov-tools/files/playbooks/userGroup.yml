@@ -26,6 +26,7 @@
       validate_certs: false
       status_code: 200
     loop: "{{ ouList.json | selectattr('teamID', 'eq', id) | list }}"
+    when: prov_operation == 'delete'
   - name: Post OU.
     uri:
       url: "http://localhost:8090/IDManager/SystemOUIF/"
@@ -40,4 +41,5 @@
         teamID: "{{ id }}"
       validate_certs: false
       status_code: 200
+    when: item.id not in ouList.json | map(attribute='id') | list
     loop: "{{ ou }}"

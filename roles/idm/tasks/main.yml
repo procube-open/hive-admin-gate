@@ -1,5 +1,13 @@
 ---
 # This role installs ID Manager 2
+- name: delete GPG key
+  rpm_key:
+    state: absent
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
+- name: import GPG key
+  rpm_key:
+    state: present
+    key: https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
 - name: check nodejs dnf module is enabled
   shell: yum module list --disabled nodejs
   register: nodejs_enabled
