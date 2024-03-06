@@ -6617,6 +6617,10 @@ phases_data:
                     propertyName: userPassword
                 -   modifiedOnly: false
                     propertyName: dn
+                -   modifiedOnly: false
+                    propertyName: idmRole
+                -   modifiedOnly: false
+                    propertyName: accountLock
                 templateDn: cn=TemplateOfUser,ou=SystemObjects,{{ dn_suffix }}
                 type: LDAP
             database: Master
@@ -6891,6 +6895,14 @@ phases_data:
             uid: ka-kishimoto@netone.co.jp
             userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$pyBRfRijVLJlBJ7r5oq46Q$hA99m1plpT5IX0/JFyKDu6tz1nx4luPLvgGy+vywJKg'
         -   accountLock: false
+            cn: ユーザー
+            dn: uid=kensyou,ou=Users,{{ dn_suffix }}
+            email: hiroya@procube.jp
+            idmRole: IDM_USER
+            sn: 検証用
+            uid: kensyou
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$BSQx/8WH9DEkVL3jawBLgw$50jdQw3Yx0nTlBQ/IeSE0KznxjlySJzzXj1eyoWDt1k'
+        -   accountLock: false
             cn: 西田 謙一
             dn: uid=kn-nishida@netone.co.jp,ou=Users,{{ dn_suffix }}
             idmRole: IDM_ADMIN
@@ -6999,7 +7011,7 @@ phases_data:
             sn: Kumagai
             team: 201406f8-c351-a8e1-16f5-53cb4f2ed17b
             uid: tomokuma
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$L6PF2xQJ2N3L3G/yejS1Kg$yKOqXS1tXjjdDNzP5Z3EXhyMp45mtAgLSFcLveI5JPo'
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$kvhu+wtzzPhQ65RIrXaMOQ$NnzCUSkU+6CKVtn5HTvpPC9VGUSk+rL6h90pECmk0vc'
         -   accountLock: false
             cn: 鳥海 菜穂
             dn: uid=tuki3@test.net,ou=Users,{{ dn_suffix }}
