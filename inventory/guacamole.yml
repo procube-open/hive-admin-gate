@@ -118,7 +118,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
-      PASV_IP: "192.168.0.4"
+      PASV_IP: "10.43.51.18"
       PASV_PORT_MIN: "30000"
       PASV_PORT_MAX: "30003"
     ports:
@@ -129,7 +129,7 @@ services:
       - "30003:30003"
     placement:
       constraints:
-        - node.hostname == s-hive0
+        - node.hostname == hive0
     labels:
       HIVE_VIP: 10.43.51.18
   sftpserver:
