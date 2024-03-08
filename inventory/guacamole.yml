@@ -163,7 +163,7 @@ services:
       - "30003:30003"
     placement:
       constraints:
-        - node.hostname == s-hive0
+        - "{{ 'node.hostname == hive0' if hive_stage == 'production' else 'node.hostname == s-hive0' }}"
   sftpserver:
     image: procube/sftp-server
     environment:

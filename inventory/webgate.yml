@@ -3,7 +3,7 @@ plugin: hive_services
 services:
   webgate:
     labels:
-      HIVE_VIP: 10.160.194.115
+      HIVE_VIP: "{{ '10.160.194.115' if hive_stage == 'production' else null }}"
     image:
       from: procube/alma8-standalone-base
       # from: procube/centos-standalone-7.8:latest
