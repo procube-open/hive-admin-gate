@@ -1,0 +1,3 @@
+inventory/* merge=ours
+inventory/group_vars/* merge=ours
+inventory/host_vars/* merge=ours
