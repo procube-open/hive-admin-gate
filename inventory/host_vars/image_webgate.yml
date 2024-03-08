@@ -1,3 +1,3 @@
-# this is main branch
+# this is optage-production
 # Shibboleth SP のログレベルをデバッグレベルにする場合は以下の行を設定してください
 # shibboleth_log_level: DEBUG

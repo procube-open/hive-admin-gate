@@ -1,4 +1,4 @@
-# this is main branch
+# this is optage-production
 ddclient_fqdn: "ns{{ inventory_hostname | split('.') | first | regex_replace('^.*hive', '')}}-{{ domain }}"
 # ソフトウェアダウンロードや外部との通信に用いるアカウント情報
 credentials: "{{ lookup('file', lookup('env', 'HOME') + '/.hive/credentials.yml') | from_yaml }}"

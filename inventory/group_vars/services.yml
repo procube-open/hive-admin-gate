@@ -1,5 +1,5 @@
 ---
-# this is main branch
+# this is optage-production
 db_password: "{{lookup('password', hive_context_dir + '/registry_password length=15 chars=ascii_letters,digits')}}1A"
 # ソフトウェアダウンロードや外部との通信に用いるアカウント情報
 credentials: "{{ lookup('file', lookup('env', 'HOME') + '/.hive/credentials.yml') | from_yaml }}"

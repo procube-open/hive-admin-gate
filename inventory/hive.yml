@@ -1,4 +1,4 @@
-# this is main branch
+# this is optage-production
 plugin: hive_inventory
 name: admin-gate
 stages:
