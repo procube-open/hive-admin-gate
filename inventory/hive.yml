@@ -1,3 +1,4 @@
+# this is main branch
 plugin: hive_inventory
 name: admin-gate
 stages:
