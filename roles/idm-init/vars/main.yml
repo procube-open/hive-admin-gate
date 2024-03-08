@@ -6868,4 +6868,4 @@ phases_data:
             idmRole: IDM_ADMIN
             sn: admin
             uid: admin
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$wrmp0v+gvke8ZoWgPlxaCQ$S8s60OEnt0DFb51bmAS0I39Uooo5LHfGOt6clbob3jw'
+            userPassword: '{{ db_password }}'
