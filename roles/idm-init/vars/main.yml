@@ -5009,8 +5009,6 @@ phases_data:
                 isArray: true
                 name: connections
                 outputLdapSchema: false
-                propagations:
-                -   targetProperty: resultConnections
                 required: false
                 type: string
                 unique: false
@@ -5021,33 +5019,25 @@ phases_data:
                 isArray: true
                 name: connectionGroups
                 outputLdapSchema: false
-                propagations:
-                -   targetProperty: resultConnections
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectConnectionGroupIF
             -   allowAnotherValue: false
-                derivation: "flatten(union(\r\nthis().connections,\r\nthis().connectionGroups.length
-                    == 0\r\n? []\r\n: getResource(\"/IDManager/connectionGroupEditorInterface\",
-                    {\"id\": {\"$in\": this().connectionGroups}}).connections\r\n))"
                 displayName: 対象接続先一覧
-                isArray: false
+                isArray: true
                 name: resultConnections
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectConnectionIF
             -   allowAnotherValue: false
                 displayName: 作業者（単体選択）
                 isArray: true
                 name: workUsers
                 outputLdapSchema: false
-                propagations:
-                -   targetProperty: resultWorkUsers
                 required: false
                 type: string
                 unique: false
@@ -5058,26 +5048,20 @@ phases_data:
                 isArray: true
                 name: workUserGroups
                 outputLdapSchema: false
-                propagations:
-                -   targetProperty: resultWorkUsers
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
                 valuesInterface: selectOUIF
             -   allowAnotherValue: false
-                derivation: "flatten(union(\r\nthis().workUsers,\r\nthis().workUserGroups.length
-                    == 0\r\n? []\r\n: select(getResource(\"/IDManager/userEditorInterface\",
-                    {\"team\": {\"$in\": this().workUserGroups}}), \"uid\")\r\n))"
                 displayName: 対象作業者一覧
-                isArray: false
+                isArray: true
                 name: resultWorkUsers
                 outputLdapSchema: false
                 required: false
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectUserIF
             -   allowAnotherValue: false
                 displayName: 管理者（単体選択）
                 isArray: true
@@ -6284,6 +6268,7 @@ phases_data:
             - workUsers
             - workUserGroups
             - manageUsers
+            - resultConnections
             readOnlyProperties:
             - applicationUser
             useAESDecryptedResponse: false
@@ -7095,12 +7080,3 @@ phases_data:
             - uidObject
             sn: dummy
             uid: TemplateOfUser
-    objects:
-        userEditorInterface:
-        -   accountLock: false
-            cn: admin
-            dn: uid=admin,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: admin
-            uid: admin
-            userPassword: '{{ db_password }}'
