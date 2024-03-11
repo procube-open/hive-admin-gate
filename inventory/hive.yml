@@ -27,9 +27,9 @@ stages:
     - 10.43.51.21
     - 10.43.51.22
     internal_cidr: 10.43.52.0/24
-    disk_size: 40
-    repository_disk_size: 100
-    mirrored_disk_size: 120
+    disk_size: 200
+    repository_disk_size: 500
+    mirrored_disk_size: 150
     kickstart_config:
       iso_src: /var/lib/isos/AlmaLinux-8.8-x86_64-minimal.iso
       iso_dest: /var/lib/isos/admingate-hive.iso
