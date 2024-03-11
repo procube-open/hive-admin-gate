@@ -420,8 +420,8 @@ is_tables_data:
 
             function jumpChangePassword() {
 
-            location.href=''https://idm.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-            ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%idm.{{
+            location.href=''https://dk0000-pamidmng11.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
+            ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%dk0000-pamidmng11.{{
             dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp&uid=''
             + document.getElementById(''portal-user-menu'').title;
 
@@ -431,7 +431,7 @@ is_tables_data:
 
             function samlLogout() {
 
-            location.href=''https://idm.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
+            location.href=''https://dk0000-pamidmng11.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
             ''\1'') }}.procube-demo.jp/Shibboleth.sso/Logout'';
 
             return false;
@@ -2743,7 +2743,7 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://auth.{{
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
             dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
@@ -2756,8 +2756,8 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://idm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
             dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
@@ -2809,7 +2809,7 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://auth.{{
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
             dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
@@ -2822,8 +2822,8 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://idm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
             dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
@@ -6969,9 +6969,9 @@ phases_data:
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
             pwTrustedSites:
-            - ^https://auth.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1')
+            - ^https://dk0000-pamacmng11.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1')
                 }}.procube-demo.jp/
-            - ^https://idm.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }}.procube-demo.jp/
+            - ^https://dk0000-pamidmng11.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }}.procube-demo.jp/
             pwUseQuestion: false
             pwUserIf: changePassword
             pwpolicyAlphaCnt: 1
@@ -7080,3 +7080,12 @@ phases_data:
             - uidObject
             sn: dummy
             uid: TemplateOfUser
+    objects:
+        userEditorInterface:
+        -   accountLock: false
+            cn: admin
+            dn: uid=admin,ou=Users,{{ dn_suffix }}
+            idmRole: IDM_ADMIN
+            sn: admin
+            uid: admin
+            userPassword: '{{ db_password }}'
