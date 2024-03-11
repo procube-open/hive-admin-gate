@@ -11,7 +11,7 @@ webgate_monitor_sp:
   key: "SamlSps/monitor.{{ domain }}"
   value:
     fqdn: "monitor.{{ domain }}"
-    idpEntityId: "https://am.{{ domain }}/idp/shibboleth"
+    idpEntityId: "https://dk0000-pamacmng11.{{ domain }}/idp/shibboleth"
     uidAttrName: uid
     certificateFqdn: "sp-dummy.{{ domain }}"
     accessControl: "<Rule require='HTTP_REMOTEGROUP'>IDM_ADMIN</Rule>"
@@ -150,16 +150,16 @@ webgate_kv_common:
             xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0"
             xmlns:xml="http://www.w3.org/XML/1998/namespace"
             xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
-            entityID="https://am.{{ domain }}/idp/shibboleth">
+            entityID="https://dk0000-pamacmng11.{{ domain }}/idp/shibboleth">
 
             <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
         <!--
                 <Extensions>
-                    <shibmd:Scope regexp="false">am.{{ domain }}</shibmd:Scope>
+                    <shibmd:Scope regexp="false">dk0000-pamacmng11.{{ domain }}</shibmd:Scope>
                     <mdui:UIInfo>
                         <mdui:DisplayName xml:lang="en">XXXXXX A Name for the IdP XXXXXX</mdui:DisplayName>
                         <mdui:Description xml:lang="en">XXXXXX Enter a description of your IdP XXXXXX</mdui:Description>
-                        <mdui:Logo height="HeightInPixels" width="WidthInPixels">XXXXXX https://am.{{ domain }}/Path/To/Logo.png XXXXXX</mdui:Logo>
+                        <mdui:Logo height="HeightInPixels" width="WidthInPixels">XXXXXX https://dk0000-pamacmng11.{{ domain }}/Path/To/Logo.png XXXXXX</mdui:Logo>
                     </mdui:UIInfo>
                 </Extensions>
         -->
@@ -173,13 +173,13 @@ webgate_kv_common:
         </ds:KeyInfo>
                 </KeyDescriptor>
                 <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding"
-                    Location="https://am.{{ domain }}/idp/profile/SAML1/SOAP/ArtifactResolution"
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML1/SOAP/ArtifactResolution"
                     index="1"/>
                 <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
-                    Location="https://am.{{ domain }}/idp/profile/SAML2/SOAP/ArtifactResolution"
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/SOAP/ArtifactResolution"
                     index="2"/>
-                <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://am.{{ domain }}/idp/profile/SAML2/Redirect/SLO"/>
-                <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://am.{{ domain }}/idp/profile/SAML2/POST/SLO"/>
+                <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/Redirect/SLO"/>
+                <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/POST/SLO"/>
                 <NameIDFormat xmlns="urn:oasis:names:tc:SAML:2.0:metadata">urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
                 <NameIDFormat xmlns="urn:oasis:names:tc:SAML:2.0:metadata">urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
                 <NameIDFormat xmlns="urn:oasis:names:tc:SAML:2.0:metadata">urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
@@ -189,18 +189,18 @@ webgate_kv_common:
                 <NameIDFormat xmlns="urn:oasis:names:tc:SAML:2.0:metadata">urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
 
                 <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest"
-                    Location="https://am.{{ domain }}/idp/profile/Shibboleth/SSO"/>
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/Shibboleth/SSO"/>
                 <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-                    Location="https://am.{{ domain }}/idp/profile/SAML2/POST/SSO"/>
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/POST/SSO"/>
                 <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"
-                    Location="https://am.{{ domain }}/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/POST-SimpleSign/SSO"/>
                 <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
-                    Location="https://am.{{ domain }}/idp/profile/SAML2/Redirect/SSO"/>
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/Redirect/SSO"/>
             </IDPSSODescriptor>
 
             <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
                 <Extensions>
-                    <shibmd:Scope regexp="false">am.{{ domain }}</shibmd:Scope>
+                    <shibmd:Scope regexp="false">dk0000-pamacmng11.{{ domain }}</shibmd:Scope>
                 </Extensions>
                 <KeyDescriptor>
         <ds:KeyInfo>
@@ -212,9 +212,9 @@ webgate_kv_common:
         </ds:KeyInfo>
                 </KeyDescriptor>
                 <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding"
-                    Location="https://am.{{ domain }}/idp/profile/SAML1/SOAP/AttributeQuery"/>
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML1/SOAP/AttributeQuery"/>
                 <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
-                    Location="https://am.{{ domain }}/idp/profile/SAML2/SOAP/AttributeQuery"/>
+                    Location="https://dk0000-pamacmng11.{{ domain }}/idp/profile/SAML2/SOAP/AttributeQuery"/>
             </AttributeAuthorityDescriptor>
         </EntityDescriptor>
       name: idp
