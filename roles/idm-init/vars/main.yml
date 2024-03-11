@@ -420,9 +420,7 @@ is_tables_data:
 
             function jumpChangePassword() {
 
-            location.href=''https://dk0000-pamidmng11.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-            ''\1'') }}.eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%dk0000-pamidmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp&uid=''
+            location.href=''https://dk0000-pamidmng11.eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%dk0000-pamidmng11..eo.k-opti.ad.jp&uid=''
             + document.getElementById(''portal-user-menu'').title;
 
             return false;
@@ -431,8 +429,7 @@ is_tables_data:
 
             function samlLogout() {
 
-            location.href=''https://dk0000-pamidmng11.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-            ''\1'') }}.eo.k-opti.ad.jp/Shibboleth.sso/Logout'';
+            location.href=''https://dk0000-pamidmng11.eo.k-opti.ad.jp/Shibboleth.sso/Logout'';
 
             return false;
 
@@ -2743,8 +2740,7 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp/idp-console/"
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11..eo.k-opti.ad.jp/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
@@ -2756,9 +2752,7 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp&amp;uid=''
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11..eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11..eo.k-opti.ad.jp&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
@@ -2809,8 +2803,7 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp/idp-console/"
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11..eo.k-opti.ad.jp/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
@@ -2822,9 +2815,7 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.eo.k-opti.ad.jp&amp;uid=''
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11..eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11..eo.k-opti.ad.jp&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
@@ -4792,8 +4783,7 @@ phases_data:
                 uniqueIgnoreCase: false
                 valuesInterface: selectOUIF
             -   allowAnotherValue: false
-                derivation: '"uid=" + this().uid + ",ou=Users,DC={{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-                    ''\1'') }},DC=eo,DC=k-opti,DC=ad,DC=jp"'
+                derivation: '"uid=" + this().uid + ",ou=Users,DC=eo,DC=k-opti,DC=ad,DC=jp"'
                 description: LDAPのディレクトリーツリー内での位置を示す識別子
                 displayName: DN
                 isArray: false
@@ -6807,8 +6797,7 @@ phases_data:
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            loginname: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+            loginname: cn=Manager,DC=eo,DC=k-opti,DC=ad,DC=jp
             name: LdapGenericObjectProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6834,8 +6823,7 @@ phases_data:
                     propertyName: idmRole
                 -   modifiedOnly: false
                     propertyName: accountLock
-                templateDn: cn=TemplateOfUser,ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                    '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+                templateDn: cn=TemplateOfUser,ou=SystemObjects,DC=eo,DC=k-opti,DC=ad,DC=jp
                 type: LDAP
             database: Master
             description: ユーザ情報のプロビジョニング
@@ -6844,8 +6832,7 @@ phases_data:
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            loginname: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+            loginname: cn=Manager,DC=eo,DC=k-opti,DC=ad,DC=jp
             name: LdapUserProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6969,9 +6956,8 @@ phases_data:
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
             pwTrustedSites:
-            - ^https://dk0000-pamacmng11.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1')
-                }}.eo.k-opti.ad.jp/
-            - ^https://dk0000-pamidmng11.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }}.eo.k-opti.ad.jp/
+            - ^https://dk0000-pamacmng11.eo.k-opti.ad.jp/
+            - ^https://dk0000-pamidmng11.eo.k-opti.ad.jp/
             pwUseQuestion: false
             pwUserIf: changePassword
             pwpolicyAlphaCnt: 1
@@ -7003,12 +6989,11 @@ phases_data:
             dbDirectory: /var/lib/openldap/openldap-data
             description: ユーザ認証に用いるLDAP
             displayName: 認証用LDAP
-            dnSuffix: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+            dnSuffix: DC=eo,DC=k-opti,DC=ad,DC=jp
             indexedAttribute:
             - uid
             number: 1
-            rootDN: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+            rootDN: cn=Manager,DC=eo,DC=k-opti,DC=ad,DC=jp
             rootPW: '{{ db_password }}'
         _sandboxProvSettings:
         -   appendOnly: false
@@ -7051,27 +7036,26 @@ phases_data:
             withHeader: false
     master_tables:
         LdapGenericObjectEditorIF0:
-        -   dc: '{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}'
-            dn: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+        -   dc: ''
+            dn: DC=eo,DC=k-opti,DC=ad,DC=jp
             level: 0
             objectClass:
             - locality
             - dcObject
         LdapGenericObjectEditorIF1:
-        -   dn: ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+        -   dn: ou=SystemObjects,DC=eo,DC=k-opti,DC=ad,DC=jp
             level: 1
             objectClass:
             - organizationalUnit
             ou: SystemObjects
-        -   dn: ou=Users,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+        -   dn: ou=Users,,DC=eo,DC=k-opti,DC=ad,DC=jp
             level: 1
             objectClass:
             - organizationalUnit
             ou: Users
         LdapGenericObjectEditorIF2:
         -   cn: TemplateOfUser
-            dn: cn=TemplateOfUser,ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$','\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+            dn: cn=TemplateOfUser,ou=SystemObjects,DC=eo,DC=k-opti,DC=ad,DC=jp
             level: 2
             objectClass:
             - user
@@ -7082,7 +7066,7 @@ phases_data:
         userEditorInterface:
         -   accountLock: false
             cn: admin
-            dn: uid=admin,ou=User,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$','\1') }},DC=eo,DC=k-opti,DC=ad,DC=jp
+            dn: uid=admin,ou=User,DC=eo,DC=k-opti,DC=ad,DC=jp
             idmRole: IDM_ADMIN
             sn: admin
             uid: admin
