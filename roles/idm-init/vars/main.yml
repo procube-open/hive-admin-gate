@@ -6754,7 +6754,7 @@ phases_data:
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
             pwTrustedSites:
-            - ^https://auth.{{ domain }}/
+            - ^https://dk0000-pamacmng11.{{ domain }}/
             - ^https://idm.{{ domain }}/
             pwUseQuestion: false
             pwUserIf: changePassword
