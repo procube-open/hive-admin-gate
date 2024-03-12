@@ -7036,7 +7036,7 @@ phases_data:
             withHeader: false
     master_tables:
         LdapGenericObjectEditorIF0:
-        -   dc: ''
+        -   dc: '{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}'
             dn: DC=eo,DC=k-opti,DC=ad,DC=jp
             level: 0
             objectClass:
@@ -7048,7 +7048,7 @@ phases_data:
             objectClass:
             - organizationalUnit
             ou: SystemObjects
-        -   dn: ou=Users,,DC=eo,DC=k-opti,DC=ad,DC=jp
+        -   dn: ou=Users,DC=eo,DC=k-opti,DC=ad,DC=jp
             level: 1
             objectClass:
             - organizationalUnit

@@ -10,18 +10,14 @@ sp_descriptor:
     display_name_ja: 稼働監視システム
     display_name: Monitoring System
     description: hiveサイト内のサーバ、サービスの稼働を監視するシステム
-  auth:
+  dk0000-pamacmng11:
     display_name_ja: 認証データ管理サービス
     display_name: Authentication Data Manager
     description: 端末やOTPシードなどの認証データを管理するための Web UI サービス
-  idm:
+  dk0000-pamidmng11:
     display_name_ja: ID管理サービス
     display_name: ID Manager
     description: 利用者のIDを管理するための Web UI サービス
-  pdnsadmin:
-    display_name_ja: DNS管理サービス
-    display_name: DNS Manager
-    description: DNS を管理する Web UI サービス
 
 am_kv_metadataFile: >-
   {%- set output_services = [] -%}
@@ -324,5 +320,5 @@ am_kv_force_passwd:
       config_name: forceRedirect
       enable: true
       monitoringEnable: false
-      url: "https://idm.{{ domain }}/changePassword/changePassword?uid=%1$s&spid=%2$s&requiredOnly=TRUE&noPassword=FALSE"
+      url: "https://dk0000-pamidmng11.{{ domain }}/changePassword/changePassword?uid=%1$s&spid=%2$s&requiredOnly=TRUE&noPassword=FALSE"
 am_kv: "{{ am_kv_common + am_kv_metadataFile + ([] if pwAvailableDays == 0 else am_kv_force_passwd) }}"
