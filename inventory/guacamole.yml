@@ -233,16 +233,24 @@ services:
         drbd:
           fstype: xfs
           size: 2G
+    backup_scripts:
+      - name: mongo-backup
+        container: mongo
+        backup_command: "mongodump --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --gzip --archive=/archive"
+        backup_file: "/archive"
+        restore_command: "mongorestore --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --db=files_db --gzip --archive=/archive --drop"
+        restore_file: "/archive"
+        cleanup_days_before: 3
   session-manager:
     image:
       from: python:alpine3.18
       roles:
-      - hive-trust-ca
-      - session-manager
-      - hive-certificate
+        - hive-trust-ca
+        - session-manager
+        - hive-certificate
     entrypoint:
-    - /docker-entrypoint.sh
+      - /docker-entrypoint.sh
     environment:
       # エラーが発生する場合、DOCKER_HOSTの値が正しくない場合が多い
       DOCKER_HOST: "tcp://{{ groups['first_hive'] | intersect(groups[hive_stage]) | first }}:2376"
-      DOCKER_TLS_VERIFY: '1'
+      DOCKER_TLS_VERIFY: "1"
