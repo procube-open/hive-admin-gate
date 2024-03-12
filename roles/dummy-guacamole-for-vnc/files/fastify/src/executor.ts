@@ -15,7 +15,7 @@ const guacamole = axios.create({
 });
 
 // コンテナを起動・停止するために、session-managerのapiに接続する
-const access_session_manager = async (request_path: string, request_body: RequestBody): Promise<string> => {
+const access_session_manager = async (request_path: string, request_body: RequestBody): Promise<any> => {
   const get_session_manager_path = (request_path: string): string => {
     if (request_path == '/delete') {
       return '/delete';
@@ -25,8 +25,8 @@ const access_session_manager = async (request_path: string, request_body: Reques
   }
   const session_manager_access_path: string = get_session_manager_path(request_path);
   const response_session_manager: any = await session_manager.post(session_manager_access_path, request_body);
-  const work_container: string = response_session_manager.data.work_container;
-  return work_container;
+  // const work_container: string = response_session_manager.data.work_container;
+  return response_session_manager;
 }
 
 // guacamoleのapiに接続して、authTokenを取得する
@@ -100,46 +100,49 @@ const database_process_in_delete = async (fastify: any, request_body: RequestBod
 
 export const executor = async (request_path: string, request: any, fastify: any): Promise<string> => {
 
-  const vnc_password: string = 'secret';
-  const vnc_port: string = '5900';
+  // const vnc_password: string = 'secret';
+  // const vnc_port: string = '5900';
   const request_body: RequestBody = request.body;
   // const work_id: string = request_body.work_id;
-  const username: string = request_body.username;
-  const password: string = request_body.password;
-  const work_container: string = await access_session_manager(request_path, request_body);
+  // const username: string = request_body.username;
+  // const password: string = request_body.password;
+  const result_access_session_manager: any = await access_session_manager(request_path, request_body);
 
-  const create_vnc_connection_object: any = {
-    "name": work_container,
-    "parentIdentifier":"ROOT",
-    "protocol":"vnc",
-    "parameters":{
-      "hostname": work_container,
-      "port": vnc_port,
-      "password": vnc_password
-    },
-    "attributes":{
-      "guacd-encryption":null,
-      "failover-only":null,
-      "weight":null,
-      "max-connections":"10",
-      "guacd-hostname":null,
-      "guacd-port":null,
-      "max-connections-per-user":"10"
-    }
-  };
+  // const create_vnc_connection_object: any = {
+  //   "name": work_container,
+  //   "parentIdentifier":"ROOT",
+  //   "protocol":"vnc",
+  //   "parameters":{
+  //     "hostname": work_container,
+  //     "port": vnc_port,
+  //     "password": vnc_password
+  //   },
+  //   "attributes":{
+  //     "guacd-encryption":null,
+  //     "failover-only":null,
+  //     "weight":null,
+  //     "max-connections":"10",
+  //     "guacd-hostname":null,
+  //     "guacd-port":null,
+  //     "max-connections-per-user":"10"
+  //   }
+  // };
 
-  const result_generate_token: any = await generate_auth_token(username, password);
-  const guacamole_database: string = result_generate_token.data.dataSource;
+  // const result_generate_token: any = await generate_auth_token(username, password);
+  // const guacamole_database: string = result_generate_token.data.dataSource;
 
   const create_process = async (): Promise<string> => {
-    const vnc_identifier: string = await create_vnc_connection(result_generate_token, create_vnc_connection_object);
+    // const vnc_identifier: string = await create_vnc_connection(result_generate_token, create_vnc_connection_object);
+    const vnc_identifier: any = result_access_session_manager.data.vnc_identifier;
+    const work_container: any = result_access_session_manager.data.work_container;
+    const guacamole_database: string = 'postgresql';
     const vnc_url: string = create_vnc_url(vnc_identifier, guacamole_database);
     await database_process_in_create(fastify, request_body, vnc_identifier, vnc_url, work_container);
     return vnc_url;
   }
 
   const delete_process = async (): Promise<void> => {
-    await delete_vnc_connection(result_generate_token, request_body);
+    // await delete_vnc_connection(result_generate_token, request_body);
     await database_process_in_delete(fastify, request_body);
   }
 
