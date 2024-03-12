@@ -1,6 +1,0 @@
----
-- name: replace backlog.py
-  copy:
-    src: for-test-backlog.py
-    dest: /root/backlog.py
-  become: true
