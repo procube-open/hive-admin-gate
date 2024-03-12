@@ -430,8 +430,7 @@ is_tables_data:
 
             function samlLogout() {
 
-            location.href=''https://idm.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-            ''\1'') }}.procube-demo.jp/Shibboleth.sso/Logout'';
+            location.href=''https://idm.{{ domain }}/Shibboleth.sso/Logout'';
 
             return false;
 
@@ -4791,8 +4790,7 @@ phases_data:
                 uniqueIgnoreCase: false
                 valuesInterface: selectOUIF
             -   allowAnotherValue: false
-                derivation: '"uid=" + this().uid + ",ou=Users,DC={{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-                    ''\1'') }},DC=procube-demo,DC=jp"'
+                derivation: '"uid=" + this().uid + ",ou=Users,{{ dn_suffix }}"'
                 description: LDAPのディレクトリーツリー内での位置を示す識別子
                 displayName: DN
                 isArray: false
@@ -6806,8 +6804,7 @@ phases_data:
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            loginname: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+            loginname: cn=Manager,{{ dn_suffix }}
             name: LdapGenericObjectProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6833,8 +6830,7 @@ phases_data:
                     propertyName: idmRole
                 -   modifiedOnly: false
                     propertyName: accountLock
-                templateDn: cn=TemplateOfUser,ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                    '\1') }},DC=procube-demo,DC=jp
+                templateDn: cn=TemplateOfUser,ou=SystemObjects,{{ dn_suffix }}
                 type: LDAP
             database: Master
             description: ユーザ情報のプロビジョニング
@@ -6843,8 +6839,7 @@ phases_data:
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            loginname: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+            loginname: cn=Manager,{{ dn_suffix }}
             name: LdapUserProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6968,9 +6963,8 @@ phases_data:
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
             pwTrustedSites:
-            - ^https://auth.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1')
-                }}.procube-demo.jp/
-            - ^https://idm.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }}.procube-demo.jp/
+            - ^https://auth.{{ domain }}/
+            - ^https://idm.{{ domain }}/
             pwUseQuestion: false
             pwUserIf: changePassword
             pwpolicyAlphaCnt: 1
@@ -7002,12 +6996,11 @@ phases_data:
             dbDirectory: /var/lib/openldap/openldap-data
             description: ユーザ認証に用いるLDAP
             displayName: 認証用LDAP
-            dnSuffix: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=procube-demo,DC=jp
+            dnSuffix: '{{ dn_suffix }}'
             indexedAttribute:
             - uid
             number: 1
-            rootDN: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+            rootDN: cn=Manager,{{ dn_suffix }}
             rootPW: '{{ db_password }}'
         _sandboxProvSettings:
         -   appendOnly: false
@@ -7051,14 +7044,13 @@ phases_data:
     master_tables:
         LdapGenericObjectEditorIF0:
         -   dc: '{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}'
-            dn: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=procube-demo,DC=jp
+            dn: '{{ dn_suffix }}'
             level: 0
             objectClass:
             - locality
             - dcObject
         LdapGenericObjectEditorIF1:
-        -   dn: ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+        -   dn: ou=SystemObjects,{{ dn_suffix }}
             level: 1
             objectClass:
             - organizationalUnit
@@ -7070,8 +7062,7 @@ phases_data:
             ou: Users
         LdapGenericObjectEditorIF2:
         -   cn: TemplateOfUser
-            dn: cn=TemplateOfUser,ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+            dn: cn=TemplateOfUser,ou=SystemObjects,{{ dn_suffix }}
             level: 2
             objectClass:
             - user
