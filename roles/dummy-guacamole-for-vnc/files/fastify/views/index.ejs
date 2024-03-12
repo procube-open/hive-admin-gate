@@ -52,7 +52,7 @@
                                 <input type="hidden" name="id" value="<%= container.id %>">
                                 <input type="hidden" name="backlog_username" value="demo@procube.jp">
                                 <input type="hidden" name="backlog_password" value="EXPp7Od9">
-                                <input type="hidden" name="selenium_allow_url" value='<%= JSON.stringify(selenium_allow_urls) %>'>
+                                <input type="hidden" name="whitelist" value='<%= JSON.stringify(whitelist) %>'>
                                 <input type="submit" value="起動">
                             </form>
                         </td>
@@ -65,7 +65,7 @@
                                 <input type="hidden" name="id" value="<%= container.id %>">
                                 <input type="hidden" name="backlog_username" value="demo@procube.jp">
                                 <input type="hidden" name="backlog_password" value="EXPp7Od9">
-                                <input type="hidden" name="selenium_allow_url" value='<%= JSON.stringify(selenium_allow_urls) %>'>
+                                <input type="hidden" name="whitelist" value='<%= JSON.stringify(whitelist) %>'>
                                 <input type="submit" id="connect_<%= container.work_id %>" data-toggle="modal" data-target="#Modal" data-backdrop="static" value="起動 & 接続">
                             </form>
                         </td>

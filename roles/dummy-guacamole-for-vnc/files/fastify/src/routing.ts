@@ -14,8 +14,8 @@ export const routing = async (fastify: any) => {
     pg_client.release();
     const work_containers_list: ContainerType[] = work_containers_query.rows;
     const wait_containers_list: ContainerType[] = wait_containers_query.rows;
-    const selenium_allow_urls: string[] = ['procube.info', 'backlog.jp', 'google.com'];
-    return reply.view('/views/index.ejs', {work_containers: work_containers_list, wait_containers: wait_containers_list, selenium_allow_urls: selenium_allow_urls});
+    const whitelist: string[] = ['0.0.0.0'];
+    return reply.view('/views/index.ejs', {work_containers: work_containers_list, wait_containers: wait_containers_list, whitelist: whitelist});
 
   });
 
