@@ -9,25 +9,35 @@
     name:
     - docker
     - flask
+    - filelock
+    - requests
     state: present
 - name: create directories
   file:
-    path: "/root/{{ item }}"
+    path: "{{ item }}"
     state: directory
     mode: 0755
   loop:
-  - '.docker'
-  - 'session-manager'
+  - '/root/.docker'
+  - '/root/session-manager'
+  - '/var/lock/session-manager'
 - name: put files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: 0755
   loop:
-  - src: main.py
-    dest: /root/session-manager
   - src: docker-entrypoint.sh
     dest: /
+  - src: remove-lockfiles.sh
+    dest: /etc/periodic/daily
+  - src: access_guacamole_api.py
+    dest: /root/session-manager
+- name: put files from template
+  template:
+    src: main.py.j2
+    dest: /root/session-manager/main.py
+    mode: 0755
 - name: create link to cacert
   file:
     src: /etc/ssl/certs/cacert.pem
