@@ -31,7 +31,7 @@ def create_client(base_urls):
         try:
             client = docker.APIClient(base_url=base_url, tls=tls_config)
             logger_text = 'docker host is ' + base_url
-            app.logger.warning(logger_text)
+            app.logger.info(logger_text)
             return client
         except Exception as e:
             app.logger.warning(e)
@@ -72,6 +72,9 @@ def service_create():
         mounts=[
             davfs_mount_def,
             shm_mount_def
+        ],
+        cap_add=[
+            'NET_ADMIN'
         ]
     )
     task_tmpl = docker.types.TaskTemplate(container_spec)
@@ -83,6 +86,9 @@ def service_create():
             networks=swarm_network,
             endpoint_spec=docker.types.EndpointSpec(mode='dnsrr')
         )
+
+        logger_text = work_container + ': Create successfully'
+        app.logger.info(logger_text)
         time.sleep(3)
     except Exception as e:
         lock.release()
@@ -91,11 +97,11 @@ def service_create():
     while True:
         try:
             with socket.create_connection((work_container, 5900)) as sock:
-                logger_text = work_container + ' Connect successfully'
+                logger_text = work_container + ': Connect successfully'
                 app.logger.info(logger_text)
             break
         except:
-            logger_text = work_container + ' Connection Retry'
+            logger_text = work_container + ': Connection Retry'
             app.logger.warning(logger_text)
             time.sleep(0.5)
 
@@ -127,7 +133,7 @@ def service_delete():
 
     try:
         client.remove_service(work_container)
-        logger_text = work_container + ' Delete successfully'
+        logger_text = work_container + ': Delete successfully'
         app.logger.info(logger_text)
     except Exception as e:
         lock.release()
