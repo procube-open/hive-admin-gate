@@ -6,7 +6,7 @@ su postgres -c 'createdb container'
 psql -d container -U postgres -c 'CREATE TABLE works(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_container VARCHAR (255) NOT NULL, connection_id VARCHAR (8) NOT NULL, vnc_url VARCHAR (255) NOT NULL);'
 psql -d container -U postgres -c 'CREATE TABLE waits(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_container VARCHAR (16) NOT NULL);'
 
-for i in `seq -w 0 50`
+for i in `seq -w 0 100`
 do
   echo "INSERT INTO waits (work_id, work_container) VALUES ('AAA$i', 'chrome-AAA$i');" >> /var/tmp/container.sql
 done

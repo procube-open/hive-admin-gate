@@ -6,8 +6,7 @@ su postgres -c 'createdb rdp'
 psql -d rdp -U postgres -c 'CREATE TABLE works(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_rdp VARCHAR (16) NOT NULL, connection_id VARCHAR (8) NOT NULL, rdp_url VARCHAR (255) NOT NULL);'
 psql -d rdp -U postgres -c 'CREATE TABLE waits(id serial PRIMARY KEY, work_id VARCHAR (8) NOT NULL, work_rdp VARCHAR (16) NOT NULL);'
 
-echo "INSERT INTO waits (work_id, work_rdp) VALUES ('AA0', 'windows-AA0');" > /var/tmp/rdp.sql
-for i in `seq 50`
+for i in `seq 0 100`
 do
   echo "INSERT INTO waits (work_id, work_rdp) VALUES ('AA$i', 'windows-AA$i');" >> /var/tmp/rdp.sql
 done
