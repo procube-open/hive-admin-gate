@@ -116,11 +116,11 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
-      GUAC_URL: https://file-server.admin-gate.procube-demo.jp/guacamole
+      GUAC_URL: https://file-server.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}/guacamole
       GUAC_API_URL: http://guacamole:8080/guacamole
-      IDM_URL: https://idm.admin-gate.procube-demo.jp
-      WS_URL: wss://file-server.admin-gate.procube-demo.jp
-      LOGOUT_URL: https://file-server.admin-gate.procube-demo.jp/Shibboleth.sso/Logout
+      IDM_URL: https://idm.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}
+      WS_URL: wss://file-server.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}
+      LOGOUT_URL: https://file-server.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}/Shibboleth.sso/Logout
       # APPBAR_LOGO_PATH: "icons/sakura-internet_logomark.png"
       # FAVICON_PATH: "icons/sakura-internet_favicon.ico"
     ports:
@@ -152,7 +152,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
-      PASV_IP: "{{ '10.160.194.116' if hive_stage == 'production' else 192.168.0.4 }}"
+      PASV_IP: "{{ '10.160.194.116' if hive_stage == 'production' else '192.168.0.4' }}"
       PASV_PORT_MIN: "30000"
       PASV_PORT_MAX: "30003"
     ports:

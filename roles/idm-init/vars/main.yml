@@ -421,8 +421,8 @@ is_tables_data:
             function jumpChangePassword() {
 
             location.href=''https://idm.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-            ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%idm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp&uid=''
+            ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}/changePassword/changePassword?returnURL=https%3A%2F%idm.{{
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}&uid=''
             + document.getElementById(''portal-user-menu'').title;
 
             return false;
@@ -432,7 +432,7 @@ is_tables_data:
             function samlLogout() {
 
             location.href=''https://idm.{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-            ''\1'') }}.procube-demo.jp/Shibboleth.sso/Logout'';
+            ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}/Shibboleth.sso/Logout'';
 
             return false;
 
@@ -2744,7 +2744,7 @@ is_tables_data:
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
             type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://auth.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/idp-console/"
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
@@ -2757,8 +2757,8 @@ is_tables_data:
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
             type="html" class="commandbar-item"><a href="javascript:location.href=''https://idm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp&amp;uid=''
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
@@ -2810,7 +2810,7 @@ is_tables_data:
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
             type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://auth.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/idp-console/"
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
@@ -2823,8 +2823,8 @@ is_tables_data:
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
             type="html" class="commandbar-item"><a href="javascript:location.href=''https://idm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
-            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.procube-demo.jp&amp;uid=''
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
+            dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}.{{ ''local'' if hive_stage == ''production'' else ''procube-demo.jp'' }}&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
@@ -4793,7 +4793,7 @@ phases_data:
                 valuesInterface: selectOUIF
             -   allowAnotherValue: false
                 derivation: '"uid=" + this().uid + ",ou=Users,DC={{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'',
-                    ''\1'') }},DC=procube-demo,DC=jp"'
+                    ''\1'') }},{{ ''DC=local'' if hive_stage == ''production'' else ''DC=procube-demo,DC=jp'' }}"'
                 description: LDAPのディレクトリーツリー内での位置を示す識別子
                 displayName: DN
                 isArray: false
@@ -6808,7 +6808,7 @@ phases_data:
             ignoreMultiResult: false
             ignoreZeroResult: false
             loginname: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+                '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             name: LdapGenericObjectProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6835,7 +6835,7 @@ phases_data:
                 -   modifiedOnly: false
                     propertyName: accountLock
                 templateDn: cn=TemplateOfUser,ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                    '\1') }},DC=procube-demo,DC=jp
+                    '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
                 type: LDAP
             database: Master
             description: ユーザ情報のプロビジョニング
@@ -6845,7 +6845,7 @@ phases_data:
             ignoreMultiResult: false
             ignoreZeroResult: false
             loginname: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+                '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             name: LdapUserProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6970,8 +6970,8 @@ phases_data:
             pwPermitSameValue: false
             pwTrustedSites:
             - ^https://auth.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1')
-                }}.procube-demo.jp/
-            - ^https://idm.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }}.procube-demo.jp/
+                }}.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}/
+            - ^https://idm.{{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }}.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}/
             pwUseQuestion: false
             pwUserIf: changePassword
             pwpolicyAlphaCnt: 1
@@ -7003,12 +7003,12 @@ phases_data:
             dbDirectory: /var/lib/openldap/openldap-data
             description: ユーザ認証に用いるLDAP
             displayName: 認証用LDAP
-            dnSuffix: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=procube-demo,DC=jp
+            dnSuffix: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             indexedAttribute:
             - uid
             number: 1
             rootDN: cn=Manager,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+                '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             rootPW: '{{ db_password }}'
         _sandboxProvSettings:
         -   appendOnly: false
@@ -7052,20 +7052,20 @@ phases_data:
     master_tables:
         LdapGenericObjectEditorIF0:
         -   dc: '{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}'
-            dn: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},DC=procube-demo,DC=jp
+            dn: DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             level: 0
             objectClass:
             - locality
             - dcObject
         LdapGenericObjectEditorIF1:
         -   dn: ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+                '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             level: 1
             objectClass:
             - organizationalUnit
             ou: SystemObjects
         -   dn: ou=Users,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$', '\1')
-                }},DC=procube-demo,DC=jp
+                }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             level: 1
             objectClass:
             - organizationalUnit
@@ -7073,10 +7073,17 @@ phases_data:
         LdapGenericObjectEditorIF2:
         -   cn: TemplateOfUser
             dn: cn=TemplateOfUser,ou=SystemObjects,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$',
-                '\1') }},DC=procube-demo,DC=jp
+                '\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
             level: 2
             objectClass:
             - user
             - uidObject
             sn: dummy
             uid: TemplateOfUser
+        userEditorInterface:
+        -   accountLock: false
+            cn: admin
+            dn: uid=admin,ou=User,DC={{ dn_suffix | regex_replace('^DC=([^,]*),.*$','\1') }},{{ 'DC=local' if hive_stage == 'production' else 'DC=procube-demo,DC=jp' }}
+            idmRole: IDM_ADMIN
+            sn: admin
+            uid: admin
