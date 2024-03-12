@@ -25,13 +25,17 @@ base_urls = []
 base_urls.append("tcp://{{ host }}:2376")
 {% endfor %}
 
-for base_url in base_urls:
-    try:
-        client = docker.APIClient(base_url=base_url, tls=tls_config)
-        break
-    except Exception as e:
-        app.logger.warning(e)
-        continue
+def create_client(base_urls):
+    for base_url in reversed(base_urls):
+        try:
+            client = docker.APIClient(base_url=base_url, tls=tls_config)
+            logger_text = 'docker host is ' + base_url
+            app.logger.warning(logger_text)
+            print(logger_text, flush=True)
+            return client
+        except Exception as e:
+            app.logger.warning(e)
+            continue
 
 webdav_server = os.environ.get('WEBDAV_SERVER')
 webdav_port = str(os.environ.get('WEBDAV_PORT'))
@@ -40,6 +44,7 @@ webdav_password = os.environ.get('WEBDAV_PASSWORD')
 
 @app.route('/create', methods=['POST'])
 def service_create():
+    client = create_client(base_urls)
 
     work_id = str(request.json['work_id'])
     lockfile = '/var/lock/session-manager/' + work_id + '.lock'
@@ -99,9 +104,13 @@ def service_create():
 
 @app.route('/delete', methods=['POST'])
 def service_delete():
+    client = create_client(base_urls)
 
     work_container = request.json['work_container']
     lockfile = '/var/lock/session-manager/' + work_container + '.lock'
+
+    work_id = str(request.json['work_id'])
+    davfs_volume_name = 'davfs-volume-' + work_id
 
     if os.path.exists(lockfile):
         return jsonify({"status": "Container Already Deleted", "work_container": work_container})
@@ -113,9 +122,21 @@ def service_delete():
         client.remove_service(work_container)
         logger_text = work_container + ' Delete successfully'
         app.logger.info(logger_text)
+        time.sleep(20)
     except Exception as e:
         lock.release()
         return jsonify({"error_message": e}), 500
+
+    for base_url in base_urls:
+        try:
+            client = docker.APIClient(base_url=base_url, tls=tls_config)
+            client.remove_volume(davfs_volume_name, force=True)
+            logger_text = davfs_volume_name + ' Deleted. HOST:' + base_url
+            app.logger.info(logger_text)
+            continue
+        except Exception as e:
+            app.logger.warning(e)
+            continue
 
     lock.release()
     return jsonify({"status": "Successfully Deleted", "work_container": work_container})
