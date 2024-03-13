@@ -420,7 +420,8 @@ is_tables_data:
 
             function jumpChangePassword() {
 
-            location.href=''https://dk0000-pamidmng11.eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%dk0000-pamidmng11..eo.k-opti.ad.jp&uid=''
+            location.href=''https://dk0000-pamidmng11.{{ domain }}/changePassword/changePassword?returnURL=https%3A%2F%dk0000-pamidmng11.{{
+            domain }}&uid=''
             + document.getElementById(''portal-user-menu'').title;
 
             return false;
@@ -429,7 +430,7 @@ is_tables_data:
 
             function samlLogout() {
 
-            location.href=''https://dk0000-pamidmng11.eo.k-opti.ad.jp/Shibboleth.sso/Logout'';
+            location.href=''https://dk0000-pamidmng11.{{ domain }}/Shibboleth.sso/Logout'';
 
             return false;
 
@@ -1364,10 +1365,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: 全権管理者
-        tabId: '10100'
+        tabId: '10109'
         temp: "\0"
         templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10100" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1402,10 +1403,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10100'
+        tabId: '10109'
         temp: "\0"
         templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10100" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1440,10 +1441,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10100'
+        tabId: '10109'
         temp: "\0"
         templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10100" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1468,10 +1469,10 @@ is_tables_data:
         role: default
         roleOrder: 3
         rolename: defaultRole
-        tabId: '10100'
+        tabId: '10109'
         temp: "\0"
         templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10100" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1504,10 +1505,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: 全権管理者
-        tabId: '10101'
+        tabId: '10100'
         temp: "\0"
         templastmodified: '2024-03-09T22:40:10'
-        widgets: '<widgets tabId="10101" tabName="LDAP汎用オブジェクト編集ガジェット" tabType="static"
+        widgets: '<widgets tabId="10100" tabName="LDAP汎用オブジェクト編集ガジェット" tabType="static"
             columnsWidth="[&quot;100%&quot;]" numCol="1">
 
             <panel type="StaticPanel">
@@ -1532,10 +1533,10 @@ is_tables_data:
         role: default
         roleOrder: 1
         rolename: defaultRole
-        tabId: '10101'
+        tabId: '10100'
         temp: "\0"
         templastmodified: '2024-03-09T22:40:10'
-        widgets: '<widgets tabId="10101" tabName="LDAP汎用オブジェクト編集ガジェット" tabType="static"
+        widgets: '<widgets tabId="10100" tabName="LDAP汎用オブジェクト編集ガジェット" tabType="static"
             columnsWidth="[&quot;100%&quot;]" numCol="1">
 
             <panel type="StaticPanel">
@@ -1561,10 +1562,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10102'
+        tabId: '10101'
         temp: "\0"
         templastmodified: '2024-02-14T16:06:54'
-        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10101\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
             column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
@@ -1578,10 +1579,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10102'
+        tabId: '10101'
         temp: "\0"
         templastmodified: '2024-02-14T16:06:54'
-        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10101\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
             column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
@@ -1595,10 +1596,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10102'
+        tabId: '10101'
         temp: "\0"
         templastmodified: '2024-02-14T16:06:54'
-        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10101\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
             column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
@@ -1612,10 +1613,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER*(;.*|$)
         roleOrder: 3
         rolename: IDM_USER
-        tabId: '10102'
+        tabId: '10101'
         temp: "\0"
         templastmodified: '2024-02-14T16:06:54'
-        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10101\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
             column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
@@ -1628,10 +1629,10 @@ is_tables_data:
         role: default
         roleOrder: 4
         rolename: defaultRole
-        tabId: '10102'
+        tabId: '10101'
         temp: "\0"
         templastmodified: '2024-02-14T16:06:54'
-        widgets: "<widgets tabId=\"10102\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
+        widgets: "<widgets tabId=\"10101\" tabName=\"作業申請\" tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\"
             numCol=\"1\">\n    <panel type=\"StaticPanel\">\n        <widget id=\"w_1_applicationWork_g\"
             column=\"1\" title=\"作業申請\" type=\"g_upload__applicationWork_g/gadget\">\n
             \           <data>\n            </data>\n        </widget>\n    </panel>\n
@@ -1645,10 +1646,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10103'
+        tabId: '10102'
         temp: "\0"
         templastmodified: '2024-03-09T22:34:44'
-        widgets: '<widgets tabId="10103" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10102" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1674,10 +1675,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10103'
+        tabId: '10102'
         temp: "\0"
         templastmodified: '2024-03-09T22:34:44'
-        widgets: '<widgets tabId="10103" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10102" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1703,10 +1704,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10103'
+        tabId: '10102'
         temp: "\0"
         templastmodified: '2024-03-09T22:34:44'
-        widgets: '<widgets tabId="10103" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10102" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1732,10 +1733,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER*(;.*|$)
         roleOrder: 3
         rolename: IDM_USER
-        tabId: '10103'
+        tabId: '10102'
         temp: "\0"
         templastmodified: '2024-03-09T22:34:44'
-        widgets: '<widgets tabId="10103" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10102" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1760,10 +1761,10 @@ is_tables_data:
         role: default
         roleOrder: 4
         rolename: defaultRole
-        tabId: '10103'
+        tabId: '10102'
         temp: "\0"
         templastmodified: '2024-03-09T22:34:44'
-        widgets: '<widgets tabId="10103" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10102" tabName="承認済み作業" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -1784,224 +1785,15 @@ is_tables_data:
         workingUid: admin
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:31:49'
-        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
-            \           <data>\n            </data>\n        </widget>\n    </panel>\n
-            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:31:49'
-        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
-            \           <data>\n            </data>\n        </widget>\n    </panel>\n
-            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_machine_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
-        roleOrder: 2
-        rolename: IDM_USER_LEADER
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:31:49'
-        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
-            \           <data>\n            </data>\n        </widget>\n    </panel>\n
-            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 3
-        rolename: defaultRole
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:31:49'
-        widgets: "<widgets tabId=\"10105\" tabName=\"機器ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_machine_g\" column=\"1\" title=\"機器ガジェット\" type=\"g_upload__machine_g/gadget\">\n
-            \           <data>\n            </data>\n        </widget>\n    </panel>\n
-            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10106'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:34:22'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10106'
-        temp: "\x01"
-        templastmodified: '2024-02-09T13:32:46'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: admin
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10106'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:34:22'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10106'
-        temp: "\x01"
-        templastmodified: '2024-02-09T13:32:46'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: admin
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
-        roleOrder: 2
-        rolename: IDM_USER_LEADER
-        tabId: '10106'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:34:22'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
-        roleOrder: 2
-        rolename: IDM_USER_LEADER
-        tabId: '10106'
-        temp: "\x01"
-        templastmodified: '2024-02-09T13:32:46'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: admin
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 3
-        rolename: defaultRole
-        tabId: '10106'
-        temp: "\0"
-        templastmodified: '2023-06-13T16:34:22'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: null
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 3
-        rolename: defaultRole
-        tabId: '10106'
-        temp: "\x01"
-        templastmodified: '2024-02-09T13:32:46'
-        widgets: "<widgets tabId=\"10106\" tabName=\"接続先ガジェット\" tabType=\"static\"
-            columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n    <panel type=\"StaticPanel\">\n
-            \       <widget id=\"w_1_connection_g\" column=\"1\" title=\"接続先ガジェット\"
-            type=\"g_upload__connection_g/gadget\">\n            <data>\n            </data>\n
-            \       </widget>\n    </panel>\n    <panel type=\"DynamicPanel\" disabled=\"true\">\n
-            \   </panel>\n</widgets>\n"
-        widgetsLastmodified: ''
-        workingUid: admin
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10107'
+        tabId: '10110'
         temp: "\0"
         templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10107" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2027,10 +1819,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10107'
+        tabId: '10110'
         temp: "\0"
         templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10107" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2056,10 +1848,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10107'
+        tabId: '10110'
         temp: "\0"
         templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10107" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2084,10 +1876,10 @@ is_tables_data:
         role: default
         roleOrder: 3
         rolename: defaultRole
-        tabId: '10107'
+        tabId: '10110'
         temp: "\0"
         templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10107" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2113,10 +1905,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10108'
+        tabId: '10103'
         temp: "\0"
         templastmodified: '2024-03-09T22:36:21'
-        widgets: '<widgets tabId="10108" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10103" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2142,10 +1934,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10108'
+        tabId: '10103'
         temp: "\0"
         templastmodified: '2024-03-09T22:36:21'
-        widgets: '<widgets tabId="10108" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10103" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2171,10 +1963,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10108'
+        tabId: '10103'
         temp: "\0"
         templastmodified: '2024-03-09T22:36:21'
-        widgets: '<widgets tabId="10108" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10103" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2200,10 +1992,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER *(;.*|$)
         roleOrder: 3
         rolename: IDM_USER
-        tabId: '10108'
+        tabId: '10103'
         temp: "\0"
         templastmodified: '2024-03-09T22:36:21'
-        widgets: '<widgets tabId="10108" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10103" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2228,10 +2020,10 @@ is_tables_data:
         role: default
         roleOrder: 4
         rolename: defaultRole
-        tabId: '10108'
+        tabId: '10103'
         temp: "\0"
         templastmodified: '2024-03-09T22:36:21'
-        widgets: '<widgets tabId="10108" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10103" tabName="接続先グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2257,10 +2049,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10112'
+        tabId: '10107'
         temp: "\0"
         templastmodified: '2024-02-14T16:07:37'
-        widgets: '<widgets tabId="10112" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10107" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2286,10 +2078,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10112'
+        tabId: '10107'
         temp: "\0"
         templastmodified: '2024-02-14T16:07:37'
-        widgets: '<widgets tabId="10112" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10107" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2315,10 +2107,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10112'
+        tabId: '10107'
         temp: "\0"
         templastmodified: '2024-02-14T16:07:37'
-        widgets: '<widgets tabId="10112" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10107" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2344,10 +2136,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER*(;.*|$)
         roleOrder: 3
         rolename: IDM_USER
-        tabId: '10112'
+        tabId: '10107'
         temp: "\0"
         templastmodified: '2024-02-14T16:07:37'
-        widgets: '<widgets tabId="10112" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10107" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2372,10 +2164,10 @@ is_tables_data:
         role: default
         roleOrder: 4
         rolename: defaultRole
-        tabId: '10112'
+        tabId: '10107'
         temp: "\0"
         templastmodified: '2024-02-14T16:07:37'
-        widgets: '<widgets tabId="10112" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10107" tabName="要承認作業ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2489,10 +2281,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10115'
+        tabId: '10104'
         temp: "\0"
         templastmodified: '2024-03-09T22:20:49'
-        widgets: '<widgets tabId="10115" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2518,10 +2310,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10115'
+        tabId: '10104'
         temp: "\0"
         templastmodified: '2024-03-09T22:20:49'
-        widgets: '<widgets tabId="10115" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2546,10 +2338,10 @@ is_tables_data:
         role: default
         roleOrder: 2
         rolename: defaultRole
-        tabId: '10115'
+        tabId: '10104'
         temp: "\0"
         templastmodified: '2024-03-09T22:20:49'
-        widgets: '<widgets tabId="10115" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2604,10 +2396,10 @@ is_tables_data:
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
         roleOrder: 0
         rolename: IDM_ADMIN
-        tabId: '10117'
+        tabId: '10105'
         temp: "\0"
         templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10117" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2633,10 +2425,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
         roleOrder: 1
         rolename: IDM_USER_ADMIN
-        tabId: '10117'
+        tabId: '10105'
         temp: "\0"
         templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10117" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2662,10 +2454,10 @@ is_tables_data:
         role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
         roleOrder: 2
         rolename: IDM_USER_LEADER
-        tabId: '10117'
+        tabId: '10105'
         temp: "\0"
         templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10117" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2690,10 +2482,10 @@ is_tables_data:
         role: default
         roleOrder: 3
         rolename: defaultRole
-        tabId: '10117'
+        tabId: '10105'
         temp: "\0"
         templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10117" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
             numCol="1">
 
             <panel type="StaticPanel">
@@ -2740,7 +2532,8 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11..eo.k-opti.ad.jp/idp-console/"
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
+            domain }}/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
@@ -2752,7 +2545,9 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11..eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11..eo.k-opti.ad.jp&amp;uid=''
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
+            domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
+            domain }}&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
@@ -2803,7 +2598,8 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11..eo.k-opti.ad.jp/idp-console/"
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
+            domain }}/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
@@ -2815,7 +2611,9 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11..eo.k-opti.ad.jp/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11..eo.k-opti.ad.jp&amp;uid=''
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
+            domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
+            domain }}&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
@@ -2981,22 +2779,6 @@ is_tables_data:
             <span class="showEn">ID Management</span>
 
             <span class="submenu">
-
-            <div class="idmSubMenuTab" tabid="10106">
-
-            <span class="showJa">テナント管理</span>
-
-            <span class="showEn">Tenants</span>
-
-            </div>
-
-            <div class="idmSubMenuTab" tabid="10105">
-
-            <span class="showJa">テナント別ユーザ管理</span>
-
-            <span class="showEn">UsersOnTenant</span>
-
-            </div>
 
             </span>
 
@@ -3224,7 +3006,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10100">
+            <div class="idmSubMenuTab" tabid="10109">
 
             <span class="showJa">ユーザ管理</span>
 
@@ -3232,7 +3014,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10107">
+            <div class="idmSubMenuTab" tabid="10110">
 
             <span class="showJa">チーム管理</span>
 
@@ -3240,7 +3022,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10115">
+            <div class="idmSubMenuTab" tabid="10104">
 
             <span class="showJa">接続仕様</span>
 
@@ -3248,7 +3030,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10117">
+            <div class="idmSubMenuTab" tabid="10105">
 
             <span class="showJa">接続先管理</span>
 
@@ -3256,7 +3038,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10108">
+            <div class="idmSubMenuTab" tabid="10103">
 
             <span class="showJa">接続先グループ管理</span>
 
@@ -3264,7 +3046,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10101">
+            <div class="idmSubMenuTab" tabid="10100">
 
             <span class="showJa">LDAP汎用オブジェクト編集</span>
 
@@ -3285,7 +3067,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10102">
+            <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">作業申請</span>
 
@@ -3293,7 +3075,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10112">
+            <div class="idmSubMenuTab" tabid="10107">
 
             <span class="showJa">要承認作業</span>
 
@@ -3301,7 +3083,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10103">
+            <div class="idmSubMenuTab" tabid="10102">
 
             <span class="showJa">承認済み作業</span>
 
@@ -3382,7 +3164,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10100">
+            <div class="idmSubMenuTab" tabid="10109">
 
             <span class="showJa">ユーザ管理</span>
 
@@ -3390,7 +3172,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10107">
+            <div class="idmSubMenuTab" tabid="10110">
 
             <span class="showJa">チーム管理</span>
 
@@ -3398,7 +3180,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10115">
+            <div class="idmSubMenuTab" tabid="10104">
 
             <span class="showJa">接続仕様</span>
 
@@ -3406,7 +3188,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10117">
+            <div class="idmSubMenuTab" tabid="10105">
 
             <span class="showJa">接続先管理</span>
 
@@ -3414,7 +3196,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10108">
+            <div class="idmSubMenuTab" tabid="10103">
 
             <span class="showJa">接続先グループ管理</span>
 
@@ -3422,7 +3204,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10101">
+            <div class="idmSubMenuTab" tabid="10100">
 
             <span class="showJa">LDAP汎用オブジェクト編集</span>
 
@@ -3443,7 +3225,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10102">
+            <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">作業申請</span>
 
@@ -3451,7 +3233,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10112">
+            <div class="idmSubMenuTab" tabid="10107">
 
             <span class="showJa">要承認作業</span>
 
@@ -3459,7 +3241,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10103">
+            <div class="idmSubMenuTab" tabid="10102">
 
             <span class="showJa">承認済み作業</span>
 
@@ -3503,7 +3285,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10100">
+            <div class="idmSubMenuTab" tabid="10109">
 
             <span class="showJa">ユーザ管理</span>
 
@@ -3511,7 +3293,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10107">
+            <div class="idmSubMenuTab" tabid="10110">
 
             <span class="showJa">ユーザグループ管理</span>
 
@@ -3519,7 +3301,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10117">
+            <div class="idmSubMenuTab" tabid="10105">
 
             <span class="showJa">接続先</span>
 
@@ -3527,7 +3309,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10108">
+            <div class="idmSubMenuTab" tabid="10103">
 
             <span class="showJa">接続先グループ</span>
 
@@ -3548,7 +3330,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10102">
+            <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">作業申請</span>
 
@@ -3556,7 +3338,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10112">
+            <div class="idmSubMenuTab" tabid="10107">
 
             <span class="showJa">要承認作業</span>
 
@@ -3564,7 +3346,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10103">
+            <div class="idmSubMenuTab" tabid="10102">
 
             <span class="showJa">承認済み作業</span>
 
@@ -3608,7 +3390,7 @@ is_tables_data:
 
             <span class="submenu">
 
-            <div class="idmSubMenuTab" tabid="10102">
+            <div class="idmSubMenuTab" tabid="10101">
 
             <span class="showJa">作業申請</span>
 
@@ -3616,7 +3398,7 @@ is_tables_data:
 
             </div>
 
-            <div class="idmSubMenuTab" tabid="10103">
+            <div class="idmSubMenuTab" tabid="10102">
 
             <span class="showJa">承認済み作業</span>
 
@@ -4783,7 +4565,7 @@ phases_data:
                 uniqueIgnoreCase: false
                 valuesInterface: selectOUIF
             -   allowAnotherValue: false
-                derivation: '"uid=" + this().uid + ",ou=Users,DC=eo,DC=k-opti,DC=ad,DC=jp"'
+                derivation: '"uid=" + this().uid + ",ou=Users,{{ dn_suffix }}"'
                 description: LDAPのディレクトリーツリー内での位置を示す識別子
                 displayName: DN
                 isArray: false
@@ -6797,7 +6579,7 @@ phases_data:
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            loginname: cn=Manager,DC=eo,DC=k-opti,DC=ad,DC=jp
+            loginname: cn=Manager,{{ dn_suffix }}
             name: LdapGenericObjectProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6823,7 +6605,7 @@ phases_data:
                     propertyName: idmRole
                 -   modifiedOnly: false
                     propertyName: accountLock
-                templateDn: cn=TemplateOfUser,ou=SystemObjects,DC=eo,DC=k-opti,DC=ad,DC=jp
+                templateDn: cn=TemplateOfUser,ou=SystemObjects,{{ dn_suffix }}
                 type: LDAP
             database: Master
             description: ユーザ情報のプロビジョニング
@@ -6832,7 +6614,7 @@ phases_data:
             ignore: false
             ignoreMultiResult: false
             ignoreZeroResult: false
-            loginname: cn=Manager,DC=eo,DC=k-opti,DC=ad,DC=jp
+            loginname: cn=Manager,{{ dn_suffix }}
             name: LdapUserProvisioning
             outputAll: false
             password: '{{ db_password }}'
@@ -6956,8 +6738,8 @@ phases_data:
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
             pwTrustedSites:
-            - ^https://dk0000-pamacmng11.eo.k-opti.ad.jp/
-            - ^https://dk0000-pamidmng11.eo.k-opti.ad.jp/
+            - ^https://dk0000-pamacmng11.{{ domain }}/
+            - ^https://dk0000-pamidmng11.{{ domain }}/
             pwUseQuestion: false
             pwUserIf: changePassword
             pwpolicyAlphaCnt: 1
@@ -6989,11 +6771,11 @@ phases_data:
             dbDirectory: /var/lib/openldap/openldap-data
             description: ユーザ認証に用いるLDAP
             displayName: 認証用LDAP
-            dnSuffix: DC=eo,DC=k-opti,DC=ad,DC=jp
+            dnSuffix: '{{ dn_suffix }}'
             indexedAttribute:
             - uid
             number: 1
-            rootDN: cn=Manager,DC=eo,DC=k-opti,DC=ad,DC=jp
+            rootDN: cn=Manager,{{ dn_suffix }}
             rootPW: '{{ db_password }}'
         _sandboxProvSettings:
         -   appendOnly: false
@@ -7037,36 +6819,35 @@ phases_data:
     master_tables:
         LdapGenericObjectEditorIF0:
         -   dc: '{{ dn_suffix | regex_replace(''^DC=([^,]*),.*$'', ''\1'') }}'
-            dn: DC=eo,DC=k-opti,DC=ad,DC=jp
+            dn: '{{ dn_suffix }}'
             level: 0
             objectClass:
             - locality
             - dcObject
         LdapGenericObjectEditorIF1:
-        -   dn: ou=SystemObjects,DC=eo,DC=k-opti,DC=ad,DC=jp
+        -   dn: ou=SystemObjects,{{ dn_suffix }}
             level: 1
             objectClass:
             - organizationalUnit
             ou: SystemObjects
-        -   dn: ou=Users,DC=eo,DC=k-opti,DC=ad,DC=jp
+        -   dn: ou=Users,{{ dn_suffix }}
             level: 1
             objectClass:
             - organizationalUnit
             ou: Users
         LdapGenericObjectEditorIF2:
         -   cn: TemplateOfUser
-            dn: cn=TemplateOfUser,ou=SystemObjects,DC=eo,DC=k-opti,DC=ad,DC=jp
+            dn: cn=TemplateOfUser,ou=SystemObjects,{{ dn_suffix }}
             level: 2
             objectClass:
             - user
             - uidObject
             sn: dummy
             uid: TemplateOfUser
-    objects:
         userEditorInterface:
         -   accountLock: false
             cn: admin
-            dn: uid=admin,ou=User,DC=eo,DC=k-opti,DC=ad,DC=jp
+            dn: uid=admin,ou=User,{{ dn_suffix }}
             idmRole: IDM_ADMIN
             sn: admin
             uid: admin
