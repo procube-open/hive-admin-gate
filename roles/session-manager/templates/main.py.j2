@@ -52,6 +52,11 @@ def service_create():
     lock.acquire()
 
     work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
+
+    target_info = socket.gethostbyname_ex(request.json['target_fqdn'])
+    target_ips = target_info[2]
+    whitelist = 'WHITELIST=' + str(target_ips)
+
     whitelist = 'WHITELIST=' + request.json['whitelist']
     backlog_username = 'USERNAME=' + request.json['backlog_username']
     backlog_password = 'PASSWORD=' + request.json['backlog_password']
@@ -115,7 +120,7 @@ def service_create():
     except Exception as e:
         return jsonify({"error_message": e}), 500
 
-    return jsonify({"status": "Successfully Created", "work_container": work_container, "vnc_identifier": vnc_identifier})
+    return jsonify({"status": "Successfully Created", "work_id": work_id, "work_container": work_container, "vnc_identifier": vnc_identifier})
 
 @app.route('/delete', methods=['POST'])
 def service_delete():
