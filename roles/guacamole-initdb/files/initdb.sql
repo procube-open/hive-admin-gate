@@ -109,7 +109,7 @@ CREATE INDEX guacamole_connection_group_parent_id
 CREATE TABLE guacamole_connection (
 
   connection_id       serial       NOT NULL,
-  connectiion_idm_id  varchar(64)  NOT NULL,
+  connection_idm_id  varchar(64)  NOT NULL,
   connection_name     varchar(128) NOT NULL,
   parent_id           integer,
   protocol            varchar(32)  NOT NULL,
