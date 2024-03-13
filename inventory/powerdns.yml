@@ -1,5 +1,7 @@
 ---
 plugin: hive_services
+available_on: 
+  - staging
 services:
   powerdns:
     image: procube/powerdns:latest
