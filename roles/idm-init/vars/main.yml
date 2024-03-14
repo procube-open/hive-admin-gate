@@ -4011,7 +4011,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: Telnet用パスワード
                 isArray: false
-                name: telnetPassoword
+                name: telnetPassword
                 outputLdapSchema: false
                 propGroupName:
                 - telnet
@@ -5462,7 +5462,7 @@ phases_data:
                 hideOnEdit: false
                 hideOnShow: false
                 incrementalSearchFlag: false
-                name: telnetPassoword
+                name: telnetPassword
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
