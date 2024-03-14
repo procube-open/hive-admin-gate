@@ -1,0 +1,27 @@
+- hosts: iosxr
+  no_log: false
+  gather_facts: false
+  collections:
+  - cisco.iosxr
+
+  tasks:
+   - name: パスワード変更
+     no_log: true
+     iosxr_user:
+        name: "{{ user_name }}"
+        configured_password: "{{ user_pass }}"
+        update_password: always
+        state: present
+
+   - name: 接続確認
+     vars:
+      ansible_user: "{{ user_name }}"
+      ansible_password: "{{ user_pass }}"
+     iosxr_command:
+       commands:
+         - show user
+     register: user
+
+   - name: ユーザ確認
+     debug:
+       var: user

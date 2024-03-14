@@ -1,0 +1,31 @@
+- hosts: switch
+  gather_facts: false
+  collections:
+  - cisco.ios
+  tasks:
+   - name: パスワード変更
+     ios_user:
+        name: "{{ user_name }}"
+        configured_password: "{{ user_pass }}"'
+        update_password: always
+        state: present
+     notify: "save"
+
+   - name: 接続確認
+     vars:
+      ansible_user: "{{ user_name }}"
+      ansible_password: "{{ user_pass }}"
+     asa_command:
+       commands:
+         - show user
+     register: user
+
+   - name: ユーザ確認
+     debug:
+       var: user
+
+  handlers:
+   - name: save
+     ios_command:
+        commands: 'write mem'
+     when: not ansible_check_mode

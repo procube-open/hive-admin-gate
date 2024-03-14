@@ -1,0 +1,50 @@
+- hosts: ae0000-l3001
+  gather_facts: false
+  no_log: true
+  collections:
+  - cisco.ios
+
+  tasks:
+   - name: admin password change
+     ios_user:
+        name: "{{ user_name }}"
+        configured_password: "{{ user_pass }}"
+        update_password: always
+        state: present
+        privilege: 15
+
+   - name: user password change
+     ios_user:
+        name: "{{ ruser_name }}"
+        configured_password: "{{ ruser_pass }}"
+        update_password: always
+        state: present
+        privilege: 1
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: remote login linux shell admin-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ user_name }}" "{{ hostvars['ae0000-l3001']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ user_pass }}"
+      timeout: 10
+    changed_when: false
+
+  - name: remote login linux shell user-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ ruser_name }}" "{{ hostvars['ae0000-l3001']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ ruser_pass }}"
+      timeout: 10
+    changed_when: false
+
+- hosts: ios
+  gather_facts: false
+  collections:
+  - cisco.ios
+  tasks:
+   - name: config save
+     ios_command:
+        commands: 'write mem'

@@ -1,0 +1,36 @@
+- hosts: asa
+  gather_facts: false
+  collections:
+  - cisco.asa
+
+  tasks:
+   - name: password change
+     asa_config:
+       lines:
+          - "username {{ user_name }} password {{ user_pass }}"
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: remote login linux shell
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ user_name }}" 10.160.194.28
+      responses:
+        ".*password:.*": "{{ user_pass }}"
+      timeout: 10
+    changed_when: false
+
+- hosts: asa
+  gather_facts: false
+  collections:
+  - cisco.asa
+  tasks:
+   - name: connection check with save
+     vars:
+      ansible_user: "{{ user_name }}"
+      ansible_password: "{{ user_pass }}"
+     asa_command:
+       commands:
+         - show aaa local user
+     asa_command:
+        commands: 'write mem'

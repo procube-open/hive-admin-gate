@@ -1,0 +1,82 @@
+- hosts: ae0000-lb001
+  gather_facts: no
+  no_log: false
+
+  vars:
+    provider:
+      password: "{{ ansible_password }}"
+      server: "{{ ansible_host }}"
+      user: "{{ ansible_user }}"
+      validate_certs: no
+
+  tasks:
+    - name: admin password change
+      no_log: true
+      bigip_user:
+        state: present
+        username_credential: "{{ user_name }}"
+        password_credential: "{{ user_pass }}"
+        shell: tmsh
+        provider: "{{ provider }}"
+
+    - name: root password change
+      no_log: true
+      bigip_user:
+        state: present
+        username_credential: "{{ rootuser_name }}"
+        password_credential: "{{ rootuser_pass }}"
+        shell: bash
+        provider: "{{ provider }}"
+
+    - name: user password change
+      no_log: true
+      bigip_user:
+        state: present
+        username_credential: "{{ ruser_name }}"
+        password_credential: "{{ ruser_pass }}"
+        shell: tmsh
+        provider: "{{ provider }}"
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: remote login linux shell admin-exec
+    expect:
+      command: ssh -l "{{ user_name }}" "{{ hostvars['ae0000-lb001']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ user_pass }}"
+      timeout: 10
+    changed_when: false
+
+  - name: remote login linux shell root-exec
+    expect:
+      command: ssh -l "{{ rootuser_name }}" "{{ hostvars['ae0000-lb001']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ rootuser_pass }}"
+      timeout: 10
+    changed_when: false
+
+  - name: remote login linux shell user-exec
+    expect:
+      command: ssh -l "{{ ruser_name }}" "{{ hostvars['ae0000-lb001']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ ruser_pass }}"
+      timeout: 10
+    changed_when: false
+
+- hosts: ae0000-lb001
+  gather_facts: no
+  no_log: false
+
+  vars:
+    provider:
+      password: "{{ ansible_password }}"
+      server: "{{ ansible_host }}"
+      user: "{{ ansible_user }}"
+      validate_certs: no
+
+  tasks:
+    - name: config save
+      bigip_config:
+        save: yes
+        provider: "{{ provider }}"

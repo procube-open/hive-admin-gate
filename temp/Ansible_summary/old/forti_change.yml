@@ -1,0 +1,34 @@
+- name: "Change FortiOS password"
+  hosts: fortios
+  gather_facts: no
+  vars:
+   ansible_connection: ssh
+
+  tasks:
+   - name: "Change admin password using raw"
+     raw: |
+      config global
+      config system admin
+      edit "{{ user_name }}"
+      set password "{{ user_pass }}"
+      next
+      end
+      exit
+
+- name: "Change FortiOS Verify"
+  hosts: fortios
+  gather_facts: no
+  vars:
+   ansible_connection: ssh
+   ansible_user: "{{ user_name }}"
+   ansible_password: "{{ user_pass }}"
+  tasks:
+   - name: LOGIN
+     raw: |
+      config global
+      get system admin
+     register: user
+
+   - name: ユーザ確認
+     debug:
+       var: user

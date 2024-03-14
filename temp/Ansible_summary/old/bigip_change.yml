@@ -1,0 +1,47 @@
+- hosts: bigip
+  gather_facts: no
+  no_log: false
+
+  vars:
+    provider:
+      password: "{{ ansible_password }}"
+      server: "{{ ansible_host }}"
+      user: "{{ ansible_user }}"
+      validate_certs: no
+
+  tasks:
+    - name: adminパスワード変更
+      no_log: true
+      bigip_user:
+        state: present
+        username_credential: "{{ user_name }}"
+        password_credential: "{{ user_pass }}"
+        provider: "{{ provider }}"
+
+    - name: rootパスワード変更
+      no_log: true
+      bigip_user:
+        state: present
+        username_credential: "{{ rootuser_name }}"
+        password_credential: "{{ rootuser_pass }}"
+        provider: "{{ provider }}"
+
+    - name: root接続確認
+      bigip_command:
+        commands:
+          - show auth login-failures
+        provider:
+          user: "{{ rootuser_name }}"
+          password: "{{ rootuser_pass }}"
+          server: "{{ ansible_host }}"
+          validate_certs: no
+      register: user
+
+    - name: ユーザ確認
+      debug:
+        var: user
+
+    - name: 設定保存
+      bigip_config:
+        save: yes
+        provider: "{{ provider }}"

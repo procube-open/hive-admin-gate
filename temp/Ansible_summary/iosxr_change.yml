@@ -1,0 +1,42 @@
+- hosts: ae0000-l3101
+  no_log: false
+  gather_facts: false
+  collections:
+  - cisco.iosxr
+
+  tasks:
+   - name: admin password change
+     no_log: true
+     iosxr_user:
+        name: "{{ user_name }}"
+        configured_password: "{{ user_pass }}"
+        update_password: always
+        state: present
+
+   - name: user password change
+     no_log: true
+     iosxr_user:
+        name: "{{ ruser_name }}"
+        configured_password: "{{ ruser_pass }}"
+        update_password: always
+        state: present
+
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: remote login linux shell admin-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ user_name }}" "{{ hostvars['ae0000-l3101']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ user_pass }}"
+      timeout: 10
+    changed_when: false
+
+  - name: remote login linux shell user-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ ruser_name }}" "{{ hostvars['ae0000-l3101']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ ruser_pass }}"
+      timeout: 10
+    changed_when: false

@@ -1,0 +1,39 @@
+- hosts: ae0000-fw101
+  gather_facts: false
+  no_log: false
+  collections:
+  - junipernetworks.junos
+
+  tasks:
+   - name: admin password change
+     junos_user:
+        name: "{{ user_name }}"
+        role: super-user
+        encrypted_password: "{{ user_pass | password_hash('sha512') }}"
+        state: present
+
+   - name: user password change
+     junos_user:
+        name: "{{ ruser_name }}"
+        role: read-only
+        encrypted_password: "{{ ruser_pass | password_hash('sha512') }}"
+        state: present
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: remote login linux shell admin-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ user_name }}" "{{ hostvars['ae0000-fw101']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ user_pass }}"
+      timeout: 10
+    changed_when: false
+
+  - name: remote login linux shell user-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ ruser_name }}" "{{ hostvars['ae0000-fw101']['ansible_host'] }}"
+      responses:
+        ".*Password:.*": "{{ ruser_pass }}"
+      timeout: 10
+    changed_when: false

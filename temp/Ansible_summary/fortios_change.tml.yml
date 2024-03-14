@@ -1,0 +1,46 @@
+# vdom利用時修正が必要！
+- hosts: ae0000-fw201
+  gather_facts: no
+  vars:
+   ansible_connection: ssh
+
+  tasks:
+   - name: "admin password change"
+     raw: |
+      config global
+      config system admin
+      edit "{{ user_name }}"
+      set password "{{ user_pass }}"
+      next
+      end
+      exit
+
+   - name: "user password change"
+     raw: |
+      config global
+      config system admin
+      edit "{{ ruser_name }}"
+      set password "{{ ruser_pass }}"
+      next
+      end
+      exit
+
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: remote login linux shell admin-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ user_name }}" "{{ hostvars['ae0000-fw201']['ansible_host'] }}"
+      responses:
+        ".*[Pp]assword:.*": "{{ user_pass }}"
+      timeout: 10
+    changed_when: false
+
+  - name: remote login linux shell user-exec
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ ruser_name }}" "{{ hostvars['ae0000-fw201']['ansible_host'] }}"
+      responses:
+        ".*[Pp]assword:.*": "{{ ruser_pass }}"
+      timeout: 10
+    changed_when: false

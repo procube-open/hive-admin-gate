@@ -1,0 +1,26 @@
+- hosts: junos
+  gather_facts: false
+  no_log: false
+  collections:
+  - junipernetworks.junos
+
+  tasks:
+   - name: パスワード変更
+     junos_user:
+        name: "{{ user_name }}"
+        role: super-user
+        encrypted_password: "{{ user_pass | password_hash('sha512') }}"
+        state: present
+
+   - name: 接続確認
+     vars:
+      ansible_user: "{{ user_name }}"
+      ansible_password: "{{ user_pass }}"
+     junos_command:
+       commands:
+         - show system users
+     register: user
+
+   - name: ユーザ確認
+     debug:
+       var: user

@@ -1,0 +1,51 @@
+[asa]
+asa01 ansible_host=10.160.199.20
+
+[asa:vars]
+ansible_user = admingate
+ansible_password = admingate
+ansible_connection = network_cli
+ansible_network_os = asa
+ansible_become = yes
+ansible_become_method = enable
+ansible_become_password = admin
+ansible_port = 22
+
+[bigip]
+bigip01 ansible_host=10.160.199.26
+bigip02 ansible_host=10.160.199.26
+bigip03 ansible_host=10.160.199.26
+
+[bigip:vars]
+ansible_user = admingate
+ansible_password = admingate
+ansible_connection = local
+
+[iosxr]
+admingate ansible_host=10.160.199.163
+
+[iosxr:vars]
+ansible_user = admingate
+ansible_password = admingate
+ansible_connection = network_cli
+ansible_network_os = iosxr
+ansible_port = 22
+
+[junos]
+srx ansible_host=10.160.199.30
+
+
+[junos:vars]
+ansible_user = admingate
+ansible_password = admingate123
+ansible_connection = netconf
+ansible_network_os = junos
+ansible_port = 22
+
+[fortios]
+fgt01 ansible_host=10.160.194.61
+
+[fortios:vars]
+ansible_user = admingate
+ansible_password = admingate
+ansible_network_os=fortinet.fortios
