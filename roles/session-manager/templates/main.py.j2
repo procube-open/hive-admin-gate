@@ -53,14 +53,13 @@ def service_create():
 
     work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
 
-    target_info = socket.gethostbyname_ex(request.json['target_fqdn'])
+    target_info = socket.gethostbyname_ex(request.json['selenium_allow_url'])
     target_ips = target_info[2]
     whitelist = 'WHITELIST=' + str(target_ips)
 
-    whitelist = 'WHITELIST=' + request.json['whitelist']
-    backlog_username = 'USERNAME=' + request.json['backlog_username']
-    backlog_password = 'PASSWORD=' + request.json['backlog_password']
-    selenium_env = [whitelist, backlog_username, backlog_password]
+    username = 'USERNAME=' + request.json['username']
+    password = 'PASSWORD=' + request.json['password']
+    selenium_env = [whitelist, username, password]
 
     davfs_volume_name = 'davfs-volume-' + work_id
     url = 'http://' + webdav_server + ':' + webdav_port + '/' + work_id + '/'
