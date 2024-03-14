@@ -113,4 +113,4 @@
       body: '{{ connection_permissions | to_json }}'
       validate_certs: false
       status_code: 204
-    when: "uid not in userid"
+    when: "uid not in userid and connection_permissions is defined"

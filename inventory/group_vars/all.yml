@@ -97,10 +97,10 @@ restore_sequence_mongodb:
     key_property: dn
   - name: LdapGenericObjectEditorIF2
     key_property: dn
-# - name: objects
-#   interfaces:
-#   - name: userEditorInterface
-#     key_property: uid
+- name: objects
+  interfaces:
+  - name: userEditorInterface
+    key_property: uid
 
 restore_sequence_mariadb:
 - name: is_tablayouts

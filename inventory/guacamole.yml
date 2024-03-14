@@ -81,11 +81,11 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
-      GUAC_URL: https://file-server.admin-gate.procube-demo.jp/guacamole
+      GUAC_URL: https://file-server.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}/guacamole
       GUAC_API_URL: http://guacamole:8080/guacamole
-      IDM_URL: https://idm.admin-gate.procube-demo.jp
-      WS_URL: wss://file-server.admin-gate.procube-demo.jp
-      LOGOUT_URL: https://file-server.admin-gate.procube-demo.jp/Shibboleth.sso/Logout
+      IDM_URL: https://idm.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}
+      WS_URL: wss://file-server.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}
+      LOGOUT_URL: https://file-server.admin-gate.{{ 'local' if hive_stage == 'production' else 'procube-demo.jp' }}/Shibboleth.sso/Logout
       # APPBAR_LOGO_PATH: "icons/sakura-internet_logomark.png"
       # FAVICON_PATH: "icons/sakura-internet_favicon.ico"
     ports:
@@ -117,7 +117,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
-      PASV_IP: "{{ '10.160.194.116' if hive_stage == 'production' else 192.168.0.4 }}"
+      PASV_IP: "{{ '10.160.194.116' if hive_stage == 'production' else '192.168.0.4' }}"
       PASV_PORT_MIN: "30000"
       PASV_PORT_MAX: "30003"
     ports:
@@ -200,15 +200,23 @@ services:
         drbd:
           fstype: xfs
           size: 2G
+    backup_scripts:
+      - name: mongo-backup
+        container: mongo
+        backup_command: "mongodump --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --gzip --archive=/archive"
+        backup_file: "/archive"
+        restore_command: "mongorestore --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --db=files_db --gzip --archive=/archive --drop"
+        restore_file: "/archive"
+        cleanup_days_before: 3
   session-manager:
     image:
       from: python:alpine3.18
       roles:
-      - hive-trust-ca
-      - session-manager
-      - hive-certificate
+        - hive-trust-ca
+        - session-manager
+        - hive-certificate
     entrypoint:
-    - /docker-entrypoint.sh
+      - /docker-entrypoint.sh
     environment:
     - IMAGE_CHROME: "{{ groups['repository'] | intersect(groups[hive_stage]) | first }}:5000/image_chrome:latest"
     - WEBDAV_SERVER: "192.168.10.4"
