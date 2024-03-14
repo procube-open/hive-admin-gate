@@ -43,6 +43,8 @@ CREATE TYPE guacamole_object_permission_type AS ENUM(
     'READ',
     'UPDATE',
     'DELETE',
+    'WORKER',
+    'MANAGER',
     'ADMINISTER'
 );
 
@@ -109,10 +111,11 @@ CREATE INDEX guacamole_connection_group_parent_id
 CREATE TABLE guacamole_connection (
 
   connection_id       serial       NOT NULL,
-  connection_idm_id  varchar(64)  NOT NULL,
+  connection_idm_id   varchar(64)  NOT NULL,
   connection_name     varchar(128) NOT NULL,
   parent_id           integer,
   protocol            varchar(32)  NOT NULL,
+  remark              varchar(4096) DEFAULT NULL,
   
   -- Concurrency limits
   max_connections          integer,
@@ -635,6 +638,8 @@ CREATE TABLE guacamole_connection_history (
   history_id           serial       NOT NULL,
   user_id              integer      DEFAULT NULL,
   work_id              varchar(16)  DEFAULT NULL,
+  hostname             varchar(256) DEFAULT NULL,
+  protocol             varchar(16)  DEFAULT NULL,
   username             varchar(128) NOT NULL,
   remote_host          varchar(256) DEFAULT NULL,
   connection_id        integer      DEFAULT NULL,
