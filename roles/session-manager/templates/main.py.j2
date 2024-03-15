@@ -6,7 +6,7 @@ import socket
 import time
 import uuid
 from filelock import FileLock
-from access_guacamole_api import create_vnc_connection, delete_vnc_connection
+from access_guacamole_api import create_vnc_connection, delete_vnc_connection, assign_user_to_connection
 
 
 app = Flask(__name__)
@@ -47,6 +47,7 @@ def service_create():
     client = create_client(base_urls)
 
     work_id = str(request.json['work_id'])
+    work_user = str(request.json['work_user'])
     lockfile = '/var/lock/session-manager/' + work_id + '.lock'
     lock = FileLock(lockfile)
     lock.acquire()
@@ -113,9 +114,10 @@ def service_create():
 
     try:
         result_create_vnc_connection = create_vnc_connection(work_container)
+        vnc_identifier = result_create_vnc_connection['identifier']
+        assign_user_to_connection(work_user, vnc_identifier)
         logger_text = work_container + ': Create VNC connection object to guacamole successfully'
         app.logger.info(logger_text)
-        vnc_identifier = result_create_vnc_connection['identifier']
     except Exception as e:
         return jsonify({"error_message": e}), 500
 
