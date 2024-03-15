@@ -39,6 +39,12 @@
       - php-pdo
       - php-mysqlnd
       - php-mysqli
+- name: install for admin-gate
+  yum:
+    state: present
+    name:
+      - sshpass
+      - openssh-clients
 - name: copy customaized files
   copy:
     src: "{{ item.src }}"
