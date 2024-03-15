@@ -1,14 +1,4 @@
 ---
-- name: Get connection specification.
-  uri:
-    url: "http://localhost:8090/IDManager/SystemConnectionSpecificationIF/{{ connectionSpecification }}"
-    headers:
-      HTTP_SYSTEMACCOUNT: "SYSTEM"
-    method: GET
-    validate_certs: false
-    status_code: 200
-  register: cs_obj
-
 - name: Get token of REST API.
   uri:
     url: "http://guacamole:8080/guacamole/api/tokens"
@@ -44,33 +34,32 @@
   register: guacamole_connections
 - name: Set fact to target connection id.
   set_fact:
-    connectionidrdp: "{{ item.key }}"
-  when: item.value.idmIdentifier == id and item.value.protocol == 'rdp'
+    connectionidvnc: "{{ item.key }}"
+  when: item.value.idmIdentifier == id and item.value.protocol == 'vnc'
   loop: "{{ guacamole_connections.json | dict2items }}"
   loop_control:
     label: "{{ item.key }}"
 
 - name: Put connection.
   uri:
-    url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ connectionidrdp }}"
+    url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ connectionidvnc }}"
     headers:
       Guacamole-Token: "{{ token.json.authToken }}"
       Content-Type: "application/json"
     method: PUT
     body_format: json
     body:
-      name: "{{ hostname }}:{{ id }}-rdp"
+      name: "{{ hostname }}:{{ id }}-vnc"
       parentIdentifier: ROOT
-      protocol: "rdp"
+      protocol: "vnc"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.json.rdpPort | default('') }}"
+        port: "{{ cs_obj.vncPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.json.rdpID }}"
-        password: "{{ cs_obj.json.rdpPassword }}"
-        hostname: "{{ hostname }}"
-        ignore-cert: "true"
+        username: "{{ cs_obj.vncID }}"
+        password: "{{ cs_obj.vncPassword }}"
+        hostname: "chrome"
       attributes:
         remark: "{{ remark | default('') }}"
         max-connections: "0"
@@ -81,7 +70,7 @@
         guacd-encryption: ""
     validate_certs: false
     status_code: 204
-  when: prov_operation != 'delete' and connectionidrdp is defined
+  when: prov_operation != 'delete' and connectionidvnc is defined
 
 - name: Post connection.
   uri:
@@ -92,18 +81,20 @@
     method: POST
     body_format: json
     body:
-      name: "{{ hostname }}:{{ id }}-rdp"
+      name: "{{ hostname }}:{{ id }}-vnc"
       parentIdentifier: ROOT
-      protocol: "rdp"
+      protocol: "vnc"
       idmIdentifier: "{{ id }}"
       parameters:
-        port: "{{ cs_obj.json.rdpPort | default('') }}"
+        port: "{{ cs_obj.vncPort | default('') }}"
         create-recording-path: "true"
         recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-        username: "{{ cs_obj.json.rdpID }}"
-        password: "{{ cs_obj.json.rdpPassword }}"
+        username: "{{ cs_obj.vncID }}"
+        password: "{{ cs_obj.vncPassword }}"
+        create-typescript-path: "true"
+        typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
+        typescript-name: typescript
         hostname: "{{ hostname }}"
-        ignore-cert: "true"
       attributes:
         remark: "{{ remark | default('') }}"
         max-connections: "0"
@@ -115,18 +106,18 @@
     validate_certs: false
     return_content: yes
     status_code: 200
-  when: connectionidrdp is not defined
+  when: connectionidvnc is not defined
   register: new_connection
 
 - name: Delete connection.
   uri:
-    url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ connectionidrdp }}"
+    url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ connectionidvnc }}"
     headers:
       Guacamole-Token: "{{ token.json.authToken }}"
     method: DELETE
     validate_certs: false
     status_code: 204
-  when: prov_operation == 'delete' and connectionidrdp is defined
+  when: prov_operation == 'delete' and connectionidvnc is defined
 
 - name: Register connection permission.
   uri:
@@ -140,4 +131,4 @@
     validate_certs: false
     status_code: 204
   loop: "{{ guacamole_users.json.keys() }}"
-  when: connectionidrdp is not defined and new_connection.json is defined
+  when: connectionidvnc is not defined and new_connection.json is defined
