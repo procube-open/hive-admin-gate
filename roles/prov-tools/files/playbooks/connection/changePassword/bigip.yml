@@ -1,21 +1,26 @@
-- name: Add Users.
-  user:
-    name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
-    password: "{{ cs_obj[loop_protocol ~ 'Password'] | password_hash('sha512') }}"
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
+- name: admin password change
+  no_log: true
+  bigip_user:
+    state: present
+    username_credential: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    password_credential: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    shell: tmsh
+    provider:
+      server: "{{ hostname }}"
+      user: "{{ cs_obj.ansibleID }}"
+      password: "{{ cs_obj.ansiblePassword }}"
+      validate_certs: no
 
 - delegate_to: localhost
   block:
-  - name: ssh login.
+  - name: remote login linux shell admin-exec
     expect:
-      command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
+      command: ssh -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
       responses:
         ".*Password:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
       timeout: 10
-    delegate_to: localhost
     changed_when: false
-  
+
   - name: Update connection object.
     uri:
       url: "http://localhost:8090/IDManager/SystemConnectionIF/{{ id }}"
