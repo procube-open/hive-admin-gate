@@ -69,3 +69,24 @@ def delete_vnc_connection(vnc_identifier):
     headers = {'Content-Type': 'application/json'}
 
     response = requests.delete(delete_vnc_connection_url, headers=headers)
+
+def assign_user_to_connection(work_user, vnc_identifier):
+    response_generate_auth_token = generate_auth_token()
+    auth_token = response_generate_auth_token['authToken']
+    guacamole_database = response_generate_auth_token['dataSource']
+    assign_user_to_connection_path = '/api/session/data/' + guacamole_database + '/users/' + work_user + '/permissions'
+    assign_user_to_connection_url = guacamole_url + assign_user_to_connection_path
+
+    path = "/connectionPermissions/" + vnc_identifier
+    params = [
+        {
+            "op": "add",
+            "path": path,
+            "value": "READ"
+        }
+    ]
+    params = json.dumps(params)
+
+    headers = {'Content-Type': 'application/json', 'Guacamole-Token': auth_token}
+
+    requests.patch(assign_user_to_connection_url, data=params, headers=headers)
