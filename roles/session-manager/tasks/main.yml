@@ -1,8 +1,8 @@
 ---
-- name: install tini
+- name: install supervisor
   apk:
     name:
-    - tini
+    - supervisor
     update_cache: true
 - name: pip install packages
   pip:
@@ -33,6 +33,12 @@
     dest: /etc/periodic/daily
   - src: access_guacamole_api.py
     dest: /root/session-manager
+  - src: clean_chrome_container.py
+    dest: /root/session-manager
+  - src: supervisord.conf
+    dest: /etc
+  - src: clean-container.sh
+    dest: /etc/periodic/15min
 - name: put files from template
   template:
     src: main.py.j2

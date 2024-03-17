@@ -35,6 +35,7 @@ def create_vnc_connection(work_container):
         "name": work_container,
         "parentIdentifier":"ROOT",
         "protocol":"vnc",
+        "idmIdentifier": "session-manager",
         "parameters":{
             "hostname": work_container,
             "port": vnc_port,
@@ -44,6 +45,7 @@ def create_vnc_connection(work_container):
             "guacd-encryption": "",
             "failover-only": "",
             "weight": "",
+            "remark": "",
             "max-connections":"10",
             "guacd-hostname": "",
             "guacd-port": "",

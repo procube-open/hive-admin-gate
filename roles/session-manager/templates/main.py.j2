@@ -6,7 +6,7 @@ import socket
 import time
 import uuid
 from filelock import FileLock
-from access_guacamole_api import create_vnc_connection, delete_vnc_connection
+from access_guacamole_api import create_vnc_connection, delete_vnc_connection, assign_user_to_connection
 
 
 app = Flask(__name__)
@@ -47,6 +47,7 @@ def service_create():
     client = create_client(base_urls)
 
     work_id = str(request.json['work_id'])
+    work_user = str(request.json['work_user'])
     lockfile = '/var/lock/session-manager/' + work_id + '.lock'
     lock = FileLock(lockfile)
     lock.acquire()
@@ -59,11 +60,12 @@ def service_create():
 
     username = 'USERNAME=' + request.json['username']
     password = 'PASSWORD=' + request.json['password']
-    selenium_env = [whitelist, username, password]
+    proliant_url = 'PROLIANT_URL=http://proliant/' 
+    selenium_env = [whitelist, username, password, proliant_url]
 
     davfs_volume_name = 'davfs-volume-' + work_id
     url = 'http://' + webdav_server + ':' + webdav_port + '/' + work_id + '/'
-    davfs_driver_opts = {'username': webdav_username, 'password': webdav_password, 'url': url}
+    davfs_driver_opts = {'username': work_id, 'password': webdav_password, 'url': url}
     driver_config = docker.types.services.DriverConfig('fentas/davfs', options=davfs_driver_opts)
 
     davfs_mount_def = docker.types.Mount('/mnt', davfs_volume_name, type='volume', driver_config=driver_config)
@@ -113,9 +115,10 @@ def service_create():
 
     try:
         result_create_vnc_connection = create_vnc_connection(work_container)
+        vnc_identifier = result_create_vnc_connection['identifier']
+        assign_user_to_connection(work_user, vnc_identifier)
         logger_text = work_container + ': Create VNC connection object to guacamole successfully'
         app.logger.info(logger_text)
-        vnc_identifier = result_create_vnc_connection['identifier']
     except Exception as e:
         return jsonify({"error_message": e}), 500
 
