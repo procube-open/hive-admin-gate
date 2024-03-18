@@ -27,8 +27,8 @@ services:
           postfix: ":chpw"
           pathPattern: /changePassword
     initialize_roles:
-      - idm-download
-      #- idm-init
+      #- idm-download
+      - idm-init
     volumes:
     - source: idm_mysql
       target: /var/lib/mysql
