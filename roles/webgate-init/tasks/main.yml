@@ -13,3 +13,4 @@
     path: /etc/nginx/conf.d/default.conf
     insertafter: "http://idm80http"
     line: "    proxy_redirect http://dk0000-pamidmng11.{{ domain }}/infoscoop/ https://dk0000-pamidmng11.{{ domain }}/infoscoop/;"
+    firstmatch: true
