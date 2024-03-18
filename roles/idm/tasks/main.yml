@@ -103,6 +103,10 @@
 #     path: /usr/local/NetSoarer/IDManager/BindBroker/config/default.js
 #     regexp: "debug :"
 #     line: "             debug : false,"
-#- name: install paramiko
-#  pip:
-#    name: paramiko
+- name: Install python module for admin-gate.
+  pip:
+    name:
+      - paramiko
+      - ansible-pylibssh
+  vars:
+    ansible_python_interpreter: /root/prov/bin/python

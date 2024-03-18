@@ -10,6 +10,8 @@
       user: "{{ cs_obj.ansibleID }}"
       password: "{{ cs_obj.ansiblePassword }}"
       validate_certs: no
+  vars:
+    connection: local
 
 - delegate_to: localhost
   block:
@@ -17,7 +19,7 @@
     expect:
       command: ssh -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
       responses:
-        ".*Password:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+        ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
       timeout: 10
     changed_when: false
 

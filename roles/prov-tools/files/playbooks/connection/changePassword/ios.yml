@@ -1,10 +1,16 @@
 - name: admin password change
   ios_user:
-     name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
-     configured_password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
-     update_password: always
-     state: present
-     privilege: 15
+    name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    configured_password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    update_password: always
+    state: present
+    privilege: 15
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_become: yes
+    ansible_become_method: enable
+    # ansible_become_password
 
 - delegate_to: localhost
   block:
@@ -12,7 +18,7 @@
     expect:
       command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
       responses:
-        ".*Password:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+        ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
       timeout: 10
     changed_when: false
   

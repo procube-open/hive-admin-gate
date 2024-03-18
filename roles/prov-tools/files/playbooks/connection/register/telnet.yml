@@ -59,8 +59,8 @@
           port: "{{ cs_obj.telnetPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ cs_obj.telnetID }}"
-          password: "{{ cs_obj.telnetPassword }}"
+          username: "{{ telnetID }}"
+          password: "{{ telnetPassword }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
@@ -94,8 +94,8 @@
           port: "{{ cs_obj.telnetPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ cs_obj.telnetID }}"
-          password: "{{ cs_obj.telnetPassword }}"
+          username: "{{ telnetID }}"
+          password: "{{ telnetPassword }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript

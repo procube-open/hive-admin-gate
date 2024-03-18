@@ -8,6 +8,8 @@
     next
     end
     exit
+  vars:
+    ansible_network_os: fortinet.fortios
 
 - delegate_to: localhost
   block:

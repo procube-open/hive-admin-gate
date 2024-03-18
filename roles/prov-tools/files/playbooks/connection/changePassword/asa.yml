@@ -1,15 +1,21 @@
 - name: admin password change
   asa_config:
     lines:
-      - "username {{ user_name }} password {{ user_pass }}"
+      - "username {{ cs_obj[loop_protocol ~ 'ID'] }} password {{ cs_obj[loop_protocol ~ 'Password'] }}"
+    vars:
+      ansible_connection: network_cli
+      ansible_network_os: asa
+      ansible_become: yes
+      ansible_become_method: enable
+      # ansible_become_password
 
 - delegate_to: localhost
   block:
   - name: remote login linux shell admin-exec
     expect:
-      command: ssh -o StrictHostKeyChecking=no -l "{{ user_name }}" "{{ hostvars['ae0000-fw001']['ansible_host'] }}"
+      command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostvars['ae0000-fw001']['ansible_host'] }}"
       responses:
-        ".*[Pp]assword:.*": "{{ user_pass }}"
+        ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
       timeout: 10
     changed_when: false
 

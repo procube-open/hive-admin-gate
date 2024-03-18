@@ -4,6 +4,9 @@
     role: super-user
     encrypted_password: "{{ cs_obj[loop_protocol ~ 'Password'] | password_hash('sha512') }}"
     state: present
+  vars:
+    ansible_connection: netconf
+    ansible_network_os: junos
 
 - delegate_to: localhost
   block:
@@ -11,7 +14,7 @@
     expect:
       command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
       responses:
-        ".*Password:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+        ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
       timeout: 10
     changed_when: false
 

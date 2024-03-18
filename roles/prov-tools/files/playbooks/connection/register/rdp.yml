@@ -59,8 +59,8 @@
           port: "{{ cs_obj.rdpPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ cs_obj.rdpID }}"
-          password: "{{ cs_obj.rdpPassword }}"
+          username: "{{ rdpID }}"
+          password: "{{ rdpPassword }}"
           hostname: "{{ hostname }}"
           ignore-cert: "true"
         attributes:
@@ -92,8 +92,8 @@
           port: "{{ cs_obj.rdpPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ cs_obj.rdpID }}"
-          password: "{{ cs_obj.rdpPassword }}"
+          username: "{{ rdpID }}"
+          password: "{{ rdpPassword }}"
           hostname: "{{ hostname }}"
           ignore-cert: "true"
         attributes:
