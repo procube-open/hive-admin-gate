@@ -3893,6 +3893,18 @@ phases_data:
                     value: linux
                 -   displayName: Windows
                     value: windows
+                -   displayName: Cisco ASA
+                    value: asa
+                -   displayName: Cisco IOS
+                    value: ios
+                -   displayName: Cisco IOS XR
+                    value: iosxr
+                -   displayName: BIG-IP
+                    value: bigip
+                -   displayName: Juniper
+                    value: junos
+                -   displayName: Fortigate
+                    value: fortios
             -   allowAnotherValue: false
                 displayName: SSH利用
                 isArray: false

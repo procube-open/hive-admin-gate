@@ -290,7 +290,7 @@ UID(uid) はユーザIDです。
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### Telnet用パスワード(telnetPassoword)
+### Telnet用パスワード(telnetPassword)
 | データ型|string|
 |----|----------------|
 |必須|:x:|
