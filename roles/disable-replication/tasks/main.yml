@@ -1,0 +1,9 @@
+---
+- import_role:
+    name: backup-tools
+- name: disable start-replication timer
+  become: true
+  service:
+    daemon_reload: true
+    name: "start-replication.timer"
+    state: stopped
