@@ -44,8 +44,8 @@
         rdpPassword: "{{ cs_obj.rdpPassword if loop_protocol == 'rdp' else rdpPassword | default(omit) }}"
         telnetID: "{{ cs_obj.telnetID if loop_protocol == 'telnet' else telnetID | default(omit) }}"
         telnetPassword: "{{ cs_obj.telnetPassword if loop_protocol == 'telnet' else telnetPassword | default(omit) }}"
-        httpID: "{{ cs_obj.httpID if loop_protocol == 'vnc' else httpID | default(omit) }}"
-        httpPassword: "{{ cs_obj.httpPassword if loop_protocol == 'vnc' else httpPassword | default(omit) }}"
+        vncID: "{{ cs_obj.vncID if loop_protocol == 'vnc' else vncID | default(omit) }}"
+        vncPassword: "{{ cs_obj.vncPassword if loop_protocol == 'vnc' else vncPassword | default(omit) }}"
       validate_certs: false
       status_code: 200
 
