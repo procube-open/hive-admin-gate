@@ -61,7 +61,7 @@
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.vncID }}"
           password: "{{ cs_obj.vncPassword }}"
-          hostname: "chrome"
+          hostname: "{{ hostname }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
