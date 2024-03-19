@@ -4,7 +4,6 @@
      configured_password: "{{ cs_obj[loop_protocol ~ 'Password']}}"
      update_password: always
      state: present
-     privilege: 15
   vars:
     ansible_connection: network_cli
     ansible_network_os: iosxr

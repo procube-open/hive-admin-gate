@@ -100,3 +100,12 @@
   delay: 10
   args:
     creates: /root/.ansible/collections/ansible_collections/ansible/posix
+- name: Install python module for admin-gate.
+  pip:
+    name:
+      - paramiko
+      - ansible-pylibssh
+      - passlib
+      - ncclient
+  vars:
+    ansible_python_interpreter: /root/prov/bin/python
