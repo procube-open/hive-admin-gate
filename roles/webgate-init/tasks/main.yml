@@ -7,3 +7,10 @@
   vars:
     ansible_python_interpreter: /root/consul/bin/python
   when: webgate_kv is defined
+
+- name: Patch nginx conf for redirect IDM
+  lineinfile:
+    path: /etc/nginx/conf.d/default.conf
+    insertafter: "http://idm80http"
+    line: "    proxy_redirect http://idm.{{ domain }}/infoscoop/ https://idm.{{ domain }}/infoscoop/;"
+    firstmatch: true

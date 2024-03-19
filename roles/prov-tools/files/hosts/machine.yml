@@ -1,7 +1,0 @@
----
-plugin: idm_inventory
-interface: SystemMachineIF
-host_name_property: hostname
-class_name: machine
-groups:
-- name: machines

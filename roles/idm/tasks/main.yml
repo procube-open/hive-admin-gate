@@ -39,6 +39,12 @@
       - php-pdo
       - php-mysqlnd
       - php-mysqli
+- name: install for admin-gate
+  yum:
+    state: present
+    name:
+      - sshpass
+      - openssh-clients
 - name: copy customaized files
   copy:
     src: "{{ item.src }}"
@@ -97,6 +103,3 @@
 #     path: /usr/local/NetSoarer/IDManager/BindBroker/config/default.js
 #     regexp: "debug :"
 #     line: "             debug : false,"
-#- name: install paramiko
-#  pip:
-#    name: paramiko

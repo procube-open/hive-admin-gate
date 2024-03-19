@@ -1,7 +1,13 @@
 ---
 collections:
- - ansible.posix
- - community.general
- - community.docker
- - community.crypto
- - arista.eos
+  - ansible.posix
+  - community.general
+  - community.docker
+  - community.crypto
+  - arista.eos
+  - cisco.ios
+  - cisco.iosxr
+  - cisco.asa
+  - fortinet.fortios
+  - junipernetworks.junos
+  - f5networks.f5_modules

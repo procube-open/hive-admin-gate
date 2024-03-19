@@ -1,0 +1,44 @@
+- name: Add Users.
+  user:
+    name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    password: "{{ cs_obj[loop_protocol ~ 'Password'] | password_hash('sha512') }}"
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+- delegate_to: localhost
+  block:
+  - name: ssh login.
+    expect:
+      command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
+      responses:
+        ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      timeout: 10
+    delegate_to: localhost
+    changed_when: false
+  
+  - name: Update connection object.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemConnectionIF/{{ id }}"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+        Content-Type: "application/json"
+      method: PUT
+      body_format: json
+      body:
+        id: "{{ id }}"
+        hostname: "{{ hostname }}"
+        connectionSpecification: "{{ connectionSpecification}}"
+        connectionSpecificationName: "{{ connectionSpecificationName }}"
+        viewOU: "{{ viewOU }}"
+        editOU: "{{ editOU }}"
+        remark: "{{ remark | default(omit) }}"
+        sshID: "{{ cs_obj.sshID if loop_protocol == 'ssh' else sshID | default(omit) }}"
+        sshPassword: "{{ cs_obj.sshPassword if loop_protocol == 'ssh' else sshPassword | default(omit) }}"
+        rdpID: "{{ cs_obj.rdpID if loop_protocol == 'rdp' else rdpID | default(omit) }}"
+        rdpPassword: "{{ cs_obj.rdpPassword if loop_protocol == 'rdp' else rdpPassword | default(omit) }}"
+        telnetID: "{{ cs_obj.telnetID if loop_protocol == 'telnet' else telnetID | default(omit) }}"
+        telnetPassword: "{{ cs_obj.telnetPassword if loop_protocol == 'telnet' else telnetPassword | default(omit) }}"
+        httpID: "{{ cs_obj.httpID if loop_protocol == 'vnc' else httpID | default(omit) }}"
+        httpPassword: "{{ cs_obj.httpPassword if loop_protocol == 'vnc' else httpPassword | default(omit) }}"
+      validate_certs: false
+      status_code: 200
