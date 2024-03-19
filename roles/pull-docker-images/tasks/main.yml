@@ -1,0 +1,7 @@
+---
+- name: pull procube/node-chrome image
+  community.docker.docker_image:
+    name: procube/node-chrome
+    source: pull
+  vars:
+    ansible_python_interpreter: "{{ hive_home_dir }}/docker/bin/python3"

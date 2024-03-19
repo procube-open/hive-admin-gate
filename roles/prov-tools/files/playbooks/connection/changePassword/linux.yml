@@ -4,6 +4,7 @@
     password: "{{ cs_obj[loop_protocol ~ 'Password'] | password_hash('sha512') }}"
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    ansible_become: true
 
 - delegate_to: localhost
   block:
