@@ -2,12 +2,12 @@
   asa_config:
     lines:
       - "username {{ cs_obj[loop_protocol ~ 'ID'] }} password {{ cs_obj[loop_protocol ~ 'Password'] }}"
-    vars:
-      ansible_connection: network_cli
-      ansible_network_os: asa
-      ansible_become: yes
-      ansible_become_method: enable
-      # ansible_become_password
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: asa
+    ansible_become: yes
+    ansible_become_method: enable
+    # ansible_become_password
 
 - delegate_to: localhost
   block:
@@ -45,3 +45,7 @@
         httpPassword: "{{ cs_obj.httpPassword if loop_protocol == 'vnc' else httpPassword | default(omit) }}"
       validate_certs: false
       status_code: 200
+
+- name: config save
+  asa_command:
+     commands: 'write mem'

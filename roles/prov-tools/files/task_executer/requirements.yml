@@ -10,3 +10,4 @@ collections:
   - cisco.asa
   - fortinet.fortios
   - junipernetworks.junos
+  - f5networks.f5_modules

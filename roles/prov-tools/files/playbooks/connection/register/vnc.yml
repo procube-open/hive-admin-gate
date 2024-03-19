@@ -59,8 +59,8 @@
           port: "{{ cs_obj.vncPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ vncID }}"
-          password: "{{ vncPassword }}"
+          username: "{{ cs_obj.vncID }}"
+          password: "{{ cs_obj.vncPassword }}"
           hostname: "chrome"
         attributes:
           remark: "{{ remark | default('') }}"
@@ -91,8 +91,8 @@
           port: "{{ cs_obj.vncPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ vncID }}"
-          password: "{{ vncPassword }}"
+          username: "{{ cs_obj.vncID }}"
+          password: "{{ cs_obj.vncPassword }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript

@@ -49,3 +49,8 @@
         httpPassword: "{{ cs_obj.httpPassword if loop_protocol == 'vnc' else httpPassword | default(omit) }}"
       validate_certs: false
       status_code: 200
+
+- name: config save
+  bigip_config:
+    save: yes
+    provider: "{{ provider }}"

@@ -7,7 +7,7 @@
   vars:
     ansible_connection: netconf
     ansible_network_os: junos
-    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_port: 22
 
 - delegate_to: localhost
   block:
