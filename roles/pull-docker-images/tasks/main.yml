@@ -1,4 +1,10 @@
 ---
+- name: remove procube/node-chrome image
+  community.docker.docker_image:
+    state: absent
+    name: procube/node-chrome
+  vars:
+    ansible_python_interpreter: "{{ hive_home_dir }}/docker/bin/python3"
 - name: pull procube/node-chrome image
   community.docker.docker_image:
     name: procube/node-chrome
