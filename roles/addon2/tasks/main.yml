@@ -5,3 +5,6 @@
 - import_role:
     name: pull-docker-images
   when: inventory_hostname in groups['hives']
+- import_role:
+    name: create-docker-volumes
+  when: inventory_hostname in groups['hives']
