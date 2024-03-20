@@ -68,7 +68,9 @@ def service_create():
     davfs_driver_opts = {'username': work_id, 'password': webdav_password, 'url': url}
     driver_config = docker.types.services.DriverConfig('fentas/davfs', options=davfs_driver_opts)
 
-    davfs_mount_def = docker.types.Mount('/mnt', davfs_volume_name, type='volume', driver_config=driver_config)
+    davfs_mount_point = '/mnt/' + work_id
+    davfs_mount_def = docker.types.Mount(davfs_mount_point, davfs_volume_name, type='volume', driver_config=driver_config)
+    davfs_public_mount_def = docker.types.Mount('/mnt/public', 'davfs-volume-public', type='volume')
     shm_mount_def = docker.types.Mount('/dev/shm', '/dev/shm', type='bind')
 
     container_spec = docker.types.ContainerSpec(
@@ -77,6 +79,7 @@ def service_create():
         env=selenium_env,
         mounts=[
             davfs_mount_def,
+            davfs_public_mount_def,
             shm_mount_def
         ],
         cap_add=[
