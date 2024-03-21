@@ -3785,7 +3785,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP/HTTPS用ID
                 isArray: false
-                name: httpID
+                name: vncID
                 outputLdapSchema: false
                 required: false
                 type: string
@@ -3794,7 +3794,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP用パスワード
                 isArray: false
-                name: httpPassword
+                name: vncPassword
                 outputLdapSchema: false
                 required: false
                 type: string
@@ -3905,6 +3905,8 @@ phases_data:
                     value: junos
                 -   displayName: Fortigate
                     value: fortios
+                -   displayName: 検証用
+                    value: test
             -   allowAnotherValue: false
                 displayName: SSH利用
                 isArray: false
@@ -4071,6 +4073,79 @@ phases_data:
                 - vnc
                 required: false
                 type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 利用プロトコル
+                isArray: false
+                name: httpProtocol
+                outputLdapSchema: false
+                propGroupName:
+                - vnc
+                required: true
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   displayName: HTTP
+                    value: http
+                -   displayName: HTTPS
+                    value: https
+        -   displayName: アクション
+            isNestedObject: true
+            isPrimaryAndNestedObject: false
+            name: httpLoginParams
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                displayName: イベント
+                isArray: false
+                name: event
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   value: input
+                -   value: submit
+            -   allowAnotherValue: false
+                displayName: 要素取得方法
+                isArray: false
+                name: getElementMethod
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+                values:
+                -   value: xpath
+            -   allowAnotherValue: false
+                displayName: ターゲットXPath
+                isArray: false
+                name: targetElementPath
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                displayName: 値
+                isArray: false
+                name: sendValue
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: このアクションの前に画面遷移が存在する場合、チェックしてください。
+                displayName: 画面遷移あり
+                isArray: false
+                name: newPage
+                outputLdapSchema: false
+                required: false
+                type: boolean
                 unique: false
                 uniqueIgnoreCase: false
         -   displayName: 機器内接続先データ
@@ -4857,7 +4932,7 @@ phases_data:
                 type: string
                 unique: false
                 uniqueIgnoreCase: false
-                valuesInterface: selectUserIF
+                valuesInterface: selectAdminUserIF
             -   allowAnotherValue: false
                 displayName: 申請者
                 isArray: false
@@ -5520,6 +5595,16 @@ phases_data:
                 radioButtonFlag: false
                 twoColumnFlag: false
                 type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: httpProtocol
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
             propertiesOnList:
             -   displayOnList: 'on'
                 filter: regex
@@ -5739,6 +5824,183 @@ phases_data:
             withHeader: true
         -   autoCommit: false
             backToDetail: false
+            className: user
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: 同一チームユーザーガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: sameTeamUsersIF
+            isSingleton: false
+            name: sameTeamUser_g
+            propertiesOnDetail:
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: uid
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: sn
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: cn
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: idmRole
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: userPassword
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ou
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: team
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: dn
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: accountLock
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: boolean
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: email
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data1
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data2
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data3
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data4
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: data5
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            propertiesOnList:
+            -   displayOnList: 'on'
+                filter: regex
+                name: uid
+            -   displayOnList: 'on'
+                filter: regex
+                name: sn
+            -   displayOnList: 'on'
+                filter: regex
+                name: cn
+            -   displayOnList: 'on'
+                name: idmRole
+            -   displayOnList: 'on'
+                name: accountLock
+            -   displayOnList: 'on'
+                filter: regex
+                name: email
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
             className: linkageSystem
             clonable: false
             disableAdd: false
@@ -5901,6 +6163,9 @@ phases_data:
             -   displayOnList: 'on'
                 filter: regex
                 name: uid
+            -   displayOnList: 'on'
+                filter: regex
+                name: sn
             -   displayOnList: 'on'
                 filter: regex
                 name: cn
@@ -6408,10 +6673,49 @@ phases_data:
         -   ACEs:
             -   allow: true
             accessLevel: full
+            className: user
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: 同一チームユーザーIF
+            filterDerivation: '{team: {"$in": select(getResource("/IDManager/selectUserGroupIF").pop().ou,
+                "id")}}'
+            name: sameTeamUsersIF
+            properties:
+            - uid
+            - sn
+            - cn
+            - userPassword
+            - team
+            - dn
+            - accountLock
+            - email
+            - data1
+            - data2
+            - data3
+            - data4
+            - data5
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   ACEs:
+            -   allow: true
+            accessLevel: full
             className: linkageSystem
             database: Sandbox
             displayName: 連携システムオブジェクトマスタ
             name: sandboxLinkageSystem
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: user
+            database: Master
+            deleteAsUpdate: false
+            displayName: 管理者ユーザー選択IF
+            filter: '{idmRole: {$in: ["IDM_ADMIN", "IDM_USER_ADMIN", "IDM_USER_LEADER"]}}'
+            name: selectAdminUserIF
+            properties:
+            - uid
+            - sn
+            - cn
+            useAESDecryptedResponse: false
             useCustomBackendDatabase: false
         -   ACEs:
             -   allow: true
@@ -6438,7 +6742,9 @@ phases_data:
             - connectionSpecificationName
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
-        -   accessLevel: readOnly
+        -   ACEs:
+            -   allow: true
+            accessLevel: readOnly
             className: connectionSpecification
             database: Master
             deleteAsUpdate: false
@@ -6512,8 +6818,11 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: ユーザ選択IF
-            filterDerivation: "getResource(\"/IDManager/selectUserGroupIF\").length
-                == 0\r\n? {uid: null}\r\n: {team: {\r\n\"$in\": select(getResource(\"/IDManager/selectUserGroupIF\").pop().ou,
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                getResource(\"/IDManager/selectUserGroupIF\").length == 0\r\n? {uid:
+                null}\r\n: {team: {\r\n\"$in\": select(getResource(\"/IDManager/selectUserGroupIF\").pop().ou,
                 \"id\")\r\n}}"
             name: selectUserIF
             properties:
@@ -6550,6 +6859,12 @@ phases_data:
             database: Sandbox
             deleteAsUpdate: false
             displayName: チーム編集インターフェース
+            filterDerivation: "find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_ADMIN\"\r\n|| find(getResource(\"/IDManager/userEditorInterface\"),
+                \"uid\", user()).idmRole == \"IDM_USER_ADMIN\"\r\n? {hoge: null}\r\n:
+                getResource(\"/IDManager/selectUserGroupIF\").length == 0\r\n? {uid:
+                null}\r\n: {ou: {\r\n\"$in\": select(getResource(\"/IDManager/selectUserGroupIF\").pop().ou,
+                \"id\")\r\n}}"
             name: userGroupEditorInterface
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
