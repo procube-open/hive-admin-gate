@@ -26,7 +26,7 @@ services:
         type: volume
     user: root
     labels:
-      published_name: dk0000-pamctrl11
+      published_name: ae0000-pamctrl11
       HIVE_MARK: guacamole
       # webgate:
       #   authentication: saml
@@ -82,12 +82,12 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
-      GUAC_URL: https://dk0000-pamgate11.eo.k-opti.ad.jp/guacamole
+      GUAC_URL: https://ae0000-pamgate11.eo.k-opti.ad.jp/guacamole
       GUAC_API_URL: http://guacamole:8080/guacamole
       SESSION_MANAGER_URL: http://session-manager:80
-      IDM_URL: https://dk0000-pamidmng11.eo.k-opti.ad.jp
-      WS_URL: wss://dk0000-pamgate11.eo.k-opti.ad.jp
-      LOGOUT_URL: https://dk0000-pamgate11.eo.k-opti.ad.jp/Shibboleth.sso/Logout
+      IDM_URL: https://ae0000-pamidmng11.eo.k-opti.ad.jp
+      WS_URL: wss://ae0000-pamgate11.eo.k-opti.ad.jp
+      LOGOUT_URL: https://ae0000-pamgate11.eo.k-opti.ad.jp/Shibboleth.sso/Logout
       # APPBAR_LOGO_PATH: "icons/sakura-internet_logomark.png"
       # FAVICON_PATH: "icons/sakura-internet_favicon.ico"
     ports:
@@ -100,7 +100,7 @@ services:
           fstype: xfs
           size: 300M
     labels:
-      published_name: dk0000-pamgate11
+      published_name: ae0000-pamgate11
       HIVE_MARK: file-server
       webgate:
         authentication: saml

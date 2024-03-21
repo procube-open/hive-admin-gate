@@ -309,7 +309,7 @@ am_kv_force_passwd:
       config_name: forceRedirect
       enable: true
       monitoringEnable: true
-      url: "https://dk0000-pamidmng11.{{ domain }}/changePassword/changePassword?uid=%1$s&spid=%2$s&requiredOnly=TRUE&noPassword=FALSE"
+      url: "https://ae0000-pamidmng11.{{ domain }}/changePassword/changePassword?uid=%1$s&spid=%2$s&requiredOnly=TRUE&noPassword=FALSE"
   - key: "nsam/{{ tenantid }}/monitoring/idp2_NetSoarer_monitoringService"
     value:
       app_name: AccessManager
@@ -317,6 +317,6 @@ am_kv_force_passwd:
       interval: "30"
       monitoringEnable: true
       monitoringServiceName: idp_NetSoarer_monitoringService
-      monitoringURL: https://dk0000-pamidmng11.{{ domain }}/ChangePasswordApp/chk.jsp
+      monitoringURL: https://ae0000-pamidmng11.{{ domain }}/ChangePasswordApp/chk.jsp
       type: HTTP
 am_kv: "{{ am_kv_common + am_kv_metadataFile + am_kv_samlAttributes + am_kv_rpOverride + ([] if pwAvailableDays == 0 else am_kv_force_passwd) }}"

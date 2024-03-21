@@ -51,8 +51,8 @@
 - name: patch logout URL
   lineinfile:
     path: /opt/tomcat10/webapps/infoscoop/WEB-INF/web.xml
-    regexp: "<param-value>(/dologout|https://dk0000-pamidmng11\\.{{ domain | regex_replace('\\.', '\\\\\\.') }}/Shibboleth.sso/Logout)</param-value>"
-    line: '<param-value>https://dk0000-pamidmng11.{{ domain }}/Shibboleth.sso/Logout</param-value>'
+    regexp: "<param-value>(/dologout|https://ae0000-pamidmng11\\.{{ domain | regex_replace('\\.', '\\\\\\.') }}/Shibboleth.sso/Logout)</param-value>"
+    line: '<param-value>https://ae0000-pamidmng11.{{ domain }}/Shibboleth.sso/Logout</param-value>'
 - name: E/U System unarchive
   unarchive:
     src: admin.tar.gz

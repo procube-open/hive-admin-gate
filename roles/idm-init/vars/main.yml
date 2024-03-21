@@ -420,7 +420,7 @@ is_tables_data:
 
             function jumpChangePassword() {
 
-            location.href=''https://dk0000-pamidmng11.{{ domain }}/changePassword/changePassword?returnURL=https%3A%2F%dk0000-pamidmng11.{{
+            location.href=''https://ae0000-pamidmng11.{{ domain }}/changePassword/changePassword?returnURL=https%3A%2F%ae0000-pamidmng11.{{
             domain }}&uid=''
             + document.getElementById(''portal-user-menu'').title;
 
@@ -430,7 +430,7 @@ is_tables_data:
 
             function samlLogout() {
 
-            location.href=''https://dk0000-pamidmng11.{{ domain }}/Shibboleth.sso/Logout'';
+            location.href=''https://ae0000-pamidmng11.{{ domain }}/Shibboleth.sso/Logout'';
 
             return false;
 
@@ -2532,7 +2532,7 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://ae0000-pamacmng11.{{
             domain }}/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
@@ -2545,8 +2545,8 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
-            domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://ae0000-pamidmng11.{{
+            domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fae0000-pamidmng11.{{
             domain }}&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
@@ -2598,7 +2598,7 @@ is_tables_data:
 
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
-            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://dk0000-pamacmng11.{{
+            type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://ae0000-pamacmng11.{{
             domain }}/idp-console/"
             target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
@@ -2611,8 +2611,8 @@ is_tables_data:
             </div></td>
 
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
-            type="html" class="commandbar-item"><a href="javascript:location.href=''https://dk0000-pamidmng11.{{
-            domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fdk0000-pamidmng11.{{
+            type="html" class="commandbar-item"><a href="javascript:location.href=''https://ae0000-pamidmng11.{{
+            domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fae0000-pamidmng11.{{
             domain }}&amp;uid=''
             + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
@@ -7065,8 +7065,8 @@ phases_data:
             pwNotWaitTaskCompletion: false
             pwPermitSameValue: false
             pwTrustedSites:
-            - ^https://dk0000-pamacmng11.{{ domain }}/
-            - ^https://dk0000-pamidmng11.{{ domain }}/
+            - ^https://ae0000-pamacmng11.{{ domain }}/
+            - ^https://ae0000-pamidmng11.{{ domain }}/
             pwUseQuestion: false
             pwUserIf: changePassword
             pwpolicyAlphaCnt: 1

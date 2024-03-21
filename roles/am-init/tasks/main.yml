@@ -1,7 +1,7 @@
 ---
 - name: create application
   shell: |
-    nsamctl create idp dk0000-pamacmng11.{{ domain }}
+    nsamctl create idp ae0000-pamacmng11.{{ domain }}
   register: create_result
   args:
     creates: /opt/wildfly/standalone/deployments/idp.war
@@ -11,7 +11,7 @@
     seconds: 35
 - name: set proto to http
   shell: |
-    nsamctl proto dk0000-pamacmng11.{{ domain }} http
+    nsamctl proto ae0000-pamacmng11.{{ domain }} http
   when: create_result is changed
   notify: wildfly configured
 - name: set JDBC Driver
