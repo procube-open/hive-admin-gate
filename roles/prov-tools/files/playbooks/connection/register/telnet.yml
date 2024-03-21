@@ -61,6 +61,8 @@
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.telnetID }}"
           password: "{{ cs_obj.telnetPassword }}"
+          username-regex: "{{ '.*[Uu]sername.*' if cs_obj.osType == 'asa' or cs_obj.osType == 'ios' or cs_obj.osType == 'iosxr' else '.*Login.*' if cs_obj.osType == 'junos' or cs_obj.osType == 'fortios' else omit }}"
+          password-regex: "{{ '.*[Pp]assword.*' if cs_obj.osType == 'asa' or cs_obj.osType == 'ios' or cs_obj.osType == 'iosxr' or cs_obj.osType == 'junos' or cs_obj.osType == 'fortios' else omit }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
@@ -96,6 +98,8 @@
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.telnetID }}"
           password: "{{ cs_obj.telnetPassword }}"
+          username-regex: "{{ '.*[Uu]sername.*' if cs_obj.osType == 'asa' or cs_obj.osType == 'ios' or cs_obj.osType == 'iosxr' else '.*Login.*' if cs_obj.osType == 'junos' or cs_obj.osType == 'fortios' else omit }}"
+          password-regex: "{{ '.*[Pp]assword.*' if cs_obj.osType == 'asa' or cs_obj.osType == 'ios' or cs_obj.osType == 'iosxr' or cs_obj.osType == 'junos' or cs_obj.osType == 'fortios' else omit }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
