@@ -100,7 +100,7 @@
     when: "prov_operation == 'delete' and uid in userid"
   - name: Make cnection pemissions.
     set_fact:
-      connection_permissions: "{{ connection_permissions | default([]) +  [{'op': 'add', 'path': '/connectionPermissions/' ~ item, 'value': 'READ'}] }}"
+      connection_permissions: "{{ connection_permissions | default([{'op': 'add', 'path': '/systemPermissions', 'value': 'ADMINISTER'}]) +  [{'op': 'add', 'path': '/connectionPermissions/' ~ item, 'value': 'READ'}] }}"
     loop: "{{ connectionid }}"
   - name: Register cnection pemissions.
     uri:
