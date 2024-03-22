@@ -21,12 +21,12 @@ stages:
   production:
     provider: kickstart
     separate_repository: False
-    cidr: 10.43.51.0/24
+    cidr: 10.43.34.0/24
     ip_address_list:
-    - 10.43.51.20
-    - 10.43.51.21
-    - 10.43.51.22
-    internal_cidr: 10.43.52.0/24
+    - 10.43.33.20
+    - 10.43.33.21
+    - 10.43.33.22
+    internal_cidr: 10.43.34.0/24
     disk_size: 200
     repository_disk_size: 500
     mirrored_disk_size: 150
@@ -38,10 +38,11 @@ stages:
       networks:
       - interface: ens192
         ips:
-        - 10.43.51.20
-        - 10.43.51.21
-        - 10.43.51.22
+        - 10.43.33.20
+        - 10.43.33.21
+        - 10.43.33.22
         netmask: 255.255.255.0
-        gateway: 10.43.51.1
+        gateway: 10.43.33.1
         nameservers:
-        - 8.8.8.8
+        - 10.33.194.63
+        - 10.34.3.90

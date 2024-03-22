@@ -1,6 +1,6 @@
 #! /bin/sh
 
-PROXY_IP=""
+PROXY_IP="10.34.41.36"
 STAGE=""
 HIVE_NAME="admin-gate"
 

@@ -76,7 +76,7 @@ services:
         batch_scripts:
           - ansible-playbook -i /var/acme/hosts acme.yml
     labels:
-      HIVE_VIP: 10.43.51.17
+      HIVE_VIP: 10.43.33.17
   memcached:
     image: memcached
     endpoint_mode: dnsrr
