@@ -3785,7 +3785,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP/HTTPS用ID
                 isArray: false
-                name: httpID
+                name: vncID
                 outputLdapSchema: false
                 required: false
                 type: string
@@ -3794,7 +3794,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: HTTP用パスワード
                 isArray: false
-                name: httpPassword
+                name: vncPassword
                 outputLdapSchema: false
                 required: false
                 type: string

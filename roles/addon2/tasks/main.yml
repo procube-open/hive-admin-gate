@@ -5,3 +5,9 @@
 - import_role:
     name: pull-docker-images
   when: inventory_hostname in groups['hives']
+# - import_role:
+#     name: enable-replication
+#   when: inventory_hostname in groups['repository']
+# - import_role:
+#     name: disable-replication
+#   when: inventory_hostname in groups['repository']
