@@ -54,3 +54,5 @@
   bigip_config:
     save: yes
     provider: "{{ provider }}"
+  vars:
+    connection: local
