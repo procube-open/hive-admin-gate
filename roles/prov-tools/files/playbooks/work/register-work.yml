@@ -27,11 +27,11 @@
   set_fact:
     connectionids: >
       {{ connectionids | default([]) + [{ "identifier": item }] }}
-  loop: "{{ guacamoleConnections.json | dict2items | selectattr('value.idmIdentifier', 'in', connections) | map(attribute='key') | list }}"
+  loop: "{{ guacamoleConnections.json | dict2items | selectattr('value.idmIdentifier', 'in', resultConnections) | map(attribute='key') | list }}"
 - set_fact:
     Periods: "{{ Periods | default([]) }}"
 - set_fact:
-    workUsers: "{{ workUsers | default([]) }}"
+    resultUsers: "{{ resultUsers | default([]) }}"
 - set_fact:
     manageUsers: "{{ manageUsers | default([]) }}"
 - name: Format periods.
@@ -53,7 +53,7 @@
         "isWorker": true,
         "isManager": false
       }] }}
-  loop: "{{ workUsers | difference(manageUsers) }}"
+  loop: "{{ resultUsers | difference(manageUsers) }}"
 - name: Format managers.
   set_fact:
     managers: >
@@ -63,7 +63,7 @@
         "isWorker": false,
         "isManager": true
       }] }}
-  loop: "{{ manageUsers | difference(workUsers) }}"
+  loop: "{{ manageUsers | difference(resultUsers) }}"
 - name: Format worker and manager.
   set_fact:
     workerAndManager: >
@@ -73,7 +73,7 @@
         "isWorker": true,
         "isManager": true
       }] }}
-  loop: "{{ workUsers | intersect(manageUsers) }}"
+  loop: "{{ resultUsers | intersect(manageUsers) }}"
 - name: Post Work.
   uri:
     url: "http://guacamole:8080/guacamole/api/session/data/postgresql/works"
@@ -111,6 +111,6 @@
       dirname: "{{ name }}"
       idmIdentifier: "{{ id }}"
       password: hoge
-      whitelist: "{{ connectionList.json | selectattr('id', 'in', connections) | map(attribute='hostname') | list }}"
+      whitelist: "{{ connectionList.json | selectattr('id', 'in', resultConnections) | map(attribute='hostname') | list }}"
     validate_certs: false
     status_code: 201
