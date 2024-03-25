@@ -90,3 +90,18 @@ def assign_user_to_connection(work_user, vnc_identifier):
     headers = {'Content-Type': 'application/json', 'Guacamole-Token': auth_token}
 
     requests.patch(assign_user_to_connection_url, data=params, headers=headers)
+
+def get_http_login_format(identifier):
+    response_generate_auth_token = generate_auth_token()
+    auth_token = response_generate_auth_token['authToken']
+    guacamole_database = response_generate_auth_token['dataSource']
+    get_parameters_path = '/api/session/data/' + guacamole_database + '/connections/' + identifier + '/parameters'
+    get_parameters_url = guacamole_url + get_parameters_path
+
+    headers = {'Guacamole-Token': auth_token}
+
+    parameters_res = requests.get(get_parameters_url, headers=headers)
+    parameters_data = parameters_res.json()
+    http_login_format = parameters_data['httpLoginFormat']
+    return http_login_format
+
