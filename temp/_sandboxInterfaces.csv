@@ -5,6 +5,7 @@
 "Update","LdapGenericObjectEditorIF1","LDAP汎用オブジェクト編集IF1","","Sandbox","LdapGenericObject","full","","","","","","{level:1}","","","","","","","","false","false","false",""
 "Update","LdapGenericObjectEditorIF2","LDAP汎用オブジェクト編集IF2","","Sandbox","LdapGenericObject","full","","","","","","{level:2}","","","","","","","","false","false","false",""
 "Update","OUEditIF","OU編集IF","","Sandbox","ou","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
+"Create","SystemConnectionGroupIF","システム用接続先グループIF","","Sandbox","connectionGroup","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
 "Update","SystemConnectionIF","SYSTEM用接続先インターフェース","","Sandbox","connection","full","","","","","","","","","","","","","","false","false","false",""
 "Update","SystemConnectionSpecificationIF","SYSTEM用接続仕様インターフェース","","Sandbox","connectionSpecification","full","","","","","","","","","","","","","","false","false","false",""
 "Update","SystemMachineIF","SYSTEM用機器インターフェース","","Sandbox","machine","full","","","","","","","","","","","","","","false","false","false",""
