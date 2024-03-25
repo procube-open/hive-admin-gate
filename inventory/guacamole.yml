@@ -224,9 +224,8 @@ services:
       DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
       # WEBDAV_SERVER_PORT: 2000
       # WEBDAV_PUBLIC_VOLUME_USERNAME: public
-    placement:
-      constraints:
-        - "{{ 'node.hostname == hive1' if hive_stage == 'production' else 'node.hostname == s-hive1' }}"
+    labels:
+      HIVE_VIP: 10.43.51.23
   session-manager:
     image:
       from: python:alpine3.18
