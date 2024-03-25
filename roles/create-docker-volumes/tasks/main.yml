@@ -4,7 +4,7 @@
     name: "davfs-volume-public"
     driver: "fentas/davfs"
     driver_options:
-      url: "http://192.168.0.5:2000/public/"
+      url: "http://10.160.194.119:2000/public/"
       username: "public"
       password: "test"
   vars:
