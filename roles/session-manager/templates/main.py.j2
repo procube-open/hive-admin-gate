@@ -48,27 +48,27 @@ def service_create():
 
     work_id = str(request.json['work_id'])
     work_user = str(request.json['work_user'])
+    identifier = str(request.json['identifier'])
+
     lockfile = '/var/lock/session-manager/' + work_id + '.lock'
     lock = FileLock(lockfile)
     lock.acquire()
 
     work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
 
-    target_info = socket.gethostbyname_ex(request.json['selenium_allow_url'])
-    target_ips = target_info[2]
-    whitelist = 'WHITELIST=' + str(target_ips)
+    http_login_format = get_http_login_format(identifier)
 
-    username = 'USERNAME=' + request.json['username']
-    password = 'PASSWORD=' + request.json['password']
-    proliant_url = 'PROLIANT_URL=http://proliant/' 
-    selenium_env = [whitelist, username, password, proliant_url]
+    http_login_format_env = 'HTTP_LOGIN_FORMAT=' + http_login_format
+    selenium_env = [http_login_format_env]
 
     davfs_volume_name = 'davfs-volume-' + work_id
     url = 'http://' + webdav_server + ':' + webdav_port + '/' + work_id + '/'
     davfs_driver_opts = {'username': work_id, 'password': webdav_password, 'url': url}
     driver_config = docker.types.services.DriverConfig('fentas/davfs', options=davfs_driver_opts)
 
-    davfs_mount_def = docker.types.Mount('/mnt', davfs_volume_name, type='volume', driver_config=driver_config)
+    davfs_mount_point = '/mnt/' + work_id
+    davfs_mount_def = docker.types.Mount(davfs_mount_point, davfs_volume_name, type='volume', driver_config=driver_config)
+    davfs_public_mount_def = docker.types.Mount('/mnt/public', 'davfs-volume-public', type='volume')
     shm_mount_def = docker.types.Mount('/dev/shm', '/dev/shm', type='bind')
 
     container_spec = docker.types.ContainerSpec(
@@ -77,6 +77,7 @@ def service_create():
         env=selenium_env,
         mounts=[
             davfs_mount_def,
+            davfs_public_mount_def,
             shm_mount_def
         ],
         cap_add=[
