@@ -179,12 +179,12 @@ UID(uid) はユーザIDです。
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### HTTP/HTTPS用ID(httpID)
+### HTTP/HTTPS用ID(vncID)
 | データ型|string|
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
-### HTTP用パスワード(httpPassword)
+### HTTP用パスワード(vncPassword)
 | データ型|string|
 |----|----------------|
 |必須|:x:|
