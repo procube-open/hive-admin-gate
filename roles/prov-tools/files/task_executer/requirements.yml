@@ -11,3 +11,5 @@ collections:
   - fortinet.fortios
   - junipernetworks.junos
   - f5networks.f5_modules
+  - ansible.windows
+  - a10.acos_axapi

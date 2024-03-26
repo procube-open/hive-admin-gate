@@ -108,5 +108,6 @@
       - passlib
       - ncclient
       - pexpect
+      - pywinrm
   vars:
     ansible_python_interpreter: /root/prov/bin/python
