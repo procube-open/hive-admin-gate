@@ -1,0 +1,40 @@
+- name: パスワード更新
+  win_user:
+    name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    state: present
+  vars:
+    ansible_connection: winrm
+    ansible_winrm_transport: basic
+    ansible_winrm_scheme: http
+    ansible_port: 5985
+    ansible_winrm_server_cert_validation: ignore
+
+- delegate_to: localhost
+  block:
+  - name: Update connection object.
+    uri:
+      url: "http://localhost:8090/IDManager/SystemConnectionIF/{{ id }}"
+      headers:
+        HTTP_SYSTEMACCOUNT: "SYSTEM"
+        Content-Type: "application/json"
+      method: PUT
+      body_format: json
+      body:
+        id: "{{ id }}"
+        hostname: "{{ hostname }}"
+        connectionSpecification: "{{ connectionSpecification}}"
+        connectionSpecificationName: "{{ connectionSpecificationName }}"
+        viewOU: "{{ viewOU }}"
+        editOU: "{{ editOU }}"
+        remark: "{{ remark | default(omit) }}"
+        sshID: "{{ cs_obj.sshID if loop_protocol == 'ssh' else sshID | default(omit) }}"
+        sshPassword: "{{ cs_obj.sshPassword if loop_protocol == 'ssh' else sshPassword | default(omit) }}"
+        rdpID: "{{ cs_obj.rdpID if loop_protocol == 'rdp' else rdpID | default(omit) }}"
+        rdpPassword: "{{ cs_obj.rdpPassword if loop_protocol == 'rdp' else rdpPassword | default(omit) }}"
+        telnetID: "{{ cs_obj.telnetID if loop_protocol == 'telnet' else telnetID | default(omit) }}"
+        telnetPassword: "{{ cs_obj.telnetPassword if loop_protocol == 'telnet' else telnetPassword | default(omit) }}"
+        vncID: "{{ cs_obj.vncID if loop_protocol == 'vnc' else vncID | default(omit) }}"
+        vncPassword: "{{ cs_obj.vncPassword if loop_protocol == 'vnc' else vncPassword | default(omit) }}"
+      validate_certs: false
+      status_code: 200

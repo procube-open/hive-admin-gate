@@ -22,7 +22,7 @@ def generate_auth_token():
     response = requests.post(generate_auth_token_url, data=params, headers=headers)
     return response.json()
 
-def create_vnc_connection(work_container):
+def create_vnc_connection(work_container, work_id):
     response_generate_auth_token = generate_auth_token()
     auth_token = response_generate_auth_token['authToken']
     guacamole_database = response_generate_auth_token['dataSource']
@@ -35,7 +35,7 @@ def create_vnc_connection(work_container):
         "name": work_container,
         "parentIdentifier":"ROOT",
         "protocol":"vnc",
-        "idmIdentifier": "session-manager",
+        "idmIdentifier": "changepw" if work_id == "changepw" else "session-manager",
         "parameters":{
             "hostname": work_container,
             "port": vnc_port,
