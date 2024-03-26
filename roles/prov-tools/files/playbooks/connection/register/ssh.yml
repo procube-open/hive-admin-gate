@@ -100,6 +100,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
+          terminal-type: "{{ 'vt100' if cs_obj.sshTerminalType == 'iosxr' else omit }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
