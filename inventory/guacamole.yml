@@ -214,6 +214,14 @@ services:
         drbd:
           fstype: xfs
           size: 2G
+    backup_scripts:
+      - name: mongo-backup
+        container: mongo
+        backup_command: "mongodump --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --gzip --archive=/archive"
+        backup_file: "/archive"
+        restore_command: "mongorestore --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --db=files_db --gzip --archive=/archive --drop"
+        restore_file: "/archive"
+        cleanup_days_before: 3
   webdav-server:
     image: procube/webdav-server
     ports:
