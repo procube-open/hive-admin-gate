@@ -1,5 +1,5 @@
 - name: admin password change
-  ios_user:
+  iosxr_user:
      name: "{{ cs_obj[loop_protocol ~ 'ID']}}"
      configured_password: "{{ cs_obj[loop_protocol ~ 'Password']}}"
      update_password: always
