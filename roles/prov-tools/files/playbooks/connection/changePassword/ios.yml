@@ -1,4 +1,19 @@
-- name: admin password change
+- name: check user
+  ios_command:
+    commands:
+      - "show running-config | include username {{ cs_obj[loop_protocol ~ 'ID'] }}"
+  register: result_check_user
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_become: yes
+    ansible_become_method: enable
+
+- name:
+  debug:
+    msg: "{{ result_check_user }}"
+
+- name: create user
   ios_user:
     name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     configured_password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
@@ -11,6 +26,21 @@
     ansible_become: yes
     ansible_become_method: enable
     # ansible_become_password
+  when: result_check_user.stdout[0] | length == 0
+
+- name: update user
+  ios_user:
+    name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    configured_password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    update_password: always
+    state: present
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_become: yes
+    ansible_become_method: enable
+    # ansible_become_password
+  when: result_check_user.stdout[0] | length > 10
 
 - delegate_to: localhost
   block:
@@ -21,7 +51,7 @@
         ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
       timeout: 10
     changed_when: false
-  
+
   - name: Update connection object.
     uri:
       url: "http://localhost:8090/IDManager/SystemConnectionIF/{{ id }}"
