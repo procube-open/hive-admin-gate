@@ -1,7 +1,7 @@
 ---
-- name: Copy shell script for proxy settings.
-  copy:
-    src: proxy.sh
+- name: Make shell script for proxy settings.
+  template:
+    src: proxy.sh.j2
     dest: /home/admin/proxy.sh
     mode: 0644
     owner: root
