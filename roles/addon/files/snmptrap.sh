@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dest="10.34.19.76"
-community=“k0ptr0”
+community="k0ptr0"
 now=date
 
 #zabbix parameter
