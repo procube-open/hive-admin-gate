@@ -76,7 +76,7 @@ services:
     backup_scripts:
       - name: guacamole_db
         backup_command: pg_dump -U guacamole_user -c -C --if-exists guacamole_db | gzip > /root/today.sql.gz
-        restore_command: psql -U guacamole_user guacamole_db -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid() AND datname = 'guacamole_db';";  zcat /root/today.sql.gz | psql -U guacamole_user postgres
+        restore_command: psql -U guacamole_user guacamole_db -f /root/pg-terminate-backend.sql;  zcat /root/today.sql.gz | psql -U guacamole_user postgres
         backup_file: /root/today.sql.gz
         restore_file: /root/today.sql.gz
         ext: sql.gz

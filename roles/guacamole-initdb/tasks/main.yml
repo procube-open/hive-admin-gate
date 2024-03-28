@@ -3,3 +3,7 @@
   copy:
     src: initdb.sql
     dest: /docker-entrypoint-initdb.d/
+- name: put pg-terminate-backend.sql
+  copy:
+    src: pg-terminate-backend.sql
+    dest: /root/
