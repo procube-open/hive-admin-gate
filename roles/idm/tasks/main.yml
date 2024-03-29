@@ -65,6 +65,7 @@
     name:
       - sshpass
       - openssh-clients
+      - cronie-noanacron
 # - name: tmp dir chmod
 #   file:
 #     path: /var/www/html/admin/tmp
