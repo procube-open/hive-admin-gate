@@ -45,6 +45,7 @@
     name:
       - sshpass
       - openssh-clients
+      - cronie-noanacron
 - name: copy customaized files
   copy:
     src: "{{ item.src }}"

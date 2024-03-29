@@ -63,6 +63,8 @@
     dest: /usr/local/NetSoarer/IDManager/BindBroker/messagetable/
   - src: "{{ saml_certs_dir }}"
     dest: /root/
+  - src: passwordChange.sh
+    dest: /root/
 - name: install group variable definition
   copy:
     dest: "/etc/ansible/hosts/group_vars/all.yml"
@@ -111,3 +113,9 @@
       - pywinrm
   vars:
     ansible_python_interpreter: /root/prov/bin/python
+- name: Setting cron for password change.
+  cron:
+    name: passwordChange
+    minute: "0"
+    hour: "1"
+    job: /root/passwordChange.sh
