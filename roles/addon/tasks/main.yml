@@ -1,13 +1,13 @@
 ---
-- name: Copy shell script for proxy settings.
-  copy:
-    src: proxy.sh
-    dest: /home/admin/proxy.sh
-    mode: 0644
-    owner: root
-    group: root
-- name: Execute shell script for proxy settings.
-  shell: sh /home/admin/proxy.sh
+# - name: Copy shell script for proxy settings.
+#   copy:
+#     src: proxy.sh
+#     dest: /home/admin/proxy.sh
+#     mode: 0644
+#     owner: root
+#     group: root
+# - name: Execute shell script for proxy settings.
+#   shell: sh /home/admin/proxy.sh
 - name: delete GPG key
   rpm_key:
     state: absent

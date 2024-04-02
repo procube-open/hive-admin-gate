@@ -1,5 +1,5 @@
 plugin: hive_inventory
-name: admin-gate
+name: nsag-dev
 stages:
   private:
     provider: vagrant
@@ -16,33 +16,13 @@ stages:
     disk_size: 100
     mirrored_disk_size: 80
     repository_instance_type: n1-standard-2
-    repository_disk_size: 150
+    repository_disk_size: 300
   production:
-    provider: kickstart
-    # separate_repository: False
-    cidr: 10.160.192.0/21
-    ip_address_list:
-    - 10.160.194.111
-    - 10.160.194.112
-    - 10.160.194.113
-    - 10.160.194.114
-    internal_cidr: 172.21.32.0/22
-    disk_size: 40
-    repository_disk_size: 100
-    mirrored_disk_size: 120
-    kickstart_config:
-      iso_src: /var/lib/isos/AlmaLinux-8.8-x86_64-minimal.iso
-      iso_dest: /var/lib/isos/admingate-hive.iso
-      target: /dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0
-      # media_usb: True
-      networks:
-      - interface: ens192
-        ips:
-        - 10.160.194.111
-        - 10.160.194.112
-        - 10.160.194.113
-        - 10.160.194.114
-        netmask: 255.255.248.0
-        gateway: 10.160.194.42
-        nameservers:
-        - 8.8.8.8
+    provider: gcp
+    cidr: 192.168.0.0/24
+    instance_type: n1-standard-2
+    region: asia-northeast2
+    disk_size: 100
+    mirrored_disk_size: 80
+    repository_instance_type: n1-standard-2
+    repository_disk_size: 300

@@ -2,7 +2,7 @@
 
 PROXY_IP=""
 STAGE=""
-HIVE_NAME="admin-gate"
+HIVE_NAME="nsag-dev"
 
 echo "http_proxy=http://$PROXY_IP:3128" > /etc/environment
 echo "HTTP_PROXY=http://$PROXY_IP:3128" >> /etc/environment

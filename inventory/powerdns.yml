@@ -1,6 +1,7 @@
 ---
 plugin: hive_services
 available_on: 
+  - production
   - staging
 services:
   powerdns:
