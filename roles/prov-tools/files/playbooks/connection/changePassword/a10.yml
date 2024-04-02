@@ -1,72 +1,49 @@
-- delegate_to: localhost
-  block:
-  - name: check user
-    no_log: true
-    a10.acos_axapi.a10_admin:
-      ansible_host: "{{ hostname }}"
-      ansible_username: "{{ cs_obj.ansibleID }}"
-      ansible_password: "{{ cs_obj.ansiblePassword }}"
-      ansible_port: 443
-      state: noop
-      user: ""
-      get_type: list
-    register: result
-  
-  - name: create user
-    a10.acos_axapi.a10_admin:
-      ansible_host: "{{ hostname }}"
-      ansible_username: "{{ cs_obj.ansibleID }}"
-      ansible_password: "{{ cs_obj.ansiblePassword }}"
-      ansible_port: 443
-      user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
-      privilege_global: write
-    vars:
-      tmp_seach_str: "/axapi/v3/admin/{{ cs_obj[loop_protocol ~ 'ID'] }}/password"
-      when: result is not search(tmp_seach_str)
-  
-  - name: change password
-    a10.acos_axapi.a10_admin_password:
-      ansible_host: "{{ hostname }}"
-      ansible_username: "{{ cs_obj.ansibleID }}"
-      ansible_password: "{{ cs_obj.ansiblePassword }}"
-      ansible_port: 443
-      state: present
-      admin_user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
-      password_in_module: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
-  
-  - name: Update connection object.
-    uri:
-      url: "http://localhost:8090/IDManager/SystemConnectionIF/{{ id }}"
-      headers:
-        HTTP_SYSTEMACCOUNT: "SYSTEM"
-        Content-Type: "application/json"
-      method: PUT
-      body_format: json
-      body:
-        id: "{{ id }}"
-        hostname: "{{ hostname }}"
-        connectionSpecification: "{{ connectionSpecification}}"
-        connectionSpecificationName: "{{ connectionSpecificationName }}"
-        viewOU: "{{ viewOU }}"
-        editOU: "{{ editOU }}"
-        remark: "{{ remark | default(omit) }}"
-        sshID: "{{ cs_obj.sshID if loop_protocol == 'ssh' else sshID | default(omit) }}"
-        sshPassword: "{{ cs_obj.sshPassword if loop_protocol == 'ssh' else sshPassword | default(omit) }}"
-        rdpID: "{{ cs_obj.rdpID if loop_protocol == 'rdp' else rdpID | default(omit) }}"
-        rdpPassword: "{{ cs_obj.rdpPassword if loop_protocol == 'rdp' else rdpPassword | default(omit) }}"
-        telnetID: "{{ cs_obj.telnetID if loop_protocol == 'telnet' else telnetID | default(omit) }}"
-        telnetPassword: "{{ cs_obj.telnetPassword if loop_protocol == 'telnet' else telnetPassword | default(omit) }}"
-        vncID: "{{ cs_obj.vncID if loop_protocol == 'vnc' else vncID | default(omit) }}"
-        vncPassword: "{{ cs_obj.vncPassword if loop_protocol == 'vnc' else vncPassword | default(omit) }}"
-      validate_certs: false
-      status_code: 200
+- name: check user
+  no_log: true
+  a10.acos_axapi.a10_admin:
+    ansible_host: "{{ hostname }}"
+    ansible_username: "{{ cs_obj.ansibleID }}"
+    ansible_password: "{{ cs_obj.ansiblePassword }}"
+    ansible_port: 443
+    state: noop
+    user: ""
+    get_type: list
+  vars:
+    ansible_connection: local
+  register: result
 
-  - name: write memory
-    a10.acos_axapi.a10_write_memory:
-      ansible_host: "{{ hostname }}"
-      ansible_username: "{{ cs_obj.ansibleID }}"
-      ansible_password: "{{ cs_obj.ansiblePassword }}"
-      ansible_port: 443
-      state: present
-      partition: all
-  
+- name: create user
+  a10.acos_axapi.a10_admin:
+    ansible_host: "{{ hostname }}"
+    ansible_username: "{{ cs_obj.ansibleID }}"
+    ansible_password: "{{ cs_obj.ansiblePassword }}"
+    ansible_port: 443
+    user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    privilege_global: write
+  vars:
+    ansible_connection: local
+    tmp_seach_str: "/axapi/v3/admin/{{ cs_obj[loop_protocol ~ 'ID'] }}/password"
+    when: result is not search(tmp_seach_str)
+
+- name: change password
+  a10.acos_axapi.a10_admin_password:
+    ansible_host: "{{ hostname }}"
+    ansible_username: "{{ cs_obj.ansibleID }}"
+    ansible_password: "{{ cs_obj.ansiblePassword }}"
+    ansible_port: 443
+    state: present
+    admin_user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    password_in_module: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+  vars:
+    ansible_connection: local
+
+- name: write memory
+  a10.acos_axapi.a10_write_memory:
+    ansible_host: "{{ hostname }}"
+    ansible_username: "{{ cs_obj.ansibleID }}"
+    ansible_password: "{{ cs_obj.ansiblePassword }}"
+    ansible_port: 443
+    state: present
+    partition: all
+  vars:
+    ansible_connection: local
