@@ -77,7 +77,5 @@ find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team
 ? {hoge: null}
 : getResource(""/IDManager/selectUserGroupIF"").length == 0
 ? {uid: null}
-: {ou: {
-""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")
-}}","","","","","","","false","false","false",""
+: {id: select(getResource(""/IDManager/selectUserGroupIF""), ""id"").pop()}","","","","","","","false","false","false",""
 "Update","workEditorInterface","作業編集インターフェース","","Sandbox","work","full","","","","","","","","","","","","","","false","false","false",""
