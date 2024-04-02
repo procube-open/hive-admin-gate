@@ -74,7 +74,7 @@
     when: cs_obj[loop_protocol] and check_change
     vars:
       parameters_json: "{{ guacamole_connection_parameters.results | map(attribute='json') | list }}"
-      check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | selectattr('port', 'eq', cs_obj[loop_protocol ~ 'Port'] | default('')) | default('')) | list | length == 0 }}"
+      check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | default('')) | selectattr('port', 'eq', cs_obj[loop_protocol ~ 'Port'] | default('')) | list | length == 0 }}"
     loop:
       - ssh
       - rdp
