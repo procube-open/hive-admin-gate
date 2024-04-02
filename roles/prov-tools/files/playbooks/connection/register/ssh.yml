@@ -65,6 +65,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
+          terminal-type: "{{ 'vt100' if cs_obj.osType == 'iosxr' else omit }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
@@ -100,7 +101,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
-          terminal-type: "{{ 'vt100' if cs_obj.sshTerminalType == 'iosxr' else omit }}"
+          terminal-type: "{{ 'vt100' if cs_obj.osType == 'iosxr' else omit }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"

@@ -1,4 +1,15 @@
-- name: admin password change
+- name: check user
+  ios_command:
+    commands:
+      - "show running-config | include username {{ cs_obj[loop_protocol ~ 'ID'] }}"
+  register: result_check_user
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_become: yes
+    ansible_become_method: enable
+
+- name: create user
   ios_user:
     name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     configured_password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
@@ -11,43 +22,31 @@
     ansible_become: yes
     ansible_become_method: enable
     # ansible_become_password
+  when: result_check_user.stdout[0] | length == 0
 
-- delegate_to: localhost
-  block:
-  - name: remote login linux shell admin-exec
-    expect:
-      command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
-      responses:
-        ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
-      timeout: 10
-    changed_when: false
-  
-  - name: Update connection object.
-    uri:
-      url: "http://localhost:8090/IDManager/SystemConnectionIF/{{ id }}"
-      headers:
-        HTTP_SYSTEMACCOUNT: "SYSTEM"
-        Content-Type: "application/json"
-      method: PUT
-      body_format: json
-      body:
-        id: "{{ id }}"
-        hostname: "{{ hostname }}"
-        connectionSpecification: "{{ connectionSpecification}}"
-        connectionSpecificationName: "{{ connectionSpecificationName }}"
-        viewOU: "{{ viewOU }}"
-        editOU: "{{ editOU }}"
-        remark: "{{ remark | default(omit) }}"
-        sshID: "{{ cs_obj.sshID if loop_protocol == 'ssh' else sshID | default(omit) }}"
-        sshPassword: "{{ cs_obj.sshPassword if loop_protocol == 'ssh' else sshPassword | default(omit) }}"
-        rdpID: "{{ cs_obj.rdpID if loop_protocol == 'rdp' else rdpID | default(omit) }}"
-        rdpPassword: "{{ cs_obj.rdpPassword if loop_protocol == 'rdp' else rdpPassword | default(omit) }}"
-        telnetID: "{{ cs_obj.telnetID if loop_protocol == 'telnet' else telnetID | default(omit) }}"
-        telnetPassword: "{{ cs_obj.telnetPassword if loop_protocol == 'telnet' else telnetPassword | default(omit) }}"
-        vncID: "{{ cs_obj.vncID if loop_protocol == 'vnc' else vncID | default(omit) }}"
-        vncPassword: "{{ cs_obj.vncPassword if loop_protocol == 'vnc' else vncPassword | default(omit) }}"
-      validate_certs: false
-      status_code: 200
+- name: update user
+  ios_user:
+    name: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+    configured_password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    update_password: always
+    state: present
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_become: yes
+    ansible_become_method: enable
+    # ansible_become_password
+  when: result_check_user.stdout[0] | length > 10
+
+- name: remote login linux shell admin-exec
+  expect:
+    command: ssh -o StrictHostKeyChecking=no -l "{{ cs_obj[loop_protocol ~ 'ID'] }}" "{{ hostname }}"
+    responses:
+      ".*[Pp]assword:.*": "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    timeout: 10
+  changed_when: false
+  vars:
+    ansible_connection: local
 
 - name: config save
   ios_command:
