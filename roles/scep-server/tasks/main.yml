@@ -1,0 +1,11 @@
+---
+- name: "put CA certificate"
+  copy:
+    content: "{{ credentials.scep_ca_cert }}"
+    dest: "{{ ca_path }}/ca.crt"
+    mode: 0644
+- name: "put CA key"
+  copy:
+    content: "{{ credentials.scep_ca_key }}"
+    dest: "{{ ca_path }}/ca.key"
+    mode: 0644

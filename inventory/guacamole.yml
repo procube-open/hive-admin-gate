@@ -159,8 +159,6 @@ services:
       MONGO_INITDB_DATABASE: files_db
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports:
-      - 27017:27017
     volumes:
       - source: mongo-db
         target: /data/db
@@ -217,3 +215,50 @@ services:
       - GUACAMOLE_PASSWORD: "guacadmin"
       - VNC_PORT: "5900"
       - VNC_PASSWORD: "secret"
+  scep-server:
+    image: 
+      from: ghcr.io/procube-open/scep
+      roles:
+        - python-aptk
+        - scep-server
+    environment:
+      - SCEP_IDM_GET_URL: "http://idm:8090/IDManager/getSocketWarpConnectionsIF"
+      - SCEP_IDM_PUT_URL: "http://idm:8090/IDManager/putSocketWarpCertificatesIF"
+      - SCEPCA_IDM_CRL_URL: "http://idm:8090/IDManager/"
+    volumes:
+      - source: idm-depot
+        target: /app/idm-depot
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
+    labels:
+      published_name: scep-server
+      HIVE_MARK: scep-server
+      webgate:
+        authentication: saml
+        proxies:
+          - target_port: 3000
+            pathPattern: /
+  sw-listener:
+    image: 
+      from: ghcr.io/procube-open/socket-warp:latest
+      roles: 
+        - sw-listener
+    ports:
+      - 4433:4433
+    volumes:
+      - source: idm-depot
+        target: /idm-depot
+        type: volume
+        drbd:
+          fstype: xfs
+          size: 300M
+    labels:
+      published_name: sw-listener
+      HIVE_MARK: sw-listener
+      webgate:
+        proxies:
+          - target_port: 4433
+            target_protocol: udp
+            pathPattern: /

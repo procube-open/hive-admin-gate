@@ -1,0 +1,72 @@
+---
+- name: create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  loop:
+  - '/certs'
+  - '/certs/ca'
+- name: put setting
+  copy:
+    src: settings_server.json
+    dest: /app/
+    mode: 0755
+- name: "put CA certificate"
+  copy:
+    content: "{{ credentials.scep_ca_cert }}"
+    dest: "{{ ca_path }}/ca.crt"
+    mode: 0644
+- name: "put CA key"
+  copy:
+    content: "{{ credentials.scep_ca_key }}"
+    dest: "{{ ca_path }}/ca.key"
+    mode: 0644
+- name: install pip
+  apt:
+    name:
+      - pip
+      - python3.11-venv
+- name: make virtual env for sw-listener
+  pip:
+    name:
+    - pip
+    - pyOpenSSL
+    - cryptography
+    virtualenv: /root/sw-listener
+    virtualenv_command: /bin/python3 -m venv
+- block:
+  - name: generate server private key
+    openssl_privatekey:
+      path: "{{ cert_path }}/server.key"
+    run_once: true
+    ignore_errors: "{{ ansible_check_mode }}"
+  - name: create csr
+    openssl_csr:
+      commonName: "{{ target_CN }}"
+      countryName: "{{ target_C }}"
+      organizationName: "{{ target_O }}"
+      subject_alt_name: "DNS:sw-listener.{{ domain }}"
+      path: "{{ cert_path }}/server.csr"
+      privatekey_path: "{{ cert_path }}/server.key"
+      key_usage:
+        - digitalSignature
+      extended_key_usage:
+        - serverAuth
+      state: present
+  - name: sign certificate
+    community.crypto.x509_certificate:
+      path: "{{ cert_path }}/server.crt"
+      csr_path: "{{ cert_path }}/server.csr"
+      ownca_privatekey_passphrase: ""
+      ownca_path: "{{ ca_path }}/ca.crt"
+      ownca_privatekey_path: "{{ ca_path }}/ca.key"
+      provider: ownca
+  vars:
+    ansible_python_interpreter: "/root/sw-listener/bin/python"
+- name: convert to DER
+  shell: |
+    openssl x509 -inform PEM -outform DER -in {{ cert_path }}/server.crt -out {{ cert_path }}/server_crt.der
+    openssl rsa -outform DER -in {{ cert_path }}/server.key -out {{ cert_path }}/server_key.der
+    openssl x509 -inform PEM -outform DER -in {{ ca_path }}/ca.crt -out {{ cert_path }}/ca.der
+
