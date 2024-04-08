@@ -1,7 +1,7 @@
 ---
 plugin: idm_inventory
 interface: SystemConnectionIF
-host_name_property: hostname
+host_name_property: id
 class_name: connection
 groups:
 - name: connections
