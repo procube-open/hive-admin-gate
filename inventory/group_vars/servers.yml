@@ -9,5 +9,5 @@ db_password: "{{lookup('password', hive_context_dir + '/registry_password length
 hive_partition_label: gpt
 hive_interface_name: "System ens192"
 
-hive_kernel_version: 4.18.0-477*.el8*
-hive_drbd_download_url: https://github.com/procube-open/drbd9-rpm/releases/download/Latests/drbd-9.2.4-v9.24.0-4.18.0-477.13.1.el8_8.x86_64.tar.gz
+hive_kernel_version: 4.18.0-513*.el8*
+hive_drbd_download_url: https://github.com/procube-open/drbd9-rpm/releases/download/Latests/drbd-9.2.7-v9.27.0-4.18.0-513.18.1.el8_9.x86_64.tar.gz
