@@ -38,6 +38,7 @@
     mode: 0755
   loop:
   - /etc/ansible/hosts/group_vars
+  - /root/.ssh
 - name: install files
   copy:
     src: "{{ item.src }}"
