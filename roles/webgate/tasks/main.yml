@@ -2,6 +2,9 @@
 # This role installs WebGate and configures it. for docker container
 - name: Gathering Facts
   setup:
+- name: renew gpg key
+  shell: |
+    rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
 - name: disable nodejs nginx module of dnf
   shell: |
     dnf module disable -y nodejs nginx
@@ -22,7 +25,7 @@
 # CAUTION: 自分の hive_default_network のアドレスを首都kすする際に getent hosts を
 # 使うと ::1 が返ってくるので注意が必要です。
 # https://github.com/systemd/systemd/issues/23152
-- name: install script to setup peer nodes for consul 
+- name: install script to setup peer nodes for consul
   copy:
     src: setup-peers.py
     dest: /usr/bin/setup-peers.py

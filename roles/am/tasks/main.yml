@@ -4,6 +4,9 @@
   yum:
     name: epel-release
     state: present
+- name: renew gpg key
+  shell: |
+    rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
 - name: install python package
   yum:
     name: python2-pip
