@@ -27,9 +27,9 @@
         protocol: "vnc"
         idmIdentifier: "{{ id }}"
         parameters:
-          port: "{{ cs_obj.vncPort | default('') }}"
-          username: "{{ cs_obj.vncID }}"
-          password: "{{ cs_obj.vncPassword }}"
+          port: "{{ cs_obj.httpPort | default('') }}"
+          username: "{{ cs_obj.httpID }}"
+          password: "{{ cs_obj.httpPassword }}"
           hostname: "{{ hostname }}"
           httpLoginFormat: "{{ httpVars | to_json }}"
         attributes:
@@ -44,7 +44,7 @@
       return_content: yes
       status_code: 200
     vars:
-      httpVars: "{\"target\":\"proliant\",\"protocol\":\"{{ cs_obj.httpProtocol }}\",\"fqdn\":\"{{ hostname ~ (':' ~ cs_obj.vncPort) | default('')}}\",\"path\":\"\",\"params\":[[{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='username']\",\"sendValue\":\"{{ cs_obj.ansibleID }}\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='password']\",\"sendValue\":\"{{ cs_obj.ansiblePassword }}\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//button[@id='login-form__submit']\",\"sendValue\":\"\"}],[{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='userlink']\",\"sendValue\":\"\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='user_settings']\",\"sendValue\":\"\"}],[{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='1']\",\"sendValue\":\"\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='EDIT_USER']\",\"sendValue\":\"\"}],[{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='changePasswordCheckbox']\",\"sendValue\":\"\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='password']\",\"sendValue\":\"{{ cs_obj[loop_protocol ~ 'Password'] }}\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='passwordConfirm']\",\"sendValue\":\"{{ cs_obj[loop_protocol ~ 'Password'] }}\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='edit_user_submit']\",\"sendValue\":\"\"}]]}"
+      httpVars: "{\"target\":\"proliant\",\"protocol\":\"{{ cs_obj.httpProtocol }}\",\"fqdn\":\"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}\",\"path\":\"\",\"params\":[[{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='username']\",\"sendValue\":\"{{ cs_obj.ansibleID }}\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='password']\",\"sendValue\":\"{{ cs_obj.ansiblePassword }}\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//button[@id='login-form__submit']\",\"sendValue\":\"\"}],[{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='userlink']\",\"sendValue\":\"\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='user_settings']\",\"sendValue\":\"\"}],[{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='1']\",\"sendValue\":\"\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='EDIT_USER']\",\"sendValue\":\"\"}],[{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='changePasswordCheckbox']\",\"sendValue\":\"\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='password']\",\"sendValue\":\"{{ cs_obj[loop_protocol ~ 'Password'] }}\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='passwordConfirm']\",\"sendValue\":\"{{ cs_obj[loop_protocol ~ 'Password'] }}\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//*[@id='edit_user_submit']\",\"sendValue\":\"\"}]]}"
     register: changepw_connection
   
   - name: create container of chrome
