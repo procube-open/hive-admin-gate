@@ -65,7 +65,7 @@
         - ssh
         - rdp
         - telnet
-        - vnc
+        - http
       loop_control:
         loop_var: loop_protocol
     - name: Register connection.
@@ -79,7 +79,7 @@
         - ssh
         - rdp
         - telnet
-        - vnc
+        - http
       loop_control:
         loop_var: loop_protocol
     rescue:
