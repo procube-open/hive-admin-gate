@@ -3,7 +3,8 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: nigauri/guacamole
+      from: procube/guacamole
+      # from: nigauri/guacamole
       roles:
       - guacamole
     environment:
@@ -32,7 +33,7 @@ services:
         proxies:
         - target_port: 8080
           pathPattern: /guacamole
-          useWebSocket: true 
+          useWebSocket: true
     endpoint_mode: dnsrr
   guacd:
     image: procube/guacd
@@ -109,7 +110,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports: 
+    ports:
     - '22:22'
   mongo:
     image: mongo
@@ -134,6 +135,11 @@ services:
     - WEBDAV_PORT: "8888"
     - WEBDAV_USERNAME: "user"
     - WEBDAV_PASSWORD: "test"
+    - GUACAMOLE_URL: "http://guacamole:8080/guacamole"
+    - GUACAMOLE_USERNAME: "{{ credentials.guacamole_username }}"
+    - GUACAMOLE_PASSWORD: "{{ credentials.guacamole_password }}"
+    - VNC_PORT: "5900"
+    - VNC_PASSWORD: "{{ credentials.vnc_password }}"
   dummy-guacamole-for-vnc:
     image:
       from: node:18.18-alpine3.18
@@ -164,7 +170,11 @@ services:
   nginx:
     image: nginx:1.25.3
   apache:
-    image: httpd:2.4
+    image:
+      from: httpd:2.4
+      roles:
+      - python-aptk
+      - apache
   webdav:
     image: bytemark/webdav
     ports:

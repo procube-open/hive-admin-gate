@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://10.35.96.86/html/login.html -->
+<html id="login_html">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="copyright" content="© Copyright 2002-2021 Hewlett Packard Enterprise Development LP">
+        <title>Login</title>
+        <!-- <link href="https://10.35.96.86/css/jquery-ui.css" rel="stylesheet" type="text/css" media="all">
+        <link href="https://10.35.96.86/css/grommet.css" rel="stylesheet" type="text/css" media="all">
+        <link href="https://10.35.96.86/css/base.css" rel="stylesheet" type="text/css" media="all">
+        <link href="https://10.35.96.86/css/style.css" rel="stylesheet" type="text/css" media="all"> -->
+        <!-- <style>html{overflow:hidden}#ID_IPMANAGER>div{padding:20px}.form-field{overflow:inherit}#loginBoxContent,.loginBoxRestrictWidth{width:420px}#loginBoxContent section{margin-bottom:10px}section.noSectionPadding{padding:0}#hpBrand{font-size:1.575rem}</style><script type="text/javascript" src="https://10.35.96.86/js/json2.js"></script><script type="text/javascript" src="https://10.35.96.86/js/jquery.js"></script><script type="text/javascript" src="https://10.35.96.86/js/jquery-ui.js"></script><script type="text/javascript" src="https://10.35.96.86/js/icons.js"></script><script type="text/javascript" src="https://10.35.96.86/js/iLO.js"></script><script type="text/javascript" src="https://10.35.96.86/js/login.js"></script><script type="text/javascript">function updatePageFromIndex() {
+        me.supportedBrowser() ? ($('#hp-unsupported-browser').show(), $('#login-form').hide(), 
+        $("body", top.document).removeClass("loading")) : updateLogin(), $("#effect").hide(), 
+        $("#securityHeader").hide();
+        }
+
+        var me = this, isConnected = iLO.init({
+        helpUrl: "scr-webui.html"
+        }), eventhandle, anonymousDataEnabled = !1;
+
+        iLO.getSVG("../images/app-icon.svg", ".login-form__logo", "logo"), $(document).ready(function() {
+        $("#login_help_div").empty().append(myIcons.help), $('#login_help_div').attr({
+            title: "Help",
+            langKey: "help",
+            langAttr: "title"
+        }), $(document).on('click', "#login_help_div", function() {
+            return iLO.openContextHelp("scr-webui.html"), $(this).blur(), !1;
+        });
+        }), $(document).on('click', ".login-link", function() {
+        var elem = $(this).attr("toggle");
+        return $("#" + elem).toggle("slow"), !1;
+        }), me.supportedBrowser = function() {
+        var version = iLOGlobal.ie, compatibilityViewBrowser = parseFloat(document.documentMode), isValid = !0;
+        return version && (isValid = isNaN(compatibilityViewBrowser) === !1 && compatibilityViewBrowser >= 9 ? !0 : !1), 
+        isValid;
+        }, eventhandle = $.subscribe("login_session", function() {
+        $(document).ready(function() {
+            iLO.translatePage();
+        });
+        }), $(document).ready(function() {
+        me.updatePage();
+        });</script> -->
+        <script>
+        function onclickSample() {
+            alert('Log In button clicked')
+        }
+        </script>
+    </head>
+    <body class="bodyContent login-body">
+        <div class="grommet app" style="overflow:auto;position:absolute;top:0;bottom:0;left:0;right:0">
+        <div class="split split--flex-right split--fixed" style="display:flex">
+        <div id="login-background" class="split split--flex-left split--fixed split--separator" style="display:flex">
+        <article class="box box--direction-column box--responsive box--pad-none article" style="overflow:hidden">
+        <a tabindex="-1" aria-hidden="true"></a>
+        <div>
+        <section class="box box--full box--direction-column box--justify-center box--align-center box--responsive box--pad-large background-color-index-dark section" style="position:absolute;width:100%;padding:0">
+        <h1>
+        <strong data-localize="appName.titleHeading" id="titleHeading">iLO 5</strong>
+        </h1>
+        <p>
+        </p><div id="chip-details">
+        <h2 id="hpBrand" class="alt-off" data-localize="appName.hpBrand">ProLiant</h2>
+        <span id="iLOStatus"></span>
+        <span id="fwver_span" style="">
+        <span data-localize="login.fwver" id="titleFwver">Firmware Version</span>
+        <span id="fwver">2.55</span>
+        </span>
+        <br>
+        <span id="cnStatus"></span> <span id="cn"><a title="Host Common Name (CN)" target="_new" href="https://oppd05-yobi.private/">oppd05-yobi.private</a></span>
+        </div>
+        <p></p>
+        </section>
+        </div>
+        </article>
+
+        <div class="box box--full box--direction-column box--justify-between box--align-center box--responsive box--pad-none box--size-large box--size sidebar sidebar--full sidebar--large" style="background:#fff;align-items:center;align-content:center;height:100vh">
+        <div>
+
+        </div>
+        <div>
+        <div class="form--pad-none loginBoxRestrictWidth">
+        <div id="login_help_div" class="anchor" title="Help" langkey="help" langattr="title"><svg version="1.1" viewBox="0 0 24 24" width="24px" height="24px" role="img" class="control-icon control-icon-help control-icon--responsive" aria-label="help"><path fill="none" stroke="#000000" stroke-width="2" d="M12,23 C12.5522847,23 13,22.5522847 13,22 C13,21.4477153 12.5522847,21 12,21 C11.4477153,21 11,21.4477153 11,22 C11,22.5522847 11.4477153,23 12,23 Z M12,18 L12,15 C12,13 13,13 15,12 C17,11 18,9.15767339 18,7 C18,3.6862915 15.3137085,1 12,1 C8.6862915,1 6,3.6862915 6,7"></path></svg></div>
+        <div class="login-form__header">
+        <div class="login-form__logo"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" class="app-icon">
+        <g fill="none" fill-rule="evenodd" stroke="#000" stroke-width="4" transform="translate(22 15)">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M0,24.5 L0,73.5 L42,98 L84,73.5 L84,24.5 L42,0 L0,24.5 Z M0,24.5 L21,36.75 L0,24.5 Z M84,24.5 L63,36.75 L84,24.5 Z M42,73.5 L42,98 L42,73.5 Z M42,24.5 L42,49 L42,24.5 Z M42,24.5 L21,36.75 L21,61.25 L42,73.5 L63,61.25 L63,36.75 L42,24.5 Z M42,49 L63,61.25 M21,61.25 L42,49"></path>
+            <circle cx="42" cy="49" r="4"></circle>
+            <line x1="42" y1="97" x2="42" y2="73" stroke-width="4"></line>
+        </g>
+        </svg></div>
+        <h1 class="login-form__title">
+        <strong data-localize="appName.titleHeading">iLO 5</strong>
+        </h1>
+        </div>
+        <div id="hp-unsupported-browser" class="hp-notify hp-notify-info" style="display:none;padding:24px">
+        <p data-localize="unsupportedBrowser">Your browser or browser mode is not supported. Try a recent (stable) version of Edge, Firefox, or Chrome.  For Internet Explorer users: Disable Enterprise Mode for this website.</p>
+        </div>
+        <div id="loginBoxContent">
+        <div id="login_fields_table_div" class="box box--direction-column box--justify-start box--align-center box--responsive box--pad-none box--size-large box--size sidebar sidebar--large loginBoxRestrictWidth">
+        <section id="loginSecurityBanner" style="display:none" class="box box--direction-column box--align-center box--responsive box--pad-none box--separator-top section">
+        <label id="loginSecurityBannerHeader" data-localize="login.secNotice" class="label label--uppercase label--margin-none label--medium">Notice</label>
+        <p class="paragraph--align-center paragraph--margin-small loginBoxRestrictWidth" id="securityMessage" style="overflow:auto;text-align:justify;word-wrap:break-word;min-height:50px;max-height:28vh"></p>
+        </section>
+        <section id="ID_DEVMODE" style="display:none" class="box box--direction-column box--align-center box--responsive box--pad-none box--separator-top section">
+        <p class="paragraph--align-center paragraph--margin-small loginBoxRestrictWidth" data-localize="adm_mgmt.devmode">This system is in Development Mode. Some security features may be disabled.</p>
+        </section>
+        <section id="ID_SECJMP" style="display:none" class="box box--direction-column box--align-center box--responsive box--pad-none box--separator-top section notification notification--status-error background-color-index-error">
+        <label class="label label--uppercase label--margin-none label--medium" data-localize="adm_mgmt.alert">Alert</label>
+        <p class="paragraph--align-center paragraph--margin-small loginBoxRestrictWidth">iLO security override switch is set.</p>
+        </section>
+        <section id="ID_IPMANAGER" style="display:none" class="box box--direction-column box--align-center box--responsive box--pad-none box--separator-top section">
+        <label class="label label--uppercase label--margin-none label--medium" data-localize="status_labels.WARNING">Warning</label>
+        <p class="paragraph--align-center paragraph--margin-small loginBoxRestrictWidth">This system is being managed by HPE OneView. Changes made locally in iLO will be out of sync with the centralized settings.</p>
+        </section>
+        <section id="ID_ILO_HEALTH" class="noSectionPadding loginBoxRestrictWidth" style="display:none"></section>
+        <form id="login-form" class="row form login-form login-form--align-start form--pad-none" style="padding:0" autocomplete="off">
+            <fieldset>
+                <div class="form-field form-field--text form-field--size-medium">
+                    <label class="form-field__label" for="username">
+                        <span id="usernameBox" data-localize="login.LocalUserName">Local&nbsp;login&nbsp;name</span>
+                    </label>
+                    <span class="form-field__contents">
+                        <input id="username" type="text" value="" size="26" onkeypress="return checkEnter(event);" autocomplete="off" class="">
+                    </span>
+                </div>
+                <div class="form-field form-field--text form-field--size-medium">
+                    <label class="form-field__label" for="password">
+                        <span id="passwordBox" data-localize="login.password">Password</span>
+                    </label>
+                    <span class="form-field__contents">
+                        <input id="password" type="password" size="26" onkeypress="return checkEnter(event);" autocomplete="off" class="">
+                    </span>
+                </div>
+            </fieldset>
+            <footer class="box box--direction-column box--align-start box--pad-vertical-small box--pad-between-medium footer footer--small">
+                <button id="login-form__submit" type="button" class="button login-form__submit button--primary" onclick="onclickSample()" style="width:100%">
+                    <span data-localize="login.loginButton">Log In</span>
+                </button>
+            </footer>
+        </form>
+        <div id="ID_SPNEGO_FRAME" style="display:none" class="row">
+        <footer class="box box--direction-column box--align-start box--pad-vertical-small box--pad-between-medium footer footer--small">
+        <button id="ID_SPNEGO" name="ID_SPNEGO" type="button" class="button login-form__submit button--primary" onclick="
+        return signInSpnego(), !1;
+        " style="width:100%" tabindex="5">
+        <span data-localize="login.zeroSignIn">Zero Sign In</span>
+        </button>
+        </footer>
+        </div>
+        <div id="ID_CERTAUTH_FRAME" style="display:none" class="row">
+        <footer class="box box--direction-column box--align-start box--pad-vertical-small box--pad-between-medium footer footer--small">
+        <button id="ID_CERTAUTH" name="ID_CERTAUTH" type="button" class="button login-form__submit button--primary" onclick="
+        return signInCert(), !1;
+        " style="width:100%" tabindex="6">
+        <span data-localize="login.certSignIn">Log In with Smartcard</span>
+        </button>
+        </footer>
+        </div>
+        <div id="lang_row" style="display:none;outline:0;border:none" class="box box--align-content-center">
+        <select name="lang_options" id="lang_options" style="outline:0;border:none;-ms-overflow-style:none" onchange="
+        return changeLanguage(), !1;
+        "><option value="en">English</option></select>
+        </div>
+        <div id="messageSection" style="padding-top:10px">
+
+        <section id="ID_LOGIN_FAILED_CUSTOM" class="loginBoxRestrictWidth noSectionPadding" style="display:none"></section>
+        <section id="ID_LOGIN_DELAY" class="loginBoxRestrictWidth noSectionPadding" style="display:none"></section>
+        <section id="ID_LOGOUT_REASON" class="loginBoxRestrictWidth noSectionPadding" style="display:none"></section>
+        </div>
+        </div>
+        <script type="text/x-jqote-template" id="lang_option_template">/*!<![CDATA[
+                        <option value="<%=this.Language %>"><%=this.Language %> - <%=this.TranslationName %></option>
+                        ]]>!*/</script>
+        </div>
+        </div>
+        </div>
+        <div>
+        <div class="alt-off box box--justify-center box--direction-row box--pad-horizontal-medium box--pad-vertical-small box--pad-between-small">
+        <div id="login-copyright" class="login-copyright secondary">
+        <div style="margin-top:10px;z-index:2">© 2002-2021 Hewlett Packard Enterprise Development LP</div>
+        <div id="osl"><a target="_blank" data-localize="login.osl" onclick="
+        iLO.openContextHelp(&#39;info_open_source.html&#39;);
+        ">Open source licenses</a></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </body>
+</html>

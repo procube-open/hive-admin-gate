@@ -1,0 +1,11 @@
+---
+- name: put login form
+  copy:
+    src: login.html
+    dest: /usr/local/apache2/htdocs/index.html
+    mode: 0755
+- name: install packages
+  apt:
+    name:
+    - vim
+    update_cache: true
