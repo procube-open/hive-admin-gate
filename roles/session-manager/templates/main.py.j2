@@ -5,7 +5,7 @@ import os
 import socket
 import time
 import uuid
-from filelock import FileLock
+import threading
 from access_guacamole_api import create_vnc_connection, delete_vnc_connection, assign_user_to_connection, get_http_login_format
 
 
@@ -42,6 +42,9 @@ webdav_port = str(os.environ.get('WEBDAV_PORT'))
 webdav_username = os.environ.get('WEBDAV_USERNAME')
 webdav_password = os.environ.get('WEBDAV_PASSWORD')
 
+lock = threading.Lock()
+
+
 @app.route('/create', methods=['POST'])
 def service_create():
     client = create_client(base_urls)
@@ -49,10 +52,6 @@ def service_create():
     work_id = str(request.json['work_id'])
     work_user = str(request.json['work_user'])
     identifier = str(request.json['identifier'])
-
-    lockfile = '/var/lock/session-manager/' + work_id + '.lock'
-    lock = FileLock(lockfile)
-    lock.acquire()
 
     work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
 
@@ -86,7 +85,15 @@ def service_create():
     )
     task_tmpl = docker.types.TaskTemplate(container_spec)
 
+    if lock.locked():
+        logger_text = work_container + ': Other process threading lock. Please wait for a while'
+        app.logger.warning(logger_text)
+
     try:
+        lock.acquire()
+        logger_text = work_container + ': Create process lock acquired'
+        app.logger.info(logger_text)
+
         client.create_service(
             task_tmpl,
             name=work_container,
@@ -96,23 +103,30 @@ def service_create():
 
         logger_text = work_container + ': Create successfully'
         app.logger.info(logger_text)
-        time.sleep(3)
     except Exception as e:
-        lock.release()
         return jsonify({"error_message": e}), 500
+    finally:
+        lock.release()
+        logger_text = work_container + ': Create process lock released'
+        app.logger.info(logger_text)
 
-    while True:
+    time.sleep(3)
+
+    for i in range(1000):
         try:
             with socket.create_connection((work_container, 5900)) as sock:
                 logger_text = work_container + ': Connect successfully'
                 app.logger.info(logger_text)
             break
         except:
+            if i == 200:
+                logger_text = work_container + ': Connection timeout'
+                app.logger.error(logger_text)
+                return jsonify({"error_message": "Connection timeout"}), 500
+
             logger_text = work_container + ': Connection Retry'
             app.logger.warning(logger_text)
             time.sleep(0.5)
-
-    lock.release()
 
     try:
         result_create_vnc_connection = create_vnc_connection(work_container, work_id)
@@ -131,23 +145,13 @@ def service_delete():
 
     work_container = request.json['work_container']
     vnc_identifier = request.json['vnc_identifier']
-    lockfile = '/var/lock/session-manager/' + work_container + '.lock'
-
-    if os.path.exists(lockfile):
-        return jsonify({"status": "Container Already Deleted", "work_container": work_container})
-    else:
-        lock = FileLock(lockfile)
-        lock.acquire()
 
     try:
         client.remove_service(work_container)
         logger_text = work_container + ': Delete successfully'
         app.logger.info(logger_text)
     except Exception as e:
-        lock.release()
         return jsonify({"error_message": e}), 500
-
-    lock.release()
 
     try:
         delete_vnc_connection(vnc_identifier)
