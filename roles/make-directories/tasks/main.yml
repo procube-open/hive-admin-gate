@@ -1,0 +1,12 @@
+---
+- name: make directories for webdav
+  file:
+    path: "/mnt/test/AAA{{ '%03d' | format(item) }}"
+    state: directory
+    mode: 0755
+  loop: >-
+    {%- set numbers = [] -%}
+    {%- for i in range(101) -%}
+      {%- set _ = numbers.append(i) -%}
+    {%- endfor -%}
+    {{ numbers }}
