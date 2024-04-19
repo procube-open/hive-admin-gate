@@ -18,8 +18,6 @@
                             <td style="padding: 2px;"><input type="hidden" name="work_id" value="<%= container.work_id %>"><%= container.work_id %></td>
                             <td style="padding: 2px;"><input type="hidden" name="work_container" value="<%= container.work_container %>"><%= container.work_container %></td>
                             <td style="padding: 2px;">
-                                <input type="hidden" name="username" value="guacadmin">
-                                <input type="hidden" name="password" value="guacadmin">
                                 <input type="hidden" name="id" value="<%= container.id %>">
                                 <input type="hidden" name="vnc_identifier" value="<%= container.connection_id %>">
                                 <a href="<%= container.vnc_url %>">接続</a>
@@ -47,12 +45,9 @@
                             <form action="/dummy-guacamole-for-vnc/create" method="POST">
                                 <input type="hidden" name="work_id" value="<%= container.work_id %>">
                                 <input type="hidden" name="work_container" value="<%= container.work_container %>">
-                                <input type="hidden" name="username" value="guacadmin">
-                                <input type="hidden" name="password" value="guacadmin">
                                 <input type="hidden" name="id" value="<%= container.id %>">
-                                <input type="hidden" name="backlog_username" value="demo@procube.jp">
-                                <input type="hidden" name="backlog_password" value="EXPp7Od9">
-                                <input type="hidden" name="whitelist" value='<%= JSON.stringify(whitelist) %>'>
+                                <input type="hidden" name="work_user" value="dummy">
+                                <input type="hidden" name="identifier" value="dummy">
                                 <input type="submit" value="起動">
                             </form>
                         </td>
@@ -60,12 +55,9 @@
                             <form action="/dummy-guacamole-for-vnc/connect" method="POST">
                                 <input type="hidden" name="work_id" value="<%= container.work_id %>">
                                 <input type="hidden" name="work_container" value="<%= container.work_container %>">
-                                <input type="hidden" name="username" value="guacadmin">
-                                <input type="hidden" name="password" value="guacadmin">
                                 <input type="hidden" name="id" value="<%= container.id %>">
-                                <input type="hidden" name="backlog_username" value="demo@procube.jp">
-                                <input type="hidden" name="backlog_password" value="EXPp7Od9">
-                                <input type="hidden" name="whitelist" value='<%= JSON.stringify(whitelist) %>'>
+                                <input type="hidden" name="work_user" value="dummy">
+                                <input type="hidden" name="identifier" value="dummy">
                                 <input type="submit" id="connect_<%= container.work_id %>" data-toggle="modal" data-target="#Modal" data-backdrop="static" value="起動 & 接続">
                             </form>
                         </td>

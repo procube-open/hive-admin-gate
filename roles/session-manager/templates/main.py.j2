@@ -6,12 +6,13 @@ import socket
 import time
 import uuid
 from filelock import FileLock
+from access_guacamole_api import create_vnc_connection, delete_vnc_connection, assign_user_to_connection, get_http_login_format
 
 
 app = Flask(__name__)
 
-# image_chrome = 'procube/node-chrome'
-image_chrome = os.environ.get('IMAGE_CHROME')
+image_chrome = 'procube/node-chrome'
+# image_chrome = os.environ.get('IMAGE_CHROME')
 swarm_network = ['hive_default_network']
 
 tls_config = docker.tls.TLSConfig(
@@ -30,7 +31,7 @@ def create_client(base_urls):
         try:
             client = docker.APIClient(base_url=base_url, tls=tls_config)
             logger_text = 'docker host is ' + base_url
-            app.logger.warning(logger_text)
+            app.logger.info(logger_text)
             print(logger_text, flush=True)
             return client
         except Exception as e:
@@ -47,15 +48,59 @@ def service_create():
     client = create_client(base_urls)
 
     work_id = str(request.json['work_id'])
+    work_user = str(request.json['work_user'])
+    identifier = str(request.json['identifier'])
+
     lockfile = '/var/lock/session-manager/' + work_id + '.lock'
     lock = FileLock(lockfile)
     lock.acquire()
 
     work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
-    selenium_allow_url = 'RULES=' + request.json['selenium_allow_url']
-    backlog_username = 'USERNAME=' + request.json['backlog_username']
-    backlog_password = 'PASSWORD=' + request.json['backlog_password']
-    selenium_env = [selenium_allow_url, backlog_username, backlog_password]
+
+
+
+
+
+    # http_login_format = get_http_login_format(identifier)
+
+    http_login_format = {
+        "target": "apache",
+        "protocol": "http",
+        "fqdn": "apache:80",
+        "path": "",
+        "params": [
+            [
+                {
+                    "event": "input",
+                    "getElementMethod": "xpath",
+                    "targetElementPath": "//input[@id='username']",
+                    "sendValue": "demo@procube.jp"
+                },{
+                    "event": "input",
+                    "getElementMethod": "xpath",
+                    "targetElementPath": "//input[@id='password']",
+                    "sendValue": "EXPp7Od9"
+                },{
+                    "event": "submit",
+                    "getElementMethod": "xpath",
+                    "targetElementPath": "//button[@id='login-form__submit']",
+                    "sendValue": ""
+                }
+            ]
+        ]
+    }
+
+    http_login_format_env = 'HTTP_LOGIN_FORMAT=' + json.dumps(http_login_format)
+    selenium_env = [http_login_format_env]
+
+
+
+
+
+
+
+
+
 
     davfs_volume_name = 'davfs-volume-' + work_id
     url = 'http://' + webdav_server + ':' + webdav_port + '/' + work_id + '/'
@@ -72,6 +117,9 @@ def service_create():
         mounts=[
             davfs_mount_def,
             shm_mount_def
+        ],
+        cap_add=[
+            'NET_ADMIN'
         ]
     )
     task_tmpl = docker.types.TaskTemplate(container_spec)
@@ -83,7 +131,10 @@ def service_create():
             networks=swarm_network,
             endpoint_spec=docker.types.EndpointSpec(mode='dnsrr')
         )
+        logger_text = work_container + ': Create successfully'
+        app.logger.info(logger_text)
         time.sleep(3)
+
     except Exception as e:
         lock.release()
         return jsonify({"error_message": e}), 500
@@ -91,22 +142,35 @@ def service_create():
     while True:
         try:
             with socket.create_connection((work_container, 5900)) as sock:
-                logger_text = work_container + ' Connect successfully'
+                logger_text = work_container + ': Connect successfully'
                 app.logger.info(logger_text)
             break
         except:
-            logger_text = work_container + ' Connection Retry'
+            logger_text = work_container + ': Connection Retry'
             app.logger.warning(logger_text)
             time.sleep(0.5)
 
     lock.release()
-    return jsonify({"status": "Successfully Created", "work_container": work_container})
+
+    try:
+        result_create_vnc_connection = create_vnc_connection(work_container)
+        logger_text = work_container + ': Create VNC connection object to guacamole successfully'
+        app.logger.info(logger_text)
+        vnc_identifier = result_create_vnc_connection['identifier']
+        # assign_user_to_connection(work_user, vnc_identifier)
+    except Exception as e:
+        return jsonify({"error_message": e}), 500
+
+    return jsonify({"status": "Successfully Created", "work_id": work_id, "work_container": work_container, "vnc_identifier": vnc_identifier})
+
+
 
 @app.route('/delete', methods=['POST'])
 def service_delete():
     client = create_client(base_urls)
 
     work_container = request.json['work_container']
+    vnc_identifier = request.json['vnc_identifier']
     lockfile = '/var/lock/session-manager/' + work_container + '.lock'
 
     work_id = str(request.json['work_id'])
@@ -120,7 +184,7 @@ def service_delete():
 
     try:
         client.remove_service(work_container)
-        logger_text = work_container + ' Delete successfully'
+        logger_text = work_container + ': Delete successfully'
         app.logger.info(logger_text)
         time.sleep(20)
     except Exception as e:
@@ -139,6 +203,14 @@ def service_delete():
             continue
 
     lock.release()
+
+    try:
+        delete_vnc_connection(vnc_identifier)
+        logger_text = work_container + ': Delete VNC connection object from guacamole successfully'
+        app.logger.info(logger_text)
+    except Exception as e:
+        return jsonify({"error_message": e}), 500
+
     return jsonify({"status": "Successfully Deleted", "work_container": work_container})
 
 if __name__=="__main__":

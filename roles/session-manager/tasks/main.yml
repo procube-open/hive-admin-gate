@@ -10,6 +10,7 @@
     - docker
     - flask
     - filelock
+    - requests
     state: present
 - name: create directories
   file:
@@ -30,6 +31,8 @@
     dest: /
   - src: remove-lockfiles.sh
     dest: /etc/periodic/daily
+  - src: access_guacamole_api.py
+    dest: /root/session-manager
 - name: put files from template
   template:
     src: main.py.j2
