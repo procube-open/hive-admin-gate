@@ -9,7 +9,6 @@
     name:
     - docker
     - flask
-    - filelock
     - requests
     state: present
 - name: create directories
@@ -20,7 +19,6 @@
   loop:
   - '/root/.docker'
   - '/root/session-manager'
-  - '/var/lock/session-manager'
 - name: put files
   copy:
     src: "{{ item.src }}"
@@ -29,8 +27,6 @@
   loop:
   - src: docker-entrypoint.sh
     dest: /
-  - src: remove-lockfiles.sh
-    dest: /etc/periodic/daily
   - src: access_guacamole_api.py
     dest: /root/session-manager
   - src: clean_chrome_container.py
