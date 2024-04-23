@@ -38,6 +38,7 @@
     mode: 0755
   loop:
   - /etc/ansible/hosts/group_vars
+  - /root/.ssh
 - name: install files
   copy:
     src: "{{ item.src }}"
@@ -63,8 +64,13 @@
     dest: /usr/local/NetSoarer/IDManager/BindBroker/messagetable/
   - src: "{{ saml_certs_dir }}"
     dest: /root/
-  - src: passwordChange.sh
+  - src: ssh_config
+    dest: /root/.ssh/config
+- name: install file with mode
+  copy:
+    src: passwordChange.sh
     dest: /root/
+    mode: 0755
 - name: install group variable definition
   copy:
     dest: "/etc/ansible/hosts/group_vars/all.yml"

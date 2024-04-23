@@ -53,32 +53,36 @@
     loop: "{{ guacamole_connections.json | dict2items | selectattr('value.idmIdentifier', 'eq', id) | map(attribute='key') | list }}"
     loop_control:
       loop_var: guacamole_connection_id
-
-  - name: Change password.
-    include_tasks:
-      file: "connection/changePassword/{{ cs_obj.osType }}.yml"
-    when: cs_obj[loop_protocol] and check_change
-    vars:
-      parameters_json: "{{ guacamole_connection_parameters.results | map(attribute='json') | list }}"
-      check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | default('')) | list | length == 0 }}"
-    loop:
-      - ssh
-      - rdp
-      - telnet
-      - vnc
-    loop_control:
-      loop_var: loop_protocol
-  - name: Register connection.
-    include_tasks:
-      file: "connection/register/{{ loop_protocol }}.yml"
-    when: cs_obj[loop_protocol] and check_change
-    vars:
-      parameters_json: "{{ guacamole_connection_parameters.results | map(attribute='json') | list }}"
-      check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | default('')) | selectattr('port', 'eq', cs_obj[loop_protocol ~ 'Port'] | default('')) | list | length == 0 }}"
-    loop:
-      - ssh
-      - rdp
-      - telnet
-      - vnc
-    loop_control:
-      loop_var: loop_protocol
+  - block:
+    - name: Change password.
+      include_tasks:
+        file: "connection/changePassword/{{ cs_obj.osType }}.yml"
+      when: cs_obj[loop_protocol] and check_change
+      vars:
+        parameters_json: "{{ guacamole_connection_parameters.results | map(attribute='json') | list }}"
+        check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | default('')) | list | length == 0 }}"
+      loop:
+        - ssh
+        - rdp
+        - telnet
+        - http
+      loop_control:
+        loop_var: loop_protocol
+    - name: Register connection.
+      include_tasks:
+        file: "connection/register/{{ loop_protocol }}.yml"
+      when: cs_obj[loop_protocol] and check_change
+      vars:
+        parameters_json: "{{ guacamole_connection_parameters.results | map(attribute='json') | list }}"
+        check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | default('')) | selectattr('port', 'eq', cs_obj[loop_protocol ~ 'Port'] | default('')) | list | length == 0 }}"
+      loop:
+        - ssh
+        - rdp
+        - telnet
+        - http
+      loop_control:
+        loop_var: loop_protocol
+    rescue:
+    - name: Error.
+      debug:
+        msg: "{{ hostname }} is not registered."

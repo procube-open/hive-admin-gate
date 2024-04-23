@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook playbooks/connection.yml --extra-vars "prov_operation="
+/root/prov/bin/ansible-playbook /root/playbooks/connection.yml --extra-vars "prov_operation="
