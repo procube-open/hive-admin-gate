@@ -104,3 +104,24 @@
 #     path: /usr/local/NetSoarer/IDManager/BindBroker/config/default.js
 #     regexp: "debug :"
 #     line: "             debug : false,"
+- name: copy AD cert file
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+  - src: tca-AEZB00-TCADC12-CA.cer
+    dest: /tmp/tca-AEZB00-TCADC12-CA.cer
+  - src: tws-AEZB00-TWSDC12-CA.cer
+    dest: /tmp/tws-AEZB00-TWSDC12-CA.cer
+- name: Import certificate
+  community.general.java_cert:
+    cert_path: "{{ item.path }}"
+    cert_alias: "{{ item.name }}"
+    keystore_path: /usr/lib/jvm/adoptopenjdk-11-hotspot/lib/security/cacerts
+    keystore_pass: changeit
+    keystore_create: true
+  loop:
+  - path: /tmp/tca-AEZB00-TCADC12-CA.cer
+    name: tcaCert
+  - path: /tmp/tws-AEZB00-TWSDC12-CA.cer
+    name: twsCert
