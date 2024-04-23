@@ -3,8 +3,8 @@ plugin: hive_services
 services:
   guacamole:
     image:
-      from: procube/guacamole
-      # from: nigauri/guacamole
+      # from: procube/guacamole
+      from: nigauri/guacamole
       roles:
       - guacamole
     environment:
