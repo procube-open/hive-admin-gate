@@ -183,6 +183,9 @@ def service_delete():
     work_container = request.json['work_container']
     vnc_identifier = request.json['vnc_identifier']
 
+    work_id = str(request.json['work_id'])
+    davfs_volume_name = 'davfs-volume-' + work_id
+
     try:
         client.remove_service(work_container)
         logger_text = work_container + ': Delete successfully'
