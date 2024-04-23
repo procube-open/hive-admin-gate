@@ -104,3 +104,41 @@
 #     path: /usr/local/NetSoarer/IDManager/BindBroker/config/default.js
 #     regexp: "debug :"
 #     line: "             debug : false,"
+- name: copy AD cert file
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+  - src: tca-AEZB00-TCADC12-CA.cer
+    dest: /tmp/tca-AEZB00-TCADC12-CA.cer
+  - src: tws-AEZB00-TWSDC12-CA.cer
+    dest: /tmp/tws-AEZB00-TWSDC12-CA.cer
+- name: Add entry to /etc/hosts file
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }} {{ item.name }}"
+    state: present
+  loop:
+  - ip: 10.35.107.25
+    name: AEZB00-TCADC11.tca.eo.k-opti.ad.jp
+  - ip: 10.35.107.26
+    name: AEZB00-TCADC12.tca.eo.k-opti.ad.jp
+  - ip: 10.35.47.25
+    name: DK0000-TCADC11.tca.eo.k-opti.ad.jp
+  - ip: 10.35.107.27
+    name: AEZB00-TWSDC11.tws.eo.k-opti.ad.jp
+  - ip: 10.35.107.28
+    name: AEZB00-TWSDC12.tws.eo.k-opti.ad.jp
+  - ip: 10.35.47.27
+    name: DK0000-TWSDC11.tws.eo.k-opti.ad.jp
+- name: Import certificate
+  community.general.java_cert:
+    src: "{{ item.path }}"
+    alias: "{{ item.name }}"
+    keystore: /usr/lib/jvm/adoptopenjdk-11-hotspot/lib/security/cacerts
+    keystore_password: changeit
+  loop:
+  - path: /tmp/tca-AEZB00-TCADC12-CA.cer
+    name: tcaCert
+  - path: /tmp/tws-AEZB00-TWSDC12-CA.cer
+    name: twsCert
