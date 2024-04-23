@@ -8,9 +8,9 @@
     <body>
         <div style="margin: 5%;">
             <h3 style="margin: 1% 0%;">起動中</h3>
-            <table border="1">
+            <table class="table">
                 <tr>
-                    <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
+                    <th class="col-1">作業ID</th><th class="col-2">作業コンテナ</th><th class="col-1"></th><th class="col-8"></th>
                 </tr>
                 <% work_rdps.forEach((rdp) => { %>
                     <form action="/dummy-guacamole-for-rdp/delete" method="POST">
@@ -35,9 +35,9 @@
 
         <div style="margin: 5%;">
             <h3 style="margin: 1% 0%;">停止中</h3>
-            <table border="1">
+            <table class="table">
                 <tr>
-                    <th>作業ID</th><th>作業コンテナ</th><th></th><th></th>
+                    <th class="col-1">作業ID</th><th class="col-2">作業コンテナ</th><th class="col-1"></th><th class="col-8"></th>
                 </tr>
                 <% wait_rdps.forEach((rdp) => { %>
                     <tr>
