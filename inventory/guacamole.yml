@@ -9,7 +9,7 @@ services:
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_DATABASE: guacamole_db
-      POSTGRES_HOSTNAME: postgres
+      POSTGRES_HOSTNAME: guacamole-db
       POSTGRES_PASSWORD: "ChooseYourOwnPasswordHere1234"
       POSTGRES_USER: guacamole_user
       GUACAMOLE_HOME: /opt/guacamole/
@@ -54,7 +54,7 @@ services:
       constraints:
         - node.labels.guacamole == true
         - node.labels.repository != true
-  postgres:
+  guacamole-db:
     image:
       from: postgres:15.2-alpine
       roles:
@@ -88,7 +88,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-      DATABASE_URL: "mongodb://mongo:27017/files_db?authSource=admin"
+      DATABASE_URL: "mongodb://files-db:27017/files_db?authSource=admin"
       GUAC_URL: https://file-server.nsag-dev.procube-demo.jp/guacamole
       GUAC_API_URL: http://guacamole:8080/guacamole
       SESSION_MANAGER_URL: http://session-manager:80
@@ -125,7 +125,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-      DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
+      DATABASE_URL: mongodb://files-db:27017/files_db?authSource=admin
       PASV_IP: "{{ '10.160.194.116' if hive_stage == 'production' else '192.168.0.4' }}"
       PASV_PORT_MIN: "30000"
       PASV_PORT_MAX: "30003"
@@ -146,10 +146,10 @@ services:
   #     MONGO_INITDB_ROOT_USERNAME: root
   #     MONGO_INITDB_ROOT_PASSWORD: example
   #     SFTP_SERVER_PORT: "8822"
-  #     DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
+  #     DATABASE_URL: mongodb://files-db:27017/files_db?authSource=admin
   #   ports:
   #     - "8822:8822"
-  mongo:
+  files-db:
     image:
       from: mongo
       roles:
@@ -160,21 +160,21 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - source: mongo-db
+      - source: files-db
         target: /data/db
         type: volume
         drbd:
           fstype: xfs
           size: 20G
-      - source: mongo-configdb
+      - source: files-configdb
         target: /data/configdb
         type: volume
         drbd:
           fstype: xfs
           size: 2G
     backup_scripts:
-      - name: mongo-backup
-        container: mongo
+      - name: files_db
+        container: files-db
         backup_command: "mongodump --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --gzip --archive=/archive"
         backup_file: "/archive"
         restore_command: "mongorestore --uri=mongodb://root:example@localhost:27017/files_db?authSource=admin --db=files_db --gzip --archive=/archive --drop"
@@ -187,7 +187,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-      DATABASE_URL: mongodb://mongo:27017/files_db?authSource=admin
+      DATABASE_URL: mongodb://files-db:27017/files_db?authSource=admin
       # WEBDAV_SERVER_PORT: 2000
       # WEBDAV_PUBLIC_VOLUME_USERNAME: public
     placement:
@@ -217,14 +217,16 @@ services:
       - VNC_PASSWORD: "secret"
   scep-server:
     image: 
-      from: ghcr.io/procube-open/scep
+      from: ghcr.io/procube-open/scep:0.0.9-rc.1
       roles:
         - python-aptk
         - scep-server
     environment:
-      - SCEP_IDM_GET_URL: "http://idm:8090/IDManager/getSocketWarpConnectionsIF"
-      - SCEP_IDM_PUT_URL: "http://idm:8090/IDManager/putSocketWarpCertificatesIF"
+      - SCEP_IDM_GET_URL: "http://idm:8090/IDManager/swConnectorGetIF"
+      - SCEP_IDM_PUT_URL: "http://idm:8090/IDManager/swConnectorPutIF"
       - SCEPCA_IDM_CRL_URL: "http://idm:8090/IDManager/"
+    ports:
+      - "13000:3000"
     volumes:
       - source: idm-depot
         target: /app/idm-depot
@@ -242,23 +244,21 @@ services:
             pathPattern: /
   sw-listener:
     image: 
-      from: ghcr.io/procube-open/socket-warp:latest
+      from: ghcr.io/procube-open/socket-warp:1.1.6-rc.2
       roles: 
         - sw-listener
     ports:
-      - 4433:4433
-    volumes:
-      - source: idm-depot
-        target: /idm-depot
-        type: volume
-        drbd:
-          fstype: xfs
-          size: 300M
+      - "11443:11443/udp"
+    environment:
+      - SWL_CERT_PATH: "{{ swl_cert_path }}/server.crt"
+      - SWL_KEY_PATH: "{{ swl_cert_path }}/server.key"
+      - SWL_CA_PATH: "{{ swl_ca_path }}/ca.crt"
+      - SCEP_SERVER_URL: "http://scep-server:3000/userObject"
     labels:
       published_name: sw-listener
       HIVE_MARK: sw-listener
       webgate:
         proxies:
-          - target_port: 4433
+          - target_port: 11443
             target_protocol: udp
             pathPattern: /

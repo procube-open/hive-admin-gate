@@ -14,6 +14,7 @@ services:
     standalone: True
     ports:
     - "10443:9443"
+    - "18090:8090"
     labels:
       published_name: idm
       webgate:

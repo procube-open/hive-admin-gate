@@ -515,6 +515,57 @@ SAMLアサーションに署名する(signAssertions) はIdPからSPに送るSAM
 |----|----------------|
 |必須|:x:|
 |一意|:x:|
+## socket warp connector(swConnector)
+クラスのキー属性はuid です。
+このクラスの属性は以下のとおりです。
+### UID(uid)
+UID(uid) はsocket warp connectorのuidです。
+| データ型|string|
+|----|----------------|
+|必須|:x:|
+|一意|:o:|
+### パスワード(password)
+パスワード(password) はSCEPサーバで認証を行う際のパスワードです。
+| データ型|string|
+|----|----------------|
+|必須|:o:|
+|一意|:x:|
+### クライアント証明書(certificate)
+クライアント証明書(certificate) はsocket warp listenerに接続する際に用いるクライアント証明書です。
+| データ型|string|
+|----|----------------|
+|必須|:x:|
+|一意|:x:|
+### 証明書発行日時(certIss)
+証明書発行日時(certIss) はクライアント証明書が発行された日時です。
+| データ型|datetime|
+|----|----------------|
+|必須|:x:|
+|一意|:x:|
+### 証明書有効期限(certExp)
+証明書有効期限(certExp) はクライアント証明書の有効期限です。
+| データ型|datetime|
+|----|----------------|
+|必須|:x:|
+|一意|:x:|
+### listenポート番号(listenPort)
+listenポート番号(listenPort) はSocket Warp Listenerがtcpでlistenするポート番号です。
+| データ型|number|
+|----|----------------|
+|必須|:o:|
+|一意|:o:|
+### 接続先IPアドレス(connectToAddress)
+接続先IPアドレス(connectToAddress) はSocket Warp Connectorが接続するIPアドレスです。
+| データ型|ipaddress|
+|----|----------------|
+|必須|:o:|
+|一意|:x:|
+### 接続先ポート番号(connectToPort)
+接続先ポート番号(connectToPort) はSocket Warp Connectorが接続する接続先のポート番号です。
+| データ型|number|
+|----|----------------|
+|必須|:o:|
+|一意|:x:|
 ## 利用者(user)
 クラスのキー属性はuid です。
 このクラスでは対応する LDAP スキーマが自動的に設定されます。

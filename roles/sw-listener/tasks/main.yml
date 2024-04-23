@@ -7,11 +7,6 @@
   loop:
   - '/certs'
   - '/certs/ca'
-- name: put setting
-  copy:
-    src: settings_server.json
-    dest: /app/
-    mode: 0755
 - name: "put CA certificate"
   copy:
     content: "{{ credentials.scep_ca_cert }}"
@@ -64,9 +59,3 @@
       provider: ownca
   vars:
     ansible_python_interpreter: "/root/sw-listener/bin/python"
-- name: convert to DER
-  shell: |
-    openssl x509 -inform PEM -outform DER -in {{ cert_path }}/server.crt -out {{ cert_path }}/server_crt.der
-    openssl rsa -outform DER -in {{ cert_path }}/server.key -out {{ cert_path }}/server_key.der
-    openssl x509 -inform PEM -outform DER -in {{ ca_path }}/ca.crt -out {{ cert_path }}/ca.der
-

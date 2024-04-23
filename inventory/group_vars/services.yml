@@ -4,3 +4,6 @@ db_password: "{{lookup('password', hive_context_dir + '/registry_password length
 credentials: "{{ lookup('file', lookup('env', 'HOME') + '/.hive/credentials.yml') | from_yaml }}"
 # LDAP で使用する DNサフィックス。外部に見えることはない。
 dn_suffix: "DC={{ domain.split('.') | join(',DC=') }}"
+
+swl_ca_path: "/certs/ca"
+swl_cert_path: "/certs"

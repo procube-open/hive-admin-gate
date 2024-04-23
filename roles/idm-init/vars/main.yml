@@ -421,8 +421,7 @@ is_tables_data:
             function jumpChangePassword() {
 
             location.href=''https://idm.{{ domain }}/changePassword/changePassword?returnURL=https%3A%2F%idm.{{
-            domain }}&uid=''
-            + document.getElementById(''portal-user-menu'').title;
+            domain }}&uid='' + document.getElementById(''portal-user-menu'').title;
 
             return false;
 
@@ -1350,148 +1349,6 @@ is_tables_data:
         widgetsLastmodified: '-'
         workingUid: null
     -   defaultUid: '999'
-        layout: '
-
-            <div style="FLOAT: left; WIDTH: 100%">
-
-            <div style="margin-bottom: 8px">
-
-            <div class="static_column" style="min-height: 92px" id="w_1514530019697"></div>
-
-            </div>
-
-            </div>'
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: 全権管理者
-        tabId: '10109'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1514530019697" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309223116910'
-        workingUid: admin
-    -   defaultUid: '1709991040837'
-        layout: '
-
-            <div style="FLOAT: left; WIDTH: 100%">
-
-            <div style="margin-bottom: 8px">
-
-            <div class="static_column" style="min-height: 92px" id="w_1514530019697"></div>
-
-            </div>
-
-            </div>'
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10109'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1514530019697" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309223116907'
-        workingUid: admin
-    -   defaultUid: '1709991058444'
-        layout: '
-
-            <div style="FLOAT: left; WIDTH: 100%">
-
-            <div style="margin-bottom: 8px">
-
-            <div class="static_column" style="min-height: 92px" id="w_1514530019697"></div>
-
-            </div>
-
-            </div>'
-        principalType: group
-        role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
-        roleOrder: 2
-        rolename: IDM_USER_LEADER
-        tabId: '10109'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1514530019697" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309223116911'
-        workingUid: admin
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 3
-        rolename: defaultRole
-        tabId: '10109'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:31:17'
-        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_userEditor" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309223116912'
-        workingUid: admin
-    -   defaultUid: '999'
         layout: '<div style="FLOAT: left; WIDTH: 100%">
 
             <div style="margin-bottom: 8px">
@@ -1785,121 +1642,6 @@ is_tables_data:
         workingUid: admin
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10110'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309224248456'
-        workingUid: admin
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10110'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309224248454'
-        workingUid: admin
-    -   defaultUid: '1709991750571'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
-        roleOrder: 2
-        rolename: IDM_USER_LEADER
-        tabId: '10110'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309224248457'
-        workingUid: admin
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 3
-        rolename: defaultRole
-        tabId: '10110'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:42:48'
-        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309224248458'
-        workingUid: admin
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_connectionGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
         role: (^|.*;) *IDM_ADMIN *(;.*|$)
@@ -2041,6 +1783,207 @@ is_tables_data:
 
             </widgets>'
         widgetsLastmodified: '20240309223621671'
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connectionSpecification_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10104'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:20:49'
+        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connectionSpecification_g" href="" title="接続仕様ガジェット" type="g_upload__connectionSpecification_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222049321'
+        workingUid: admin
+    -   defaultUid: '1709990425072'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connectionSpecification_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10104'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:20:49'
+        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connectionSpecification_g" href="" title="接続仕様ガジェット" type="g_upload__connectionSpecification_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222049322'
+        workingUid: admin
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 2
+        rolename: defaultRole
+        tabId: '10104'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:20:49'
+        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connectionSpecification_g" href="" title="接続仕様ガジェット" type="g_upload__connectionSpecification_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222049318'
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:22:14'
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222214353'
+        workingUid: admin
+    -   defaultUid: '1709990490421'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:22:14'
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222214356'
+        workingUid: admin
+    -   defaultUid: '1709990492509'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:22:14'
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222214358'
+        workingUid: admin
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 3
+        rolename: defaultRole
+        tabId: '10105'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:22:14'
+        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309222214357'
         workingUid: admin
     -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
@@ -2187,6 +2130,298 @@ is_tables_data:
         widgetsLastmodified: '20240214160736865'
         workingUid: admin
     -   defaultUid: '999'
+        layout: '
+
+            <div style="FLOAT: left; WIDTH: 100%">
+
+            <div style="margin-bottom: 8px">
+
+            <div class="static_column" style="min-height: 92px" id="w_1514530019697"></div>
+
+            </div>
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: 全権管理者
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:31:17'
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1514530019697" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309223116910'
+        workingUid: admin
+    -   defaultUid: '1709991040837'
+        layout: '
+
+            <div style="FLOAT: left; WIDTH: 100%">
+
+            <div style="margin-bottom: 8px">
+
+            <div class="static_column" style="min-height: 92px" id="w_1514530019697"></div>
+
+            </div>
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:31:17'
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1514530019697" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309223116907'
+        workingUid: admin
+    -   defaultUid: '1709991058444'
+        layout: '
+
+            <div style="FLOAT: left; WIDTH: 100%">
+
+            <div style="margin-bottom: 8px">
+
+            <div class="static_column" style="min-height: 92px" id="w_1514530019697"></div>
+
+            </div>
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:31:17'
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1514530019697" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309223116911'
+        workingUid: admin
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 3
+        rolename: defaultRole
+        tabId: '10109'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:31:17'
+        widgets: '<widgets tabId="10109" tabName="ユーザ情報編集ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_userEditor" href="" title="ユーザ情報編集ガジェット" type="g_upload__userEditor/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309223116912'
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10110'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:42:48'
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309224248456'
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN*(;.*|$)
+        roleOrder: 1
+        rolename: IDM_USER_ADMIN
+        tabId: '10110'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:42:48'
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309224248454'
+        workingUid: admin
+    -   defaultUid: '1709991750571'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_userGroup_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 2
+        rolename: IDM_USER_LEADER
+        tabId: '10110'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:42:48'
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309224248457'
+        workingUid: admin
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 3
+        rolename: defaultRole
+        tabId: '10110'
+        temp: "\0"
+        templastmodified: '2024-03-09T22:42:48'
+        widgets: '<widgets tabId="10110" tabName="利用者グループガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
+            numCol="1">
+
+            <panel type="StaticPanel">
+
+            <widget id="w_1_userGroup_g" href="" title="利用者グループガジェット" type="g_upload__userGroup_g/gadget"
+            refreshInterval="null">
+
+            <data>
+
+            </data>
+
+            </widget></panel>
+
+            <panel type="DynamicPanel" disabled="true"></panel>
+
+            </widgets>'
+        widgetsLastmodified: '20240309224248458'
+        workingUid: admin
+    -   defaultUid: '999'
+        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
+            8px\">\n\t\t<div id=\"w_1_swConnector_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 0
+        rolename: IDM_ADMIN
+        tabId: '10111'
+        temp: "\0"
+        templastmodified: '2024-04-08T17:39:14'
+        widgets: "<widgets tabId=\"10111\" tabName=\"socket warp connector編集ガジェット\"
+            tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n
+            \   <panel type=\"StaticPanel\">\n        <widget id=\"w_1_swConnector_g\"
+            column=\"1\" title=\"socket warp connector編集ガジェット\" type=\"g_upload__swConnector_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: default
+        layout: ''
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 1
+        rolename: defaultRole
+        tabId: '10111'
+        temp: "\0"
+        templastmodified: '2024-04-08T17:39:14'
+        widgets: "<widgets tabId=\"10111\" tabName=\"socket warp connector編集ガジェット\"
+            tabType=\"static\" columnsWidth=\"[&quot;100%&quot;]\" numCol=\"1\">\n
+            \   <panel type=\"StaticPanel\">\n        <widget id=\"w_1_swConnector_g\"
+            column=\"1\" title=\"socket warp connector編集ガジェット\" type=\"g_upload__swConnector_g/gadget\">\n
+            \           <data>\n            </data>\n        </widget>\n    </panel>\n
+            \   <panel type=\"DynamicPanel\" disabled=\"true\">\n    </panel>\n</widgets>\n"
+        widgetsLastmodified: ''
+        workingUid: null
+    -   defaultUid: '999'
         layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div id=\"w_1_hisotryWork_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
         principalType: group
@@ -2274,92 +2509,6 @@ is_tables_data:
             disabled=\"true\">\n    </panel>\n</widgets>\n"
         widgetsLastmodified: ''
         workingUid: null
-    -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connectionSpecification_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10104'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:20:49'
-        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connectionSpecification_g" href="" title="接続仕様ガジェット" type="g_upload__connectionSpecification_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222049321'
-        workingUid: admin
-    -   defaultUid: '1709990425072'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connectionSpecification_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10104'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:20:49'
-        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connectionSpecification_g" href="" title="接続仕様ガジェット" type="g_upload__connectionSpecification_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222049322'
-        workingUid: admin
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 2
-        rolename: defaultRole
-        tabId: '10104'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:20:49'
-        widgets: '<widgets tabId="10104" tabName="接続仕様ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connectionSpecification_g" href="" title="接続仕様ガジェット" type="g_upload__connectionSpecification_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222049318'
-        workingUid: admin
     -   defaultUid: default
         layout: "\n<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
             8px\">\n\t\t<div class=\"static_column\" id=\"p_1709460059758_w_0\" style=\"min-height:
@@ -2390,121 +2539,6 @@ is_tables_data:
         widgetsLastmodified: '20240303190059936'
         workingUid: admin
     -   defaultUid: '999'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_ADMIN *(;.*|$)
-        roleOrder: 0
-        rolename: IDM_ADMIN
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222214353'
-        workingUid: admin
-    -   defaultUid: '1709990490421'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
-        roleOrder: 1
-        rolename: IDM_USER_ADMIN
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222214356'
-        workingUid: admin
-    -   defaultUid: '1709990492509'
-        layout: "<div style=\"FLOAT: left; WIDTH: 100%\">\n\t<div style=\"margin-bottom:
-            8px\">\n\t\t<div id=\"w_1_connection_g\" class=\"static_column\"></div>\n\t</div>\n</div>\n"
-        principalType: group
-        role: (^|.*;) *IDM_USER_LEADER *(;.*|$)
-        roleOrder: 2
-        rolename: IDM_USER_LEADER
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222214358'
-        workingUid: admin
-    -   defaultUid: default
-        layout: ''
-        principalType: OrganizationPrincipal
-        role: default
-        roleOrder: 3
-        rolename: defaultRole
-        tabId: '10105'
-        temp: "\0"
-        templastmodified: '2024-03-09T22:22:14'
-        widgets: '<widgets tabId="10105" tabName="接続先ガジェット" tabType="static" columnsWidth="[&quot;100%&quot;]"
-            numCol="1">
-
-            <panel type="StaticPanel">
-
-            <widget id="w_1_connection_g" href="" title="接続先ガジェット" type="g_upload__connection_g/gadget"
-            refreshInterval="null">
-
-            <data>
-
-            </data>
-
-            </widget></panel>
-
-            <panel type="DynamicPanel" disabled="true"></panel>
-
-            </widgets>'
-        widgetsLastmodified: '20240309222214357'
-        workingUid: admin
-    -   defaultUid: '999'
         layout: '<table width="100%" cellspacing="0" cellpadding="0">
 
             <tbody><tr>
@@ -2533,8 +2567,7 @@ is_tables_data:
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
             type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://auth.{{
-            domain }}/idp-console/"
-            target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
+            domain }}/idp-console/" target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
             <span id="selectlang" class="portal-user-menu-item-label"><span class="showJa">言語切替</span><span
@@ -2547,8 +2580,8 @@ is_tables_data:
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
             type="html" class="commandbar-item"><a href="javascript:location.href=''https://idm.{{
             domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
-            domain }}&amp;uid=''
-            + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
+            domain }}&amp;uid='' + document.getElementById(''portal-user-menu'').title"><div
+            class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
             <td id="td_portal-logout"><div class="commandbar-item" id="portal-logout"></div></td></tr></tbody>
@@ -2599,8 +2632,7 @@ is_tables_data:
 
             <td id="td_p_1622343284517_w_1"><div id="p_1622343284517_w_1" label="認証サーバコンソール"
             type="link" style="white-space: nowrap;" class="commandbar-item"><a href="https://auth.{{
-            domain }}/idp-console/"
-            target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
+            domain }}/idp-console/" target="_blank">認証サーバコンソール</a></div></td><td id="td_p_1408673475734_w_1"><div
             class="commandbar-item" type="html" label="言語切替" id="p_1408673475734_w_1">
 
             <span id="selectlang" class="portal-user-menu-item-label"><span class="showJa">言語切替</span><span
@@ -2613,8 +2645,8 @@ is_tables_data:
             <td id="td_p_1622265924411_w_1"><div id="p_1622265924411_w_1" label="パスワード変更"
             type="html" class="commandbar-item"><a href="javascript:location.href=''https://idm.{{
             domain }}/changePassword/changePassword?returnURL=https%3A%2F%2Fidm.{{
-            domain }}&amp;uid=''
-            + document.getElementById(''portal-user-menu'').title"><div class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
+            domain }}&amp;uid='' + document.getElementById(''portal-user-menu'').title"><div
+            class="portal-user-menu-item-label">パスワード変更</div></a></div></td>
 
 
             <td id="td_portal-logout"><div class="commandbar-item" id="portal-logout"></div></td></tr></tbody>
@@ -2796,13 +2828,48 @@ is_tables_data:
         rolename: コンタクトセンター
         tabId: header
         temp: "\0"
-        templastmodified: '2024-03-09T22:43:46'
+        templastmodified: '2024-04-08T17:44:33'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20240309224339354'
-        workingUid: admin
+        widgetsLastmodified: '20240408174429491'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '999'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ID管理</span>
+
+            <span class="showEn">ID Management</span>
+
+            <span class="submenu">
+
+            </span>
+
+            </span>
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_CONTACT *(;.*|$)
+        roleOrder: 0
+        rolename: コンタクトセンター
+        tabId: header
+        temp: "\x01"
+        templastmodified: '2024-04-08T17:44:29'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20240408174429491'
+        workingUid: IDM_ADMIN
     -   defaultUid: '1514074290805'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3046,6 +3113,14 @@ is_tables_data:
 
             </div>
 
+            <div class="idmSubMenuTab" tabid="10111">
+
+            <span class="showJa">Socket Warp Connector管理</span>
+
+            <span class="showEn">Socket Warp Connector Settings</span>
+
+            </div>
+
             <div class="idmSubMenuTab" tabid="10100">
 
             <span class="showJa">LDAP汎用オブジェクト編集</span>
@@ -3108,13 +3183,333 @@ is_tables_data:
         rolename: 全権管理者
         tabId: header
         temp: "\0"
-        templastmodified: '2024-03-09T22:43:46'
+        templastmodified: '2024-04-08T17:44:33'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20240309224339354'
-        workingUid: admin
+        widgetsLastmodified: '20240408174429492'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '1514074290805'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">データベース設定</span>
+
+            <span class="showEn">Database</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10001">
+
+            <span class="showJa">クラス編集</span>
+
+            <span class="showEn">Class Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10003">
+
+            <span class="showJa">インタフェース編集</span>
+
+            <span class="showEn">Interface Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10002">
+
+            <span class="showJa">ガジェット編集</span>
+
+            <span class="showEn">Gadget Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10004">
+
+            <span class="showJa">翻訳テーブル編集</span>
+
+            <span class="showEn">Translator Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10015">
+
+            <span class="showJa">PDF出力レイアウト編集</span>
+
+            <span class="showEn">PDF Layout Editor</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">システム設定</span>
+
+            <span class="showEn">System</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10005">
+
+            <span class="showJa">システム設定編集</span>
+
+            <span class="showEn">System Setting</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10006">
+
+            <span class="showJa">プロビジョニング設定編集</span>
+
+            <span class="showEn">Provisioning Setting</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10007">
+
+            <span class="showJa">インポート設定編集</span>
+
+            <span class="showEn">Import Setting</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10008">
+
+            <span class="showJa">インポートシーケンス編集</span>
+
+            <span class="showEn">Import Sequence Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10009">
+
+            <span class="showJa">自動更新バッチ編集</span>
+
+            <span class="showEn">Update Batch Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10010">
+
+            <span class="showJa">OpenLDAP データベース設定編集</span>
+
+            <span class="showEn">OpenLdap Db Setting Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10011">
+
+            <span class="showJa">ログ閲覧</span>
+
+            <span class="showEn">Log Viewer</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10016">
+
+            <span class="showJa">メールアドレス確認設定</span>
+
+            <span class="showEn">Mail Address Confirm Setting</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10017">
+
+            <span class="showJa">計算式トレースログ閲覧</span>
+
+            <span class="showEn">Formula trace log Viewer</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10018">
+
+            <span class="showJa">バックエンドDB設定編集</span>
+
+            <span class="showEn">Backend Database Setting Editor</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10019">
+
+            <span class="showJa">バックエンドDB参照設定編集</span>
+
+            <span class="showEn">Backend Database Collection Setting Editor</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">プロビジョニング管理</span>
+
+            <span class="showEn">Provisioning</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10012">
+
+            <span class="showJa">プロビジョニング要求閲覧</span>
+
+            <span class="showEn">Provisioning Request Viewer</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10013">
+
+            <span class="showJa">プロビジョニングタスク閲覧</span>
+
+            <span class="showEn">Provisioning Task Viewer</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10014">
+
+            <span class="showJa">プロビジョニングタスクログ閲覧</span>
+
+            <span class="showEn">Provisioning Task Log Viewer</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ID管理</span>
+
+            <span class="showEn">ID Management</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">ユーザ管理</span>
+
+            <span class="showEn">Users</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10110">
+
+            <span class="showJa">チーム管理</span>
+
+            <span class="showEn">User Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10104">
+
+            <span class="showJa">接続仕様</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10105">
+
+            <span class="showJa">接続先管理</span>
+
+            <span class="showEn">Connections</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">接続先グループ管理</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10111">
+
+            <span class="showJa">Socket Warp Connector管理</span>
+
+            <span class="showEn">Socket Warp Connector Settings</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10100">
+
+            <span class="showJa">LDAP汎用オブジェクト編集</span>
+
+            <span class="showEn">LDAPGeneralObject</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10101">
+
+            <span class="showJa">作業申請</span>
+
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10107">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10102">
+
+            <span class="showJa">承認済み作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_ADMIN *(;.*|$)
+        roleOrder: 1
+        rolename: 全権管理者
+        tabId: header
+        temp: "\x01"
+        templastmodified: '2024-04-08T17:44:29'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20240408174429492'
+        workingUid: IDM_ADMIN
     -   defaultUid: '1707452853074'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3266,13 +3661,171 @@ is_tables_data:
         rolename: 管理者
         tabId: header
         temp: "\0"
-        templastmodified: '2024-03-09T22:43:46'
+        templastmodified: '2024-04-08T17:44:33'
         widgets: '<widgets tabId="header" tabName="新しいタブ" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20240309224339351'
-        workingUid: admin
+        widgetsLastmodified: '20240408174429486'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '1707452853074'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">プロビジョニング管理</span>
+
+            <span class="showEn">Provisioning</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10012">
+
+            <span class="showJa">プロビジョニング要求閲覧</span>
+
+            <span class="showEn">Provisioning Request Viewer</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10013">
+
+            <span class="showJa">プロビジョニングタスク閲覧</span>
+
+            <span class="showEn">Provisioning Task Viewer</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10014">
+
+            <span class="showJa">プロビジョニングタスクログ閲覧</span>
+
+            <span class="showEn">Provisioning Task Log Viewer</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ID管理</span>
+
+            <span class="showEn">ID Management</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">ユーザ管理</span>
+
+            <span class="showEn">Users</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10110">
+
+            <span class="showJa">チーム管理</span>
+
+            <span class="showEn">User Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10104">
+
+            <span class="showJa">接続仕様</span>
+
+            <span class="showEn">Machines</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10105">
+
+            <span class="showJa">接続先管理</span>
+
+            <span class="showEn">Connections</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">接続先グループ管理</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10100">
+
+            <span class="showJa">LDAP汎用オブジェクト編集</span>
+
+            <span class="showEn">LDAPGeneralObject</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10101">
+
+            <span class="showJa">作業申請</span>
+
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10107">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10102">
+
+            <span class="showJa">承認済み作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER_ADMIN *(;.*|$)
+        roleOrder: 2
+        rolename: 管理者
+        tabId: header
+        temp: "\x01"
+        templastmodified: '2024-04-08T17:44:29'
+        widgets: '<widgets tabId="header" tabName="新しいタブ" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20240408174429486'
+        workingUid: IDM_ADMIN
     -   defaultUid: '1514074290805'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3371,13 +3924,118 @@ is_tables_data:
         rolename: リーダー
         tabId: header
         temp: "\0"
-        templastmodified: '2024-03-09T22:43:46'
+        templastmodified: '2024-04-08T17:44:33'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20240309224339355'
-        workingUid: admin
+        widgetsLastmodified: '20240408174429493'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '1514074290805'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ID管理</span>
+
+            <span class="showEn">ID Management</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10109">
+
+            <span class="showJa">ユーザ管理</span>
+
+            <span class="showEn">Users</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10110">
+
+            <span class="showJa">ユーザグループ管理</span>
+
+            <span class="showEn">User Groups</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10105">
+
+            <span class="showJa">接続先</span>
+
+            <span class="showEn">Connections</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10103">
+
+            <span class="showJa">接続先グループ</span>
+
+            <span class="showEn">Connection Groups</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10101">
+
+            <span class="showJa">作業申請</span>
+
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10107">
+
+            <span class="showJa">要承認作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10102">
+
+            <span class="showJa">承認済み作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER_LEADER*(;.*|$)
+        roleOrder: 3
+        rolename: リーダー
+        tabId: header
+        temp: "\x01"
+        templastmodified: '2024-04-08T17:44:29'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20240408174429493'
+        workingUid: IDM_ADMIN
     -   defaultUid: '1514074290805'
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3423,13 +4081,65 @@ is_tables_data:
         rolename: ユーザー
         tabId: header
         temp: "\0"
-        templastmodified: '2024-03-09T22:43:46'
+        templastmodified: '2024-04-08T17:44:33'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20240309224339355'
-        workingUid: admin
+        widgetsLastmodified: '20240408174429492'
+        workingUid: IDM_ADMIN
+    -   defaultUid: '1514074290805'
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+
+            <span class="idmMenuTab">
+
+            <span class="showJa">ワークフロー</span>
+
+            <span class="showEn">Work Flow</span>
+
+            <span class="submenu">
+
+            <div class="idmSubMenuTab" tabid="10101">
+
+            <span class="showJa">作業申請</span>
+
+            <span class="showEn">Work Application</span>
+
+            </div>
+
+            <div class="idmSubMenuTab" tabid="10102">
+
+            <span class="showJa">承認済み作業</span>
+
+            <span class="showEn">Work Applove</span>
+
+            </div>
+
+            </span>
+
+            </span>
+
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: group
+        role: (^|.*;) *IDM_USER*(;.*|$)
+        roleOrder: 4
+        rolename: ユーザー
+        tabId: header
+        temp: "\x01"
+        templastmodified: '2024-04-08T17:44:29'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20240408174429492'
+        workingUid: IDM_ADMIN
     -   defaultUid: default
         layout: '<div id="idmMenu" class="is-clearfix">
 
@@ -3445,13 +4155,35 @@ is_tables_data:
         rolename: defaultRole
         tabId: header
         temp: "\0"
-        templastmodified: '2024-03-09T22:43:46'
+        templastmodified: '2024-04-08T17:44:33'
         widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
             numCol="undefined">
 
             </widgets>'
-        widgetsLastmodified: '20240309224339356'
-        workingUid: admin
+        widgetsLastmodified: '20240408174429494'
+        workingUid: IDM_ADMIN
+    -   defaultUid: default
+        layout: '<div id="idmMenu" class="is-clearfix">
+
+            </div>
+
+
+            <div id="idmSubMenu" class="is-clearfix">
+
+            </div>'
+        principalType: OrganizationPrincipal
+        role: default
+        roleOrder: 5
+        rolename: defaultRole
+        tabId: header
+        temp: "\x01"
+        templastmodified: '2024-04-08T17:44:29'
+        widgets: '<widgets tabId="header" tabName="" tabType="static" columnsWidth=""
+            numCol="undefined">
+
+            </widgets>'
+        widgetsLastmodified: '20240408174429494'
+        workingUid: IDM_ADMIN
 phases_data:
     definitions:
         _sandboxClasses:
@@ -4023,7 +4755,7 @@ phases_data:
             -   allowAnotherValue: false
                 displayName: Telnet用パスワード
                 isArray: false
-                name: telnetPassoword
+                name: telnetPassword
                 outputLdapSchema: false
                 propGroupName:
                 - telnet
@@ -4486,6 +5218,95 @@ phases_data:
                 outputLdapSchema: false
                 required: false
                 type: boolean
+                unique: false
+                uniqueIgnoreCase: false
+        -   displayName: socket warp connector
+            isNestedObject: false
+            isPrimaryAndNestedObject: false
+            keyProperty: uid
+            name: swConnector
+            outputLdapSchema: false
+            propertyDefinitionList:
+            -   allowAnotherValue: false
+                description: socket warp connectorのuid
+                displayName: UID
+                isArray: false
+                name: uid
+                outputLdapSchema: false
+                required: false
+                stringRestriction: id
+                type: string
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: SCEPサーバで認証を行う際のパスワード
+                displayName: パスワード
+                isArray: false
+                name: password
+                outputLdapSchema: false
+                required: true
+                stringRestriction: password
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: socket warp listenerに接続する際に用いるクライアント証明書
+                displayName: クライアント証明書
+                isArray: false
+                name: certificate
+                outputLdapSchema: false
+                required: false
+                type: string
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: クライアント証明書が発行された日時
+                displayName: 証明書発行日時
+                isArray: false
+                name: certIss
+                outputLdapSchema: false
+                required: false
+                type: datetime
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: クライアント証明書の有効期限
+                displayName: 証明書有効期限
+                isArray: false
+                name: certExp
+                outputLdapSchema: false
+                required: false
+                type: datetime
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: Socket Warp Listenerがtcpでlistenするポート番号
+                displayName: listenポート番号
+                isArray: false
+                name: listenPort
+                outputLdapSchema: false
+                required: true
+                type: number
+                unique: true
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: Socket Warp Connectorが接続するIPアドレス
+                displayName: 接続先IPアドレス
+                isArray: false
+                name: connectToAddress
+                outputLdapSchema: false
+                required: true
+                type: ipaddress
+                unique: false
+                uniqueIgnoreCase: false
+            -   allowAnotherValue: false
+                description: Socket Warp Connectorが接続する接続先のポート番号
+                displayName: 接続先ポート番号
+                isArray: false
+                name: connectToPort
+                outputLdapSchema: false
+                required: true
+                type: number
                 unique: false
                 uniqueIgnoreCase: false
         -   description: システムの利用者のクラス
@@ -5757,6 +6578,122 @@ phases_data:
             withHeader: false
         -   autoCommit: false
             backToDetail: false
+            className: swConnector
+            clonable: false
+            disableAdd: false
+            disableDelete: false
+            disableMultiDelete: false
+            disableSuspension: false
+            disableUpdate: false
+            displayName: socket warp connector編集ガジェット
+            downloadDisplayFormatCSV: false
+            downloadUpdateFormatCSV: false
+            interfaceName: swConnectorEditIF
+            isSingleton: false
+            name: swConnector_g
+            propertiesOnDetail:
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: uid
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: true
+                incrementalSearchFlag: false
+                name: password
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connectToAddress
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: ipaddress
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: connectToPort
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: number
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: false
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: listenPort
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: number
+            -   className: ''
+                datePickerFlag: false
+                disableUpdate: true
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                inputUIWidth: multi
+                name: certificate
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: string
+            -   className: ''
+                datePickerFlag: false
+                dateSeparator: /
+                disableUpdate: true
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: certIss
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            -   className: ''
+                datePickerFlag: false
+                dateSeparator: /
+                disableUpdate: true
+                hideOnEdit: false
+                hideOnShow: false
+                incrementalSearchFlag: false
+                name: certExp
+                radioButtonFlag: false
+                twoColumnFlag: false
+                type: datetime
+            propertiesOnList:
+            -   displayOnList: 'on'
+                name: uid
+            -   displayOnList: 'on'
+                name: connectToAddress
+            -   displayOnList: defaultOn
+                name: connectToPort
+            -   displayOnList: defaultOn
+                name: listenPort
+            -   displayOnList: defaultOn
+                name: certIss
+            -   displayOnList: defaultOn
+                name: certExp
+            showHistory: false
+            uploadCSV: false
+            useDisplayNameHeader: false
+            withHeader: true
+        -   autoCommit: false
+            backToDetail: false
             className: user
             clonable: false
             disableAdd: false
@@ -6532,6 +7469,41 @@ phases_data:
             name: startWokrIF
             useAESDecryptedResponse: false
             useCustomBackendDatabase: false
+        -   accessLevel: full
+            className: swConnector
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: socket warp connector編集IF
+            name: swConnectorEditIF
+            readOnlyProperties:
+            - certificate
+            - certIss
+            - certExp
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readOnly
+            className: swConnector
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: swConnector取得IF
+            name: swConnectorGetIF
+            properties:
+            - uid
+            - password
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
+        -   accessLevel: readWrite
+            className: swConnector
+            database: Sandbox
+            deleteAsUpdate: false
+            displayName: swConnector更新IF
+            name: swConnectorPutIF
+            properties:
+            - certificate
+            - certIss
+            - certExp
+            useAESDecryptedResponse: false
+            useCustomBackendDatabase: false
         -   ACEs:
             -   allow: true
             accessLevel: full
@@ -6856,167 +7828,13 @@ phases_data:
             - uidObject
             sn: dummy
             uid: TemplateOfUser
+    objects:
         userEditorInterface:
         -   accountLock: false
-            cn: admin
-            dn: uid=admin,ou=User,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: admin
-            uid: admin
-            userPassword: '{{ db_password }}'
-        -   accountLock: false
-            cn: 業務管理者
-            dn: uid=demo-admin,ou=Users,{{ dn_suffix }}
-            email: hiroya@procube.jp
-            idmRole: IDM_USER_LEADER
-            sn: 管理者
-            uid: demo-admin
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$TweMqsm29vEu9IrtBpn6Dg$ZX6sdlMneKYkkRUHe8pJkcy9P38XNC0tTPHicVWlrBg'
-        -   accountLock: false
-            cn: デモ作業者
-            dn: uid=demo-worker,ou=Users,{{ dn_suffix }}
-            email: hiroya@procube.jp
-            idmRole: IDM_USER
-            sn: デモ作業者
-            uid: demo-worker
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$h21WD3olpKAVoUOwp3GVRQ$5nbKBj0XdNQQJaF3Crw2QoCSCcpkOI7Drs9VFZwUeVM'
-        -   accountLock: false
-            cn: 岸本 明紀
-            dn: uid=ka-kishimoto@netone.co.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: 岸本
-            uid: ka-kishimoto@netone.co.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$pyBRfRijVLJlBJ7r5oq46Q$hA99m1plpT5IX0/JFyKDu6tz1nx4luPLvgGy+vywJKg'
-        -   accountLock: false
-            cn: ユーザー
-            dn: uid=kensyou,ou=Users,{{ dn_suffix }}
-            email: hiroya@procube.jp
-            idmRole: IDM_USER
-            sn: 検証用
-            uid: kensyou
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$BSQx/8WH9DEkVL3jawBLgw$50jdQw3Yx0nTlBQ/IeSE0KznxjlySJzzXj1eyoWDt1k'
-        -   accountLock: false
-            cn: 西田 謙一
-            dn: uid=kn-nishida@netone.co.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: 西田
-            uid: kn-nishida@netone.co.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$eY4Obyc8aREse0hTmBRXPw$ZvY4GBIhywnzy29RFKNWTNrC/9/YH8I99c1YsBgLMtk'
-        -   accountLock: false
-            cn: 船間 学
-            dn: uid=ma-funama@netone.co.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: 船間
-            uid: ma-funama@netone.co.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oS4qC/0MiWFcyMYBT1HVVw$Bma/+INKwAzTsft5LCIi3kQDz0ORM9PsuP8VfwUREHQ'
-        -   accountLock: false
-            cn: マイク ネコ
-            dn: uid=mikeneko,ou=Users,{{ dn_suffix }}
-            email: ma-funama@netone.co.jp
-            idmRole: IDM_USER
-            sn: マイク
-            team: 60cab884-c03e-eba1-26ae-f48eb99eef67
-            uid: mikeneko
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$aX2hUE5CxqK/1/sPSz5TpQ$leWD3mRBpB7ULvkA59fCQKA3wix8vn1ad1iwI51GsH0'
-        -   accountLock: false
-            cn: 中川路 充
-            dn: uid=mitsuru@procube.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: 中川路
-            uid: mitsuru@procube.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SUJ6i4XswzOIjneumL8MQw$yVl/z7TSQMVyYVnK9Xd65cBeI6ue1n+hHdSiwpGNe1I'
-        -   accountLock: false
-            cn: 中川路充（業務管理者）
-            dn: uid=mitsuru_admin,ou=Users,{{ dn_suffix }}
-            email: mitsuru@procube.jp
-            idmRole: IDM_USER_LEADER
-            sn: 中川路充
-            uid: mitsuru_admin
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$/Oov7vGxS92mI7KpRbvvow$uP/OXlqZZ3paW58VxBp5cw3omdOFjdHeO/29SPD4xyA'
-        -   accountLock: false
-            cn: 中川路充（作業者）
-            dn: uid=mitsuru_user,ou=Users,{{ dn_suffix }}
-            email: mitsuru@procube.jp
-            idmRole: IDM_USER
-            sn: 中川路充
-            uid: mitsuru_user
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$zfB2k3ZxRC+wJN79lulGzA$ffX/ltWB9L6qY3fo5BXoWyOoXUMrm+4n5QvuR+07pP0'
-        -   accountLock: false
-            cn: 赤堀 翠
-            dn: uid=nKINkmX@sample.com,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_USER
-            sn: 赤堀
-            uid: nKINkmX@sample.com
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$U4lqy0/VjNSP1Xe2k2d9CA$Di4tHoHaR1zfapV2+X3wg7KpxjX9ryRXYfK2sEyiDi8'
-        -   accountLock: false
-            cn: 中川路 亨哉
+            cn: 亨哉
             dn: uid=naoya@procube.jp,ou=Users,{{ dn_suffix }}
+            email: naoya@procube.jp
             idmRole: IDM_ADMIN
             sn: 中川路
             uid: naoya@procube.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$upTAMdzpgc3+vpikRkfQfQ$HF9swubslwk1ifLgRljifqV+jkFXqJteUDS4gTBfyqE'
-        -   accountLock: false
-            cn: 畑 慎太郎
-            dn: uid=sh-hata@netone.co.jp,ou=Users,{{ dn_suffix }}
-            email: sh-hata@netone.co.jp
-            idmRole: IDM_ADMIN
-            sn: 畑
-            uid: sh-hata@netone.co.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$z7QMPaJtkRy5YMDz44oEbw$nWvmvCFuWGAjFzHTgHT3tWJL/Eue54v3OAK/WZKEgXc'
-        -   accountLock: false
-            cn: 熊谷 智明
-            dn: uid=t-kumagai@netone.co.jp,ou=Users,{{ dn_suffix }}
-            email: t-kumagai@netone.co.jp
-            idmRole: IDM_ADMIN
-            sn: 熊谷
-            team: 59bcf361-cf3d-b1a4-6d1e-cdab4e3be796
-            uid: t-kumagai@netone.co.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$oWjGStaWPxBbmnBdb8P2wg$SnxymJ7vrik3iGhNswtf1shRQFwvRCpQoTbtNTXOIeA'
-        -   accountLock: false
-            cn: 田中 年男
-            dn: uid=t-tanaka@netone.co.jp,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_ADMIN
-            sn: 田中
-            uid: t-tanaka@netone.co.jp
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SAfm+aNWiQRL8XpgpFPZJQ$xbmJZaWKw4nL4I8S8rSw1Xvnug/+V/Fx3ztK5x/pcpQ'
-        -   accountLock: false
-            cn: test（更新）
-            dn: uid=test123,ou=Users,{{ dn_suffix }}
-            email: mitsuru@procube.jp
-            idmRole: IDM_USER
-            sn: test
-            team: 8f58d1c4-2643-8ad1-b077-9e2a2e345001
-            uid: test123
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$wKHHqq7orb6Rs6OBPt4WJw$JLgBd94MpoblDW+p5FEyfM+jrOI3OCbiUZzHDIwqS14'
-        -   accountLock: true
-            cn: テストユーザー(更新)
-            dn: uid=testuser,ou=Users,{{ dn_suffix }}
-            email: hiroya@procube.jp
-            idmRole: IDM_USER
-            sn: tester
-            uid: testuser
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$u1A3FSZ6nrphJYdQQxsq8A$91BOJVjV9RzzS3YjpP2wJlzrDmwmAwCy9CnW2WvzEUs'
-        -   accountLock: false
-            cn: Tomoaki
-            dn: uid=tomokuma,ou=Users,{{ dn_suffix }}
-            email: tomokuma0909@gmail.com
-            idmRole: IDM_USER
-            sn: Kumagai
-            team: 201406f8-c351-a8e1-16f5-53cb4f2ed17b
-            uid: tomokuma
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$kvhu+wtzzPhQ65RIrXaMOQ$NnzCUSkU+6CKVtn5HTvpPC9VGUSk+rL6h90pECmk0vc'
-        -   accountLock: false
-            cn: 鳥海 菜穂
-            dn: uid=tuki3@test.net,ou=Users,{{ dn_suffix }}
-            idmRole: IDM_USER
-            sn: 鳥海
-            uid: tuki3@test.net
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$9fbwnvfVvBPd0P2wpwAe/A$i3X6zLssyv88CfjfjociEdVyOdUt7kfAq9YxjQdMw2M'
-        -   accountLock: false
-            cn: ユーザーアドミンテスト
-            dn: uid=user_admin_test,ou=Users,{{ dn_suffix }}
-            email: hiroya@procube.jp
-            idmRole: IDM_USER_ADMIN
-            sn: ユーザーアドミンテスト
-            uid: user_admin_test
-            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$mbsyq7EJKysRm1VGqXRZCQ$nAxENUQw20b5wUBhHDc7FBsn7GNxCaDNv++Dy2GVUao'
+            userPassword: '{ARGON2}$argon2id$v=19$m=65536,t=3,p=4$SUHFv6Sk6Ofxptm4OL+X+w$pvK6ssM33fezrIDxZKmQfcznB/9e0pDBcrdRPVUXsEk'

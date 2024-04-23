@@ -86,8 +86,8 @@
       name: "{{ name }}"
       idmIdentifier: "{{ id }}"
       attributes: {}
-      periods: "{{ req_periods }}"
-      connections: "{{ connectionids }}"
+      periods: "{{ req_periods | default([]) }}"
+      connections: "{{ connectionids | default([]) }}"
       users: "{{ (workers | default([])) + (managers | default([])) + (workerAndManager | default([])) }}"
     validate_certs: false
     status_code: 200
