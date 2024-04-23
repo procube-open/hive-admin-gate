@@ -12,8 +12,8 @@
         <link href="https://10.35.96.86/css/base.css" rel="stylesheet" type="text/css" media="all">
         <link href="https://10.35.96.86/css/style.css" rel="stylesheet" type="text/css" media="all"> -->
         <!-- <style>html{overflow:hidden}#ID_IPMANAGER>div{padding:20px}.form-field{overflow:inherit}#loginBoxContent,.loginBoxRestrictWidth{width:420px}#loginBoxContent section{margin-bottom:10px}section.noSectionPadding{padding:0}#hpBrand{font-size:1.575rem}</style><script type="text/javascript" src="https://10.35.96.86/js/json2.js"></script><script type="text/javascript" src="https://10.35.96.86/js/jquery.js"></script><script type="text/javascript" src="https://10.35.96.86/js/jquery-ui.js"></script><script type="text/javascript" src="https://10.35.96.86/js/icons.js"></script><script type="text/javascript" src="https://10.35.96.86/js/iLO.js"></script><script type="text/javascript" src="https://10.35.96.86/js/login.js"></script><script type="text/javascript">function updatePageFromIndex() {
-        me.supportedBrowser() ? ($('#hp-unsupported-browser').show(), $('#login-form').hide(), 
-        $("body", top.document).removeClass("loading")) : updateLogin(), $("#effect").hide(), 
+        me.supportedBrowser() ? ($('#hp-unsupported-browser').show(), $('#login-form').hide(),
+        $("body", top.document).removeClass("loading")) : updateLogin(), $("#effect").hide(),
         $("#securityHeader").hide();
         }
 
@@ -34,7 +34,7 @@
         return $("#" + elem).toggle("slow"), !1;
         }), me.supportedBrowser = function() {
         var version = iLOGlobal.ie, compatibilityViewBrowser = parseFloat(document.documentMode), isValid = !0;
-        return version && (isValid = isNaN(compatibilityViewBrowser) === !1 && compatibilityViewBrowser >= 9 ? !0 : !1), 
+        return version && (isValid = isNaN(compatibilityViewBrowser) === !1 && compatibilityViewBrowser >= 9 ? !0 : !1),
         isValid;
         }, eventhandle = $.subscribe("login_session", function() {
         $(document).ready(function() {
@@ -47,6 +47,13 @@
         function onclickSample() {
             alert('Log In button clicked')
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            window.setTimeout(() => {
+                const formFieldContents = document.querySelector('.form-field__contents');
+                formFieldContents.insertAdjacentHTML('beforeend', '<input id="username" type="text" value="" size="26" onkeypress="return checkEnter(event);" autocomplete="off" class="">')
+            }, 2000);
+        });
         </script>
     </head>
     <body class="bodyContent login-body">
@@ -123,7 +130,7 @@
                         <span id="usernameBox" data-localize="login.LocalUserName">Local&nbsp;login&nbsp;name</span>
                     </label>
                     <span class="form-field__contents">
-                        <input id="username" type="text" value="" size="26" onkeypress="return checkEnter(event);" autocomplete="off" class="">
+                        <!-- <input id="username" type="text" value="" size="26" onkeypress="return checkEnter(event);" autocomplete="off" class=""> -->
                     </span>
                 </div>
                 <div class="form-field form-field--text form-field--size-medium">
