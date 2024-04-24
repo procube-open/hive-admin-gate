@@ -56,39 +56,37 @@ def service_create():
     work_container = 'chrome-' + work_id + '-' + str(uuid.uuid4())
 
 
+    http_login_format = get_http_login_format(identifier)
+
+    # http_login_format = {
+    #     "target": "apache",
+    #     "protocol": "http",
+    #     "fqdn": "apache:80",
+    #     "path": "",
+    #     "params": [
+    #         [
+    #             {
+    #                 "event": "input",
+    #                 "getElementMethod": "xpath",
+    #                 "targetElementPath": "//input[@id='username']",
+    #                 "sendValue": "demo@procube.jp"
+    #             },{
+    #                 "event": "input",
+    #                 "getElementMethod": "xpath",
+    #                 "targetElementPath": "//input[@id='password']",
+    #                 "sendValue": "EXPp7Od9"
+    #             },{
+    #                 "event": "submit",
+    #                 "getElementMethod": "xpath",
+    #                 "targetElementPath": "//button[@id='login-form__submit']",
+    #                 "sendValue": ""
+    #             }
+    #         ]
+    #     ]
+    # }
 
 
-
-    # http_login_format = get_http_login_format(identifier)
-
-    http_login_format = {
-        "target": "apache",
-        "protocol": "http",
-        "fqdn": "apache:80",
-        "path": "",
-        "params": [
-            [
-                {
-                    "event": "input",
-                    "getElementMethod": "xpath",
-                    "targetElementPath": "//input[@id='username']",
-                    "sendValue": "demo@procube.jp"
-                },{
-                    "event": "input",
-                    "getElementMethod": "xpath",
-                    "targetElementPath": "//input[@id='password']",
-                    "sendValue": "EXPp7Od9"
-                },{
-                    "event": "submit",
-                    "getElementMethod": "xpath",
-                    "targetElementPath": "//button[@id='login-form__submit']",
-                    "sendValue": ""
-                }
-            ]
-        ]
-    }
-
-    http_login_format_env = 'HTTP_LOGIN_FORMAT=' + json.dumps(http_login_format)
+    http_login_format_env = 'HTTP_LOGIN_FORMAT=' + http_login_format
     selenium_env = [http_login_format_env]
 
 

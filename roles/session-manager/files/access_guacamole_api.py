@@ -87,7 +87,7 @@ def assign_user_to_connection(work_user, vnc_identifier):
 
     headers = {'Content-Type': 'application/json', 'Guacamole-Token': auth_token}
 
-    response = requests.patch(assign_user_to_connection_url, data=params, headers=headers)
+    requests.patch(assign_user_to_connection_url, data=params, headers=headers)
 
 def get_http_login_format(identifier):
     response_generate_auth_token = generate_auth_token()
@@ -98,6 +98,7 @@ def get_http_login_format(identifier):
 
     headers = {'Guacamole-Token': auth_token}
 
-    response = requests.get(get_parameters_url, headers=headers)
-    http_login_format = response['httpLoginFormat']
+    parameters_res = requests.get(get_parameters_url, headers=headers)
+    parameters_data = parameters_res.json()
+    http_login_format = parameters_data['httpLoginFormat']
     return http_login_format
