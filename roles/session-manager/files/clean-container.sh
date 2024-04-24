@@ -1,3 +1,3 @@
 #! /bin/sh
 
-python /root/session-manager/clean_chrome_container.py
+/usr/local/bin/python /root/session-manager/clean_chrome_container.py

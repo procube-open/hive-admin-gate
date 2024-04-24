@@ -1,3 +1,3 @@
 #! /bin/sh
 
-exec /usr/bin/supervisord
+exec /usr/bin/supervisord --nodaemon

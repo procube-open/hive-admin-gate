@@ -1,3 +1,3 @@
 #! /bin/sh
 
-python /root/session-manager/remove_davfs_volumes.py
+/usr/local/bin/python /root/session-manager/remove_davfs_volumes.py

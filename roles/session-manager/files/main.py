@@ -1,0 +1,182 @@
+from flask import Flask, request, jsonify
+import docker
+import os
+import socket
+import time
+import uuid
+import threading
+from access_guacamole_api import (
+    create_vnc_connection,
+    delete_vnc_connection,
+    assign_user_to_connection,
+    get_http_login_format,
+)
+from insert_hosts import insert_hosts
+
+
+app = Flask(__name__)
+
+
+def create_client(base_urls):
+    tls_config = docker.tls.TLSConfig(
+        ca_cert="/root/.docker/ca.pem",
+        verify=True,
+        client_cert=("/root/.docker/cert.pem", "/root/.docker/key.pem"),
+    )
+    for base_url in base_urls:
+        try:
+            client = docker.APIClient(base_url=base_url, tls=tls_config)
+            logger_text = "docker host is " + base_url
+            app.logger.info(logger_text)
+            return client
+        except Exception as e:
+            app.logger.warning(e)
+            continue
+
+
+@app.route("/create", methods=["POST"])
+def service_create():
+    lock = threading.Lock()
+
+    webdav_server = os.environ.get("WEBDAV_SERVER")
+    webdav_port = str(os.environ.get("WEBDAV_PORT"))
+    webdav_username = os.environ.get("WEBDAV_USERNAME")
+    webdav_password = os.environ.get("WEBDAV_PASSWORD")
+
+    image_chrome = "procube/node-chrome"
+    # image_chrome = os.environ.get('IMAGE_CHROME')
+    swarm_network = ["hive_default_network"]
+
+    base_urls = []
+    insert_hosts(base_urls)
+    client = create_client(base_urls)
+
+    work_id = str(request.json["work_id"])
+    work_user = str(request.json["work_user"])
+    identifier = str(request.json["identifier"])
+
+    work_container = "chrome-" + work_id + "-" + str(uuid.uuid4())
+
+    http_login_format = get_http_login_format(identifier)
+
+    http_login_format_env = "HTTP_LOGIN_FORMAT=" + http_login_format
+    selenium_env = [http_login_format_env]
+
+    davfs_volume_name = "davfs-volume-" + work_id
+    url = "http://" + webdav_server + ":" + webdav_port + "/" + work_id + "/"
+    davfs_driver_opts = {"username": work_id, "password": webdav_password, "url": url}
+    driver_config = docker.types.services.DriverConfig(
+        "fentas/davfs", options=davfs_driver_opts
+    )
+
+    davfs_mount_point = "/mnt/" + work_id
+    davfs_mount_def = docker.types.Mount(
+        davfs_mount_point, davfs_volume_name, type="volume", driver_config=driver_config
+    )
+    davfs_public_mount_def = docker.types.Mount(
+        "/mnt/public", "davfs-volume-public", type="volume"
+    )
+    shm_mount_def = docker.types.Mount("/dev/shm", "/dev/shm", type="bind")
+
+    container_spec = docker.types.ContainerSpec(
+        image_chrome,
+        hostname=work_container,
+        env=selenium_env,
+        mounts=[davfs_mount_def, davfs_public_mount_def, shm_mount_def],
+        cap_add=["NET_ADMIN"],
+    )
+    task_tmpl = docker.types.TaskTemplate(container_spec)
+
+    if lock.locked():
+        logger_text = (
+            work_container + ": Other process threading lock. Please wait for a while"
+        )
+        app.logger.warning(logger_text)
+
+    try:
+        lock.acquire()
+        logger_text = work_container + ": Create process lock acquired"
+        app.logger.info(logger_text)
+
+        client.create_service(
+            task_tmpl,
+            name=work_container,
+            networks=swarm_network,
+            endpoint_spec=docker.types.EndpointSpec(mode="dnsrr"),
+        )
+
+        logger_text = work_container + ": Create successfully"
+        app.logger.info(logger_text)
+    except Exception as e:
+        return jsonify({"error_message": e}), 500
+    finally:
+        lock.release()
+        logger_text = work_container + ": Create process lock released"
+        app.logger.info(logger_text)
+
+    time.sleep(3)
+
+    for i in range(1000):
+        try:
+            with socket.create_connection((work_container, 5900)) as sock:
+                logger_text = work_container + ": Connect successfully"
+                app.logger.info(logger_text)
+            break
+        except:
+            if i == 200:
+                logger_text = work_container + ": Connection timeout"
+                app.logger.error(logger_text)
+                return jsonify({"error_message": "Connection timeout"}), 500
+
+            logger_text = work_container + ": Connection Retry"
+            app.logger.warning(logger_text)
+            time.sleep(0.5)
+
+    try:
+        result_create_vnc_connection = create_vnc_connection(work_container, work_id)
+        vnc_identifier = result_create_vnc_connection["identifier"]
+        assign_user_to_connection(work_user, vnc_identifier)
+        logger_text = (
+            work_container + ": Create VNC connection object to guacamole successfully"
+        )
+        app.logger.info(logger_text)
+    except Exception as e:
+        return jsonify({"error_message": e}), 500
+
+    return jsonify(
+        {
+            "status": "Successfully Created",
+            "work_id": work_id,
+            "work_container": work_container,
+            "vnc_identifier": vnc_identifier,
+        }
+    )
+
+
+@app.route("/delete", methods=["POST"])
+def service_delete():
+    base_urls = []
+    insert_hosts(base_urls)
+    client = create_client(base_urls)
+
+    work_container = request.json["work_container"]
+    vnc_identifier = request.json["vnc_identifier"]
+
+    try:
+        client.remove_service(work_container)
+        logger_text = work_container + ": Delete successfully"
+        app.logger.info(logger_text)
+    except Exception as e:
+        return jsonify({"error_message": e}), 500
+
+    try:
+        delete_vnc_connection(vnc_identifier)
+        logger_text = (
+            work_container
+            + ": Delete VNC connection object from guacamole successfully"
+        )
+        app.logger.info(logger_text)
+    except Exception as e:
+        return jsonify({"error_message": e}), 500
+
+    return jsonify({"status": "Successfully Deleted", "work_container": work_container})

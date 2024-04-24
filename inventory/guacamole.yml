@@ -217,13 +217,14 @@ services:
       - VNC_PASSWORD: "secret"
   scep-server:
     image: 
-      from: ghcr.io/procube-open/scep:0.0.9-rc.1
+      from: ghcr.io/procube-open/scep:0.0.9-rc.2
       roles:
         - python-aptk
         - scep-server
     environment:
       - SCEP_IDM_GET_URL: "http://idm:8090/IDManager/swConnectorGetIF"
       - SCEP_IDM_PUT_URL: "http://idm:8090/IDManager/swConnectorPutIF"
+      - SCEP_IDM_USERS_URL: "http://idm:8090/IDManager/swConnectorGetIF"
       - SCEPCA_IDM_CRL_URL: "http://idm:8090/IDManager/"
     ports:
       - "13000:3000"

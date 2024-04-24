@@ -9,6 +9,7 @@
     name:
     - docker
     - flask
+    - gunicorn
     - requests
     state: present
 - name: create directories
@@ -17,36 +18,48 @@
     state: directory
     mode: 0755
   loop:
-  - '/root/.docker'
-  - '/root/session-manager'
-- name: put files
+  - "/root/.docker"
+  - "{{ session_manager_path }}"
+  - "{{ supervisord_path }}"
+- name: put entrypoint
+  copy:
+    src: docker-entrypoint.sh
+    dest: "/"
+    mode: 0755
+- name: put ini files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ supervisord_path }}"
+    mode: 0755
+  loop:
+  - crond.ini
+  - gunicorn.ini
+- name: put periodic files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: 0755
   loop:
-  - src: docker-entrypoint.sh
-    dest: /
-  - src: access_guacamole_api.py
-    dest: /root/session-manager
-  - src: clean_chrome_container.py
-    dest: /root/session-manager
-  - src: supervisord.conf
-    dest: /etc
   - src: clean-container.sh
-    dest: /etc/periodic/15min
+    dest: "/etc/periodic/15min"
   - src: remove-davfs-volumes.sh
-    dest: /etc/periodic/daily
-- name: put files from templates
-  template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
+    dest: "/etc/periodic/daily"
+- name: put session-manager files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ session_manager_path }}"
     mode: 0755
   loop:
-  - src: main.py.j2
-    dest: /root/session-manager/main.py
-  - src: remove_davfs_volumes.py.j2
-    dest: /root/session-manager/remove_davfs_volumes.py
+  - main.py
+  - guniconf.py
+  - access_guacamole_api.py
+  - clean_chrome_container.py
+  - remove_davfs_volumes.py
+- name: put insert_hosts.py
+  template:
+    src: insert_hosts.py.j2
+    dest: "{{ session_manager_path }}/insert_hosts.py"
+    mode: 0755
 - name: create link to cacert
   file:
     src: /etc/ssl/certs/cacert.pem
