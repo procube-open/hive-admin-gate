@@ -86,3 +86,17 @@
     - name: Error.
       debug:
         msg: "{{ hostname }} is not registered."
+    - name: Register connection.
+      include_tasks:
+        file: "connection/register/{{ loop_protocol }}.yml"
+      when: cs_obj[loop_protocol] and prov_operation == 'add'
+      vars:
+        parameters_json: "{{ guacamole_connection_parameters.results | map(attribute='json') | list }}"
+        check_change: "{{ parameters_json | selectattr('username', 'eq', cs_obj[loop_protocol ~ 'ID'] | default('')) | selectattr('password', 'eq', cs_obj[loop_protocol ~ 'Password'] | default('')) | selectattr('port', 'eq', cs_obj[loop_protocol ~ 'Port'] | default('')) | list | length == 0 }}"
+      loop:
+        - ssh
+        - rdp
+        - telnet
+        - http
+      loop_control:
+        loop_var: loop_protocol
