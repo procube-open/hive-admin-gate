@@ -1,7 +1,7 @@
 import json
 import os
 import requests
-from access_guacamole_api import generate_auth_token
+from access_guacamole import generate_auth_token
 
 print("Started cleaning chrome containers")
 
@@ -30,7 +30,7 @@ for v in connections_data.values():
             headers = {"Content-Type": "application/json"}
             requests.post(delete_url, data=params, headers=headers)
     except Exception as e:
-        print(e)
+        print(str(e))
         continue
 
 print("Ended cleaning chrome containers")

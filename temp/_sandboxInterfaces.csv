@@ -1,24 +1,24 @@
 ,"name","displayName","description","database","className","accessLevel","properties","readOnlyProperties","propertyNameMapping","ACEs","initializer","filter","filterDerivation","argumentType","partitionKeyProperty","targetClass","targetProperty","sortProperty","sortOrder","useAESDecryptedResponse","deleteAsUpdate","useCustomBackendDatabase","backendDatabaseCollectionName"
-"Update","ApplicationWorkIF","申請作業IF","","Sandbox","work","full","[""id"",""name"",""status"",""connections"",""connectionGroups"",""applicationUser"",""applicationDatetime"",""applicationComment"",""Periods"",""workUsers"",""workUserGroups"",""manageUsers""]","[""applicationUser""]","","[{""allow"":true}]","[{""derivation"":""user()"",""onDeleteOnly"":false,""onUpdate"":false,""targetProperty"":""applicationUser""}]","{status:{$in:[""editing"",""pending"",""sendBack""]}}","{
+Update,"ApplicationWorkIF","申請作業IF",,"Sandbox","work","full","[""id"",""name"",""status"",""connections"",""connectionGroups"",""applicationUser"",""applicationDatetime"",""applicationComment"",""Periods"",""workUsers"",""workUserGroups"",""manageUsers""]","[""applicationUser""]",,"[{""allow"":true}]","[{""derivation"":""user()"",""onDeleteOnly"":false,""onUpdate"":false,""targetProperty"":""applicationUser""}]","{status:{$in:[""editing"",""pending"",""sendBack""]}}","{
 status:{""$in"":[""editing"",""pending"",""sendBack""]},
 ""$or"":[
 {workUsers:{""$in"":[user()]}},
 {workUserGroups:{""$in"":[find(getResource(""/IDManager/userEditorInterface"") ,""uid"", user()).team]}},
 {applicationUser:user()}
 ]
-}","","","","","","","false","false","false",""
-"Update","LdapGenericObjectEditorIF","LDAP汎用オブジェクト編集IF","LDAP汎用オブジェクトを編集するインタフェース","Sandbox","LdapGenericObject","full","","","","","","","","","","","","","","false","false","false",""
-"Update","LdapGenericObjectEditorIF0","LDAP汎用オブジェクト編集IF0","","Sandbox","LdapGenericObject","full","","","","","","{level:0}","","","","","","","","false","false","false",""
-"Update","LdapGenericObjectEditorIF1","LDAP汎用オブジェクト編集IF1","","Sandbox","LdapGenericObject","full","","","","","","{level:1}","","","","","","","","false","false","false",""
-"Update","LdapGenericObjectEditorIF2","LDAP汎用オブジェクト編集IF2","","Sandbox","LdapGenericObject","full","","","","","","{level:2}","","","","","","","","false","false","false",""
-"Update","OUEditIF","OU編集IF","","Sandbox","ou","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","SystemConnectionGroupIF","システム用接続先グループIF","","Sandbox","connectionGroup","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","SystemConnectionIF","SYSTEM用接続先インターフェース","","Sandbox","connection","full","","","","","","","","","","","","","","false","false","false",""
-"Update","SystemConnectionSpecificationIF","SYSTEM用接続仕様インターフェース","","Sandbox","connectionSpecification","full","","","","","","","","","","","","","","false","false","false",""
-"Update","SystemMachineIF","SYSTEM用機器インターフェース","","Sandbox","machine","full","","","","","","","","","","","","","","false","false","false",""
-"Update","SystemOUIF","SYSTEM用OUインターフェース","","Sandbox","ou","full","","","","","","","","","","","","","","false","false","false",""
-"Update","SystemUserGroupIF","SYSTEM用チームインターフェース","","Sandbox","userGroups","full","","","","","","","","","","","","","","false","false","false",""
-"Update","applovalWorkIF","承認済み作業IF","","Sandbox","work","full","","","","[{""allow"":true}]","","{status:{$in:[""waiting"",""working""]}}","{
+}",,,,,,,"false","false","false",
+Update,"LdapGenericObjectEditorIF","LDAP汎用オブジェクト編集IF","LDAP汎用オブジェクトを編集するインタフェース","Sandbox","LdapGenericObject","full",,,,,,,,,,,,,,"false","false","false",
+Update,"LdapGenericObjectEditorIF0","LDAP汎用オブジェクト編集IF0",,"Sandbox","LdapGenericObject","full",,,,,,"{level:0}",,,,,,,,"false","false","false",
+Update,"LdapGenericObjectEditorIF1","LDAP汎用オブジェクト編集IF1",,"Sandbox","LdapGenericObject","full",,,,,,"{level:1}",,,,,,,,"false","false","false",
+Update,"LdapGenericObjectEditorIF2","LDAP汎用オブジェクト編集IF2",,"Sandbox","LdapGenericObject","full",,,,,,"{level:2}",,,,,,,,"false","false","false",
+Update,"OUEditIF","OU編集IF",,"Sandbox","ou","full",,,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"SystemConnectionGroupIF","システム用接続先グループIF",,"Sandbox","connectionGroup","full",,,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"SystemConnectionIF","SYSTEM用接続先インターフェース",,"Sandbox","connection","full",,,,,,,,,,,,,,"false","false","false",
+Update,"SystemConnectionSpecificationIF","SYSTEM用接続仕様インターフェース",,"Sandbox","connectionSpecification","full",,,,,,,,,,,,,,"false","false","false",
+Update,"SystemMachineIF","SYSTEM用機器インターフェース",,"Sandbox","machine","full",,,,,,,,,,,,,,"false","false","false",
+Update,"SystemOUIF","SYSTEM用OUインターフェース",,"Sandbox","ou","full",,,,,,,,,,,,,,"false","false","false",
+Update,"SystemUserGroupIF","SYSTEM用チームインターフェース",,"Sandbox","userGroups","full",,,,,,,,,,,,,,"false","false","false",
+Update,"applovalWorkIF","承認済み作業IF",,"Sandbox","work","full",,,,"[{""allow"":true}]",,"{status:{$in:[""waiting"",""working""]}}","{
 status:{""$in"":[""waiting"",""working""]},
 ""$or"":[
 {workUsers:{""$in"":[user()]}},
@@ -26,69 +26,74 @@ status:{""$in"":[""waiting"",""working""]},
 {applicationUser:user()},
 {manageUsers:{""$in"":[user()]}}
 ]
-}","","","","","startDatetime","+","false","false","false",""
-"Update","changePassword","パスワード変更IF","パスワード変更サーブレットが使用するインタフェース","Sandbox","user","readWrite","[""uid"",""userPassword"",""email"",""sn"",""cn"",""aesPassword""]","[""uid"",""email"",""sn"",""cn""]","[{""destinationProperty"":""password"",""sourceProperty"":""aesPassword""},{""sourceProperty"":""email"",""destinationProperty"":""mail""},{""sourceProperty"":""sn"",""destinationProperty"":""param1""}]","[{""allow"":true}]","[{""conditionEx"":""true"",""derivation"":""(date = Date(Date().getTime() + (24 * 3600 * 1000 * ((sys = getResource(\""/IDManager/_masterSystemSettings/SystemSetting\"")) ? sys.pwAvailableDays : 180)))) ? date.getFullYear() + \""-\"" + (date.getMonth() + 1 < 10 ? \""0\"" + (date.getMonth() + 1) : date.getMonth() + 1) + \""-\"" + (date.getDate() < 10 ? \""0\"" + date.getDate() : date.getDate()) : null"",""onDeleteOnly"":false,""targetProperty"":""expireDate""}]","","","","","","","","","true","false","false",""
-"Update","connectionEditIF","接続先編集IF","","Sandbox","connection","full","[""id"",""hostname"",""connectionSpecification"",""viewOU"",""editOU"",""remark"",""connectionSpecificationName"",""changePasswordDate""]","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
+}",,,,,"startDatetime","+","false","false","false",
+Update,"changePassword","パスワード変更IF","パスワード変更サーブレットが使用するインタフェース","Sandbox","user","readWrite","[""uid"",""userPassword"",""email"",""sn"",""cn"",""aesPassword""]","[""uid"",""email"",""sn"",""cn""]","[{""destinationProperty"":""password"",""sourceProperty"":""aesPassword""},{""sourceProperty"":""email"",""destinationProperty"":""mail""},{""sourceProperty"":""sn"",""destinationProperty"":""param1""}]","[{""allow"":true}]","[{""conditionEx"":""true"",""derivation"":""(date = Date(Date().getTime() + (24 * 3600 * 1000 * ((sys = getResource(\""/IDManager/_masterSystemSettings/SystemSetting\"")) ? sys.pwAvailableDays : 180)))) ? date.getFullYear() + \""-\"" + (date.getMonth() + 1 < 10 ? \""0\"" + (date.getMonth() + 1) : date.getMonth() + 1) + \""-\"" + (date.getDate() < 10 ? \""0\"" + date.getDate() : date.getDate()) : null"",""onDeleteOnly"":false,""targetProperty"":""expireDate""}]",,,,,,,,,"true","false","false",
+Update,"connectionEditIF","接続先編集IF",,"Sandbox","connection","full","[""id"",""hostname"",""connectionSpecification"",""viewOU"",""editOU"",""remark"",""connectionSpecificationName"",""changePasswordDate""]",,,"[{""allow"":true}]",,,"find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
-: {editOU: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}","","","","","","","false","false","false",""
-"Update","connectionEditorInterface","接続先情報編集インターフェース","","Sandbox","connection","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","connectionGroupEditorInterface","接続先グループ編集インターフェース","","Sandbox","connectionGroup","full","[""name"",""connections"",""ou""]","","","[{""allow"":true}]","","","{ou: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}","","","","","","","false","false","false",""
-"Update","connectionSpecificationEditIF","接続仕様編集IF","","Sandbox","connectionSpecification","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","endWorkIF","作業終了IF","","Sandbox","work","readWrite","","","","","","{status:""working""}","{endDatetime:{""$lt"" : Date().toISOString()}}","","","","","","","false","false","false",""
-"Update","enumConnectionGroupIF","接続先グループ列挙IF","","Repository","connectionGroup","readOnly","","","","","","","","","","","","","","false","false","false",""
-"Update","enumConnectionIF","接続先列挙IF","","Repository","connection","readOnly","","","","","","","","","","","","","","false","false","false",""
-"Update","enumMachineIF","機器列挙IF","","Repository","machine","readOnly","","","","","","","","","","","","","","false","false","false",""
-"Update","enumUserGroupIF","利用者グループ列挙IF","","Repository","userGroups","readOnly","","","","","","","","","","","","","","false","false","false",""
-"Update","enumUserIF","ユーザ列挙IF","ユーザを列挙するインタフェース","Sandbox","user","readOnly","[""uid"",""org"",""cn""]","","[{""destinationProperty"":""value"",""sourceProperty"":""uid""},{""destinationProperty"":""displayName"",""sourceProperty"":""cn""}]","[{""allow"":true,""matching"":[{""type"":""GROUP"",""useArgument"":false,""values"":[""IDM_ADMIN"",""IDM_CONTACT""]}]}]","","","","","","","","","","false","false","false",""
-"Update","enumWorkIF","作業列挙IF","","Repository","work","readOnly","","","","","","","","","","","","","","false","false","false",""
-"Update","historyWorkIF","過去作業IF","","Sandbox","work","readOnly","","","","","","{status:{$in:[""end"",""rejected"", ""cancel""]}}","","","","","","startDatetime","-","false","false","false",""
-"Update","machineEditorInterface","機器情報編集IF","","Sandbox","machine","full","","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
+: {editOU: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}",,,,,,,"false","false","false",
+Update,"connectionEditorInterface","接続先情報編集インターフェース",,"Sandbox","connection","full",,,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"connectionGroupEditorInterface","接続先グループ編集インターフェース",,"Sandbox","connectionGroup","full","[""name"",""connections"",""ou""]",,,"[{""allow"":true}]",,,"{ou: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}",,,,,,,"false","false","false",
+Update,"connectionSpecificationEditIF","接続仕様編集IF",,"Sandbox","connectionSpecification","full",,,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"endWorkIF","作業終了IF",,"Sandbox","work","readWrite",,,,,,"{status:""working""}","{endDatetime:{""$lt"" : Date().toISOString()}}",,,,,,,"false","false","false",
+Update,"enumConnectionGroupIF","接続先グループ列挙IF",,"Repository","connectionGroup","readOnly",,,,,,,,,,,,,,"false","false","false",
+Update,"enumConnectionIF","接続先列挙IF",,"Repository","connection","readOnly",,,,,,,,,,,,,,"false","false","false",
+Update,"enumMachineIF","機器列挙IF",,"Repository","machine","readOnly",,,,,,,,,,,,,,"false","false","false",
+Update,"enumUserGroupIF","利用者グループ列挙IF",,"Repository","userGroups","readOnly",,,,,,,,,,,,,,"false","false","false",
+Update,"enumUserIF","ユーザ列挙IF","ユーザを列挙するインタフェース","Sandbox","user","readOnly","[""uid"",""org"",""cn""]",,"[{""destinationProperty"":""value"",""sourceProperty"":""uid""},{""destinationProperty"":""displayName"",""sourceProperty"":""cn""}]","[{""allow"":true,""matching"":[{""type"":""GROUP"",""useArgument"":false,""values"":[""IDM_ADMIN"",""IDM_CONTACT""]}]}]",,,,,,,,,,"false","false","false",
+Update,"enumWorkIF","作業列挙IF",,"Repository","work","readOnly",,,,,,,,,,,,,,"false","false","false",
+Update,"historyWorkIF","過去作業IF",,"Sandbox","work","readOnly",,,,,,"{status:{$in:[""end"",""rejected"", ""cancel""]}}",,,,,,"startDatetime","-","false","false","false",
+Update,"machineEditorInterface","機器情報編集IF",,"Sandbox","machine","full",,,,"[{""allow"":true}]",,,"find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
-: {team: find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team}","","","","","","","false","false","false",""
-"Update","masterLinkageSystem","連携システムオブジェクト編集用","","Master","linkageSystem","readOnly","","","","[{""allow"":true}]","","","","","","","","","","","","false",""
-"Update","requiredApplovalWorkIF","要承認作業IF","","Sandbox","work","readWrite","[""id"",""name"",""status"",""applicationUser"",""applicationDatetime"",""approvedUser"",""approvedDatetime"",""applicationComment"",""applovedComment"",""manageUsers"",""approveRequestDatetime"",""resultConnections"",""resultUsers""]","[""applicationUser"",""id"",""name"",""users"",""userGroups"",""connections"",""connectionGroups"",""applicationUser"",""applicationDatetime"",""applicationComment"",""workUsers"",""workUserGroups"",""manageUsers""]","","[{""allow"":true}]","","","{status:""pending"",manageUsers:{""$in"":[user()]}}","","","","","applicationDatetime","-","false","false","false",""
-"Update","requiredApplovalWorkMailIF","メール未送信要承認作業IF","","Sandbox","work","full","","","","","","{status:""pending"",approveRequestDatetime:null}","","","","","","","","false","false","false",""
-"Update","sameTeamUsersIF","同一チームユーザーIF","","Sandbox","user","full","[""uid"",""sn"",""cn"",""userPassword"",""team"",""dn"",""accountLock"",""email"",""data1"",""data2"",""data3"",""data4"",""data5""]","","","[{""allow"":true}]","","","{team: {""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")}}","","","","","","","false","false","false",""
-"Update","sandboxLinkageSystem","連携システムオブジェクトマスタ","","Sandbox","linkageSystem","full","","","","[{""allow"":true}]","","","","","","","","","","","","false",""
-"Update","selectAdminUserIF","管理者ユーザー選択IF","","Master","user","readOnly","[""uid"",""sn"",""cn""]","","","[{""allow"":true}]","","{idmRole: {$in: [""IDM_ADMIN"", ""IDM_USER_ADMIN"", ""IDM_USER_LEADER""]}}","","","","","","","","false","false","false",""
-"Update","selectAllConnectionIF","全接続先選択IF","","Master","connection","readOnly","[""id"",""hostname"",""connectionSpecificationName"",""remark""]","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","selectAllOU","全OU選択IF","","Sandbox","ou","full","[""id"",""name"",""teamName""]","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","selectAllUserIF","全ユーザー選択IF","","Master","user","readOnly","[""uid"",""sn"",""cn"",""team"",""email""]","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","selectConnectionGroupIF","接続先グループ選択IF","","Sandbox","connectionGroup","full","[""name"",""connections"",""ou""]","","","[{""allow"":true}]","","","{ou: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}","","","","","","","false","false","false",""
-"Update","selectConnectionIF","接続先選択IF","","Master","connection","readOnly","[""id"",""hostname"",""remark"",""connectionSpecificationName"",""viewOU""]","","","[{""allow"":true}]","","","{""$or"": [{viewOU: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}, {editOU: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}]}","","","","","","","false","false","false",""
-"Update","selectConnectionSpecificationIF","選択用接続仕様IF","","Master","connectionSpecification","readOnly","[""id"",""name"",""osType"",""ssh"",""rdp"",""telnet"",""http""]","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","selectMachineIF","機器選択IF","","Sandbox","machine","readOnly","[""hostname"",""id"",""privilegedIDSetName""]","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
+: {team: find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team}",,,,,,,"false","false","false",
+Update,"masterLinkageSystem","連携システムオブジェクト編集用",,"Master","linkageSystem","readOnly",,,,"[{""allow"":true}]",,,,,,,,,,,,"false",
+Update,"requiredApplovalWorkIF","要承認作業IF",,"Sandbox","work","readWrite","[""id"",""name"",""status"",""applicationUser"",""applicationDatetime"",""approvedUser"",""approvedDatetime"",""applicationComment"",""applovedComment"",""manageUsers"",""approveRequestDatetime"",""resultConnections"",""resultUsers""]","[""applicationUser"",""id"",""name"",""users"",""userGroups"",""connections"",""connectionGroups"",""applicationUser"",""applicationDatetime"",""applicationComment"",""workUsers"",""workUserGroups"",""manageUsers""]",,"[{""allow"":true}]",,,"{status:""pending"",manageUsers:{""$in"":[user()]}}",,,,,"applicationDatetime","-","false","false","false",
+Update,"requiredApplovalWorkMailIF","メール未送信要承認作業IF",,"Sandbox","work","full",,,,,,"{status:""pending"",approveRequestDatetime:null}",,,,,,,,"false","false","false",
+Update,"sameTeamUsersIF","同一チームユーザーIF",,"Sandbox","user","full","[""uid"",""sn"",""cn"",""userPassword"",""team"",""dn"",""accountLock"",""email"",""data1"",""data2"",""data3"",""data4"",""data5""]",,,"[{""allow"":true}]",,,"{team: {""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")}}",,,,,,,"false","false","false",
+Update,"sandboxLinkageSystem","連携システムオブジェクトマスタ",,"Sandbox","linkageSystem","full",,,,"[{""allow"":true}]",,,,,,,,,,,,"false",
+Update,"selectAdminUserIF","管理者ユーザー選択IF",,"Master","user","readOnly","[""uid"",""sn"",""cn""]",,,"[{""allow"":true}]",,"{idmRole: {$in: [""IDM_ADMIN"", ""IDM_USER_ADMIN"", ""IDM_USER_LEADER""]}}",,,,,,,,"false","false","false",
+Update,"selectAllConnectionIF","全接続先選択IF",,"Master","connection","readOnly","[""id"",""hostname"",""connectionSpecificationName"",""remark""]",,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"selectAllOU","全OU選択IF",,"Sandbox","ou","full","[""id"",""name"",""teamName""]",,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"selectAllUserIF","全ユーザー選択IF",,"Master","user","readOnly","[""uid"",""sn"",""cn"",""team"",""email""]",,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"selectConnectionGroupIF","接続先グループ選択IF",,"Sandbox","connectionGroup","full","[""name"",""connections"",""ou""]",,,"[{""allow"":true}]",,,"{ou: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}",,,,,,,"false","false","false",
+Update,"selectConnectionIF","接続先選択IF",,"Master","connection","readOnly","[""id"",""hostname"",""remark"",""connectionSpecificationName"",""viewOU""]",,,"[{""allow"":true}]",,,"{""$or"": [{viewOU: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}, {editOU: {""$in"": [find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team] }}]}",,,,,,,"false","false","false",
+Update,"selectConnectionSpecificationIF","選択用接続仕様IF",,"Master","connectionSpecification","readOnly","[""id"",""name"",""osType"",""ssh"",""rdp"",""telnet"",""http""]",,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"selectMachineIF","機器選択IF",,"Sandbox","machine","readOnly","[""hostname"",""id"",""privilegedIDSetName""]",,,"[{""allow"":true}]",,,"find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
-: {team: find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team}","","","","","","","false","false","false",""
-"Update","selectOUIF","OU選択IF","","Sandbox","ou","full","[""name"",""teamName"",""id""]","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
+: {team: find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team}",,,,,,,"false","false","false",
+Update,"selectOUIF","OU選択IF",,"Sandbox","ou","full","[""name"",""teamName"",""id""]",,,"[{""allow"":true}]",,,"find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
 : getResource(""/IDManager/selectUserGroupIF"").length == 0
 ? {uid: null}
 : {id: {
 ""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")
-}}","","","","","","","false","false","false",""
-"Update","selectUserGroupIF","チーム選択IF","","Sandbox","userGroups","full","","","","[{""allow"":true}]","","","{id: find(getResource(""/IDManager/OUEditIF""), ""id"",
+}}",,,,,,,"false","false","false",
+Update,"selectUserGroupIF","チーム選択IF",,"Sandbox","userGroups","full",,,,"[{""allow"":true}]",,,"{id: find(getResource(""/IDManager/OUEditIF""), ""id"",
 find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team
 ).teamID
-}","","","","","","","false","false","false",""
-"Update","selectUserIF","ユーザ選択IF","","Sandbox","user","readOnly","[""uid"",""cn"",""sn""]","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
+}",,,,,,,"false","false","false",
+Update,"selectUserIF","ユーザ選択IF",,"Sandbox","user","readOnly","[""uid"",""cn"",""sn""]",,,"[{""allow"":true}]",,,"find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
 : getResource(""/IDManager/selectUserGroupIF"").length == 0
 ? {uid: null}
 : {team: {
 ""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")
-}}","","","","","","","false","false","false",""
-"Update","startWokrIF","作業開始IF","","Sandbox","work","readWrite","","","","","","{status:""waiting""}","{startDatetime:{""$lt"" : Date().toISOString()}}","","","","","","","false","false","false",""
-"Update","userEditorInterface","ユーザ情報編集インタフェース","ユーザ情報を編集するインタフェース","Sandbox","user","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
-"Update","userGroupEditorInterface","チーム編集インターフェース","","Sandbox","userGroups","full","","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
+}}",,,,,,,"false","false","false",
+Update,"startWokrIF","作業開始IF",,"Sandbox","work","readWrite",,,,,,"{status:""waiting""}","{startDatetime:{""$lt"" : Date().toISOString()}}",,,,,,,"false","false","false",
+Update,"userEditorInterface","ユーザ情報編集インタフェース","ユーザ情報を編集するインタフェース","Sandbox","user","full",,,,"[{""allow"":true}]",,,,,,,,,,"false","false","false",
+Update,"userGroupEditorInterface","チーム編集インターフェース",,"Sandbox","userGroups","full",,,,"[{""allow"":true}]",,,"find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
 : getResource(""/IDManager/selectUserGroupIF"").length == 0
 ? {uid: null}
-: {id: select(getResource(""/IDManager/selectUserGroupIF""), ""id"").pop()}","","","","","","","false","false","false",""
-"Update","workEditorInterface","作業編集インターフェース","","Sandbox","work","full","","","","","","","","","","","","","","false","false","false",""
+: {id: select(getResource(""/IDManager/selectUserGroupIF""), ""id"").pop()}",,,,,,,"false","false","false",
+Update,"workEditorInterface","作業編集インターフェース",,"Sandbox","work","full",,,,,,,,,,,,,,"false","false","false",
+Update,"swcZoneEditIF","swConnectorゾーン編集IF",,"Sandbox","swcZone","full",,,,,,,,,,,,,,"false","false","false",
+Update,"swConnectorEditIF","socket warp connector編集IF",,"Sandbox","swConnector","full",,"[""certificate"",""certIss"",""certExp""]",,,,,,,,,,,,"false","false","false",
+Update,"swConnectorGetIF","swConnector取得IF",,"Sandbox","swConnector","readOnly","[""uid"",""password""]",,,,,,,,,,,,,"false","false","false",
+Update,"swConnectorPutIF","swConnector更新IF",,"Sandbox","swConnector","full","[""certificate"",""certIss"",""certExp""]",,,,,,,,,,,,,"false","false","false",
+Update,"swConnectorListIF","swConnector列挙IF",,"Sandbox","swConnector","readOnly","[""uid"",""certIss"",""certExp""]","[""uid"",""certIss"",""certExp""]",,,,,,,,,,,,"false","false","false",

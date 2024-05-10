@@ -11,6 +11,7 @@
     - flask
     - gunicorn
     - requests
+    - python-memcached
     state: present
 - name: create directories
   file:
@@ -52,7 +53,10 @@
   loop:
   - main.py
   - guniconf.py
-  - access_guacamole_api.py
+  - access_guacamole.py
+  - access_docker.py
+  - access_idm.py
+  - access_swl.py
   - clean_chrome_container.py
   - remove_davfs_volumes.py
 - name: put insert_hosts.py

@@ -208,13 +208,20 @@ services:
       - IMAGE_CHROME: "{{ groups['repository'] | intersect(groups[hive_stage]) | first }}:5000/image_chrome:latest"
       - WEBDAV_SERVER: "192.168.0.5"
       - WEBDAV_PORT: "2000"
-      - WEBDAV_USERNAME: "user"
       - WEBDAV_PASSWORD: "test"
       - GUACAMOLE_URL: "http://guacamole:8080/guacamole"
       - GUACAMOLE_USERNAME: "guacadmin"
       - GUACAMOLE_PASSWORD: "guacadmin"
       - VNC_PORT: "5900"
       - VNC_PASSWORD: "secret"
+      - MEMCACHED_URL: "sm-memcached:11211"
+      - SW_LISTENER: "sw-listener"
+      - SW_LISTENER_REST: "http://sw-listener:8080"
+      - UNAVAILABLE_PORTS: "11443,8080"
+      - GET_SWCZONE_URL: "http://idm:8090//IDManager/swcZoneEditIF"
+  sm-memcached:
+    image: memcached
+    endpoint_mode: dnsrr
   scep-server:
     image: 
       from: ghcr.io/procube-open/scep:0.0.9-rc.2

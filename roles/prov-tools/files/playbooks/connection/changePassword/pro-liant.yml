@@ -66,7 +66,7 @@
   
   - name: delete container of chrome
     uri:
-      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ container.json.vnc_identifier }}"
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections/{{ container.json.identifier }}"
       headers:
         Guacamole-Token: "{{ token.json.authToken }}"
       method: DELETE

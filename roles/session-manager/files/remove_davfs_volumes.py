@@ -1,10 +1,8 @@
 import docker
-import json
 import os
 import requests
-import urllib
 import datetime
-from access_guacamole_api import generate_auth_token
+from access_guacamole import generate_auth_token
 from insert_hosts import insert_hosts
 
 print("Started cleaning davfs volumes")
@@ -46,11 +44,15 @@ for base_url in base_urls:
 
             for v in reversed(works_data.values()):
                 if v["idmIdentifier"] == davfs_volume_work_id:
-                    valid_until_date = datetime.datetime.strptime(
-                        v["periods"][0]["validUntil"], "%Y-%m-%d"
-                    )
-
-                    if valid_until_date < today:
+                    rm_flag: bool = True
+                    for period in v["periods"]:
+                        valid_until_date = datetime.datetime.strptime(
+                            period["validUntil"], "%Y-%m-%d"
+                        )
+                        if valid_until_date > today:
+                            rm_flag = False
+                            break
+                    if rm_flag:
                         client.remove_volume(davfs_volume_name, force=True)
                         logger_text = davfs_volume_name + " Deleted. HOST:" + base_url
                         print(logger_text)
