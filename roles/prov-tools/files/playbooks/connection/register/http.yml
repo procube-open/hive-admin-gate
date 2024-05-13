@@ -75,8 +75,35 @@
       status_code: 204
     when: prov_operation != 'delete' and connectionidvnc is defined
     vars:
-      httpVars: "{\"target\":\"proliant\",\"protocol\":\"{{ cs_obj.httpProtocol }}\",\"fqdn\":\"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}\",\"path\":\"\",\"params\":[[{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='username']\",\"sendValue\":\"{{ cs_obj.httpID }}\"},{\"event\":\"input\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//input[@id='password']\",\"sendValue\":\"{{ cs_obj.httpPassword }}\"},{\"event\":\"submit\",\"getElementMethod\":\"xpath\",\"targetElementPath\":\"//button[@id='login-form__submit']\",\"sendValue\":\"\"}]]}"
-  
+      httpVars: >-
+        {
+        "target":"proliant",
+        "protocol":"{{ cs_obj.httpProtocol }}",
+        "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
+        "path":"",
+        "params":
+        [[{
+        "event":"iframe",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//iframe[@id='frame_name']",
+        "sendValue":""
+        },{
+        "event":"input",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//input[@id='username']",
+        "sendValue":"{{ cs_obj.httpID }}"
+        },{
+        "event":"input",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//input[@id='password']",
+        "sendValue":"{{ cs_obj.httpPassword }}"
+        },{
+        "event":"submit",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//button[@id='login-form__submit']",
+        "sendValue":""
+        }]]}
+
   - name: Post connection.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections"
@@ -113,31 +140,31 @@
     vars:
       httpVars: >-
         {
-        \"target\":\"proliant\",
-        \"protocol\":\"{{ cs_obj.httpProtocol }}\",
-        \"fqdn\":\"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}\",
-        \"path\":\"\",
-        \"params\":
+        "target":"proliant",
+        "protocol":"{{ cs_obj.httpProtocol }}",
+        "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
+        "path":"",
+        "params":
         [[{
-        \"event\":\"iframe\",
-        \"getElementMethod\":\"xpath\",
-        \"targetElementPath\":\"//iframe[@id='frame_name']\",
-        \"sendValue\":\"\"
+        "event":"iframe",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//iframe[@id='frame_name']",
+        "sendValue":""
         },{
-        \"event\":\"input\",
-        \"getElementMethod\":\"xpath\",
-        \"targetElementPath\":\"//input[@id='username']\",
-        \"sendValue\":\"{{ cs_obj.httpID }}\"
+        "event":"input",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//input[@id='username']",
+        "sendValue":"{{ cs_obj.httpID }}"
         },{
-        \"event\":\"input\",
-        \"getElementMethod\":\"xpath\",
-        \"targetElementPath\":\"//input[@id='password']\",
-        \"sendValue\":\"{{ cs_obj.httpPassword }}\"
+        "event":"input",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//input[@id='password']",
+        "sendValue":"{{ cs_obj.httpPassword }}"
         },{
-        \"event\":\"submit\",
-        \"getElementMethod\":\"xpath\",
-        \"targetElementPath\":\"//button[@id='login-form__submit']\",
-        \"sendValue\":\"\"
+        "event":"submit",
+        "getElementMethod":"xpath",
+        "targetElementPath":"//button[@id='login-form__submit']",
+        "sendValue":""
         }]]}
     register: new_connection
   
