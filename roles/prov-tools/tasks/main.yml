@@ -66,6 +66,8 @@
     dest: /root/
   - src: ssh_config
     dest: /root/.ssh/config
+  - src: telnet_aoi.py
+    dest: /root/.ansible/collections/ansible_collections/ansible/netcommon/plugins/action/
 - name: install file with mode
   copy:
     src: passwordChange.sh
