@@ -2,6 +2,7 @@ import json
 import os
 import requests
 import urllib
+import uuid
 
 guacamole_url = os.environ.get("GUACAMOLE_URL")
 
@@ -52,7 +53,7 @@ def create_connection(
 
     params = json.dumps(
         {
-            "name": hostname,
+            "name": hostname + ":" + str(uuid.uuid4()),
             "parentIdentifier": "ROOT",
             "protocol": protocol,
             "idmIdentifier": "changepw" if work_id == "changepw" else "session-manager",
@@ -140,9 +141,10 @@ def get_connection_params(token: str, database: str, identifier: str):
 
 
 def get_work_from_identifier(token: str, database: str, idmIdentifier: str):
-    get_works_path = "/api/session/data/" + database + "/works?token=" + token
+    get_works_path = "/api/session/data/" + database + "/works"
     get_works_url = guacamole_url + get_works_path
-    works_res = requests.get(get_works_url)
+    headers = {"Guacamole-Token": token}
+    works_res = requests.get(get_works_url,  headers=headers)
     works_data = works_res.json()
     for v in reversed(works_data.values()):
         if v["idmIdentifier"] == idmIdentifier:

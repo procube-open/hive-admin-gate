@@ -3,7 +3,6 @@ import random
 import requests
 import memcache
 from flask import Flask, request, jsonify
-from distutils.util import strtobool
 from datetime import datetime
 from access_guacamole import get_user
 from access_docker import create_service, delete_service
@@ -18,9 +17,6 @@ from access_guacamole import (
     get_connection_params,
     get_work_from_identifier,
 )
-
-# from insert_hosts import insert_hosts
-
 
 app = Flask(__name__)
 
@@ -43,16 +39,21 @@ def create():
         memcached_url = os.environ.get("MEMCACHED_URL")
         sw_listener = os.environ.get("SW_LISTENER")
         unavailable_ports = os.environ.get("UNAVAILABLE_PORTS")
-
-        # 情報取得
+        guac_database = os.environ.get("GUAC_DATABASE")
+        
+        # authトークン生成
+        response_generate_auth_token = generate_auth_token()
+        auth_token = response_generate_auth_token["authToken"]
+        
+        # 情報取得 
         user = get_user(worker_token)
         username = user["username"]
-        work = get_work_from_identifier(worker_token, user["dataSource"], work_id)
-        info = get_connection_info(auth_token, database, identifier)
-        params = get_connection_params(auth_token, database, identifier)
+        work = get_work_from_identifier(worker_token, guac_database, work_id)
+        info = get_connection_info(auth_token, guac_database, identifier)
+        params = get_connection_params(auth_token, guac_database, identifier)
 
         # 作業者確認
-        if not (strtobool(work["isWorker"]) or username == "guacadmin"):
+        if not (work["isWorker"] or username == "guacadmin"):
             raise Exception("The specified user is not registered as a worker.")
 
         # 作業時間確認
@@ -80,11 +81,6 @@ def create():
         # SW利用確認
         if "swcZone" not in params:
             if info["protocol"] == "vnc":
-                # authトークン生成
-                response_generate_auth_token = generate_auth_token()
-                auth_token = response_generate_auth_token["authToken"]
-                database = response_generate_auth_token["dataSource"]
-
                 # サービス作成
                 http_login_format = params["httpLoginFormat"]
                 work_container = create_service(app.logger, work_id, http_login_format)
@@ -93,22 +89,22 @@ def create():
                 vnc_port = os.environ.get("VNC_PORT")
                 vnc_password = os.environ.get("VNC_PASSWORD")
                 result_create_vnc_connection = create_connection(
-                    auth_token,
-                    database,
-                    work_id,
-                    info["protocol"],
-                    work_container,
-                    vnc_port,
-                    None,
-                    vnc_password,
-                    http_login_format,
-                    identifier,
+                    token=auth_token,
+                    database=guac_database,
+                    work_id=work_id,
+                    protocol=info["protocol"],
+                    hostname=work_container,
+                    port=vnc_port,
+                    username=None,
+                    password=vnc_password,
+                    httpLoginFormat=http_login_format,
+                    originIdentifier=identifier,
                 )
 
                 # 接続権限付与
                 assign_user_to_connection(
                     auth_token,
-                    database,
+                    guac_database,
                     username,
                     result_create_vnc_connection["identifier"],
                 )
@@ -133,7 +129,10 @@ def create():
             if mc.get(work_id + ":" + identifier) == None:
                 swczone = get_swczone(params["swcZone"])
                 uid = random.choice(swczone["swConnector"])
-                ports = mc.get("ports")
+                if mc.get("ports") is None:
+                    ports = ()
+                else:
+                    ports = mc.get("ports")
                 items = unavailable_ports.split(",")
                 unavailable_ports = tuple(items)
                 available_ports = [
@@ -143,7 +142,7 @@ def create():
                 ]
                 random_port = random.choice(available_ports)
                 # ポート開設
-                res = open_port(uid, random_port, params["hostname"], params["port"])
+                res = open_port(uid, random_port, params["hostname"], int(params["port"]))
                 if res.status_code != requests.codes.ok:
                     raise Exception("Failed to open port for sw-listener")
 
@@ -156,31 +155,31 @@ def create():
                     # authトークン生成
                     response_generate_auth_token = generate_auth_token()
                     auth_token = response_generate_auth_token["authToken"]
-                    database = response_generate_auth_token["dataSource"]
 
                     result_create_connection = create_connection(
                         token=auth_token,
-                        database=database,
+                        database=guac_database,
                         work_id=work_id,
                         protocol=info["protocol"],
                         hostname=sw_listener,
                         port=random_port,
                         username=params["username"],
                         password=params["password"],
-                        http_login_format=None,
-                        identifier=identifier,
+                        httpLoginFormat=None,
+                        originIdentifier=identifier,
                     )
                     # 接続権限付与
                     assign_user_to_connection(
                         auth_token,
-                        database,
+                        guac_database,
                         username,
                         result_create_connection["identifier"],
                     )
                     app.logger.info(
                         "Create connection object to guacamole successfully"
                     )
-
+                    mc.set(work_id + ":" + identifier, result_create_connection["identifier"])
+                    
                     return jsonify(
                         {
                             "status": "Successfully Created",
@@ -189,8 +188,19 @@ def create():
                             "info": result_create_connection,
                         }
                     )
+            else:
+                swl_identifier = mc.get(work_id + ":" + identifier)
+                return jsonify(
+                    {
+                        "status": "Already Created",
+                        "work_id": work_id,
+                        "identifier": swl_identifier,
+                        "info": get_connection_info(auth_token, guac_database, swl_identifier),
+                    }
+                )
 
     except Exception as e:
+        app.logger.exception(e)
         return jsonify({"error_message": str(e)}), 500
 
 
@@ -205,20 +215,21 @@ def delete():
         # JSON取得
         work_container = request.json["work_container"]
         identifier = request.json["identifier"]
+        guac_database = os.environ.get("GUAC_DATABASE")
 
         # authトークン生成
         response_generate_auth_token = generate_auth_token()
         auth_token = response_generate_auth_token["authToken"]
-        database = response_generate_auth_token["dataSource"]
 
         # サービス削除
         delete_service(app.logger, work_container)
 
         # guacamole接続オブジェクト削除
-        delete_connection(auth_token, database, identifier)
+        delete_connection(auth_token, guac_database, identifier)
 
         return jsonify(
             {"status": "Successfully Deleted", "work_container": work_container}
         )
     except Exception as e:
+        app.logger.exception(e)
         return jsonify({"error_message": str(e)}), 500

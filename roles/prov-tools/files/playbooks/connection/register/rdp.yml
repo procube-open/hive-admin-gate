@@ -62,6 +62,7 @@
           username: "{{ cs_obj.rdpID }}"
           password: "{{ cs_obj.rdpPassword }}"
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
           ignore-cert: "true"
         attributes:
           remark: "{{ remark | default('') }}"
@@ -95,6 +96,7 @@
           username: "{{ cs_obj.rdpID }}"
           password: "{{ cs_obj.rdpPassword }}"
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
           ignore-cert: "true"
         attributes:
           remark: "{{ remark | default('') }}"

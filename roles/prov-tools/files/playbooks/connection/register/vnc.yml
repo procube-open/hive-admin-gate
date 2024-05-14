@@ -62,6 +62,7 @@
           username: "{{ cs_obj.vncID }}"
           password: "{{ cs_obj.vncPassword }}"
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
           httpLoginFormat: "{{ httpVars | to_json }}"
         attributes:
           remark: "{{ remark | default('') }}"
@@ -97,6 +98,7 @@
           username: "{{ cs_obj.vncID }}"
           password: "{{ cs_obj.vncPassword }}"
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
           httpLoginFormat: "{{ httpVars | to_json }}"
         attributes:
           remark: "{{ remark | default('') }}"

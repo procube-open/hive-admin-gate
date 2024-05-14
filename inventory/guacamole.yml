@@ -82,7 +82,7 @@ services:
         ext: sql.gz
         cleanup_days_before: 3
   file-server:
-    image: procube/file-server
+    image: procube/file-server:socket-warp
     initialize_roles:
       - file-server
     environment:
@@ -212,13 +212,14 @@ services:
       - GUACAMOLE_URL: "http://guacamole:8080/guacamole"
       - GUACAMOLE_USERNAME: "guacadmin"
       - GUACAMOLE_PASSWORD: "guacadmin"
+      - GUAC_DATABASE: "postgresql"
       - VNC_PORT: "5900"
       - VNC_PASSWORD: "secret"
       - MEMCACHED_URL: "sm-memcached:11211"
       - SW_LISTENER: "sw-listener"
       - SW_LISTENER_REST: "http://sw-listener:8080"
       - UNAVAILABLE_PORTS: "11443,8080"
-      - GET_SWCZONE_URL: "http://idm:8090//IDManager/swcZoneEditIF"
+      - GET_SWCZONE_URL: "http://idm:8090/IDManager/swcZoneEditIF"
   sm-memcached:
     image: memcached
     endpoint_mode: dnsrr
@@ -252,7 +253,7 @@ services:
             pathPattern: /
   sw-listener:
     image: 
-      from: ghcr.io/procube-open/socket-warp:1.1.6-rc.2
+      from: ghcr.io/procube-open/socket-warp:1.1.8-rc.2
       roles: 
         - sw-listener
     ports:

@@ -67,6 +67,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
@@ -104,6 +105,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"

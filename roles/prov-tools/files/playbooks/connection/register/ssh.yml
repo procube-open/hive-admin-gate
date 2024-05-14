@@ -65,6 +65,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
           terminal-type: "{{ 'vt100' if cs_obj.osType == 'iosxr' else omit }}"
         attributes:
           remark: "{{ remark | default('') }}"
@@ -101,6 +102,7 @@
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
           hostname: "{{ hostname }}"
+          swcZone: "{{ swcZone | default('') }}"
           terminal-type: "{{ 'vt100' if cs_obj.osType == 'iosxr' else omit }}"
         attributes:
           remark: "{{ remark | default('') }}"

@@ -70,23 +70,25 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
         cap_add=["NET_ADMIN"],
     )
     task_tmpl = docker.types.TaskTemplate(container_spec)
+    try:
+        if lock.locked():
+            logger.warning(
+                work_container + ": Other process threading lock. Please wait for a while"
+            )
+        lock.acquire()
+        logger.info(work_container + ": Create process lock acquired")
 
-    if lock.locked():
-        logger.warning(
-            work_container + ": Other process threading lock. Please wait for a while"
+        client.create_service(
+            task_tmpl,
+            name=work_container,
+            networks=swarm_network,
+            endpoint_spec=docker.types.EndpointSpec(mode="dnsrr"),
         )
-    lock.acquire()
-    logger.info(work_container + ": Create process lock acquired")
-
-    client.create_service(
-        task_tmpl,
-        name=work_container,
-        networks=swarm_network,
-        endpoint_spec=docker.types.EndpointSpec(mode="dnsrr"),
-    )
-    logger.info(work_container + ": Create successfully")
-
-    lock.release()
+        logger.info(work_container + ": Create successfully")
+    except Exception as e:
+        raise e
+    finally:
+        lock.release()
     logger.info(work_container + ": Create process lock released")
 
     with socket.create_connection((work_container, 5900), timeout=15):
