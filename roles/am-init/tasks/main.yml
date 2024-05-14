@@ -29,17 +29,17 @@
   shell: |
     nsamctl set_ds idp amdb
   notify: wildfly configured
-# - name: put custom pages
-#   template:
-#     src: "{{ item.src }}"
-#     dest: "{{ item.dest }}"
-#     owner: wildfly
-#     group: wildfly
-#   with_items:
+- name: put custom pages
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: wildfly
+    group: wildfly
+  with_items:
 #   - src: langmap.json
 #     dest: /opt/shibIdpConf_idp/views/userFiles/
-#   - src: default-login.vm # パスワード認証のログインフォームです。ユーザIDとパスワードの入力欄、およびログインボタンが配置されています。
-#     dest: /opt/shibIdpConf_idp/views/userFiles/
+  - src: default-login.vm # パスワード認証のログインフォームです。ユーザIDとパスワードの入力欄、およびログインボタンが配置されています。
+    dest: /opt/shibIdpConf_idp/views/userFiles/
 #   - src: nsam.css # スタイルが定義された css ファイルです。スタイルのカスタマイズでは、このファイルを編集することも、新しい css を新規作成することもできます。
 #     dest: /opt/shibIdpConf_idp/views/userFiles/
 #   - src: default-totp.vm # OTP 認証画面です。OTP 入力欄とログインボタンが配置されています。

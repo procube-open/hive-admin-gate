@@ -125,3 +125,10 @@
     minute: "0"
     hour: "1"
     job: /root/passwordChange.sh
+- name: install files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+  - src: telnet_aoi.py
+    dest: /root/.ansible/collections/ansible_collections/ansible/netcommon/plugins/action/
