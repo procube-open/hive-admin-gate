@@ -41,6 +41,20 @@
     loop: "{{ guacamole_connections.json | dict2items }}"
     loop_control:
       label: "{{ item.key }}"
+
+  - name: Generate httpLoginFormat Strings
+    debug:
+      msg: >-
+        {%- if item.newPage -%} ],[
+        {%- else -%} ,
+        {%- endif -%}
+        {
+        "event": "{{ item.event }}"
+        "getElementMethod": "{{ item.getElementMethod }}"
+        "targetElementPath": "{{ item.targetElementPath }}"
+        "sendValue": "{{ item.sendValue | default('') }}"
+        }
+    loop: "{{ cs_obj.actions }}"
   
   - name: Put connection.
     uri:
@@ -98,12 +112,12 @@
         "targetElementPath":"//input[@id='password']",
         "sendValue":"{{ cs_obj.httpPassword }}"
         },{
-        "event":"submit",
+        "event":"click",
         "getElementMethod":"xpath",
         "targetElementPath":"//button[@id='login-form__submit']",
         "sendValue":""
         }]]}
-
+ 
   - name: Post connection.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections"
@@ -161,7 +175,7 @@
         "targetElementPath":"//input[@id='password']",
         "sendValue":"{{ cs_obj.httpPassword }}"
         },{
-        "event":"submit",
+        "event":"click",
         "getElementMethod":"xpath",
         "targetElementPath":"//button[@id='login-form__submit']",
         "sendValue":""
