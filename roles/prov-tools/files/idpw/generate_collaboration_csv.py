@@ -85,7 +85,7 @@ if __name__=="__main__":
                 ]
                 writer.writerow(row)
 
-    with open('address_list.csv', mode='w', encoding='uft-8', newline='') as file:
+    with open('user.csv', mode='w', encoding='uft-8', newline='') as file:
         writer = csv.writer(file)
         for u in user:
             ug = find_user_group(u['team'],user_group)
@@ -99,3 +99,16 @@ if __name__=="__main__":
                 u['email2']
             ]
             writer.writerow(row)
+    
+    with open('user_admin.csv', mode='w', encoding='uft-8', newline='') as file:
+        writer = csv.writer(file)
+        for u in user:
+            if u['idmRole'] == 'IDM_USER_LEADER':
+                ug = find_user_group(u['team'],user_group)
+                row = [
+                    u['uid'],
+                    ug['ou']
+                ]
+                writer.writerow(row)
+            else:
+                continue
