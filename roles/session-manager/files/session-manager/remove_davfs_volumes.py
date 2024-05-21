@@ -1,22 +1,25 @@
 import docker
 import os
-import requests
 import datetime
-from access_guacamole import generate_auth_token
+import logging
+from access_guacamole import generate_auth_token, get_all_works
 from insert_hosts import insert_hosts
 
-print("Started cleaning davfs volumes")
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)  # ログレベルを設定
 
-guacamole_url = os.environ.get("GUACAMOLE_URL")
-response_generate_auth_token = generate_auth_token()
-auth_token = response_generate_auth_token["authToken"]
-guacamole_database = response_generate_auth_token["dataSource"]
-get_works_path = (
-    "/api/session/data/" + guacamole_database + "/works?token=" + auth_token
-)
-get_works_url = guacamole_url + get_works_path
-works_res = requests.get(get_works_url)
-works_data = works_res.json()
+# コンソール出力用ハンドラを作成
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)  # ハンドラのログレベルを設定
+
+# ハンドラをロガーに追加
+logger.addHandler(console_handler)
+GUAC_DATABASE = os.environ.get("GUAC_DATABASE")
+
+logger.info("Started cleaning davfs volumes")
+
+auth_token = generate_auth_token()["authToken"]
+works = get_all_works(auth_token, GUAC_DATABASE)
 today = datetime.datetime.today()
 
 tls_config = docker.tls.TLSConfig(
@@ -42,7 +45,7 @@ for base_url in base_urls:
             if davfs_volume_work_id == "public":
                 break
 
-            for v in reversed(works_data.values()):
+            for v in reversed(works.values()):
                 if v["idmIdentifier"] == davfs_volume_work_id:
                     rm_flag: bool = True
                     for period in v["periods"]:
@@ -54,8 +57,7 @@ for base_url in base_urls:
                             break
                     if rm_flag:
                         client.remove_volume(davfs_volume_name, force=True)
-                        logger_text = davfs_volume_name + " Deleted. HOST:" + base_url
-                        print(logger_text)
+                        logger.info(davfs_volume_name + " Deleted. HOST:" + base_url)
 
                     break
 
@@ -63,4 +65,4 @@ for base_url in base_urls:
             print(e)
             continue
 
-print("Ended cleaning davfs volumes")
+logger.info("Ended cleaning davfs volumes")

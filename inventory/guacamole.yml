@@ -253,7 +253,7 @@ services:
             pathPattern: /
   sw-listener:
     image: 
-      from: ghcr.io/procube-open/socket-warp:1.1.8-rc.2
+      from: ghcr.io/procube-open/socket-warp:1.1.10-rc.0
       roles: 
         - sw-listener
     ports:

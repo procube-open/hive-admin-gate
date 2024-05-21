@@ -43,22 +43,15 @@
   loop:
   - src: clean-container.sh
     dest: "/etc/periodic/15min"
+  - src: clean-connection.sh
+    dest: "/etc/periodic/daily"
   - src: remove-davfs-volumes.sh
     dest: "/etc/periodic/daily"
-- name: put session-manager files
+- name: put session-manager directory
   copy:
-    src: "{{ item }}"
-    dest: "{{ session_manager_path }}"
+    src: "session-manager"
+    dest: "/root"
     mode: 0755
-  loop:
-  - main.py
-  - guniconf.py
-  - access_guacamole.py
-  - access_docker.py
-  - access_idm.py
-  - access_swl.py
-  - clean_chrome_container.py
-  - remove_davfs_volumes.py
 - name: put insert_hosts.py
   template:
     src: insert_hosts.py.j2

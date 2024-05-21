@@ -3,6 +3,7 @@ import os
 import socket
 import uuid
 import threading
+import time
 import logging
 
 from insert_hosts import insert_hosts
@@ -73,7 +74,8 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
     try:
         if lock.locked():
             logger.warning(
-                work_container + ": Other process threading lock. Please wait for a while"
+                work_container
+                + ": Other process threading lock. Please wait for a while"
             )
         lock.acquire()
         logger.info(work_container + ": Create process lock acquired")
@@ -91,10 +93,25 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
         lock.release()
     logger.info(work_container + ": Create process lock released")
 
-    with socket.create_connection((work_container, 5900), timeout=15):
-        logger.info(work_container + ": Connect successfully")
-
-    return work_container
+    max_retries = 30
+    delay = 1
+    for attempt in range(max_retries):
+        try:
+            with socket.create_connection((work_container, 5900), timeout=15):
+                logger.info(
+                    f"{work_container}: Connect successfully on attempt {attempt + 1}"
+                )
+                return work_container
+        except socket.error as e:
+            logger.warning(
+                f"{work_container}: Attempt {attempt + 1} failed with error: {e}"
+            )
+            if attempt < max_retries - 1:
+                time.sleep(delay)
+            else:
+                raise Exception(
+                    f"{work_container}: Failed to connect after {max_retries} attempts"
+                )
 
 
 def delete_service(logger: logging.Logger, work_container: str) -> None:
