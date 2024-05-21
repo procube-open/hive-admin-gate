@@ -66,6 +66,8 @@
     dest: /root/
   - src: ssh_config
     dest: /root/.ssh/config
+  - src: idpw
+    dest: /root/
 - name: install file with mode
   copy:
     src: passwordChange.sh
@@ -125,3 +127,10 @@
     minute: "0"
     hour: "1"
     job: /root/passwordChange.sh
+- name: install files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+  - src: telnet_aoi.py
+    dest: /root/.ansible/collections/ansible_collections/ansible/netcommon/plugins/action/
