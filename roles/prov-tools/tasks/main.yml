@@ -66,6 +66,8 @@
     dest: /root/
   - src: ssh_config
     dest: /root/.ssh/config
+  - src: idpw
+    dest: /root/
 - name: install file with mode
   copy:
     src: passwordChange.sh

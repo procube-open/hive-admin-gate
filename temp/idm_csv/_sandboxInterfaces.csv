@@ -71,10 +71,7 @@ status:{""$in"":[""waiting"",""working""]},
 : {id: {
 ""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")
 }}","","","","","","","false","false","false",""
-"Update","selectUserGroupIF","チーム選択IF","","Sandbox","userGroups","full","","","","[{""allow"":true}]","","","{id: find(getResource(""/IDManager/OUEditIF""), ""id"",
-find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).team
-).teamID
-}","","","","","","","false","false","false",""
+"Update","selectUserGroupIF","チーム選択IF","","Sandbox","userGroups","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
 "Update","selectUserIF","ユーザ選択IF","","Sandbox","user","readOnly","[""uid"",""cn"",""sn""]","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
