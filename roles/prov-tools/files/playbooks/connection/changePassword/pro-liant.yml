@@ -123,7 +123,7 @@
       body_format: json
       body:
         work_id: changepw
-        work_user: guacadmin
+        worker_token: "{{ token.json.authToken }}"
         identifier: "{{ changepw_connection.json.identifier }}"
     register: container
 

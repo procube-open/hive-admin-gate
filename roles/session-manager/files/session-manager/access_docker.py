@@ -31,7 +31,6 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
     # 環境変数取得
     webdav_server = os.environ.get("WEBDAV_SERVER")
     webdav_port = os.environ.get("WEBDAV_PORT")
-    # webdav_username = os.environ.get("WEBDAV_USERNAME")
     webdav_password = os.environ.get("WEBDAV_PASSWORD")
 
     image_chrome = "procube/node-chrome"
@@ -46,7 +45,7 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
     http_login_format_env = "HTTP_LOGIN_FORMAT=" + http_login_format
     selenium_env = [http_login_format_env]
 
-    url = "http://" + webdav_server + ":" + webdav_port + "/" + work_id + "/"
+    url = f"http://{webdav_server}:{webdav_port}/{work_id}/"
     davfs_driver_opts = {"username": work_id, "password": webdav_password, "url": url}
     driver_config = docker.types.services.DriverConfig(
         "fentas/davfs", options=davfs_driver_opts
@@ -117,7 +116,7 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
 def delete_service(logger: logging.Logger, work_container: str) -> None:
     base_urls = []
     insert_hosts(base_urls)
-    client = create_client(base_urls)
+    client = create_client(logger, base_urls)
     client.remove_service(work_container)
     logger.info(work_container + ": Delete successfully")
     logger.info(

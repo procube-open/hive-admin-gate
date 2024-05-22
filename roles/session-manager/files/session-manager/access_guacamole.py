@@ -66,6 +66,7 @@ def create_connection(
     hostname: str,
     port: str,
     origin_identifier: str | None,
+    name: str | None = None,
     username: str | None = None,
     password: str | None = None,
     swc_uid: str | None = None,
@@ -78,7 +79,7 @@ def create_connection(
         del data["lastActive"]
     data.update(
         {
-            "name": f"{params['hostname']}:{uuid.uuid4()}",
+            "name": name if name else f"{params['hostname']}:{uuid.uuid4()}",
             "idmIdentifier": type,
         }
     )
