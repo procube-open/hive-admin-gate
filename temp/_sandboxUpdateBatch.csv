@@ -1,0 +1,13 @@
+,"name","displayName","description","interfaceName","mailServer","mailPort","mailSecure","disableStartTls","authUser","authPassword","mailTo","mailFrom","mailCc","mailBcc","mailHeaders","mailSubject","mailTemplate","doAggregate","autoUpdate"
+"Update","passwordInitializeSendMail","パスワード忘れ受付完了メール送信","","_initializePasswordRecordUpdateBatch","10.34.64.84","25","false","true","","","<%= mail %>","root@dk0000-idpwpam.eo.k-opti.ad.jp","","","","パスワード再設定申請受付のお知らせ","<%= param1 %>様
+
+以下の URL にアクセスして、パスワードの再設定を完了してください。
+
+http://dk0000-pamidmng11.eo.k-opti.ad.jp/changePassword/doInitializePassword?accessKey=<%= accessKey %>&id=<%= id %>","false","[{""targetProperty"":""informedDatetime"",""derivation"":""Date()""}]"
+"Update","sendApplovalMail","作業承認要求メール送信","","requiredApplovalWorkMailIF","10.34.64.84","25","false","","","","<%= approveMailList %>","root@dk0000-idpwpam.eo.k-opti.ad.jp","","","","Admin Gate の作業承認依頼がありました。（IDManager自動送信メール）","下記URLより IDM にアクセスいただき、作業を承認してください。
+
+https://dk0000-pamidmng11.eo.k-opti.ad.jp/infoscoop/#tabId=10107","false","[{""targetProperty"":""approveRequestDatetime"",""derivation"":""Date()""}]"
+"Update","sendApploveCompletionMail","承認完了メール送信","","applovalCompletionMailIF","10.34.64.84","25","false","","","","<%= applicationMailList %>","root@dk0000-idpwpam.eo.k-opti.ad.jp","","","","申請していた Admin Gate の作業が承認されました。（IDManager自動送信メール）","申請していた作業が承認されました。
+下記URLより AdminGate にアクセスし、作業を実施することができます。
+
+https://dk0000-pamgate11.eo.k-opti.ad.jp/","false","[{""targetProperty"":""apploveCompletionDate"",""derivation"":""Date()""}]"
