@@ -1,4 +1,3 @@
-(prov) [root@idm idpw]# cat idpw.sh
 #!/bin/bash
 
 HOSTNAME="10.160.199.99"
