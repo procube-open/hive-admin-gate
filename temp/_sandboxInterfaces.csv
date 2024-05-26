@@ -43,6 +43,8 @@ status:{""$in"":[""waiting"",""working""]},
 "Update","enumUserGroupIF","利用者グループ列挙IF","","Repository","userGroups","readOnly","","","","","","","","","","","","","","false","false","false",""
 "Update","enumUserIF","ユーザ列挙IF","ユーザを列挙するインタフェース","Sandbox","user","readOnly","[""uid"",""org"",""cn""]","","[{""destinationProperty"":""value"",""sourceProperty"":""uid""},{""destinationProperty"":""displayName"",""sourceProperty"":""cn""}]","[{""allow"":true,""matching"":[{""type"":""GROUP"",""useArgument"":false,""values"":[""IDM_ADMIN"",""IDM_CONTACT""]}]}]","","","","","","","","","","false","false","false",""
 "Update","enumWorkIF","作業列挙IF","","Repository","work","readOnly","","","","","","","","","","","","","","false","false","false",""
+"Update","getUserGroupInfo","グループ情報取得","","Sandbox","userGroups","full","[""ou"",""gidNumber""]","","","","","","","","","","","","","false","false","false",""
+"Update","getUserGroupMember","ユーザーグループメンバー取得","","Sandbox","user","full","[""team"",""idpwdn""]","","","","","","","","","","","","","false","false","false",""
 "Update","historyWorkIF","過去作業IF","","Sandbox","work","readOnly","","","","","","{status:{$in:[""end"",""rejected"", ""cancel""]}}","","","","","","startDatetime","-","false","false","false",""
 "Update","machineEditorInterface","機器情報編集IF","","Sandbox","machine","full","","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
@@ -72,7 +74,7 @@ status:{""$in"":[""waiting"",""working""]},
 : {id: {
 ""$in"": select(getResource(""/IDManager/selectUserGroupIF"").pop().ou, ""id"")
 }}","","","","","","","false","false","false",""
-"Update","selectUserGroupIF","チーム選択IF","","Sandbox","userGroups","full","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
+"Update","selectUserGroupIF","チーム選択IF","","Master","userGroups","readOnly","","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
 "Update","selectUserIF","ユーザ選択IF","","Sandbox","user","readOnly","[""uid"",""cn"",""sn""]","","","[{""allow"":true}]","","","find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_ADMIN""
 || find(getResource(""/IDManager/userEditorInterface""), ""uid"", user()).idmRole == ""IDM_USER_ADMIN""
 ? {hoge: null}
