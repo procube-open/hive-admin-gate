@@ -95,7 +95,7 @@ if __name__=="__main__":
                 u['uidNumber'],
                 u['email'],
                 ug['ou'],
-                u['companyName'],
+                u['companyName'] if 'companyName' in u else '',
                 u['email2']
             ]
             writer.writerow(row)
