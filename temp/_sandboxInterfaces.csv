@@ -18,6 +18,7 @@ status:{""$in"":[""editing"",""pending"",""sendBack""]},
 "Update","SystemMachineIF","SYSTEM用機器インターフェース","","Sandbox","machine","full","","","","","","","","","","","","","","false","false","false",""
 "Update","SystemOUIF","SYSTEM用OUインターフェース","","Sandbox","ou","full","","","","","","","","","","","","","","false","false","false",""
 "Update","SystemUserGroupIF","SYSTEM用チームインターフェース","","Sandbox","userGroups","full","","","","","","","","","","","","","","false","false","false",""
+"Create","alignmentEditIF","連携編集IF","","Sandbox","alignment","full","[""id"",""date""]","","","[{""allow"":true}]","","","","","","","","","","false","false","false",""
 "Update","applovalCompletionMailIF","メール未送信承認完了IF","","Sandbox","work","full","","","","","","{status:""waiting"",apploveCompletionDate:null}","","","","","","","","false","false","false",""
 "Update","applovalWorkIF","承認済み作業IF","","Sandbox","work","full","","","","[{""allow"":true}]","","{status:{$in:[""waiting"",""working""]}}","{
 status:{""$in"":[""waiting"",""working""]},
