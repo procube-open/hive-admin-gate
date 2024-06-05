@@ -1,6 +1,6 @@
 ---
 plugin: idm_inventory
-interface: applovalWorkIF
+interface: SystemApplovalWorkIF
 host_name_property: id
 class_name: work
 groups:
