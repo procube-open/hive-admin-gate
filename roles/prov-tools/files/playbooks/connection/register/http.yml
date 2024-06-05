@@ -55,6 +55,7 @@
         "sendValue": "{{ item.sendValue | default('') }}"
         }
     loop: "{{ cs_obj.actions }}"
+    register: event_list
   - debug:
       msg: "{{ event_list.results | map(attribute='msg') | join(' ') }}"
     register: event_str
