@@ -49,12 +49,16 @@
         {%- else -%} ,
         {%- endif -%}
         {
-        "event": "{{ item.event }}"
-        "getElementMethod": "{{ item.getElementMethod }}"
-        "targetElementPath": "{{ item.targetElementPath }}"
+        "event": "{{ item.event }}",
+        "getElementMethod": "{{ item.getElementMethod }}",
+        "targetElementPath": "{{ item.targetElementPath }}",
         "sendValue": "{{ item.sendValue | default('') }}"
         }
     loop: "{{ cs_obj.actions }}"
+    register: event_list
+  - debug:
+      msg: "{{ event_list.results | map(attribute='msg') | join(' ') }}"
+    register: event_str
   
   - name: Put connection.
     uri:
@@ -96,27 +100,9 @@
         "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
         "path":"",
         "params":
-        [[{
-        "event":"iframe",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//iframe[@id='frame_name']",
-        "sendValue":""
-        },{
-        "event":"input",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//input[@id='username']",
-        "sendValue":"{{ cs_obj.httpID }}"
-        },{
-        "event":"input",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//input[@id='password']",
-        "sendValue":"{{ cs_obj.httpPassword }}"
-        },{
-        "event":"click",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//button[@id='login-form__submit']",
-        "sendValue":""
-        }]]}
+        [[
+        {{ event_str.msg[1:] }}
+        ]]}
  
   - name: Post connection.
     uri:
@@ -159,27 +145,9 @@
         "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
         "path":"",
         "params":
-        [[{
-        "event":"iframe",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//iframe[@id='frame_name']",
-        "sendValue":""
-        },{
-        "event":"input",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//input[@id='username']",
-        "sendValue":"{{ cs_obj.httpID }}"
-        },{
-        "event":"input",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//input[@id='password']",
-        "sendValue":"{{ cs_obj.httpPassword }}"
-        },{
-        "event":"click",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//button[@id='login-form__submit']",
-        "sendValue":""
-        }]]}
+        [[
+        {{ event_str.msg[1:] }}
+        ]]}
     register: new_connection
   
   - name: Delete connection.
