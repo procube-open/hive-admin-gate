@@ -49,9 +49,9 @@
         {%- else -%} ,
         {%- endif -%}
         {
-        "event": "{{ item.event }}"
-        "getElementMethod": "{{ item.getElementMethod }}"
-        "targetElementPath": "{{ item.targetElementPath }}"
+        "event": "{{ item.event }}",
+        "getElementMethod": "{{ item.getElementMethod }}",
+        "targetElementPath": "{{ item.targetElementPath }}",
         "sendValue": "{{ item.sendValue | default('') }}"
         }
     loop: "{{ cs_obj.actions }}"
