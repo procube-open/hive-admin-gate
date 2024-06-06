@@ -8,8 +8,7 @@ req_header = {'HTTP_SYSTEMACCOUNT': 'SYSTEM'}
 
 
 def find_user_group(gid, user_group):
-    rl = list(filter(lambda x: x['ou'] == gid ,user_group))
-    print(rl)
+    rl = list(filter(lambda x: x['ou'] == gid, user_group))
     return rl[0] if len(rl) > 0 else {'sAMAccountName':'', 'gidNumber':''}
 
 
@@ -25,7 +24,7 @@ if __name__=="__main__":
             row = [
                 ug['ou'],
                 ug['name'],
-                ug['gidNumber']
+                ug['gid'] if 'gid' in ug else ''
             ]
             writer.writerow(row)
 
@@ -91,28 +90,25 @@ if __name__=="__main__":
         for u in user:
             if 'alignmentIDPW' in u and u['alignmentIDPW']:
                 ug = find_user_group(u['team'],user_group)
-                print(ug)
                 row = [
                     u['uid'],
                     u['displayName'],
-                    u['uidNumber'],
-                    u['email'],
+                    u['uidNumber'] if 'uidNumber' in u else '',
+                    u['email'] if 'email' in u else '',
                     ug['ou'],
                     u['companyName'] if 'companyName' in u else '',
                     u['email2']
                 ]
                 writer.writerow(row)
-            else:
-                continue
     
     with open('user_admin.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
         for u in user:
-            if u['idmRole'] == 'IDM_USER_LEADER':
+            if 'alignmentIDPW' in u and u['alignmentIDPW'] and (u['idmRole'] == 'IDM_USER_LEADER' or u['idmRole'] == 'IDM_USER_ADMIN' or u['idmRole'] == 'IDM_ADMIN'):
                 ug = find_user_group(u['team'],user_group)
                 row = [
-                    ug['ou'],
-                    u['uid']
+                    u['uid'],
+                    ug['ou'] 
                 ]
                 writer.writerow(row)
             else:
