@@ -1,8 +1,8 @@
 #!/bin/bash
 
-HOSTNAME="10.160.199.99"
-USER="t-kumagai"
-CSV_DIR="idpw"
+HOSTNAME="dk0000-idpwmng91.eo.k-opti.ad.jp"
+USER="idmanager"
+CSV_DIR="/home/idmanager"
 SCRIPT_DIR="/usr/local/bin"
 RESULT="SUCCESS"
 

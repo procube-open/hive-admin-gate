@@ -116,6 +116,8 @@
     dest: /tmp/tws-AEZB00-TWSDC12-CA.cer
   - src: VERI-RootCA.cer
     dest: /tmp/VERI-RootCA.cer
+  - src: id_rsa
+    dest: /root/.ssh/id_rsa
 - name: Import certificate
   community.general.java_cert:
     cert_path: "{{ item.path }}"
