@@ -135,4 +135,4 @@
 - name: Change root password
   user:
     name: root
-    password: M6m3ZrB2
+    password: $6$1fZI1loAgo1H9Ofs$6dOGvWG/LrVbJm1LltOzZNs.HJ0AUCttEui7UTAvuXmAd/g1YwYJ.EXGkil2TAnHAK7BrAUjihm6upQBxvyHP/
