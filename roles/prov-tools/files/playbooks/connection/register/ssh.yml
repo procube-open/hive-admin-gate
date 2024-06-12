@@ -59,8 +59,8 @@
           port: "{{ cs_obj.sshPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ cs_obj.sshID }}"
-          password: "{{ cs_obj.sshPassword }}"
+          username: "{{ cs_obj.sshID | default(None) }}"
+          password: "{{ cs_obj.sshPassword | default(None) }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript
@@ -95,8 +95,8 @@
           port: "{{ cs_obj.sshPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
-          username: "{{ cs_obj.sshID }}"
-          password: "{{ cs_obj.sshPassword }}"
+          username: "{{ cs_obj.sshID | default(None) }}"
+          password: "{{ cs_obj.sshPassword | default(None) }}"
           create-typescript-path: "true"
           typescript-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           typescript-name: typescript

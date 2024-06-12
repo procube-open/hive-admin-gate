@@ -1,8 +1,8 @@
 #!/bin/bash
 
-HOSTNAME="10.160.199.99"
-USER="t-kumagai"
-CSV_DIR="idpw"
+HOSTNAME="dk0000-idpwmng91.eo.k-opti.ad.jp"
+USER="idmanager"
+CSV_DIR="/home/idmanager"
 SCRIPT_DIR="/usr/local/bin"
 RESULT="SUCCESS"
 
@@ -23,6 +23,7 @@ scp -i ~/.ssh/id_rsa /root/idpw/user_admin.csv $USER@$HOSTNAME:$CSV_DIR
 #EOC
 
 result1=`ssh $USER@$HOSTNAME $SCRIPT_DIR/idmng_coop_groups $CSV_DIR/user_group.csv`
+total_result="SUCCESS"
 
 if [ "$result1" = $RESULT ]; then
   echo "1:OK"
@@ -32,6 +33,7 @@ if [ "$result1" = $RESULT ]; then
   if [ "$result2" = $RESULT ]; then
     echo "2:OK"
   else
+    total_result="ERROR"
     echo "2:Fail"
     echo $result2
   fi
@@ -40,6 +42,7 @@ if [ "$result1" = $RESULT ]; then
   if [ "$result3" = $RESULT ]; then
     echo "3:OK"
   else
+    total_result="ERROR"
     echo "3:Fail"
     echo $result3
   fi
@@ -52,16 +55,21 @@ if [ "$result1" = $RESULT ]; then
     if [ "$result5" = $RESULT ]; then
       echo "5:OK"
     else
+      total_result="ERROR"
       echo "5:Fail"
      echo $result5
     fi
 
   else
+    total_result="ERROR"
     echo "4:Fail"
     echo $result4
   fi
 
 else
+  total_result="ERROR"
   echo "1:Fail"
   echo $result1
 fi
+
+echo $total_result
