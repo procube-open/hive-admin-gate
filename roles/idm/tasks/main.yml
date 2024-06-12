@@ -67,6 +67,13 @@
       - openssh-clients
       - cronie-noanacron
       - openssh-server
+- name: .ssh dir
+  file:
+    path: /root/.ssh
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
 # - name: tmp dir chmod
 #   file:
 #     path: /var/www/html/admin/tmp
