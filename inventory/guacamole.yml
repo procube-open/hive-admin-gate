@@ -15,7 +15,6 @@ services:
       GUACAMOLE_HOME: /opt/guacamole/
       RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
       HEADER_ENABLED: "true"
-      LOGBACK_LEVEL: debug
     volumes:
       - source: guacamole-drives
         target: /var/lib/guacamole/drives

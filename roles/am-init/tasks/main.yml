@@ -30,7 +30,7 @@
     nsamctl set_ds idp amdb
   notify: wildfly configured
 - name: put custom pages
-  template:
+  copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     owner: wildfly
