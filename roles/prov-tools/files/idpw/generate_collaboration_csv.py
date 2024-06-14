@@ -18,17 +18,17 @@ if __name__=="__main__":
     user = user_req.json()
     user_group = user_group_req.json()
 
-    with open('/root/idpw/user_group.csv', mode='w', encoding='utf-8', newline='') as file:
+    with open('user_group.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
         for ug in user_group:
             row = [
                 ug['ou'],
                 ug['name'],
-                ug['gidNumber'] if 'gidNumber' in ug else ''
+                ug['gid'] if 'gid' in ug else ''
             ]
             writer.writerow(row)
 
-    with open('/root/idpw/address_list.csv', mode='w', encoding='utf-8', newline='') as file:
+    with open('address_list.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
         for ug in user_group:
             for ug_allow in ug['allowedAddressList'] if 'allowedAddressList' in ug else []:
@@ -46,7 +46,7 @@ if __name__=="__main__":
                 ]
                 writer.writerow(row)
     
-    with open('/root/idpw/notification.csv', mode='w', encoding='utf-8', newline='') as file:
+    with open('notification.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
         for ug in user_group:
             for ug_account_lock in ug['accountLockNotification'] if 'accountLockNotification' in ug else []:
@@ -85,7 +85,7 @@ if __name__=="__main__":
                 ]
                 writer.writerow(row)
 
-    with open('/root/idpw/user.csv', mode='w', encoding='utf-8', newline='') as file:
+    with open('user.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
         for u in user:
             if 'alignmentIDPW' in u and u['alignmentIDPW']:
@@ -101,15 +101,12 @@ if __name__=="__main__":
                 ]
                 writer.writerow(row)
     
-    with open('/root/idpw/user_admin.csv', mode='w', encoding='utf-8', newline='') as file:
+    with open('user_admin.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
-        for u in user:
-            if 'alignmentIDPW' in u and u['alignmentIDPW'] and (u['idmRole'] == 'IDM_USER_LEADER' or u['idmRole'] == 'IDM_USER_ADMIN' or u['idmRole'] == 'IDM_ADMIN'):
-                ug = find_user_group(u['team'],user_group)
+        for ug in user_group:
+            for m in ug['managers'] if 'managers' in ug else []:
                 row = [
-                    u['uid'],
-                    ug['ou'] 
+                    ug['ou'],
+                    m
                 ]
                 writer.writerow(row)
-            else:
-                continue
