@@ -103,13 +103,10 @@ if __name__=="__main__":
     
     with open('user_admin.csv', mode='w', encoding='utf-8', newline='') as file:
         writer = csv.writer(file)
-        for u in user:
-            if 'alignmentIDPW' in u and u['alignmentIDPW'] and (u['idmRole'] == 'IDM_USER_LEADER' or u['idmRole'] == 'IDM_USER_ADMIN' or u['idmRole'] == 'IDM_ADMIN'):
-                ug = find_user_group(u['team'],user_group)
+        for ug in user_group:
+            for m in ug['managers'] if 'managers' in ug else []:
                 row = [
-                    u['uid'],
-                    ug['ou'] 
+                    ug['ou'],
+                    m
                 ]
                 writer.writerow(row)
-            else:
-                continue

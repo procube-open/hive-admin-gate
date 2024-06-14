@@ -72,30 +72,25 @@
         "getElementMethod":"xpath",
         "targetElementPath":"//button[@id='login-form__submit']",
         "sendValue":""
-        }],[{
-        "event":"click",
-        "getElementMethod":"xpath",
-        "targetElementPath":"//*[@id='userlink']",
-        "sendValue":""
         },{
-        "event":"click",
+        "event":"link",
         "getElementMethod":"xpath",
-        "targetElementPath":"//*[@id='user_settings']",
-        "sendValue":""
+        "targetElementPath":"//*[@id='tabsetTitleSpan']",
+        "sendValue":"{{ cs_obj.httpProtocol ~ '://' ~ hostname ~ (':' ~ cs_obj.httpPort) | default('') ~ '/html/admin_user.html'}}"
         }],[{
         "event":"click",
         "getElementMethod":"xpath",
-        "targetElementPath":"//*[@id='1']",
+        "targetElementPath":"//td[@id='user_1_checkbox']/label/span/span",
         "sendValue":""
         },{
         "event":"click",
         "getElementMethod":"xpath",
         "targetElementPath":"//*[@id='EDIT_USER']",
         "sendValue":""
-        }],[{
+        },{
         "event":"click",
         "getElementMethod":"xpath",
-        "targetElementPath":"//*[@id='changePasswordCheckbox']",
+        "targetElementPath":"//*[@id='cbChangePwdSpan']",
         "sendValue":""
         },{
         "event":"input",
