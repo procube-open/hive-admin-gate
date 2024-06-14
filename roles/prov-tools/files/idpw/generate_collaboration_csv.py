@@ -107,8 +107,8 @@ if __name__=="__main__":
             if 'alignmentIDPW' in u and u['alignmentIDPW'] and (u['idmRole'] == 'IDM_USER_LEADER' or u['idmRole'] == 'IDM_USER_ADMIN' or u['idmRole'] == 'IDM_ADMIN'):
                 ug = find_user_group(u['team'],user_group)
                 row = [
-                    u['uid'],
-                    ug['ou'] 
+                    ug['ou'],
+                    u['uid']
                 ]
                 writer.writerow(row)
             else:

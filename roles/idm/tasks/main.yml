@@ -107,6 +107,16 @@
     dest: /var/www/html/admin/src/Const/const_smtp.php
   - src: csv_upload_mail_body.php
     dest: /var/www/html/admin/templates/email/text/csv_upload.php
+- name: Add entry to /etc/hosts file
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }} {{ item.name }}"
+    state: present
+  loop:
+  - ip: 10.35.27.241
+    name: dk-idpwdc91
+  - ip: 10.35.27.21
+    name: dk-idpwdc11
 # - name: patch bindbroker config
 #   lineinfile:
 #     path: /usr/local/NetSoarer/IDManager/BindBroker/config/default.js
@@ -116,6 +126,7 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
+    mode: 644
   loop:
   - src: tca-AEZB00-TCADC12-CA.cer
     dest: /tmp/tca-AEZB00-TCADC12-CA.cer
