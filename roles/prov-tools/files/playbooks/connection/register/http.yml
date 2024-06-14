@@ -80,7 +80,7 @@
           username: "{{ cs_obj.httpID }}"
           password: "{{ cs_obj.httpPassword }}"
           hostname: "{{ hostname }}"
-          httpLoginFormat: "{{ httpVars | to_json }}"
+          httpLoginFormat: "{{ httpVars }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
