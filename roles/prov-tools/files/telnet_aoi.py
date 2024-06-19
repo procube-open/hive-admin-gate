@@ -17,9 +17,11 @@ from ansible.utils.display import Display
 
 display = Display()
 
-
 class ActionModule(ActionBase):
     TRANSFERS_FILES = False
+
+    def callback(tn, command, option, *args, **kwargs):
+        pass
 
     def run(self, tmp=None, task_vars=None):
         if self._task.environment and any(self._task.environment):
@@ -54,6 +56,7 @@ class ActionModule(ActionBase):
             pause = int(self._task.args.get("pause", 1))
 
             send_newline = self._task.args.get("send_newline", False)
+            clrf = self._task.args.get("clrf", False)
 
             #login_prompt = to_text(
             #    self._task.args.get("login_prompt", "login: ")
@@ -68,34 +71,49 @@ class ActionModule(ActionBase):
                 "commands"
             )
 
-            if isinstance(commands, text_type):
-                commands = commands.split(",")
+            if clrf:
+                line_ending = "\r\n"
+            else:
+                line_ending = "\n"
 
+            if isinstance(commands, text_type):
+                try:
+                    self.tn.set_option_negotiation_callback(self.callback)
+                except:
+                    pass
+                print(commands)
+                commands = commands.split(",")
+            print(commands)
             if isinstance(commands, list) and commands:
                 self.tn = telnetlib.Telnet(host, port, timeout)
+                try:
+                    self.tn.set_option_negotiation_callback(self.callback)
+                except:
+                    pass
 
                 self.output = bytes()
                 try:
                     if send_newline:
-                        self.tn.write(b"\n")
+                        self.tn.write(to_bytes(line_ending))
+                    print(self.tn)
 
                     self.await_prompts(login_prompt, timeout)
-                    self.tn.write(to_bytes(user + "\n"))
+                    self.tn.write(to_bytes(user + line_ending))
 
                     if password:
                         self.await_prompts(password_prompt, timeout)
-                        self.tn.write(to_bytes(password + "\n"))
+                        self.tn.write(to_bytes(password + line_ending))
 
                     self.await_prompts(prompts, timeout)
 
                     for cmd in commands:
                         display.vvvvv(">>> %s" % cmd)
-                        self.tn.write(to_bytes(cmd + "\n"))
+                        self.tn.write(to_bytes(cmd + line_ending))
                         self.await_prompts(prompts, timeout)
                         display.vvvvv("<<< %s" % cmd)
                         sleep(pause)
 
-                    self.tn.write(to_bytes("exit" + "\n"))
+                    self.tn.write(to_bytes("exit" + line_ending))
 
                 except EOFError as e:
                     result["failed"] = True
@@ -118,9 +136,13 @@ class ActionModule(ActionBase):
         return result
 
     def await_prompts(self, prompts, timeout):
+        print(prompts)
         index, match, out = self.tn.expect(
             list(map(to_bytes, prompts)), timeout=timeout
         )
+        print(index)
+        print(match)
+        print(out)
         self.output += out
         if not match:
             raise TimeoutError(prompts)
