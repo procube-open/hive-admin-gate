@@ -1,13 +1,14 @@
 - name: check user
-  ansible.netcommon.telnet_ix:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - 'login: '
     password_prompt:
       - "Password:"
     prompts:
-      - "[-#]$"
+      - "#"
     command:
       - show run
       - q
@@ -21,9 +22,10 @@
     search_string: "username {{ cs_obj[loop_protocol ~ 'ID']}}"
 
 - name: create user
-  ansible.netcommon.telnet_ix:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - 'login: '
     password_prompt:
@@ -38,9 +40,10 @@
   when: result_check_user | length == 0
 
 - name: update user
-  ansible.netcommon.telnet_ix:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - 'login: '
     password_prompt:
@@ -55,9 +58,10 @@
   when: result_check_user | length > 0
 
 - name: update connection
-  ansible.netcommon.telnet_ix:
+  ansible.netcommon.telnet_aoi:
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    clrf: "True"
     login_prompt:
       - 'login: '
     password_prompt:
@@ -69,9 +73,10 @@
     timeout: 10
 
 - name: config save
-  ansible.netcommon.telnet_ix:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - 'login: '
     password_prompt:
