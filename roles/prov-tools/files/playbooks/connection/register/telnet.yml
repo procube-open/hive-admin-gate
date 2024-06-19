@@ -45,7 +45,7 @@
         protocol: "telnet"
         idmIdentifier: "{{ id }}"
         parameters:
-          port: "{{ cs_obj.telnetPort | default('') }}"
+          port: "{{ telnetConsolePort if telnetConsolePort is defined else cs_obj.telnetPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.telnetID | default(None) }}"
@@ -82,7 +82,7 @@
         protocol: "telnet"
         idmIdentifier: "{{ id }}"
         parameters:
-          port: "{{ cs_obj.telnetPort | default('') }}"
+          port: "{{ telnetConsolePort if telnetConsolePort is defined else cs_obj.telnetPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.telnetID | default(None) }}"

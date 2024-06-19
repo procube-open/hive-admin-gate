@@ -45,7 +45,7 @@
         protocol: "ssh"
         idmIdentifier: "{{ id }}"
         parameters:
-          port: "{{ cs_obj.sshPort | default('') }}"
+          port: "{{ sshConsolePort if sshConsolePort is defined else cs_obj.sshPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.sshID | default(None) }}"
@@ -81,7 +81,7 @@
         protocol: "ssh"
         idmIdentifier: "{{ id }}"
         parameters:
-          port: "{{ cs_obj.sshPort | default('') }}"
+          port: "{{ sshConsolePort if sshConsolePort is defined else cs_obj.sshPort | default('') }}"
           create-recording-path: "true"
           recording-path: "${HISTORY_PATH}/${HISTORY_UUID}"
           username: "{{ cs_obj.sshID | default(None) }}"
