@@ -66,7 +66,7 @@
     dest: "{{ item.dest }}"
     mode: "644"
   loop:
-  - src:
+  - src: mfa-authn-config.xml
     dest: /opt/shibIdpConf_idp/conf/authn/mfa-authn-config.xml
-  - src:
+  - src: Totp-flow.xml
     dest: /opt/shibIdpConf_idp/flows/authn/Totp/Totp-flow.xml
