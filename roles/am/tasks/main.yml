@@ -59,14 +59,3 @@
     src: restore-consul-kv.sh
     dest: /usr/bin
     mode: "0755"
-
-- name: patch for optage
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    mode: "644"
-  loop:
-  - src: mfa-authn-config.xml
-    dest: /opt/shibIdpConf_idp/conf/authn/mfa-authn-config.xml
-  - src: Totp-flow.xml
-    dest: /opt/shibIdpConf_idp/flows/authn/Totp/Totp-flow.xml
