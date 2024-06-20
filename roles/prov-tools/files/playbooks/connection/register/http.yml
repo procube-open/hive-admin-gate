@@ -13,17 +13,6 @@
       status_code: 200
     register: token
   
-  - name: Get Users.
-    uri:
-      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users"
-      headers:
-        Guacamole-Token: "{{ token.json.authToken }}"
-      method: GET
-      validate_certs: false
-      return_content: yes
-      status_code: 200
-    register: guacamole_users
-  
   - name: Get Connections.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections"
@@ -99,6 +88,9 @@
         "protocol":"{{ cs_obj.httpProtocol }}",
         "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
         "path":"",
+        "username": "{{ cs_obj.httpID }}",
+        "password": "{{ cs_obj.httpPassword }}",
+        "authType": "{{ cs_obj.authType }}",
         "params":
         [[
         {{ event_str.msg[1:] }}
@@ -124,7 +116,7 @@
           username: "{{ cs_obj.httpID }}"
           password: "{{ cs_obj.httpPassword }}"
           hostname: "{{ hostname }}"
-          httpLoginFormat: "{{ httpVars | to_json }}"
+          httpLoginFormat: "{{ httpVars }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
@@ -144,6 +136,9 @@
         "protocol":"{{ cs_obj.httpProtocol }}",
         "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
         "path":"",
+        "username": "{{ cs_obj.httpID }}",
+        "password": "{{ cs_obj.httpPassword }}",
+        "authType": "{{ cs_obj.authType }}",
         "params":
         [[
         {{ event_str.msg[1:] }}
@@ -159,17 +154,3 @@
       validate_certs: false
       status_code: 204
     when: prov_operation == 'delete' and connectionidvnc is defined
-  
-  - name: Register connection permission.
-    uri:
-      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ item | regex_replace('@', '%40') }}/permissions"
-      headers:
-        Guacamole-Token: "{{ token.json.authToken }}"
-        Content-Type: "application/json"
-      method: PATCH
-      body_format: json
-      body: "{{ [{'op': 'add', 'path': '/connectionPermissions/' ~ new_connection.json.identifier, 'value': 'READ'}] }}"
-      validate_certs: false
-      status_code: 204
-    loop: "{{ guacamole_users.json.keys() }}"
-    when: connectionidvnc is not defined and new_connection.json is defined

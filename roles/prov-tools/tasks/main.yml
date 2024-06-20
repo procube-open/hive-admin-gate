@@ -119,6 +119,8 @@
       - ncclient
       - pexpect
       - pywinrm
+      - pan-python
+      - pan-os-python
   vars:
     ansible_python_interpreter: /root/prov/bin/python
 - name: Setting cron for password change.
