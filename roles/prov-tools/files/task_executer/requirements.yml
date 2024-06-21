@@ -14,3 +14,4 @@ collections:
   - ansible.windows
   - a10.acos_axapi
   - paloaltonetworks.panos
+  - community.network
