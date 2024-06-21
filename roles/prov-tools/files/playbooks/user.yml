@@ -10,9 +10,6 @@
     password: guacadmin
 
   tasks:
-  - name: message
-    debug:
-      msg: "Provisioning to user account."
   - name: Get token of REST API.
     uri:
       url: "http://guacamole:8080/guacamole/api/tokens"
@@ -24,35 +21,18 @@
       return_content: yes
       status_code: 200
     register: token
-  - name: output token
-    debug:
-      msg: "{{ token.json.authToken }}"
-  - name: Get Users.
+  - name: Get User.
     uri:
-      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users"
+      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}"
       headers:
         Guacamole-Token: "{{ token.json.authToken }}"
       method: GET
       validate_certs: false
       return_content: yes
-      status_code: 200
-    register: users
-  - name: Make userid list.
-    set_fact:
-      userid: "{{ users.json.keys() }}"
-  - name: Get Connections.
-    uri:
-      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/connections"
-      headers:
-        Guacamole-Token: "{{ token.json.authToken }}"
-      method: GET
-      validate_certs: false
-      return_content: yes
-      status_code: 200
-    register: connections
-  - name: Make connectionid list.
-    set_fact:
-      connectionid: "{{ connections.json.keys() }}"
+      status_code:
+        - 200
+        - 404
+    register: guacamole_user
   - name: Put User.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}"
@@ -64,7 +44,7 @@
       body: '{"username":"{{ uid }}","password":"","attributes": {"expired": "","guac-full-name": "{{ cn }}","timezone": null,"access-window-start": "","access-window-end": "","disabled": "","valid-until": "","valid-from": ""}}'
       validate_certs: false
       status_code: 204
-    when: "prov_operation != 'delete' and uid in userid"
+    when: "prov_operation != 'delete' and guacamole_user.status == 200"
   - name: Post User.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users"
@@ -76,7 +56,7 @@
       body: '{"username":"{{ uid }}","password":"","attributes": {"expired": "","guac-full-name": "{{ cn }}","timezone": null,"access-window-start": "","access-window-end": "","disabled": "","valid-until": "","valid-from": ""}}'
       validate_certs: false
       status_code: 200
-    when: "uid not in userid"
+    when: "guacamole_user.status == 404"
   - name: Add system permission.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}/permissions"
@@ -88,7 +68,7 @@
       body: '[{"op": "add", "path": "/systemPermissions", "value": "ADMINISTER"}]'
       validate_certs: false
       status_code: 204
-    when: "prov_operation != 'delete' and uid in userid"
+    when: "prov_operation != 'delete' and guacamole_user.status == 200"
   - name: Delete User.
     uri:
       url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}"
@@ -97,20 +77,8 @@
       method: DELETE
       validate_certs: false
       status_code: 204
-    when: "prov_operation == 'delete' and uid in userid"
+    when: "prov_operation == 'delete' and guacamole_user.status == 200"
   - name: Make cnection pemissions.
     set_fact:
       connection_permissions: "{{ connection_permissions | default([{'op': 'add', 'path': '/systemPermissions', 'value': 'ADMINISTER'}]) +  [{'op': 'add', 'path': '/connectionPermissions/' ~ item, 'value': 'READ'}] }}"
     loop: "{{ connectionid }}"
-  - name: Register cnection pemissions.
-    uri:
-      url: "http://guacamole:8080/guacamole/api/session/data/postgresql/users/{{ uid | regex_replace('@', '%40') }}/permissions"
-      headers:
-        Guacamole-Token: "{{ token.json.authToken }}"
-        Content-Type: "application/json"
-      method: PATCH
-      body_format: json
-      body: '{{ connection_permissions | to_json }}'
-      validate_certs: false
-      status_code: 204
-    when: "uid not in userid and connection_permissions is defined"

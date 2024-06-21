@@ -76,7 +76,7 @@
 
     <bean id="InternalNetwork" class="org.opensaml.profile.logic.IPRangePredicate"
         p:httpServletRequest-ref="shibboleth.HttpServletRequest"
-        p:ranges="#{ {'192.168.1.0/24', '192.168.62.0/24'} }" />
+        p:ranges="#{ {'10.35.35.0/24', '10.34.70.0/24', '10.35.233.0/24', '10.33.253.0/24'} }" />
 
     <!-- Example script to see if second factor is required. -->
     <bean id="checkSecondFactor" parent="shibboleth.ContextFunctions.Scripted" factory-method="inlineScript"
