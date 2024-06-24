@@ -1,7 +1,8 @@
 - name: check user
-  ansible.netcommon.telnet_aoi:
+  ansible.netcommon.telnet:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    send_newline: True
     login_prompt:
       - 'Username: '
     password_prompt:
@@ -12,6 +13,7 @@
       - term len 0
       - show running-config | include username
     timeout: 10
+    clrf: True
   register: command_output
 
 - name: Extract lines containing a specific string
@@ -21,7 +23,7 @@
     search_string: "username {{ cs_obj[loop_protocol ~ 'ID']}}"
 
 - name: create user
-  ansible.netcommon.telnet_aoi:
+  ansible.netcommon.telnet:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
@@ -41,7 +43,7 @@
   when: result_check_user | length == 0
 
 - name: update user
-  ansible.netcommon.telnet_aoi:
+  ansible.netcommon.telnet:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
@@ -59,7 +61,7 @@
   when: result_check_user | length > 0
 
 - name: update connection
-  ansible.netcommon.telnet_aoi:
+  ansible.netcommon.telnet:
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
