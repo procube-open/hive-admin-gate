@@ -2,6 +2,7 @@
   ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - "Login:"
     password_prompt:
@@ -23,6 +24,7 @@
   ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - "Login:"
     password_prompt:
@@ -41,6 +43,7 @@
   ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
       - "Login:"
     password_prompt:
@@ -59,6 +62,7 @@
   ansible.netcommon.telnet_aoi:
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    clrf: "True"
     login_prompt:
       - "Login:"
     password_prompt:

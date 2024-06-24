@@ -7,7 +7,7 @@
     password_prompt:
       - "Password:"
     prompts:
-      - ">"
+      - "#"
     commands:
       - "#telnet login admin-exec"
     timeout: 180

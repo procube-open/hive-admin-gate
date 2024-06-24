@@ -31,6 +31,7 @@
     prompts:
       - "#|--"
     command:
+      - "user delete user5"
       - "user add user5 read-write"
       - "{{ cs_obj[loop_protocol ~ 'ID'] }}"
       - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
@@ -50,6 +51,7 @@
     prompts:
       - "#|--"
     command:
+      - "user delete user5"
       - "user add user5 read-write"
       - "{{ cs_obj[loop_protocol ~ 'ID'] }}"
       - "{{ cs_obj[loop_protocol ~ 'Password'] }}"

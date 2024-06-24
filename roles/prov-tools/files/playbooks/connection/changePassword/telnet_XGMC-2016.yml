@@ -3,12 +3,13 @@
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
-      - "login:"
+      - "*Ver*"
     password_prompt:
-      - "password:"
+      - "*login*"
     prompts:
       - ">"
     commands:
+      - show username
       - "#telnet login admin-exec"
     timeout: 10
 
