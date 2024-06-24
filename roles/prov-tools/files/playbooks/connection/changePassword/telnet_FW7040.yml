@@ -1,76 +1,75 @@
 - name: check user
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
-    send_newline: True
     login_prompt:
-      - 'Username: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
       - "#"
     command:
-      - term len 0
-      - show running-config | include username
+      - user show
+      - logout
     timeout: 10
-    clrf: True
   register: command_output
 
 - name: Extract lines containing a specific string
   set_fact:
-    result_check_user: "{{ command_output.stdout_lines | select('match', search_string) }}"
+    result_check_user: "{{ command_output.stdout_lines | select('search', search_string) }}"
   vars:
-    search_string: "username {{ cs_obj[loop_protocol ~ 'ID']}}"
+    search_string: "{{ cs_obj[loop_protocol ~ 'ID']}}"
 
 - name: create user
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - 'Username: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "#|--"
     command:
-      - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} group root-lr
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} group sysadmin
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} secret {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - commit
-      - end
+      - "user delete user5"
+      - "user add user5 read-write"
+      - "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - logout
     timeout: 10
   when: result_check_user | length == 0
 
 - name: update user
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - 'Username: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "#|--"
     command:
-      - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} secret {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - commit
-      - end
+      - "user delete user5"
+      - "user add user5 read-write"
+      - "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - logout
     timeout: 10
   when: result_check_user | length > 0
 
 - name: update connection
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
-      - 'Username: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
       - "#"
     commands:
-      - "!telnet login admin-exec"
+      - logout
     timeout: 10
-

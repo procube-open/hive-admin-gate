@@ -1,16 +1,16 @@
 - name: check user
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
-      - 'login: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "# |User name -----|Enter Pass ----|Re-enter Pass -"
     command:
-      - term len 0
-      - show running-config | include username
+      - user show
     timeout: 10
   register: command_output
 
@@ -21,63 +21,72 @@
     search_string: "username {{ cs_obj[loop_protocol ~ 'ID']}}"
 
 - name: create user
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
-      - 'login: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "# |User name -----|Enter Pass ----|Re-enter Pass -"
     command:
-      - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} password {{ cs_obj[loop_protocol ~ 'Password'] }} role network-admin
-      - end
+      - "user delete user5"
+      - "user add user5 read-write"
+      - "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     timeout: 10
   when: result_check_user | length == 0
 
 - name: update user
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
-      - 'login: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "# |User name -----|Enter Pass ----|Re-enter Pass -"
     command:
-      - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} password {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - end
+      - "user delete user5"
+      - "user add user5 read-write"
+      - "{{ cs_obj[loop_protocol ~ 'ID'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     timeout: 10
   when: result_check_user | length > 0
 
 - name: update connection
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
+    clrf: "True"
     login_prompt:
-      - 'login: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "# |User name -----|Enter Pass ----|Re-enter Pass -"
     commands:
       - "!telnet login admin-exec"
     timeout: 10
 
 - name: config save
-  ansible.netcommon.telnet:
+  ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
+    clrf: "True"
     login_prompt:
-      - 'login: '
+      - "Login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "# |User name -----|Enter Pass ----|Re-enter Pass -"
     command:
-      - copy running-config startup-config
+      - file-create bu
     timeout: 10
+
