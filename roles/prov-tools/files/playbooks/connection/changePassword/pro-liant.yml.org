@@ -1,3 +1,0 @@
-- name: wait for password change
-  debug:
-    msg: "test"
