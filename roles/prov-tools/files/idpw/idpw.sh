@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOSTNAME="dk0000-idpwmng91.eo.k-opti.ad.jp"
+HOSTNAME="dk0000-idpwmng11.eo.k-opti.ad.jp"
 USER="idmanager"
 CSV_DIR="/home/idmanager"
 SCRIPT_DIR="/usr/local/bin"
