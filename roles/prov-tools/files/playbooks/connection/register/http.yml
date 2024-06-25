@@ -43,7 +43,7 @@
         "targetElementPath": "{{ item.targetElementPath }}",
         "sendValue": "{{ item.sendValue | default('') }}"
         }
-    loop: "{{ cs_obj.actions }}"
+    loop: "{{ cs_obj.actions | default([]) }}"
     register: event_list
   - debug:
       msg: "{{ event_list.results | map(attribute='msg') | join(' ') }}"
