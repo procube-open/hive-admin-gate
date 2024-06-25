@@ -77,8 +77,4 @@
       method: DELETE
       validate_certs: false
       status_code: 204
-    when: "prov_operation == 'delete' and guacamole_user.status == 200"
-  - name: Make cnection pemissions.
-    set_fact:
-      connection_permissions: "{{ connection_permissions | default([{'op': 'add', 'path': '/systemPermissions', 'value': 'ADMINISTER'}]) +  [{'op': 'add', 'path': '/connectionPermissions/' ~ item, 'value': 'READ'}] }}"
-    loop: "{{ connectionid }}"
+    when: "prov_operation == 'delete' and guacamole_user.status == 404"
