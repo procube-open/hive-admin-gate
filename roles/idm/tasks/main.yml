@@ -119,7 +119,7 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    mode: 644
+    mode: 0600
   loop:
   - src: tca-AEZB00-TCADC12-CA.cer
     dest: /tmp/tca-AEZB00-TCADC12-CA.cer
