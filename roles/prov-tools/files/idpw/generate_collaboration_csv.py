@@ -24,7 +24,7 @@ if __name__=="__main__":
             row = [
                 ug['ou'],
                 ug['name'],
-                ug['gid'] if 'gid' in ug else ''
+                ug['gidNumber'] if 'gidNumber' in ug else ''
             ]
             writer.writerow(row)
 
