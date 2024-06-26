@@ -3,14 +3,13 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "Username:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - ">"
     command:
-      - term len 0
-      - show running-config | include username
+      - display current-configuration | include user
     timeout: 10
   register: command_output
 
@@ -18,22 +17,27 @@
   set_fact:
     result_check_user: "{{ command_output.stdout_lines | select('match', search_string) }}"
   vars:
-    search_string: "username {{ cs_obj[loop_protocol ~ 'ID']}}"
+    search_string: "user {{ cs_obj[loop_protocol ~ 'ID']}}"
 
 - name: create user
   ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "Username:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - ">|]"
     command:
-      - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} privilege 15 secret {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - end
+      - system-view
+      - aaa
+      - "local-user {{ cs_obj[loop_protocol ~ 'ID'] }} password cipher {{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - "local-user {{ cs_obj[loop_protocol ~ 'ID'] }} service-type ftp terminal telnet ssh"
+      - "local-user {{ cs_obj[loop_protocol ~ 'ID'] }} level 3"
+      - "local-user {{ cs_obj[loop_protocol ~ 'ID'] }} ftp-directory flash:"
+      - commit
+      - return
     timeout: 10
   when: result_check_user | length == 0
 
@@ -42,15 +46,17 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "Username:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - ">|]"
     command:
-      - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} secret {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - end
+      - system-view
+      - aaa
+      - "local-user {{ cs_obj[loop_protocol ~ 'ID'] }} password cipher {{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - commit
+      - return
     timeout: 10
   when: result_check_user | length > 0
 
@@ -59,12 +65,13 @@
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
-      - "Username: "
+      - "Username:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - ">"
     commands:
+      - enable
       - "!telnet login admin-exec"
     timeout: 10
 
@@ -73,11 +80,13 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "Username:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "[>:]"
     command:
-      - write mem
-    timeout: 10
+      - save
+      - "y"
+    timeout: 60
+

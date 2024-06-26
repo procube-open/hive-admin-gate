@@ -1,11 +1,11 @@
 - name: update connection
-  ansible.netcommon.telnet_aoi:
+  ansible.netcommon.telnet:
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
-      - "*Ver*"
+      - "login :"
     password_prompt:
-      - "*login*"
+      - "Password :"
     prompts:
       - ">"
     commands:

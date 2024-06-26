@@ -3,7 +3,7 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - 'Username: '
+      - "Username: "
     password_prompt:
       - "Password:"
     prompts:
@@ -25,7 +25,7 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - 'Username: '
+      - "Username: "
     password_prompt:
       - "Password:"
     prompts:
@@ -42,7 +42,7 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - 'Username: '
+      - "Username: "
     password_prompt:
       - "Password:"
     prompts:
@@ -59,7 +59,7 @@
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
-      - 'Username: '
+      - "Username: "
     password_prompt:
       - "Password:"
     prompts:
@@ -73,7 +73,7 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - 'Username: '
+      - "Username: "
     password_prompt:
       - "Password:"
     prompts:
