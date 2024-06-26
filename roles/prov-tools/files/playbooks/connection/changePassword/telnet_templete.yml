@@ -3,15 +3,14 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "login:"
     password_prompt:
       - "Password:"
     prompts:
       - "#"
     command:
-      - term len 0
-      - show running-config | include username
-    timeout: 10
+      - show running-config | grep username
+    timeout: 180
   register: command_output
 
 - name: Extract lines containing a specific string
@@ -25,16 +24,16 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "login:"
     password_prompt:
       - "Password:"
     prompts:
       - "#"
     command:
       - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} privilege 15 secret {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - end
-    timeout: 10
+      - "username {{ cs_obj[loop_protocol ~ 'ID'] }} password {{ cs_obj[loop_protocol ~ 'Password'] }} privilege 15"
+      - exit
+    timeout: 180
   when: result_check_user | length == 0
 
 - name: update user
@@ -42,16 +41,16 @@
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "login:"
     password_prompt:
       - "Password:"
     prompts:
       - "#"
     command:
       - configure terminal
-      - username {{ cs_obj[loop_protocol ~ 'ID'] }} secret {{ cs_obj[loop_protocol ~ 'Password'] }}
-      - end
-    timeout: 10
+      - "username {{ cs_obj[loop_protocol ~ 'ID'] }} password {{ cs_obj[loop_protocol ~ 'Password'] }}"
+      - exit
+    timeout: 180
   when: result_check_user | length > 0
 
 - name: update connection
@@ -59,25 +58,26 @@
     user: "{{ cs_obj[loop_protocol ~ 'ID'] }}"
     password: "{{ cs_obj[loop_protocol ~ 'Password'] }}"
     login_prompt:
-      - "Username: "
+      - "login:"
     password_prompt:
       - "Password:"
     prompts:
-      - "#"
+      - "[#>]"
     commands:
-      - "!telnet login admin-exec"
-    timeout: 10
+      - "#telnet login admin-exec"
+    timeout: 180
 
 - name: config save
   ansible.netcommon.telnet_aoi:
     username: "{{ cs_obj.ansibleID }}"
     password: "{{ cs_obj.ansiblePassword }}"
     login_prompt:
-      - "Username: "
+      - "login: "
     password_prompt:
       - "Password:"
     prompts:
       - "#"
     command:
-      - write mem
-    timeout: 10
+      - write startup-config
+    timeout: 180
+
