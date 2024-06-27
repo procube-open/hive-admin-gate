@@ -40,8 +40,9 @@ def check_worker_permissions(username, work):
 
 
 def check_working_hours(username, work):
-    today = datetime.today().date()
-    current_time = datetime.now(ZoneInfo("Asia/Tokyo")).time()
+    now = datetime.now(ZoneInfo("Asia/Tokyo"))
+    current_date = now.date()
+    current_time = now.time()
 
     for period in work.get("periods", []):
         valid_from_date = datetime.strptime(period["validFrom"], "%Y-%m-%d").date()
@@ -50,7 +51,7 @@ def check_working_hours(username, work):
         end_time = datetime.strptime(period["endTime"], "%H:%M:%S").time()
 
         if (
-            valid_from_date <= today <= valid_until_date
+            valid_from_date <= current_date <= valid_until_date
             and start_time <= current_time <= end_time
         ):
             return
