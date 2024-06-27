@@ -31,7 +31,7 @@
           username: "{{ cs_obj.httpID }}"
           password: "{{ cs_obj.httpPassword }}"
           hostname: "{{ hostname }}"
-          httpLoginFormat: "{{ httpVars | to_json }}"
+          httpLoginFormat: "{{ httpVars | to_json() }}"
         attributes:
           remark: "{{ remark | default('') }}"
           max-connections: "0"
@@ -75,7 +75,7 @@
         "event":"link",
         "getElementMethod":"xpath",
         "targetElementPath":"//*[@id='tabsetTitleSpan']",
-        "sendValue":"{{ cs_obj.httpProtocol ~ '://' ~ hostname ~ (':' ~ cs_obj.httpPort) | default('') ~ '/html/admin_user.html'}}"
+        "sendValue":"/html/admin_user.html"
         }],[{
         "event":"click",
         "getElementMethod":"xpath",
