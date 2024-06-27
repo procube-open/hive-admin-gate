@@ -1,6 +1,11 @@
 import os
 import logging
-from access_guacamole import generate_auth_token, get_all_connections, delete_connection
+from access_guacamole import (
+    generate_auth_token,
+    get_all_connections,
+    get_connection_params,
+    delete_connection,
+)
 from access_docker import delete_service
 
 
@@ -26,8 +31,9 @@ for v in connections.values():
             v["idmIdentifier"] == "session-manager-chrome"
             and v["activeConnections"] == 0
         ):
-            logger.info("delete " + v["name"])
-            delete_service(logger, v["name"])
+            params = get_connection_params(auth_token, GUAC_DATABASE, v["identifier"])
+            logger.info("delete " + params["hostname"])
+            delete_service(logger, params["hostname"])
             delete_connection(auth_token, GUAC_DATABASE, v["identifier"])
     except Exception as e:
         logger.error(e)

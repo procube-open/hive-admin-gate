@@ -19,10 +19,10 @@ bind = "0.0.0.0:80"
 
 # Worker Processes
 # ========================================
-num_cores = multiprocessing.cpu_count()
-workers = num_cores
+workers = multiprocessing.cpu_count() * 2 + 1
 
 # Server Logging
 # ========================================
 accesslog = "-"
 errorlog = "-"
+loglevel = "info"

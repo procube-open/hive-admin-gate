@@ -36,17 +36,16 @@ def generate_auth_token():
     path = "/api/tokens"
     params = {"username": GUACAMOLE_USERNAME, "password": GUACAMOLE_PASSWORD}
     params = urllib.parse.urlencode(params)
-    response = _api_request(
+    return _api_request(
         requests.post,
         path,
         data=params,
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
-    return response
 
 
 def get_user(token: str):
-    path = f"/api/tokens"
+    path = "/api/tokens"
     params = {"token": token}
     params = urllib.parse.urlencode(params)
     return _api_request(
@@ -66,7 +65,6 @@ def create_connection(
     hostname: str,
     port: str,
     origin_identifier: str | None,
-    name: str | None = None,
     username: str | None = None,
     password: str | None = None,
     swc_uid: str | None = None,
@@ -79,7 +77,7 @@ def create_connection(
         del data["lastActive"]
     data.update(
         {
-            "name": name if name else f"{params['hostname']}:{uuid.uuid4()}",
+            "name": f"{info["name"].split(":")[0]}:{uuid.uuid4()}",
             "idmIdentifier": type,
         }
     )

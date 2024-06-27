@@ -20,6 +20,7 @@
     mode: 0755
   loop:
   - "/root/.docker"
+  # - "/etc/periodic/3min"
   - "{{ session_manager_path }}"
   - "{{ supervisord_path }}"
 - name: put entrypoint
@@ -27,6 +28,11 @@
     src: docker-entrypoint.sh
     dest: "/"
     mode: 0755
+# - name: Add a cron job
+#   cron:
+#     name: "run every 3 minutes"
+#     minute: "*/3"
+#     job: "run-parts /etc/periodic/3min"
 - name: put ini files
   copy:
     src: "{{ item }}"

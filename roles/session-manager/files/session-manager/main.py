@@ -1,10 +1,13 @@
 import os
 import random
 import requests
+import logging
+import sys
 import memcache
 import json
 from flask import Flask, request, jsonify
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from access_guacamole import (
     generate_auth_token,
     get_user,
@@ -19,6 +22,8 @@ from access_swl import open_port
 from access_idm import get_swczone
 
 app = Flask(__name__)
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.DEBUG)
 
 # Validate and fetch environment variables with default values
 GUAC_DATABASE = os.environ.get("GUAC_DATABASE", "postgresql")
@@ -36,7 +41,7 @@ def check_worker_permissions(username, work):
 
 def check_working_hours(username, work):
     today = datetime.today().date()
-    current_time = datetime.now().time()
+    current_time = datetime.now(ZoneInfo("Asia/Tokyo")).time()
 
     for period in work.get("periods", []):
         valid_from_date = datetime.strptime(period["validFrom"], "%Y-%m-%d").date()
@@ -56,7 +61,7 @@ def check_working_hours(username, work):
 
 def get_available_port(ports, unavailable_ports):
     all_ports = set(range(1025, 65536))
-    unavailable_ports = set(map(int, unavailable_ports.split(",")))
+    unavailable_ports = set(map(int, unavailable_ports))
     available_ports = list(all_ports - ports - unavailable_ports)
     if not available_ports:
         raise RuntimeError("No available ports")
@@ -115,7 +120,6 @@ def handle_vnc_connection(auth_token, work_id, info, params, username, identifie
         hostname=work_container,
         port=os.environ.get("VNC_PORT"),
         origin_identifier=identifier,
-        name=work_container,
         password=os.environ.get("VNC_PASSWORD"),
     )
 

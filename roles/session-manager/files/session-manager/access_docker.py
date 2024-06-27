@@ -45,28 +45,32 @@ def create_service(logger: logging.Logger, work_id: str, http_login_format: str)
     http_login_format_env = "HTTP_LOGIN_FORMAT=" + http_login_format
     selenium_env = [http_login_format_env]
 
-    url = f"http://{webdav_server}:{webdav_port}/{work_id}/"
-    davfs_driver_opts = {"username": work_id, "password": webdav_password, "url": url}
-    driver_config = docker.types.services.DriverConfig(
-        "fentas/davfs", options=davfs_driver_opts
-    )
+    def driver_config(work_id: str):
+        url = f"http://{webdav_server}:{webdav_port}/{work_id}/"
+        return docker.types.services.DriverConfig(
+            "fentas/davfs",
+            options={"username": work_id, "password": webdav_password, "url": url},
+        )
 
-    davfs_mount_def = docker.types.Mount(
-        "/mnt/" + work_id,
-        "davfs-volume-" + work_id,
+    davfs_work_mount = docker.types.Mount(
+        f"/mnt/{work_id}",
+        f"davfs-volume-{work_id}",
         type="volume",
-        driver_config=driver_config,
+        driver_config=driver_config(work_id),
     )
-    davfs_public_mount_def = docker.types.Mount(
-        "/mnt/public", "davfs-volume-public", type="volume"
+    davfs_public_mount = docker.types.Mount(
+        "/mnt/public",
+        "davfs-volume-public",
+        type="volume",
+        driver_config=driver_config("public"),
     )
-    shm_mount_def = docker.types.Mount("/dev/shm", "/dev/shm", type="bind")
+    shm_mount = docker.types.Mount("/dev/shm", "/dev/shm", type="bind")
 
     container_spec = docker.types.ContainerSpec(
         image_chrome,
         hostname=work_container,
         env=selenium_env,
-        mounts=[davfs_mount_def, davfs_public_mount_def, shm_mount_def],
+        mounts=[davfs_work_mount, davfs_public_mount, shm_mount],
         cap_add=["NET_ADMIN"],
     )
     task_tmpl = docker.types.TaskTemplate(container_spec)
