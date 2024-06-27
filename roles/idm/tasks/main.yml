@@ -129,6 +129,8 @@
     dest: /tmp/VERI-RootCA.cer
   - src: id_rsa
     dest: /root/.ssh/id_rsa
+  - src: known_hosts
+    dest: /root/.ssh/known_hosts
 - name: Import certificate
   community.general.java_cert:
     cert_path: "{{ item.path }}"
