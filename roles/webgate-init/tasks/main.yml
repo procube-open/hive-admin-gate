@@ -39,5 +39,4 @@
         }
     marker: "# SETTING for {{ item }}"
   loop:
-  - server_name file-server.admin-gate.procube-demo.jp;
-  - server_name guacamole.admin-gate.procube-demo.jp;
+  - server_name dk0000-pamgate11.eo.k-opti.ad.jp
