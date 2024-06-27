@@ -50,6 +50,9 @@
         "protocol":"{{ cs_obj.httpProtocol }}",
         "fqdn":"{{ hostname ~ (':' ~ cs_obj.httpPort) | default('')}}",
         "path":"",
+        "username": "{{ cs_obj.httpID }}",
+        "password": "{{ cs_obj.httpPassword }}",
+        "authType": "action",
         "params":
         [[{
         "event": "iframe",
