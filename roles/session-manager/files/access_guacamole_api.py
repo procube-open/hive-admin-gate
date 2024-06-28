@@ -39,7 +39,9 @@ def create_vnc_connection(work_container, work_id):
         "parameters":{
             "hostname": work_container,
             "port": vnc_port,
-            "password": vnc_password
+            "password": vnc_password,
+            "create-recording-path": "true",
+            "recording-path": "${HISTORY_PATH}/${HISTORY_UUID}"
         },
         "attributes":{
             "guacd-encryption": "",
